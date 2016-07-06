@@ -13,17 +13,18 @@ link_directories(${OXYGINE_LIBRARY_DIRS})
 # Compile flags
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OXYGINE_CXX_FLAGS}")
 
-# Copy dlls to output dir
-add_custom_command(TARGET dethgame POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_directory
-        "${PROJECT_SOURCE_DIR}/data"
-        $<TARGET_FILE_DIR:dethgame>)
 
 # Project source code
 aux_source_directory(./src SRC_FILES)
 
 add_executable(${PROJECT_NAME} ${SRC_FILES})
 target_link_libraries(${PROJECT_NAME} ${OXYGINE_CORE_LIBS})
+
+# Copy dlls to output dir
+add_custom_command(TARGET dethgame POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+        "${PROJECT_SOURCE_DIR}/data"
+        $<TARGET_FILE_DIR:dethgame>)
 
 #disable console mode for VC++
 if (WIN32) 
