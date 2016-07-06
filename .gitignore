@@ -1,6 +1,7 @@
 # CLion
 .idea
-
+# Qt Creator
+*.user
 # Some trash
 *~
 
