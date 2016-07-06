@@ -1,3 +1,9 @@
+# CLion
+.idea
+
+# Some trash
+*~
+
 # Compiled Object files
 *.slo
 *.lo
