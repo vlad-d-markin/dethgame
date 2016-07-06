@@ -1,8 +1,6 @@
 cmake_minimum_required (VERSION 2.8)
 project (dethgame)
 
-
-
 # Path to oxygene installation
 add_subdirectory(./oxygine-framework)
 
@@ -19,6 +17,11 @@ aux_source_directory(./src SRC_FILES)
 
 add_executable(${PROJECT_NAME} ${SRC_FILES})
 target_link_libraries(${PROJECT_NAME} ${OXYGINE_CORE_LIBS})
+# Copy dlls to output dir
+add_custom_command(TARGET dethgame POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+        "${PROJECT_SOURCE_DIR}/data"
+        $<TARGET_FILE_DIR:dethgame>)
 
 # Copy dlls to output dir
 add_custom_command(TARGET dethgame POST_BUILD
