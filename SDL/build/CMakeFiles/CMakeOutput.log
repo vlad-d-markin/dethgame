@@ -1,0 +1,1929 @@
+The system is: Windows - 6.3.9600 - AMD64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: C:/MinGW/bin/gcc.exe 
+Build flags: 
+Id flags: 
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.exe"
+
+The C compiler identification is GNU, found in "C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/3.5.2/CompilerIdC/a.exe"
+
+Determining if the C compiler works passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_4ef13/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_4ef13.dir\build.make CMakeFiles/cmTC_4ef13.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_4ef13.dir/testCCompiler.c.obj
+C:\MinGW\bin\gcc.exe     -o CMakeFiles\cmTC_4ef13.dir\testCCompiler.c.obj   -c "C:\Users\Eagle Owl\Desktop\dethgame\dethgame\SDL\build\CMakeFiles\CMakeTmp\testCCompiler.c"
+Linking C executable cmTC_4ef13.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_4ef13.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_4ef13.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_4ef13.dir/objects.a @CMakeFiles\cmTC_4ef13.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe       -Wl,--whole-archive CMakeFiles\cmTC_4ef13.dir/objects.a -Wl,--no-whole-archive  -o cmTC_4ef13.exe -Wl,--out-implib,libcmTC_4ef13.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_4ef13.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_ae81d/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_ae81d.dir\build.make CMakeFiles/cmTC_ae81d.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ae81d.dir/CMakeCCompilerABI.c.obj
+C:\MinGW\bin\gcc.exe     -o CMakeFiles\cmTC_ae81d.dir\CMakeCCompilerABI.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CMakeCCompilerABI.c"
+Linking C executable cmTC_ae81d.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_ae81d.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_ae81d.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_ae81d.dir/objects.a @CMakeFiles\cmTC_ae81d.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe      -v -Wl,--whole-archive CMakeFiles\cmTC_ae81d.dir/objects.a -Wl,--no-whole-archive  -o cmTC_ae81d.exe -Wl,--out-implib,libcmTC_ae81d.dll.a -Wl,--major-image-version,0,--minor-image-version,0   
+Using built-in specs.
+COLLECT_GCC=C:\MinGW\bin\gcc.exe
+COLLECT_LTO_WRAPPER=c:/mingw/bin/../libexec/gcc/mingw32/4.9.3/lto-wrapper.exe
+Target: mingw32
+Configured with: ../src/gcc-4.9.3/configure --build=x86_64-pc-linux-gnu --host=mingw32 --prefix=/mingw --disable-win32-registry --target=mingw32 --with-arch=i586 --enable-languages=c,c++,objc,obj-c++,fortran,ada --enable-static --enable-shared --enable-threads --with-dwarf2 --disable-sjlj-exceptions --enable-version-specific-runtime-libs --enable-libstdcxx-debug --with-tune=generic --enable-nls
+Thread model: win32
+gcc version 4.9.3 (GCC) 
+COMPILER_PATH=c:/mingw/bin/../libexec/gcc/mingw32/4.9.3/;c:/mingw/bin/../libexec/gcc/;c:/mingw/bin/../lib/gcc/mingw32/4.9.3/../../../../mingw32/bin/
+LIBRARY_PATH=c:/mingw/bin/../lib/gcc/mingw32/4.9.3/;c:/mingw/bin/../lib/gcc/;c:/mingw/bin/../lib/gcc/mingw32/4.9.3/../../../../mingw32/lib/;c:/mingw/bin/../lib/gcc/mingw32/4.9.3/../../../
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_ae81d.exe' '-mtune=generic' '-march=i586'
+ c:/mingw/bin/../libexec/gcc/mingw32/4.9.3/collect2.exe -plugin c:/mingw/bin/../libexec/gcc/mingw32/4.9.3/liblto_plugin-0.dll -plugin-opt=c:/mingw/bin/../libexec/gcc/mingw32/4.9.3/lto-wrapper.exe -plugin-opt=-fresolution=C:\Users\EAGLEO~1\AppData\Local\Temp\ccSdnePG.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -Bdynamic -o cmTC_ae81d.exe c:/mingw/bin/../lib/gcc/mingw32/4.9.3/../../../crt2.o c:/mingw/bin/../lib/gcc/mingw32/4.9.3/crtbegin.o -Lc:/mingw/bin/../lib/gcc/mingw32/4.9.3 -Lc:/mingw/bin/../lib/gcc -Lc:/mingw/bin/../lib/gcc/mingw32/4.9.3/../../../../mingw32/lib -Lc:/mingw/bin/../lib/gcc/mingw32/4.9.3/../../.. --whole-archive CMakeFiles\cmTC_ae81d.dir/objects.a --no-whole-archive --out-implib libcmTC_ae81d.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt c:/mingw/bin/../lib/gcc/mingw32/4.9.3/crtend.o
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld\.exe|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_ae81d/fast"]
+  ignore line: [C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_ae81d.dir\build.make CMakeFiles/cmTC_ae81d.dir/build]
+  ignore line: [mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_ae81d.dir/CMakeCCompilerABI.c.obj]
+  ignore line: [C:\MinGW\bin\gcc.exe     -o CMakeFiles\cmTC_ae81d.dir\CMakeCCompilerABI.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CMakeCCompilerABI.c"]
+  ignore line: [Linking C executable cmTC_ae81d.exe]
+  ignore line: ["C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_ae81d.dir\link.txt --verbose=1]
+  ignore line: ["C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_ae81d.dir/objects.a]
+  ignore line: [C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_ae81d.dir/objects.a @CMakeFiles\cmTC_ae81d.dir\objects1.rsp]
+  ignore line: [C:\MinGW\bin\gcc.exe      -v -Wl,--whole-archive CMakeFiles\cmTC_ae81d.dir/objects.a -Wl,--no-whole-archive  -o cmTC_ae81d.exe -Wl,--out-implib,libcmTC_ae81d.dll.a -Wl,--major-image-version,0,--minor-image-version,0   ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=C:\MinGW\bin\gcc.exe]
+  ignore line: [COLLECT_LTO_WRAPPER=c:/mingw/bin/../libexec/gcc/mingw32/4.9.3/lto-wrapper.exe]
+  ignore line: [Target: mingw32]
+  ignore line: [Configured with: ../src/gcc-4.9.3/configure --build=x86_64-pc-linux-gnu --host=mingw32 --prefix=/mingw --disable-win32-registry --target=mingw32 --with-arch=i586 --enable-languages=c,c++,objc,obj-c++,fortran,ada --enable-static --enable-shared --enable-threads --with-dwarf2 --disable-sjlj-exceptions --enable-version-specific-runtime-libs --enable-libstdcxx-debug --with-tune=generic --enable-nls]
+  ignore line: [Thread model: win32]
+  ignore line: [gcc version 4.9.3 (GCC) ]
+  ignore line: [COMPILER_PATH=c:/mingw/bin/../libexec/gcc/mingw32/4.9.3/]
+  ignore line: [c:/mingw/bin/../libexec/gcc/]
+  ignore line: [c:/mingw/bin/../lib/gcc/mingw32/4.9.3/../../../../mingw32/bin/]
+  ignore line: [LIBRARY_PATH=c:/mingw/bin/../lib/gcc/mingw32/4.9.3/]
+  ignore line: [c:/mingw/bin/../lib/gcc/]
+  ignore line: [c:/mingw/bin/../lib/gcc/mingw32/4.9.3/../../../../mingw32/lib/]
+  ignore line: [c:/mingw/bin/../lib/gcc/mingw32/4.9.3/../../../]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_ae81d.exe' '-mtune=generic' '-march=i586']
+  link line: [ c:/mingw/bin/../libexec/gcc/mingw32/4.9.3/collect2.exe -plugin c:/mingw/bin/../libexec/gcc/mingw32/4.9.3/liblto_plugin-0.dll -plugin-opt=c:/mingw/bin/../libexec/gcc/mingw32/4.9.3/lto-wrapper.exe -plugin-opt=-fresolution=C:\Users\EAGLEO~1\AppData\Local\Temp\ccSdnePG.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -Bdynamic -o cmTC_ae81d.exe c:/mingw/bin/../lib/gcc/mingw32/4.9.3/../../../crt2.o c:/mingw/bin/../lib/gcc/mingw32/4.9.3/crtbegin.o -Lc:/mingw/bin/../lib/gcc/mingw32/4.9.3 -Lc:/mingw/bin/../lib/gcc -Lc:/mingw/bin/../lib/gcc/mingw32/4.9.3/../../../../mingw32/lib -Lc:/mingw/bin/../lib/gcc/mingw32/4.9.3/../../.. --whole-archive CMakeFiles\cmTC_ae81d.dir/objects.a --no-whole-archive --out-implib libcmTC_ae81d.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt c:/mingw/bin/../lib/gcc/mingw32/4.9.3/crtend.o]
+    arg [c:/mingw/bin/../libexec/gcc/mingw32/4.9.3/collect2.exe] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [c:/mingw/bin/../libexec/gcc/mingw32/4.9.3/liblto_plugin-0.dll] ==> ignore
+    arg [-plugin-opt=c:/mingw/bin/../libexec/gcc/mingw32/4.9.3/lto-wrapper.exe] ==> ignore
+    arg [-plugin-opt=-fresolution=C:\Users\EAGLEO~1\AppData\Local\Temp\ccSdnePG.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lmingw32] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_eh] ==> ignore
+    arg [-plugin-opt=-pass-through=-lmoldname] ==> ignore
+    arg [-plugin-opt=-pass-through=-lmingwex] ==> ignore
+    arg [-plugin-opt=-pass-through=-lmsvcrt] ==> ignore
+    arg [-plugin-opt=-pass-through=-ladvapi32] ==> ignore
+    arg [-plugin-opt=-pass-through=-lshell32] ==> ignore
+    arg [-plugin-opt=-pass-through=-luser32] ==> ignore
+    arg [-plugin-opt=-pass-through=-lkernel32] ==> ignore
+    arg [-plugin-opt=-pass-through=-lmingw32] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_eh] ==> ignore
+    arg [-plugin-opt=-pass-through=-lmoldname] ==> ignore
+    arg [-plugin-opt=-pass-through=-lmingwex] ==> ignore
+    arg [-plugin-opt=-pass-through=-lmsvcrt] ==> ignore
+    arg [-Bdynamic] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_ae81d.exe] ==> ignore
+    arg [c:/mingw/bin/../lib/gcc/mingw32/4.9.3/../../../crt2.o] ==> ignore
+    arg [c:/mingw/bin/../lib/gcc/mingw32/4.9.3/crtbegin.o] ==> ignore
+    arg [-Lc:/mingw/bin/../lib/gcc/mingw32/4.9.3] ==> dir [c:/mingw/bin/../lib/gcc/mingw32/4.9.3]
+    arg [-Lc:/mingw/bin/../lib/gcc] ==> dir [c:/mingw/bin/../lib/gcc]
+    arg [-Lc:/mingw/bin/../lib/gcc/mingw32/4.9.3/../../../../mingw32/lib] ==> dir [c:/mingw/bin/../lib/gcc/mingw32/4.9.3/../../../../mingw32/lib]
+    arg [-Lc:/mingw/bin/../lib/gcc/mingw32/4.9.3/../../..] ==> dir [c:/mingw/bin/../lib/gcc/mingw32/4.9.3/../../..]
+    arg [--whole-archive] ==> ignore
+    arg [CMakeFiles\cmTC_ae81d.dir/objects.a] ==> ignore
+    arg [--no-whole-archive] ==> ignore
+    arg [--out-implib] ==> ignore
+    arg [libcmTC_ae81d.dll.a] ==> ignore
+    arg [--major-image-version] ==> ignore
+    arg [0] ==> ignore
+    arg [--minor-image-version] ==> ignore
+    arg [0] ==> ignore
+    arg [-lmingw32] ==> lib [mingw32]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lgcc_eh] ==> lib [gcc_eh]
+    arg [-lmoldname] ==> lib [moldname]
+    arg [-lmingwex] ==> lib [mingwex]
+    arg [-lmsvcrt] ==> lib [msvcrt]
+    arg [-ladvapi32] ==> lib [advapi32]
+    arg [-lshell32] ==> lib [shell32]
+    arg [-luser32] ==> lib [user32]
+    arg [-lkernel32] ==> lib [kernel32]
+    arg [-lmingw32] ==> lib [mingw32]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lgcc_eh] ==> lib [gcc_eh]
+    arg [-lmoldname] ==> lib [moldname]
+    arg [-lmingwex] ==> lib [mingwex]
+    arg [-lmsvcrt] ==> lib [msvcrt]
+    arg [c:/mingw/bin/../lib/gcc/mingw32/4.9.3/crtend.o] ==> ignore
+  remove lib [gcc]
+  remove lib [gcc_eh]
+  remove lib [gcc]
+  remove lib [gcc_eh]
+  collapse library dir [c:/mingw/bin/../lib/gcc/mingw32/4.9.3] ==> [C:/MinGW/lib/gcc/mingw32/4.9.3]
+  collapse library dir [c:/mingw/bin/../lib/gcc] ==> [C:/MinGW/lib/gcc]
+  collapse library dir [c:/mingw/bin/../lib/gcc/mingw32/4.9.3/../../../../mingw32/lib] ==> [C:/MinGW/mingw32/lib]
+  collapse library dir [c:/mingw/bin/../lib/gcc/mingw32/4.9.3/../../..] ==> [C:/MinGW/lib]
+  implicit libs: [mingw32;moldname;mingwex;msvcrt;advapi32;shell32;user32;kernel32;mingw32;moldname;mingwex;msvcrt]
+  implicit dirs: [C:/MinGW/lib/gcc/mingw32/4.9.3;C:/MinGW/lib/gcc;C:/MinGW/mingw32/lib;C:/MinGW/lib]
+  implicit fwks: []
+
+
+
+
+Detecting C [-std=c11] compiler features compiled with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_f72c6/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_f72c6.dir\build.make CMakeFiles/cmTC_f72c6.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f72c6.dir/feature_tests.c.obj
+C:\MinGW\bin\gcc.exe    -std=c11 -o CMakeFiles\cmTC_f72c6.dir\feature_tests.c.obj   -c "C:\Users\Eagle Owl\Desktop\dethgame\dethgame\SDL\build\CMakeFiles\feature_tests.c"
+Linking C executable cmTC_f72c6.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_f72c6.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_f72c6.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_f72c6.dir/objects.a @CMakeFiles\cmTC_f72c6.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe       -Wl,--whole-archive CMakeFiles\cmTC_f72c6.dir/objects.a -Wl,--no-whole-archive  -o cmTC_f72c6.exe -Wl,--out-implib,libcmTC_f72c6.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_f72c6.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:1c_restrict
+    Feature record: C_FEATURE:1c_static_assert
+    Feature record: C_FEATURE:1c_variadic_macros
+
+
+Detecting C [-std=c99] compiler features compiled with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_07dd1/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_07dd1.dir\build.make CMakeFiles/cmTC_07dd1.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_07dd1.dir/feature_tests.c.obj
+C:\MinGW\bin\gcc.exe    -std=c99 -o CMakeFiles\cmTC_07dd1.dir\feature_tests.c.obj   -c "C:\Users\Eagle Owl\Desktop\dethgame\dethgame\SDL\build\CMakeFiles\feature_tests.c"
+Linking C executable cmTC_07dd1.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_07dd1.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_07dd1.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_07dd1.dir/objects.a @CMakeFiles\cmTC_07dd1.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe       -Wl,--whole-archive CMakeFiles\cmTC_07dd1.dir/objects.a -Wl,--no-whole-archive  -o cmTC_07dd1.exe -Wl,--out-implib,libcmTC_07dd1.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_07dd1.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:1c_restrict
+    Feature record: C_FEATURE:0c_static_assert
+    Feature record: C_FEATURE:1c_variadic_macros
+
+
+Detecting C [-std=c90] compiler features compiled with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_72da0/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_72da0.dir\build.make CMakeFiles/cmTC_72da0.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_72da0.dir/feature_tests.c.obj
+C:\MinGW\bin\gcc.exe    -std=c90 -o CMakeFiles\cmTC_72da0.dir\feature_tests.c.obj   -c "C:\Users\Eagle Owl\Desktop\dethgame\dethgame\SDL\build\CMakeFiles\feature_tests.c"
+Linking C executable cmTC_72da0.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_72da0.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_72da0.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_72da0.dir/objects.a @CMakeFiles\cmTC_72da0.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe       -Wl,--whole-archive CMakeFiles\cmTC_72da0.dir/objects.a -Wl,--no-whole-archive  -o cmTC_72da0.exe -Wl,--out-implib,libcmTC_72da0.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_72da0.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:0c_restrict
+    Feature record: C_FEATURE:0c_static_assert
+    Feature record: C_FEATURE:0c_variadic_macros
+Performing C SOURCE FILE Test HAVE_GCC_WALL succeeded with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_50b2b/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_50b2b.dir\build.make CMakeFiles/cmTC_50b2b.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_50b2b.dir/src.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DHAVE_GCC_WALL   -Wall -o CMakeFiles\cmTC_50b2b.dir\src.c.obj   -c "C:\Users\Eagle Owl\Desktop\dethgame\dethgame\SDL\build\CMakeFiles\CMakeTmp\src.c"
+Linking C executable cmTC_50b2b.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_50b2b.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_50b2b.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_50b2b.dir/objects.a @CMakeFiles\cmTC_50b2b.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DHAVE_GCC_WALL    -Wl,--whole-archive CMakeFiles\cmTC_50b2b.dir/objects.a -Wl,--no-whole-archive  -o cmTC_50b2b.exe -Wl,--out-implib,libcmTC_50b2b.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_50b2b.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test HAVE_GCC_WDECLARATION_AFTER_STATEMENT succeeded with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_e85cc/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_e85cc.dir\build.make CMakeFiles/cmTC_e85cc.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e85cc.dir/src.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DHAVE_GCC_WDECLARATION_AFTER_STATEMENT   -Wdeclaration-after-statement -o CMakeFiles\cmTC_e85cc.dir\src.c.obj   -c "C:\Users\Eagle Owl\Desktop\dethgame\dethgame\SDL\build\CMakeFiles\CMakeTmp\src.c"
+Linking C executable cmTC_e85cc.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_e85cc.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_e85cc.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_e85cc.dir/objects.a @CMakeFiles\cmTC_e85cc.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DHAVE_GCC_WDECLARATION_AFTER_STATEMENT    -Wl,--whole-archive CMakeFiles\cmTC_e85cc.dir/objects.a -Wl,--no-whole-archive  -o cmTC_e85cc.exe -Wl,--out-implib,libcmTC_e85cc.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_e85cc.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test HAVE_GCC_WERROR_DECLARATION_AFTER_STATEMENT succeeded with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_4fb9a/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_4fb9a.dir\build.make CMakeFiles/cmTC_4fb9a.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_4fb9a.dir/src.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DHAVE_GCC_WERROR_DECLARATION_AFTER_STATEMENT   -Werror=declaration-after-statement -o CMakeFiles\cmTC_4fb9a.dir\src.c.obj   -c "C:\Users\Eagle Owl\Desktop\dethgame\dethgame\SDL\build\CMakeFiles\CMakeTmp\src.c"
+Linking C executable cmTC_4fb9a.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_4fb9a.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_4fb9a.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_4fb9a.dir/objects.a @CMakeFiles\cmTC_4fb9a.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DHAVE_GCC_WERROR_DECLARATION_AFTER_STATEMENT    -Wl,--whole-archive CMakeFiles\cmTC_4fb9a.dir/objects.a -Wl,--no-whole-archive  -o cmTC_4fb9a.exe -Wl,--out-implib,libcmTC_4fb9a.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_4fb9a.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test HAVE_GCC_ATOMICS succeeded with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_d97c6/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_d97c6.dir\build.make CMakeFiles/cmTC_d97c6.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d97c6.dir/src.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DHAVE_GCC_ATOMICS   -o CMakeFiles\cmTC_d97c6.dir\src.c.obj   -c "C:\Users\Eagle Owl\Desktop\dethgame\dethgame\SDL\build\CMakeFiles\CMakeTmp\src.c"
+Linking C executable cmTC_d97c6.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_d97c6.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_d97c6.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_d97c6.dir/objects.a @CMakeFiles\cmTC_d97c6.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DHAVE_GCC_ATOMICS    -Wl,--whole-archive CMakeFiles\cmTC_d97c6.dir/objects.a -Wl,--no-whole-archive  -o cmTC_d97c6.exe -Wl,--out-implib,libcmTC_d97c6.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_d97c6.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main(int argc, char **argv) {
+        int a;
+        void *x, *y, *z;
+        __sync_lock_test_and_set(&a, 4);
+        __sync_lock_test_and_set(&x, y);
+        __sync_fetch_and_add(&a, 1);
+        __sync_bool_compare_and_swap(&a, 5, 10);
+        __sync_bool_compare_and_swap(&x, y, z); }
+Performing C SOURCE FILE Test HAVE_GCC_PREFERRED_STACK_BOUNDARY succeeded with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_54c62/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_54c62.dir\build.make CMakeFiles/cmTC_54c62.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_54c62.dir/src.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DHAVE_GCC_PREFERRED_STACK_BOUNDARY -mpreferred-stack-boundary=2   -o CMakeFiles\cmTC_54c62.dir\src.c.obj   -c "C:\Users\Eagle Owl\Desktop\dethgame\dethgame\SDL\build\CMakeFiles\CMakeTmp\src.c"
+Linking C executable cmTC_54c62.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_54c62.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_54c62.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_54c62.dir/objects.a @CMakeFiles\cmTC_54c62.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DHAVE_GCC_PREFERRED_STACK_BOUNDARY -mpreferred-stack-boundary=2    -Wl,--whole-archive CMakeFiles\cmTC_54c62.dir/objects.a -Wl,--no-whole-archive  -o cmTC_54c62.exe -Wl,--out-implib,libcmTC_54c62.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_54c62.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int x = 0; int main(int argc, char **argv) {}
+Performing C SOURCE FILE Test HAVE_GCC_FVISIBILITY succeeded with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_eeaa3/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_eeaa3.dir\build.make CMakeFiles/cmTC_eeaa3.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_eeaa3.dir/src.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DHAVE_GCC_FVISIBILITY -fvisibility=hidden -Werror   -o CMakeFiles\cmTC_eeaa3.dir\src.c.obj   -c "C:\Users\Eagle Owl\Desktop\dethgame\dethgame\SDL\build\CMakeFiles\CMakeTmp\src.c"
+Linking C executable cmTC_eeaa3.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_eeaa3.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_eeaa3.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_eeaa3.dir/objects.a @CMakeFiles\cmTC_eeaa3.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DHAVE_GCC_FVISIBILITY -fvisibility=hidden -Werror    -Wl,--whole-archive CMakeFiles\cmTC_eeaa3.dir/objects.a -Wl,--no-whole-archive  -o cmTC_eeaa3.exe -Wl,--out-implib,libcmTC_eeaa3.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_eeaa3.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+      #if !defined(__GNUC__) || __GNUC__ < 4
+      #error SDL only uses visibility attributes in GCC 4 or newer
+      #endif
+      int main(int argc, char **argv) {}
+Performing C SOURCE FILE Test HAVE_GCC_WSHADOW succeeded with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_5d262/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_5d262.dir\build.make CMakeFiles/cmTC_5d262.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5d262.dir/src.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DHAVE_GCC_WSHADOW   -Wshadow -o CMakeFiles\cmTC_5d262.dir\src.c.obj   -c "C:\Users\Eagle Owl\Desktop\dethgame\dethgame\SDL\build\CMakeFiles\CMakeTmp\src.c"
+Linking C executable cmTC_5d262.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_5d262.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_5d262.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_5d262.dir/objects.a @CMakeFiles\cmTC_5d262.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DHAVE_GCC_WSHADOW    -Wl,--whole-archive CMakeFiles\cmTC_5d262.dir/objects.a -Wl,--no-whole-archive  -o cmTC_5d262.exe -Wl,--out-implib,libcmTC_5d262.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_5d262.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test HAVE_NO_UNDEFINED succeeded with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_0e2b8/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_0e2b8.dir\build.make CMakeFiles/cmTC_0e2b8.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0e2b8.dir/src.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DHAVE_NO_UNDEFINED -Wl,--no-undefined   -o CMakeFiles\cmTC_0e2b8.dir\src.c.obj   -c "C:\Users\Eagle Owl\Desktop\dethgame\dethgame\SDL\build\CMakeFiles\CMakeTmp\src.c"
+Linking C executable cmTC_0e2b8.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_0e2b8.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_0e2b8.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_0e2b8.dir/objects.a @CMakeFiles\cmTC_0e2b8.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DHAVE_NO_UNDEFINED -Wl,--no-undefined    -Wl,--whole-archive CMakeFiles\cmTC_0e2b8.dir/objects.a -Wl,--no-whole-archive  -o cmTC_0e2b8.exe -Wl,--out-implib,libcmTC_0e2b8.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_0e2b8.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test HAVE_MMX succeeded with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_cc991/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_cc991.dir\build.make CMakeFiles/cmTC_cc991.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_cc991.dir/src.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DHAVE_MMX -mmmx   -o CMakeFiles\cmTC_cc991.dir\src.c.obj   -c "C:\Users\Eagle Owl\Desktop\dethgame\dethgame\SDL\build\CMakeFiles\CMakeTmp\src.c"
+Linking C executable cmTC_cc991.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_cc991.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_cc991.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_cc991.dir/objects.a @CMakeFiles\cmTC_cc991.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DHAVE_MMX -mmmx    -Wl,--whole-archive CMakeFiles\cmTC_cc991.dir/objects.a -Wl,--no-whole-archive  -o cmTC_cc991.exe -Wl,--out-implib,libcmTC_cc991.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_cc991.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+          #ifdef __MINGW32__
+          #include <_mingw.h>
+          #ifdef __MINGW64_VERSION_MAJOR
+          #include <intrin.h>
+          #else
+          #include <mmintrin.h>
+          #endif
+          #else
+          #include <mmintrin.h>
+          #endif
+          #ifndef __MMX__
+          #error Assembler CPP flag not enabled
+          #endif
+          int main(int argc, char **argv) { }
+Performing C SOURCE FILE Test HAVE_3DNOW succeeded with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_fa414/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_fa414.dir\build.make CMakeFiles/cmTC_fa414.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_fa414.dir/src.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DHAVE_3DNOW -m3dnow   -o CMakeFiles\cmTC_fa414.dir\src.c.obj   -c "C:\Users\Eagle Owl\Desktop\dethgame\dethgame\SDL\build\CMakeFiles\CMakeTmp\src.c"
+Linking C executable cmTC_fa414.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_fa414.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_fa414.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_fa414.dir/objects.a @CMakeFiles\cmTC_fa414.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DHAVE_3DNOW -m3dnow    -Wl,--whole-archive CMakeFiles\cmTC_fa414.dir/objects.a -Wl,--no-whole-archive  -o cmTC_fa414.exe -Wl,--out-implib,libcmTC_fa414.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_fa414.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+          #include <mm3dnow.h>
+          #ifndef __3dNOW__
+          #error Assembler CPP flag not enabled
+          #endif
+          int main(int argc, char **argv) {
+            void *p = 0;
+            _m_prefetch(p);
+          }
+Performing C SOURCE FILE Test HAVE_SSE succeeded with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_91156/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_91156.dir\build.make CMakeFiles/cmTC_91156.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_91156.dir/src.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DHAVE_SSE -msse   -o CMakeFiles\cmTC_91156.dir\src.c.obj   -c "C:\Users\Eagle Owl\Desktop\dethgame\dethgame\SDL\build\CMakeFiles\CMakeTmp\src.c"
+Linking C executable cmTC_91156.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_91156.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_91156.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_91156.dir/objects.a @CMakeFiles\cmTC_91156.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DHAVE_SSE -msse    -Wl,--whole-archive CMakeFiles\cmTC_91156.dir/objects.a -Wl,--no-whole-archive  -o cmTC_91156.exe -Wl,--out-implib,libcmTC_91156.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_91156.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+          #ifdef __MINGW32__
+          #include <_mingw.h>
+          #ifdef __MINGW64_VERSION_MAJOR
+          #include <intrin.h>
+          #else
+          #include <xmmintrin.h>
+          #endif
+          #else
+          #include <xmmintrin.h>
+          #endif
+          #ifndef __SSE__
+          #error Assembler CPP flag not enabled
+          #endif
+          int main(int argc, char **argv) { }
+Determining if the include file sys/types.h exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_57858/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_57858.dir\build.make CMakeFiles/cmTC_57858.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_57858.dir/CheckIncludeFile.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3    -o CMakeFiles\cmTC_57858.dir\CheckIncludeFile.c.obj   -c "C:\Users\Eagle Owl\Desktop\dethgame\dethgame\SDL\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+Linking C executable cmTC_57858.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_57858.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_57858.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_57858.dir/objects.a @CMakeFiles\cmTC_57858.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3     -Wl,--whole-archive CMakeFiles\cmTC_57858.dir/objects.a -Wl,--no-whole-archive  -o cmTC_57858.exe -Wl,--out-implib,libcmTC_57858.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_57858.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file stdio.h exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_e1099/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_e1099.dir\build.make CMakeFiles/cmTC_e1099.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e1099.dir/CheckIncludeFile.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3    -o CMakeFiles\cmTC_e1099.dir\CheckIncludeFile.c.obj   -c "C:\Users\Eagle Owl\Desktop\dethgame\dethgame\SDL\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+Linking C executable cmTC_e1099.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_e1099.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_e1099.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_e1099.dir/objects.a @CMakeFiles\cmTC_e1099.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3     -Wl,--whole-archive CMakeFiles\cmTC_e1099.dir/objects.a -Wl,--no-whole-archive  -o cmTC_e1099.exe -Wl,--out-implib,libcmTC_e1099.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_e1099.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file stdlib.h exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_05777/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_05777.dir\build.make CMakeFiles/cmTC_05777.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_05777.dir/CheckIncludeFile.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3    -o CMakeFiles\cmTC_05777.dir\CheckIncludeFile.c.obj   -c "C:\Users\Eagle Owl\Desktop\dethgame\dethgame\SDL\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+Linking C executable cmTC_05777.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_05777.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_05777.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_05777.dir/objects.a @CMakeFiles\cmTC_05777.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3     -Wl,--whole-archive CMakeFiles\cmTC_05777.dir/objects.a -Wl,--no-whole-archive  -o cmTC_05777.exe -Wl,--out-implib,libcmTC_05777.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_05777.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file stddef.h exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_25865/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_25865.dir\build.make CMakeFiles/cmTC_25865.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_25865.dir/CheckIncludeFile.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3    -o CMakeFiles\cmTC_25865.dir\CheckIncludeFile.c.obj   -c "C:\Users\Eagle Owl\Desktop\dethgame\dethgame\SDL\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+Linking C executable cmTC_25865.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_25865.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_25865.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_25865.dir/objects.a @CMakeFiles\cmTC_25865.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3     -Wl,--whole-archive CMakeFiles\cmTC_25865.dir/objects.a -Wl,--no-whole-archive  -o cmTC_25865.exe -Wl,--out-implib,libcmTC_25865.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_25865.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file stdarg.h exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_6e7e0/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_6e7e0.dir\build.make CMakeFiles/cmTC_6e7e0.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_6e7e0.dir/CheckIncludeFile.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3    -o CMakeFiles\cmTC_6e7e0.dir\CheckIncludeFile.c.obj   -c "C:\Users\Eagle Owl\Desktop\dethgame\dethgame\SDL\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+Linking C executable cmTC_6e7e0.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_6e7e0.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_6e7e0.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_6e7e0.dir/objects.a @CMakeFiles\cmTC_6e7e0.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3     -Wl,--whole-archive CMakeFiles\cmTC_6e7e0.dir/objects.a -Wl,--no-whole-archive  -o cmTC_6e7e0.exe -Wl,--out-implib,libcmTC_6e7e0.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_6e7e0.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file malloc.h exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_f4807/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_f4807.dir\build.make CMakeFiles/cmTC_f4807.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f4807.dir/CheckIncludeFile.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3    -o CMakeFiles\cmTC_f4807.dir\CheckIncludeFile.c.obj   -c "C:\Users\Eagle Owl\Desktop\dethgame\dethgame\SDL\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+Linking C executable cmTC_f4807.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_f4807.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_f4807.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_f4807.dir/objects.a @CMakeFiles\cmTC_f4807.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3     -Wl,--whole-archive CMakeFiles\cmTC_f4807.dir/objects.a -Wl,--no-whole-archive  -o cmTC_f4807.exe -Wl,--out-implib,libcmTC_f4807.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_f4807.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file memory.h exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_3e30e/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_3e30e.dir\build.make CMakeFiles/cmTC_3e30e.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3e30e.dir/CheckIncludeFile.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3    -o CMakeFiles\cmTC_3e30e.dir\CheckIncludeFile.c.obj   -c "C:\Users\Eagle Owl\Desktop\dethgame\dethgame\SDL\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+Linking C executable cmTC_3e30e.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_3e30e.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_3e30e.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_3e30e.dir/objects.a @CMakeFiles\cmTC_3e30e.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3     -Wl,--whole-archive CMakeFiles\cmTC_3e30e.dir/objects.a -Wl,--no-whole-archive  -o cmTC_3e30e.exe -Wl,--out-implib,libcmTC_3e30e.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_3e30e.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file string.h exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_34f60/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_34f60.dir\build.make CMakeFiles/cmTC_34f60.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_34f60.dir/CheckIncludeFile.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3    -o CMakeFiles\cmTC_34f60.dir\CheckIncludeFile.c.obj   -c "C:\Users\Eagle Owl\Desktop\dethgame\dethgame\SDL\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+Linking C executable cmTC_34f60.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_34f60.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_34f60.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_34f60.dir/objects.a @CMakeFiles\cmTC_34f60.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3     -Wl,--whole-archive CMakeFiles\cmTC_34f60.dir/objects.a -Wl,--no-whole-archive  -o cmTC_34f60.exe -Wl,--out-implib,libcmTC_34f60.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_34f60.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file strings.h exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_33881/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_33881.dir\build.make CMakeFiles/cmTC_33881.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_33881.dir/CheckIncludeFile.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3    -o CMakeFiles\cmTC_33881.dir\CheckIncludeFile.c.obj   -c "C:\Users\Eagle Owl\Desktop\dethgame\dethgame\SDL\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+Linking C executable cmTC_33881.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_33881.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_33881.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_33881.dir/objects.a @CMakeFiles\cmTC_33881.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3     -Wl,--whole-archive CMakeFiles\cmTC_33881.dir/objects.a -Wl,--no-whole-archive  -o cmTC_33881.exe -Wl,--out-implib,libcmTC_33881.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_33881.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file inttypes.h exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_c0757/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_c0757.dir\build.make CMakeFiles/cmTC_c0757.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c0757.dir/CheckIncludeFile.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3    -o CMakeFiles\cmTC_c0757.dir\CheckIncludeFile.c.obj   -c "C:\Users\Eagle Owl\Desktop\dethgame\dethgame\SDL\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+Linking C executable cmTC_c0757.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_c0757.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_c0757.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_c0757.dir/objects.a @CMakeFiles\cmTC_c0757.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3     -Wl,--whole-archive CMakeFiles\cmTC_c0757.dir/objects.a -Wl,--no-whole-archive  -o cmTC_c0757.exe -Wl,--out-implib,libcmTC_c0757.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_c0757.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file stdint.h exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_6f3b2/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_6f3b2.dir\build.make CMakeFiles/cmTC_6f3b2.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_6f3b2.dir/CheckIncludeFile.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3    -o CMakeFiles\cmTC_6f3b2.dir\CheckIncludeFile.c.obj   -c "C:\Users\Eagle Owl\Desktop\dethgame\dethgame\SDL\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+Linking C executable cmTC_6f3b2.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_6f3b2.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_6f3b2.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_6f3b2.dir/objects.a @CMakeFiles\cmTC_6f3b2.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3     -Wl,--whole-archive CMakeFiles\cmTC_6f3b2.dir/objects.a -Wl,--no-whole-archive  -o cmTC_6f3b2.exe -Wl,--out-implib,libcmTC_6f3b2.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_6f3b2.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file ctype.h exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_a7940/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_a7940.dir\build.make CMakeFiles/cmTC_a7940.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a7940.dir/CheckIncludeFile.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3    -o CMakeFiles\cmTC_a7940.dir\CheckIncludeFile.c.obj   -c "C:\Users\Eagle Owl\Desktop\dethgame\dethgame\SDL\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+Linking C executable cmTC_a7940.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_a7940.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_a7940.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_a7940.dir/objects.a @CMakeFiles\cmTC_a7940.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3     -Wl,--whole-archive CMakeFiles\cmTC_a7940.dir/objects.a -Wl,--no-whole-archive  -o cmTC_a7940.exe -Wl,--out-implib,libcmTC_a7940.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_a7940.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file math.h exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_fcb77/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_fcb77.dir\build.make CMakeFiles/cmTC_fcb77.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_fcb77.dir/CheckIncludeFile.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3    -o CMakeFiles\cmTC_fcb77.dir\CheckIncludeFile.c.obj   -c "C:\Users\Eagle Owl\Desktop\dethgame\dethgame\SDL\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+Linking C executable cmTC_fcb77.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_fcb77.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_fcb77.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_fcb77.dir/objects.a @CMakeFiles\cmTC_fcb77.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3     -Wl,--whole-archive CMakeFiles\cmTC_fcb77.dir/objects.a -Wl,--no-whole-archive  -o cmTC_fcb77.exe -Wl,--out-implib,libcmTC_fcb77.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_fcb77.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file signal.h exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_a4fa7/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_a4fa7.dir\build.make CMakeFiles/cmTC_a4fa7.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a4fa7.dir/CheckIncludeFile.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3    -o CMakeFiles\cmTC_a4fa7.dir\CheckIncludeFile.c.obj   -c "C:\Users\Eagle Owl\Desktop\dethgame\dethgame\SDL\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+Linking C executable cmTC_a4fa7.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_a4fa7.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_a4fa7.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_a4fa7.dir/objects.a @CMakeFiles\cmTC_a4fa7.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3     -Wl,--whole-archive CMakeFiles\cmTC_a4fa7.dir/objects.a -Wl,--no-whole-archive  -o cmTC_a4fa7.exe -Wl,--out-implib,libcmTC_a4fa7.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_a4fa7.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if files dlfcn.h;stdint.h;stddef.h;inttypes.h;stdlib.h;strings.h;string.h;float.h exist passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_c6caa/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_c6caa.dir\build.make CMakeFiles/cmTC_c6caa.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c6caa.dir/CheckIncludeFiles.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3    -o CMakeFiles\cmTC_c6caa.dir\CheckIncludeFiles.c.obj   -c "C:\Users\Eagle Owl\Desktop\dethgame\dethgame\SDL\build\CMakeFiles\CMakeTmp\CheckIncludeFiles.c"
+Linking C executable cmTC_c6caa.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_c6caa.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_c6caa.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_c6caa.dir/objects.a @CMakeFiles\cmTC_c6caa.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3     -Wl,--whole-archive CMakeFiles\cmTC_c6caa.dir/objects.a -Wl,--no-whole-archive  -o cmTC_c6caa.exe -Wl,--out-implib,libcmTC_c6caa.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_c6caa.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining size of size_t passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_bd6c7/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_bd6c7.dir\build.make CMakeFiles/cmTC_bd6c7.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_bd6c7.dir/SIZEOF_SIZE_T.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3    -o CMakeFiles\cmTC_bd6c7.dir\SIZEOF_SIZE_T.c.obj   -c "C:\Users\Eagle Owl\Desktop\dethgame\dethgame\SDL\build\CMakeFiles\CheckTypeSize\SIZEOF_SIZE_T.c"
+Linking C executable cmTC_bd6c7.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_bd6c7.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_bd6c7.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_bd6c7.dir/objects.a @CMakeFiles\cmTC_bd6c7.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3     -Wl,--whole-archive CMakeFiles\cmTC_bd6c7.dir/objects.a -Wl,--no-whole-archive  -o cmTC_bd6c7.exe -Wl,--out-implib,libcmTC_bd6c7.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_bd6c7.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the M_PI exist passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_99a83/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_99a83.dir\build.make CMakeFiles/cmTC_99a83.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_99a83.dir/CheckSymbolExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3    -o CMakeFiles\cmTC_99a83.dir\CheckSymbolExists.c.obj   -c "C:\Users\Eagle Owl\Desktop\dethgame\dethgame\SDL\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c"
+Linking C executable cmTC_99a83.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_99a83.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_99a83.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_99a83.dir/objects.a @CMakeFiles\cmTC_99a83.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3     -Wl,--whole-archive CMakeFiles\cmTC_99a83.dir/objects.a -Wl,--no-whole-archive  -o cmTC_99a83.exe -Wl,--out-implib,libcmTC_99a83.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_99a83.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+File C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <math.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef M_PI
+  return ((int*)(&M_PI))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function strtod exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_f6377/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_f6377.dir\build.make CMakeFiles/cmTC_f6377.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f6377.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=strtod   -o CMakeFiles\cmTC_f6377.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+Linking C executable cmTC_f6377.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_f6377.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_f6377.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_f6377.dir/objects.a @CMakeFiles\cmTC_f6377.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=strtod    -Wl,--whole-archive CMakeFiles\cmTC_f6377.dir/objects.a -Wl,--no-whole-archive  -o cmTC_f6377.exe -Wl,--out-implib,libcmTC_f6377.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_f6377.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function malloc exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_0bb42/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_0bb42.dir\build.make CMakeFiles/cmTC_0bb42.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0bb42.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=malloc   -o CMakeFiles\cmTC_0bb42.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+<command-line>:0:23: warning: conflicting types for built-in function 'malloc'
+C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c:6:6: note: in expansion of macro 'CHECK_FUNCTION_EXISTS'
+ char CHECK_FUNCTION_EXISTS();
+      ^
+Linking C executable cmTC_0bb42.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_0bb42.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_0bb42.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_0bb42.dir/objects.a @CMakeFiles\cmTC_0bb42.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=malloc    -Wl,--whole-archive CMakeFiles\cmTC_0bb42.dir/objects.a -Wl,--no-whole-archive  -o cmTC_0bb42.exe -Wl,--out-implib,libcmTC_0bb42.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_0bb42.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function calloc exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_a64be/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_a64be.dir\build.make CMakeFiles/cmTC_a64be.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a64be.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=calloc   -o CMakeFiles\cmTC_a64be.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+<command-line>:0:23: warning: conflicting types for built-in function 'calloc'
+C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c:6:6: note: in expansion of macro 'CHECK_FUNCTION_EXISTS'
+ char CHECK_FUNCTION_EXISTS();
+      ^
+Linking C executable cmTC_a64be.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_a64be.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_a64be.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_a64be.dir/objects.a @CMakeFiles\cmTC_a64be.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=calloc    -Wl,--whole-archive CMakeFiles\cmTC_a64be.dir/objects.a -Wl,--no-whole-archive  -o cmTC_a64be.exe -Wl,--out-implib,libcmTC_a64be.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_a64be.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function realloc exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_1c78e/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_1c78e.dir\build.make CMakeFiles/cmTC_1c78e.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1c78e.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=realloc   -o CMakeFiles\cmTC_1c78e.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+<command-line>:0:23: warning: conflicting types for built-in function 'realloc'
+C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c:6:6: note: in expansion of macro 'CHECK_FUNCTION_EXISTS'
+ char CHECK_FUNCTION_EXISTS();
+      ^
+Linking C executable cmTC_1c78e.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_1c78e.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_1c78e.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_1c78e.dir/objects.a @CMakeFiles\cmTC_1c78e.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=realloc    -Wl,--whole-archive CMakeFiles\cmTC_1c78e.dir/objects.a -Wl,--no-whole-archive  -o cmTC_1c78e.exe -Wl,--out-implib,libcmTC_1c78e.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_1c78e.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function free exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_9c6bf/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_9c6bf.dir\build.make CMakeFiles/cmTC_9c6bf.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9c6bf.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=free   -o CMakeFiles\cmTC_9c6bf.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+<command-line>:0:23: warning: conflicting types for built-in function 'free'
+C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c:6:6: note: in expansion of macro 'CHECK_FUNCTION_EXISTS'
+ char CHECK_FUNCTION_EXISTS();
+      ^
+Linking C executable cmTC_9c6bf.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_9c6bf.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_9c6bf.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_9c6bf.dir/objects.a @CMakeFiles\cmTC_9c6bf.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=free    -Wl,--whole-archive CMakeFiles\cmTC_9c6bf.dir/objects.a -Wl,--no-whole-archive  -o cmTC_9c6bf.exe -Wl,--out-implib,libcmTC_9c6bf.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_9c6bf.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function getenv exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_2e9b8/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_2e9b8.dir\build.make CMakeFiles/cmTC_2e9b8.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_2e9b8.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=getenv   -o CMakeFiles\cmTC_2e9b8.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+Linking C executable cmTC_2e9b8.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_2e9b8.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_2e9b8.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_2e9b8.dir/objects.a @CMakeFiles\cmTC_2e9b8.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=getenv    -Wl,--whole-archive CMakeFiles\cmTC_2e9b8.dir/objects.a -Wl,--no-whole-archive  -o cmTC_2e9b8.exe -Wl,--out-implib,libcmTC_2e9b8.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_2e9b8.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function putenv exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_8393e/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_8393e.dir\build.make CMakeFiles/cmTC_8393e.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8393e.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=putenv   -o CMakeFiles\cmTC_8393e.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+Linking C executable cmTC_8393e.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_8393e.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_8393e.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_8393e.dir/objects.a @CMakeFiles\cmTC_8393e.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=putenv    -Wl,--whole-archive CMakeFiles\cmTC_8393e.dir/objects.a -Wl,--no-whole-archive  -o cmTC_8393e.exe -Wl,--out-implib,libcmTC_8393e.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_8393e.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function qsort exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_a9250/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_a9250.dir\build.make CMakeFiles/cmTC_a9250.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a9250.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=qsort   -o CMakeFiles\cmTC_a9250.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+Linking C executable cmTC_a9250.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_a9250.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_a9250.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_a9250.dir/objects.a @CMakeFiles\cmTC_a9250.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=qsort    -Wl,--whole-archive CMakeFiles\cmTC_a9250.dir/objects.a -Wl,--no-whole-archive  -o cmTC_a9250.exe -Wl,--out-implib,libcmTC_a9250.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_a9250.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function abs exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_0f48d/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_0f48d.dir\build.make CMakeFiles/cmTC_0f48d.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0f48d.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=abs   -o CMakeFiles\cmTC_0f48d.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+<command-line>:0:23: warning: conflicting types for built-in function 'abs'
+C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c:6:6: note: in expansion of macro 'CHECK_FUNCTION_EXISTS'
+ char CHECK_FUNCTION_EXISTS();
+      ^
+Linking C executable cmTC_0f48d.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_0f48d.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_0f48d.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_0f48d.dir/objects.a @CMakeFiles\cmTC_0f48d.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=abs    -Wl,--whole-archive CMakeFiles\cmTC_0f48d.dir/objects.a -Wl,--no-whole-archive  -o cmTC_0f48d.exe -Wl,--out-implib,libcmTC_0f48d.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_0f48d.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function memset exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_7d62b/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_7d62b.dir\build.make CMakeFiles/cmTC_7d62b.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7d62b.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=memset   -o CMakeFiles\cmTC_7d62b.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+<command-line>:0:23: warning: conflicting types for built-in function 'memset'
+C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c:6:6: note: in expansion of macro 'CHECK_FUNCTION_EXISTS'
+ char CHECK_FUNCTION_EXISTS();
+      ^
+Linking C executable cmTC_7d62b.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_7d62b.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_7d62b.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_7d62b.dir/objects.a @CMakeFiles\cmTC_7d62b.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=memset    -Wl,--whole-archive CMakeFiles\cmTC_7d62b.dir/objects.a -Wl,--no-whole-archive  -o cmTC_7d62b.exe -Wl,--out-implib,libcmTC_7d62b.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_7d62b.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function memcpy exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_f2693/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_f2693.dir\build.make CMakeFiles/cmTC_f2693.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f2693.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=memcpy   -o CMakeFiles\cmTC_f2693.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+<command-line>:0:23: warning: conflicting types for built-in function 'memcpy'
+C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c:6:6: note: in expansion of macro 'CHECK_FUNCTION_EXISTS'
+ char CHECK_FUNCTION_EXISTS();
+      ^
+Linking C executable cmTC_f2693.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_f2693.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_f2693.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_f2693.dir/objects.a @CMakeFiles\cmTC_f2693.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=memcpy    -Wl,--whole-archive CMakeFiles\cmTC_f2693.dir/objects.a -Wl,--no-whole-archive  -o cmTC_f2693.exe -Wl,--out-implib,libcmTC_f2693.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_f2693.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function memmove exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_b6fcf/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_b6fcf.dir\build.make CMakeFiles/cmTC_b6fcf.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b6fcf.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=memmove   -o CMakeFiles\cmTC_b6fcf.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+<command-line>:0:23: warning: conflicting types for built-in function 'memmove'
+C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c:6:6: note: in expansion of macro 'CHECK_FUNCTION_EXISTS'
+ char CHECK_FUNCTION_EXISTS();
+      ^
+Linking C executable cmTC_b6fcf.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_b6fcf.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_b6fcf.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_b6fcf.dir/objects.a @CMakeFiles\cmTC_b6fcf.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=memmove    -Wl,--whole-archive CMakeFiles\cmTC_b6fcf.dir/objects.a -Wl,--no-whole-archive  -o cmTC_b6fcf.exe -Wl,--out-implib,libcmTC_b6fcf.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_b6fcf.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function memcmp exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_78f09/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_78f09.dir\build.make CMakeFiles/cmTC_78f09.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_78f09.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=memcmp   -o CMakeFiles\cmTC_78f09.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+<command-line>:0:23: warning: conflicting types for built-in function 'memcmp'
+C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c:6:6: note: in expansion of macro 'CHECK_FUNCTION_EXISTS'
+ char CHECK_FUNCTION_EXISTS();
+      ^
+Linking C executable cmTC_78f09.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_78f09.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_78f09.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_78f09.dir/objects.a @CMakeFiles\cmTC_78f09.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=memcmp    -Wl,--whole-archive CMakeFiles\cmTC_78f09.dir/objects.a -Wl,--no-whole-archive  -o cmTC_78f09.exe -Wl,--out-implib,libcmTC_78f09.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_78f09.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function strlen exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_b8846/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_b8846.dir\build.make CMakeFiles/cmTC_b8846.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b8846.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=strlen   -o CMakeFiles\cmTC_b8846.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+<command-line>:0:23: warning: conflicting types for built-in function 'strlen'
+C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c:6:6: note: in expansion of macro 'CHECK_FUNCTION_EXISTS'
+ char CHECK_FUNCTION_EXISTS();
+      ^
+Linking C executable cmTC_b8846.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_b8846.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_b8846.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_b8846.dir/objects.a @CMakeFiles\cmTC_b8846.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=strlen    -Wl,--whole-archive CMakeFiles\cmTC_b8846.dir/objects.a -Wl,--no-whole-archive  -o cmTC_b8846.exe -Wl,--out-implib,libcmTC_b8846.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_b8846.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function strdup exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_116d8/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_116d8.dir\build.make CMakeFiles/cmTC_116d8.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_116d8.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=strdup   -o CMakeFiles\cmTC_116d8.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+<command-line>:0:23: warning: conflicting types for built-in function 'strdup'
+C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c:6:6: note: in expansion of macro 'CHECK_FUNCTION_EXISTS'
+ char CHECK_FUNCTION_EXISTS();
+      ^
+Linking C executable cmTC_116d8.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_116d8.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_116d8.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_116d8.dir/objects.a @CMakeFiles\cmTC_116d8.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=strdup    -Wl,--whole-archive CMakeFiles\cmTC_116d8.dir/objects.a -Wl,--no-whole-archive  -o cmTC_116d8.exe -Wl,--out-implib,libcmTC_116d8.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_116d8.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function _strrev exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_f17a8/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_f17a8.dir\build.make CMakeFiles/cmTC_f17a8.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f17a8.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=_strrev   -o CMakeFiles\cmTC_f17a8.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+Linking C executable cmTC_f17a8.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_f17a8.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_f17a8.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_f17a8.dir/objects.a @CMakeFiles\cmTC_f17a8.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=_strrev    -Wl,--whole-archive CMakeFiles\cmTC_f17a8.dir/objects.a -Wl,--no-whole-archive  -o cmTC_f17a8.exe -Wl,--out-implib,libcmTC_f17a8.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_f17a8.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function _strupr exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_f6a11/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_f6a11.dir\build.make CMakeFiles/cmTC_f6a11.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f6a11.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=_strupr   -o CMakeFiles\cmTC_f6a11.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+Linking C executable cmTC_f6a11.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_f6a11.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_f6a11.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_f6a11.dir/objects.a @CMakeFiles\cmTC_f6a11.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=_strupr    -Wl,--whole-archive CMakeFiles\cmTC_f6a11.dir/objects.a -Wl,--no-whole-archive  -o cmTC_f6a11.exe -Wl,--out-implib,libcmTC_f6a11.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_f6a11.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function _strlwr exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_46434/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_46434.dir\build.make CMakeFiles/cmTC_46434.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_46434.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=_strlwr   -o CMakeFiles\cmTC_46434.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+Linking C executable cmTC_46434.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_46434.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_46434.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_46434.dir/objects.a @CMakeFiles\cmTC_46434.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=_strlwr    -Wl,--whole-archive CMakeFiles\cmTC_46434.dir/objects.a -Wl,--no-whole-archive  -o cmTC_46434.exe -Wl,--out-implib,libcmTC_46434.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_46434.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function strchr exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_1b52a/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_1b52a.dir\build.make CMakeFiles/cmTC_1b52a.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1b52a.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=strchr   -o CMakeFiles\cmTC_1b52a.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+<command-line>:0:23: warning: conflicting types for built-in function 'strchr'
+C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c:6:6: note: in expansion of macro 'CHECK_FUNCTION_EXISTS'
+ char CHECK_FUNCTION_EXISTS();
+      ^
+Linking C executable cmTC_1b52a.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_1b52a.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_1b52a.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_1b52a.dir/objects.a @CMakeFiles\cmTC_1b52a.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=strchr    -Wl,--whole-archive CMakeFiles\cmTC_1b52a.dir/objects.a -Wl,--no-whole-archive  -o cmTC_1b52a.exe -Wl,--out-implib,libcmTC_1b52a.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_1b52a.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function strrchr exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_8de4d/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_8de4d.dir\build.make CMakeFiles/cmTC_8de4d.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8de4d.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=strrchr   -o CMakeFiles\cmTC_8de4d.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+<command-line>:0:23: warning: conflicting types for built-in function 'strrchr'
+C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c:6:6: note: in expansion of macro 'CHECK_FUNCTION_EXISTS'
+ char CHECK_FUNCTION_EXISTS();
+      ^
+Linking C executable cmTC_8de4d.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_8de4d.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_8de4d.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_8de4d.dir/objects.a @CMakeFiles\cmTC_8de4d.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=strrchr    -Wl,--whole-archive CMakeFiles\cmTC_8de4d.dir/objects.a -Wl,--no-whole-archive  -o cmTC_8de4d.exe -Wl,--out-implib,libcmTC_8de4d.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_8de4d.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function strstr exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_d8b72/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_d8b72.dir\build.make CMakeFiles/cmTC_d8b72.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d8b72.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=strstr   -o CMakeFiles\cmTC_d8b72.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+<command-line>:0:23: warning: conflicting types for built-in function 'strstr'
+C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c:6:6: note: in expansion of macro 'CHECK_FUNCTION_EXISTS'
+ char CHECK_FUNCTION_EXISTS();
+      ^
+Linking C executable cmTC_d8b72.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_d8b72.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_d8b72.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_d8b72.dir/objects.a @CMakeFiles\cmTC_d8b72.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=strstr    -Wl,--whole-archive CMakeFiles\cmTC_d8b72.dir/objects.a -Wl,--no-whole-archive  -o cmTC_d8b72.exe -Wl,--out-implib,libcmTC_d8b72.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_d8b72.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function itoa exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_bc41a/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_bc41a.dir\build.make CMakeFiles/cmTC_bc41a.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_bc41a.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=itoa   -o CMakeFiles\cmTC_bc41a.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+Linking C executable cmTC_bc41a.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_bc41a.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_bc41a.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_bc41a.dir/objects.a @CMakeFiles\cmTC_bc41a.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=itoa    -Wl,--whole-archive CMakeFiles\cmTC_bc41a.dir/objects.a -Wl,--no-whole-archive  -o cmTC_bc41a.exe -Wl,--out-implib,libcmTC_bc41a.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_bc41a.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function _ltoa exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_ac49d/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_ac49d.dir\build.make CMakeFiles/cmTC_ac49d.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ac49d.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=_ltoa   -o CMakeFiles\cmTC_ac49d.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+Linking C executable cmTC_ac49d.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_ac49d.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_ac49d.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_ac49d.dir/objects.a @CMakeFiles\cmTC_ac49d.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=_ltoa    -Wl,--whole-archive CMakeFiles\cmTC_ac49d.dir/objects.a -Wl,--no-whole-archive  -o cmTC_ac49d.exe -Wl,--out-implib,libcmTC_ac49d.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_ac49d.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function _ultoa exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_63f6b/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_63f6b.dir\build.make CMakeFiles/cmTC_63f6b.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_63f6b.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=_ultoa   -o CMakeFiles\cmTC_63f6b.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+Linking C executable cmTC_63f6b.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_63f6b.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_63f6b.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_63f6b.dir/objects.a @CMakeFiles\cmTC_63f6b.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=_ultoa    -Wl,--whole-archive CMakeFiles\cmTC_63f6b.dir/objects.a -Wl,--no-whole-archive  -o cmTC_63f6b.exe -Wl,--out-implib,libcmTC_63f6b.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_63f6b.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function strtol exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_011a0/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_011a0.dir\build.make CMakeFiles/cmTC_011a0.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_011a0.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=strtol   -o CMakeFiles\cmTC_011a0.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+Linking C executable cmTC_011a0.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_011a0.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_011a0.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_011a0.dir/objects.a @CMakeFiles\cmTC_011a0.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=strtol    -Wl,--whole-archive CMakeFiles\cmTC_011a0.dir/objects.a -Wl,--no-whole-archive  -o cmTC_011a0.exe -Wl,--out-implib,libcmTC_011a0.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_011a0.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function strtoul exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_9436b/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_9436b.dir\build.make CMakeFiles/cmTC_9436b.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9436b.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=strtoul   -o CMakeFiles\cmTC_9436b.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+Linking C executable cmTC_9436b.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_9436b.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_9436b.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_9436b.dir/objects.a @CMakeFiles\cmTC_9436b.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=strtoul    -Wl,--whole-archive CMakeFiles\cmTC_9436b.dir/objects.a -Wl,--no-whole-archive  -o cmTC_9436b.exe -Wl,--out-implib,libcmTC_9436b.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_9436b.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function _i64toa exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_c5301/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_c5301.dir\build.make CMakeFiles/cmTC_c5301.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c5301.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=_i64toa   -o CMakeFiles\cmTC_c5301.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+Linking C executable cmTC_c5301.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_c5301.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_c5301.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_c5301.dir/objects.a @CMakeFiles\cmTC_c5301.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=_i64toa    -Wl,--whole-archive CMakeFiles\cmTC_c5301.dir/objects.a -Wl,--no-whole-archive  -o cmTC_c5301.exe -Wl,--out-implib,libcmTC_c5301.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_c5301.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function _ui64toa exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_d3055/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_d3055.dir\build.make CMakeFiles/cmTC_d3055.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d3055.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=_ui64toa   -o CMakeFiles\cmTC_d3055.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+Linking C executable cmTC_d3055.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_d3055.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_d3055.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_d3055.dir/objects.a @CMakeFiles\cmTC_d3055.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=_ui64toa    -Wl,--whole-archive CMakeFiles\cmTC_d3055.dir/objects.a -Wl,--no-whole-archive  -o cmTC_d3055.exe -Wl,--out-implib,libcmTC_d3055.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_d3055.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function strtoll exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_ddf39/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_ddf39.dir\build.make CMakeFiles/cmTC_ddf39.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ddf39.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=strtoll   -o CMakeFiles\cmTC_ddf39.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+Linking C executable cmTC_ddf39.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_ddf39.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_ddf39.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_ddf39.dir/objects.a @CMakeFiles\cmTC_ddf39.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=strtoll    -Wl,--whole-archive CMakeFiles\cmTC_ddf39.dir/objects.a -Wl,--no-whole-archive  -o cmTC_ddf39.exe -Wl,--out-implib,libcmTC_ddf39.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_ddf39.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function strtoull exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_a95df/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_a95df.dir\build.make CMakeFiles/cmTC_a95df.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a95df.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=strtoull   -o CMakeFiles\cmTC_a95df.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+Linking C executable cmTC_a95df.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_a95df.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_a95df.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_a95df.dir/objects.a @CMakeFiles\cmTC_a95df.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=strtoull    -Wl,--whole-archive CMakeFiles\cmTC_a95df.dir/objects.a -Wl,--no-whole-archive  -o cmTC_a95df.exe -Wl,--out-implib,libcmTC_a95df.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_a95df.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function atoi exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_1c592/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_1c592.dir\build.make CMakeFiles/cmTC_1c592.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1c592.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=atoi   -o CMakeFiles\cmTC_1c592.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+Linking C executable cmTC_1c592.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_1c592.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_1c592.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_1c592.dir/objects.a @CMakeFiles\cmTC_1c592.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=atoi    -Wl,--whole-archive CMakeFiles\cmTC_1c592.dir/objects.a -Wl,--no-whole-archive  -o cmTC_1c592.exe -Wl,--out-implib,libcmTC_1c592.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_1c592.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function atof exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_58d7e/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_58d7e.dir\build.make CMakeFiles/cmTC_58d7e.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_58d7e.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=atof   -o CMakeFiles\cmTC_58d7e.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+Linking C executable cmTC_58d7e.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_58d7e.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_58d7e.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_58d7e.dir/objects.a @CMakeFiles\cmTC_58d7e.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=atof    -Wl,--whole-archive CMakeFiles\cmTC_58d7e.dir/objects.a -Wl,--no-whole-archive  -o cmTC_58d7e.exe -Wl,--out-implib,libcmTC_58d7e.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_58d7e.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function strcmp exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_3faa2/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_3faa2.dir\build.make CMakeFiles/cmTC_3faa2.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3faa2.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=strcmp   -o CMakeFiles\cmTC_3faa2.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+<command-line>:0:23: warning: conflicting types for built-in function 'strcmp'
+C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c:6:6: note: in expansion of macro 'CHECK_FUNCTION_EXISTS'
+ char CHECK_FUNCTION_EXISTS();
+      ^
+Linking C executable cmTC_3faa2.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_3faa2.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_3faa2.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_3faa2.dir/objects.a @CMakeFiles\cmTC_3faa2.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=strcmp    -Wl,--whole-archive CMakeFiles\cmTC_3faa2.dir/objects.a -Wl,--no-whole-archive  -o cmTC_3faa2.exe -Wl,--out-implib,libcmTC_3faa2.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_3faa2.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function strncmp exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_790b0/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_790b0.dir\build.make CMakeFiles/cmTC_790b0.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_790b0.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=strncmp   -o CMakeFiles\cmTC_790b0.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+<command-line>:0:23: warning: conflicting types for built-in function 'strncmp'
+C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c:6:6: note: in expansion of macro 'CHECK_FUNCTION_EXISTS'
+ char CHECK_FUNCTION_EXISTS();
+      ^
+Linking C executable cmTC_790b0.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_790b0.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_790b0.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_790b0.dir/objects.a @CMakeFiles\cmTC_790b0.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=strncmp    -Wl,--whole-archive CMakeFiles\cmTC_790b0.dir/objects.a -Wl,--no-whole-archive  -o cmTC_790b0.exe -Wl,--out-implib,libcmTC_790b0.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_790b0.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function _stricmp exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_7ed06/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_7ed06.dir\build.make CMakeFiles/cmTC_7ed06.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7ed06.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=_stricmp   -o CMakeFiles\cmTC_7ed06.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+Linking C executable cmTC_7ed06.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_7ed06.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_7ed06.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_7ed06.dir/objects.a @CMakeFiles\cmTC_7ed06.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=_stricmp    -Wl,--whole-archive CMakeFiles\cmTC_7ed06.dir/objects.a -Wl,--no-whole-archive  -o cmTC_7ed06.exe -Wl,--out-implib,libcmTC_7ed06.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_7ed06.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function strcasecmp exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_34553/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_34553.dir\build.make CMakeFiles/cmTC_34553.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_34553.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=strcasecmp   -o CMakeFiles\cmTC_34553.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+<command-line>:0:23: warning: conflicting types for built-in function 'strcasecmp'
+C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c:6:6: note: in expansion of macro 'CHECK_FUNCTION_EXISTS'
+ char CHECK_FUNCTION_EXISTS();
+      ^
+Linking C executable cmTC_34553.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_34553.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_34553.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_34553.dir/objects.a @CMakeFiles\cmTC_34553.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=strcasecmp    -Wl,--whole-archive CMakeFiles\cmTC_34553.dir/objects.a -Wl,--no-whole-archive  -o cmTC_34553.exe -Wl,--out-implib,libcmTC_34553.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_34553.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function _strnicmp exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_59ed8/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_59ed8.dir\build.make CMakeFiles/cmTC_59ed8.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_59ed8.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=_strnicmp   -o CMakeFiles\cmTC_59ed8.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+Linking C executable cmTC_59ed8.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_59ed8.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_59ed8.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_59ed8.dir/objects.a @CMakeFiles\cmTC_59ed8.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=_strnicmp    -Wl,--whole-archive CMakeFiles\cmTC_59ed8.dir/objects.a -Wl,--no-whole-archive  -o cmTC_59ed8.exe -Wl,--out-implib,libcmTC_59ed8.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_59ed8.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function strncasecmp exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_c6994/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_c6994.dir\build.make CMakeFiles/cmTC_c6994.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c6994.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=strncasecmp   -o CMakeFiles\cmTC_c6994.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+<command-line>:0:23: warning: conflicting types for built-in function 'strncasecmp'
+C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c:6:6: note: in expansion of macro 'CHECK_FUNCTION_EXISTS'
+ char CHECK_FUNCTION_EXISTS();
+      ^
+Linking C executable cmTC_c6994.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_c6994.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_c6994.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_c6994.dir/objects.a @CMakeFiles\cmTC_c6994.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=strncasecmp    -Wl,--whole-archive CMakeFiles\cmTC_c6994.dir/objects.a -Wl,--no-whole-archive  -o cmTC_c6994.exe -Wl,--out-implib,libcmTC_c6994.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_c6994.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function vsscanf exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_e6a56/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_e6a56.dir\build.make CMakeFiles/cmTC_e6a56.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e6a56.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=vsscanf   -o CMakeFiles\cmTC_e6a56.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+<command-line>:0:23: warning: conflicting types for built-in function 'vsscanf'
+C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c:6:6: note: in expansion of macro 'CHECK_FUNCTION_EXISTS'
+ char CHECK_FUNCTION_EXISTS();
+      ^
+Linking C executable cmTC_e6a56.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_e6a56.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_e6a56.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_e6a56.dir/objects.a @CMakeFiles\cmTC_e6a56.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=vsscanf    -Wl,--whole-archive CMakeFiles\cmTC_e6a56.dir/objects.a -Wl,--no-whole-archive  -o cmTC_e6a56.exe -Wl,--out-implib,libcmTC_e6a56.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_e6a56.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function vsnprintf exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_867b9/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_867b9.dir\build.make CMakeFiles/cmTC_867b9.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_867b9.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=vsnprintf   -o CMakeFiles\cmTC_867b9.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+<command-line>:0:23: warning: conflicting types for built-in function 'vsnprintf'
+C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c:6:6: note: in expansion of macro 'CHECK_FUNCTION_EXISTS'
+ char CHECK_FUNCTION_EXISTS();
+      ^
+Linking C executable cmTC_867b9.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_867b9.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_867b9.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_867b9.dir/objects.a @CMakeFiles\cmTC_867b9.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=vsnprintf    -Wl,--whole-archive CMakeFiles\cmTC_867b9.dir/objects.a -Wl,--no-whole-archive  -o cmTC_867b9.exe -Wl,--out-implib,libcmTC_867b9.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_867b9.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function fseeko64 exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_c8309/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_c8309.dir\build.make CMakeFiles/cmTC_c8309.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c8309.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=fseeko64   -o CMakeFiles\cmTC_c8309.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+Linking C executable cmTC_c8309.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_c8309.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_c8309.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_c8309.dir/objects.a @CMakeFiles\cmTC_c8309.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=fseeko64    -Wl,--whole-archive CMakeFiles\cmTC_c8309.dir/objects.a -Wl,--no-whole-archive  -o cmTC_c8309.exe -Wl,--out-implib,libcmTC_c8309.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_c8309.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function nanosleep exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_9fd05/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_9fd05.dir\build.make CMakeFiles/cmTC_9fd05.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9fd05.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=nanosleep   -o CMakeFiles\cmTC_9fd05.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+Linking C executable cmTC_9fd05.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_9fd05.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_9fd05.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_9fd05.dir/objects.a @CMakeFiles\cmTC_9fd05.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=nanosleep    -Wl,--whole-archive CMakeFiles\cmTC_9fd05.dir/objects.a -Wl,--no-whole-archive  -o cmTC_9fd05.exe -Wl,--out-implib,libcmTC_9fd05.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_9fd05.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pow exists in the m passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_c9fca/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_c9fca.dir\build.make CMakeFiles/cmTC_c9fca.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c9fca.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=pow   -o CMakeFiles\cmTC_c9fca.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+<command-line>:0:23: warning: conflicting types for built-in function 'pow'
+C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c:6:6: note: in expansion of macro 'CHECK_FUNCTION_EXISTS'
+ char CHECK_FUNCTION_EXISTS();
+      ^
+Linking C executable cmTC_c9fca.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_c9fca.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_c9fca.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_c9fca.dir/objects.a @CMakeFiles\cmTC_c9fca.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=pow    -Wl,--whole-archive CMakeFiles\cmTC_c9fca.dir/objects.a -Wl,--no-whole-archive  -o cmTC_c9fca.exe -Wl,--out-implib,libcmTC_c9fca.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_c9fca.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function atan exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_46b21/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_46b21.dir\build.make CMakeFiles/cmTC_46b21.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_46b21.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=atan   -o CMakeFiles\cmTC_46b21.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+<command-line>:0:23: warning: conflicting types for built-in function 'atan'
+C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c:6:6: note: in expansion of macro 'CHECK_FUNCTION_EXISTS'
+ char CHECK_FUNCTION_EXISTS();
+      ^
+Linking C executable cmTC_46b21.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_46b21.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_46b21.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_46b21.dir/objects.a @CMakeFiles\cmTC_46b21.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=atan    -Wl,--whole-archive CMakeFiles\cmTC_46b21.dir/objects.a -Wl,--no-whole-archive  -o cmTC_46b21.exe -Wl,--out-implib,libcmTC_46b21.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_46b21.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function atan2 exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_fb755/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_fb755.dir\build.make CMakeFiles/cmTC_fb755.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_fb755.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=atan2   -o CMakeFiles\cmTC_fb755.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+<command-line>:0:23: warning: conflicting types for built-in function 'atan2'
+C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c:6:6: note: in expansion of macro 'CHECK_FUNCTION_EXISTS'
+ char CHECK_FUNCTION_EXISTS();
+      ^
+Linking C executable cmTC_fb755.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_fb755.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_fb755.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_fb755.dir/objects.a @CMakeFiles\cmTC_fb755.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=atan2    -Wl,--whole-archive CMakeFiles\cmTC_fb755.dir/objects.a -Wl,--no-whole-archive  -o cmTC_fb755.exe -Wl,--out-implib,libcmTC_fb755.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_fb755.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function ceil exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_f7ff0/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_f7ff0.dir\build.make CMakeFiles/cmTC_f7ff0.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f7ff0.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=ceil   -o CMakeFiles\cmTC_f7ff0.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+<command-line>:0:23: warning: conflicting types for built-in function 'ceil'
+C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c:6:6: note: in expansion of macro 'CHECK_FUNCTION_EXISTS'
+ char CHECK_FUNCTION_EXISTS();
+      ^
+Linking C executable cmTC_f7ff0.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_f7ff0.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_f7ff0.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_f7ff0.dir/objects.a @CMakeFiles\cmTC_f7ff0.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=ceil    -Wl,--whole-archive CMakeFiles\cmTC_f7ff0.dir/objects.a -Wl,--no-whole-archive  -o cmTC_f7ff0.exe -Wl,--out-implib,libcmTC_f7ff0.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_f7ff0.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function copysign exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_a022c/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_a022c.dir\build.make CMakeFiles/cmTC_a022c.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a022c.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=copysign   -o CMakeFiles\cmTC_a022c.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+<command-line>:0:23: warning: conflicting types for built-in function 'copysign'
+C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c:6:6: note: in expansion of macro 'CHECK_FUNCTION_EXISTS'
+ char CHECK_FUNCTION_EXISTS();
+      ^
+Linking C executable cmTC_a022c.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_a022c.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_a022c.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_a022c.dir/objects.a @CMakeFiles\cmTC_a022c.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=copysign    -Wl,--whole-archive CMakeFiles\cmTC_a022c.dir/objects.a -Wl,--no-whole-archive  -o cmTC_a022c.exe -Wl,--out-implib,libcmTC_a022c.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_a022c.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function cos exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_8f5f9/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_8f5f9.dir\build.make CMakeFiles/cmTC_8f5f9.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8f5f9.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=cos   -o CMakeFiles\cmTC_8f5f9.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+<command-line>:0:23: warning: conflicting types for built-in function 'cos'
+C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c:6:6: note: in expansion of macro 'CHECK_FUNCTION_EXISTS'
+ char CHECK_FUNCTION_EXISTS();
+      ^
+Linking C executable cmTC_8f5f9.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_8f5f9.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_8f5f9.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_8f5f9.dir/objects.a @CMakeFiles\cmTC_8f5f9.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=cos    -Wl,--whole-archive CMakeFiles\cmTC_8f5f9.dir/objects.a -Wl,--no-whole-archive  -o cmTC_8f5f9.exe -Wl,--out-implib,libcmTC_8f5f9.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_8f5f9.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function cosf exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_ff316/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_ff316.dir\build.make CMakeFiles/cmTC_ff316.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ff316.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=cosf   -o CMakeFiles\cmTC_ff316.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+<command-line>:0:23: warning: conflicting types for built-in function 'cosf'
+C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c:6:6: note: in expansion of macro 'CHECK_FUNCTION_EXISTS'
+ char CHECK_FUNCTION_EXISTS();
+      ^
+Linking C executable cmTC_ff316.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_ff316.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_ff316.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_ff316.dir/objects.a @CMakeFiles\cmTC_ff316.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=cosf    -Wl,--whole-archive CMakeFiles\cmTC_ff316.dir/objects.a -Wl,--no-whole-archive  -o cmTC_ff316.exe -Wl,--out-implib,libcmTC_ff316.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_ff316.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function fabs exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_eadae/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_eadae.dir\build.make CMakeFiles/cmTC_eadae.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_eadae.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=fabs   -o CMakeFiles\cmTC_eadae.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+<command-line>:0:23: warning: conflicting types for built-in function 'fabs'
+C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c:6:6: note: in expansion of macro 'CHECK_FUNCTION_EXISTS'
+ char CHECK_FUNCTION_EXISTS();
+      ^
+Linking C executable cmTC_eadae.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_eadae.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_eadae.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_eadae.dir/objects.a @CMakeFiles\cmTC_eadae.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=fabs    -Wl,--whole-archive CMakeFiles\cmTC_eadae.dir/objects.a -Wl,--no-whole-archive  -o cmTC_eadae.exe -Wl,--out-implib,libcmTC_eadae.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_eadae.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function floor exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_6d893/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_6d893.dir\build.make CMakeFiles/cmTC_6d893.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_6d893.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=floor   -o CMakeFiles\cmTC_6d893.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+<command-line>:0:23: warning: conflicting types for built-in function 'floor'
+C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c:6:6: note: in expansion of macro 'CHECK_FUNCTION_EXISTS'
+ char CHECK_FUNCTION_EXISTS();
+      ^
+Linking C executable cmTC_6d893.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_6d893.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_6d893.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_6d893.dir/objects.a @CMakeFiles\cmTC_6d893.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=floor    -Wl,--whole-archive CMakeFiles\cmTC_6d893.dir/objects.a -Wl,--no-whole-archive  -o cmTC_6d893.exe -Wl,--out-implib,libcmTC_6d893.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_6d893.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function log exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_e5116/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_e5116.dir\build.make CMakeFiles/cmTC_e5116.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e5116.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=log   -o CMakeFiles\cmTC_e5116.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+<command-line>:0:23: warning: conflicting types for built-in function 'log'
+C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c:6:6: note: in expansion of macro 'CHECK_FUNCTION_EXISTS'
+ char CHECK_FUNCTION_EXISTS();
+      ^
+Linking C executable cmTC_e5116.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_e5116.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_e5116.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_e5116.dir/objects.a @CMakeFiles\cmTC_e5116.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=log    -Wl,--whole-archive CMakeFiles\cmTC_e5116.dir/objects.a -Wl,--no-whole-archive  -o cmTC_e5116.exe -Wl,--out-implib,libcmTC_e5116.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_e5116.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pow exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_02a2e/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_02a2e.dir\build.make CMakeFiles/cmTC_02a2e.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_02a2e.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=pow   -o CMakeFiles\cmTC_02a2e.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+<command-line>:0:23: warning: conflicting types for built-in function 'pow'
+C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c:6:6: note: in expansion of macro 'CHECK_FUNCTION_EXISTS'
+ char CHECK_FUNCTION_EXISTS();
+      ^
+Linking C executable cmTC_02a2e.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_02a2e.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_02a2e.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_02a2e.dir/objects.a @CMakeFiles\cmTC_02a2e.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=pow    -Wl,--whole-archive CMakeFiles\cmTC_02a2e.dir/objects.a -Wl,--no-whole-archive  -o cmTC_02a2e.exe -Wl,--out-implib,libcmTC_02a2e.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_02a2e.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function scalbn exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_5e880/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_5e880.dir\build.make CMakeFiles/cmTC_5e880.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5e880.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=scalbn   -o CMakeFiles\cmTC_5e880.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+<command-line>:0:23: warning: conflicting types for built-in function 'scalbn'
+C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c:6:6: note: in expansion of macro 'CHECK_FUNCTION_EXISTS'
+ char CHECK_FUNCTION_EXISTS();
+      ^
+Linking C executable cmTC_5e880.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_5e880.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_5e880.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_5e880.dir/objects.a @CMakeFiles\cmTC_5e880.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=scalbn    -Wl,--whole-archive CMakeFiles\cmTC_5e880.dir/objects.a -Wl,--no-whole-archive  -o cmTC_5e880.exe -Wl,--out-implib,libcmTC_5e880.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_5e880.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function sin exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_763d4/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_763d4.dir\build.make CMakeFiles/cmTC_763d4.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_763d4.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=sin   -o CMakeFiles\cmTC_763d4.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+<command-line>:0:23: warning: conflicting types for built-in function 'sin'
+C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c:6:6: note: in expansion of macro 'CHECK_FUNCTION_EXISTS'
+ char CHECK_FUNCTION_EXISTS();
+      ^
+Linking C executable cmTC_763d4.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_763d4.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_763d4.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_763d4.dir/objects.a @CMakeFiles\cmTC_763d4.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=sin    -Wl,--whole-archive CMakeFiles\cmTC_763d4.dir/objects.a -Wl,--no-whole-archive  -o cmTC_763d4.exe -Wl,--out-implib,libcmTC_763d4.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_763d4.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function sinf exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_21807/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_21807.dir\build.make CMakeFiles/cmTC_21807.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_21807.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=sinf   -o CMakeFiles\cmTC_21807.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+<command-line>:0:23: warning: conflicting types for built-in function 'sinf'
+C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c:6:6: note: in expansion of macro 'CHECK_FUNCTION_EXISTS'
+ char CHECK_FUNCTION_EXISTS();
+      ^
+Linking C executable cmTC_21807.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_21807.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_21807.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_21807.dir/objects.a @CMakeFiles\cmTC_21807.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=sinf    -Wl,--whole-archive CMakeFiles\cmTC_21807.dir/objects.a -Wl,--no-whole-archive  -o cmTC_21807.exe -Wl,--out-implib,libcmTC_21807.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_21807.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function sqrt exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_1d4d3/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_1d4d3.dir\build.make CMakeFiles/cmTC_1d4d3.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1d4d3.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=sqrt   -o CMakeFiles\cmTC_1d4d3.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+<command-line>:0:23: warning: conflicting types for built-in function 'sqrt'
+C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c:6:6: note: in expansion of macro 'CHECK_FUNCTION_EXISTS'
+ char CHECK_FUNCTION_EXISTS();
+      ^
+Linking C executable cmTC_1d4d3.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_1d4d3.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_1d4d3.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_1d4d3.dir/objects.a @CMakeFiles\cmTC_1d4d3.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=sqrt    -Wl,--whole-archive CMakeFiles\cmTC_1d4d3.dir/objects.a -Wl,--no-whole-archive  -o cmTC_1d4d3.exe -Wl,--out-implib,libcmTC_1d4d3.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_1d4d3.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function sqrtf exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_20e97/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_20e97.dir\build.make CMakeFiles/cmTC_20e97.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_20e97.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=sqrtf   -o CMakeFiles\cmTC_20e97.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+<command-line>:0:23: warning: conflicting types for built-in function 'sqrtf'
+C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c:6:6: note: in expansion of macro 'CHECK_FUNCTION_EXISTS'
+ char CHECK_FUNCTION_EXISTS();
+      ^
+Linking C executable cmTC_20e97.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_20e97.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_20e97.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_20e97.dir/objects.a @CMakeFiles\cmTC_20e97.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=sqrtf    -Wl,--whole-archive CMakeFiles\cmTC_20e97.dir/objects.a -Wl,--no-whole-archive  -o cmTC_20e97.exe -Wl,--out-implib,libcmTC_20e97.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_20e97.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function tan exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_8369d/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_8369d.dir\build.make CMakeFiles/cmTC_8369d.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8369d.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=tan   -o CMakeFiles\cmTC_8369d.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+<command-line>:0:23: warning: conflicting types for built-in function 'tan'
+C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c:6:6: note: in expansion of macro 'CHECK_FUNCTION_EXISTS'
+ char CHECK_FUNCTION_EXISTS();
+      ^
+Linking C executable cmTC_8369d.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_8369d.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_8369d.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_8369d.dir/objects.a @CMakeFiles\cmTC_8369d.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=tan    -Wl,--whole-archive CMakeFiles\cmTC_8369d.dir/objects.a -Wl,--no-whole-archive  -o cmTC_8369d.exe -Wl,--out-implib,libcmTC_8369d.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_8369d.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function tanf exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_a2e2c/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_a2e2c.dir\build.make CMakeFiles/cmTC_a2e2c.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a2e2c.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=tanf   -o CMakeFiles\cmTC_a2e2c.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+<command-line>:0:23: warning: conflicting types for built-in function 'tanf'
+C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c:6:6: note: in expansion of macro 'CHECK_FUNCTION_EXISTS'
+ char CHECK_FUNCTION_EXISTS();
+      ^
+Linking C executable cmTC_a2e2c.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_a2e2c.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_a2e2c.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_a2e2c.dir/objects.a @CMakeFiles\cmTC_a2e2c.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=tanf    -Wl,--whole-archive CMakeFiles\cmTC_a2e2c.dir/objects.a -Wl,--no-whole-archive  -o cmTC_a2e2c.exe -Wl,--out-implib,libcmTC_a2e2c.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_a2e2c.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function acos exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_7b6bc/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_7b6bc.dir\build.make CMakeFiles/cmTC_7b6bc.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7b6bc.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=acos   -o CMakeFiles\cmTC_7b6bc.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+<command-line>:0:23: warning: conflicting types for built-in function 'acos'
+C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c:6:6: note: in expansion of macro 'CHECK_FUNCTION_EXISTS'
+ char CHECK_FUNCTION_EXISTS();
+      ^
+Linking C executable cmTC_7b6bc.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_7b6bc.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_7b6bc.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_7b6bc.dir/objects.a @CMakeFiles\cmTC_7b6bc.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=acos    -Wl,--whole-archive CMakeFiles\cmTC_7b6bc.dir/objects.a -Wl,--no-whole-archive  -o cmTC_7b6bc.exe -Wl,--out-implib,libcmTC_7b6bc.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_7b6bc.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the function asin exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_2fc0a/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_2fc0a.dir\build.make CMakeFiles/cmTC_2fc0a.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_2fc0a.dir/CheckFunctionExists.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DCHECK_FUNCTION_EXISTS=asin   -o CMakeFiles\cmTC_2fc0a.dir\CheckFunctionExists.c.obj   -c "C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c"
+<command-line>:0:23: warning: conflicting types for built-in function 'asin'
+C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckFunctionExists.c:6:6: note: in expansion of macro 'CHECK_FUNCTION_EXISTS'
+ char CHECK_FUNCTION_EXISTS();
+      ^
+Linking C executable cmTC_2fc0a.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_2fc0a.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_2fc0a.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_2fc0a.dir/objects.a @CMakeFiles\cmTC_2fc0a.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DCHECK_FUNCTION_EXISTS=asin    -Wl,--whole-archive CMakeFiles\cmTC_2fc0a.dir/objects.a -Wl,--no-whole-archive  -o cmTC_2fc0a.exe -Wl,--out-implib,libcmTC_2fc0a.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_2fc0a.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+
+Performing C SOURCE FILE Test HAVE_WIN32_CC succeeded with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_b885e/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_b885e.dir\build.make CMakeFiles/cmTC_b885e.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b885e.dir/src.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3 -DHAVE_WIN32_CC   -o CMakeFiles\cmTC_b885e.dir\src.c.obj   -c "C:\Users\Eagle Owl\Desktop\dethgame\dethgame\SDL\build\CMakeFiles\CMakeTmp\src.c"
+Linking C executable cmTC_b885e.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_b885e.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_b885e.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_b885e.dir/objects.a @CMakeFiles\cmTC_b885e.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3 -DHAVE_WIN32_CC    -Wl,--whole-archive CMakeFiles\cmTC_b885e.dir/objects.a -Wl,--no-whole-archive  -o cmTC_b885e.exe -Wl,--out-implib,libcmTC_b885e.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_b885e.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+    #include <windows.h>
+    int main(int argc, char **argv) { }
+Determining if the include file d3d9.h exists passed with the following output:
+Change Dir: C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_266eb/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_266eb.dir\build.make CMakeFiles/cmTC_266eb.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_266eb.dir/CheckIncludeFile.c.obj
+C:\MinGW\bin\gcc.exe    -g -O3    -o CMakeFiles\cmTC_266eb.dir\CheckIncludeFile.c.obj   -c "C:\Users\Eagle Owl\Desktop\dethgame\dethgame\SDL\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+Linking C executable cmTC_266eb.exe
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_266eb.dir\link.txt --verbose=1
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_266eb.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_266eb.dir/objects.a @CMakeFiles\cmTC_266eb.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -g -O3     -Wl,--whole-archive CMakeFiles\cmTC_266eb.dir/objects.a -Wl,--no-whole-archive  -o cmTC_266eb.exe -Wl,--out-implib,libcmTC_266eb.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_266eb.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/CMakeTmp'
+
+

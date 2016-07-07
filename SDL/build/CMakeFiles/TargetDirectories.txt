@@ -1,0 +1,10 @@
+C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/rebuild_cache.dir
+C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/SDL2-static.dir
+C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/SDL2main.dir
+C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/edit_cache.dir
+C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/install.dir
+C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/install/local.dir
+C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/SDL2.dir
+C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/uninstall.dir
+C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/list_install_components.dir
+C:/Users/Eagle Owl/Desktop/dethgame/dethgame/SDL/build/CMakeFiles/install/strip.dir
