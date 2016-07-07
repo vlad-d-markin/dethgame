@@ -9,6 +9,7 @@
 #include "DebugActor.h"
 #include "example.h"
 
+#include "dethgame.h"
 
 using namespace oxygine;
 
@@ -22,7 +23,7 @@ int mainloop()
     bool done = core::update();
 
     // It gets passed to our example game implementation
-    example_update();
+    DethGame::instance()->update();
 
     // Update our stage
     // Update all actors. Actor::update will also be called for all its children
@@ -48,7 +49,7 @@ void run()
 
     // Initialize Oxygine's internal stuff
     core::init_desc desc;
-    desc.title = "Oxygine Application";
+    desc.title = "Dethgame";
 
 #if OXYGINE_SDL || OXYGINE_EMSCRIPTEN
     // The initial window size can be set up here on SDL builds
@@ -57,8 +58,7 @@ void run()
     // Marmalade settings can be modified from the emulator's menu
 #endif
 
-
-    example_preinit();
+    DethGame::instance()->preInit();
     core::init(&desc);
 
 
@@ -71,7 +71,7 @@ void run()
     DebugActor::show();
 
     // Initializes our example game. See example.cpp
-    example_init();
+    DethGame::instance()->init();
 
 #ifdef EMSCRIPTEN
     /*
@@ -109,7 +109,7 @@ void run()
     */
 
     // See example.cpp for the shutdown function implementation
-    example_destroy();
+    DethGame::instance()->destroy();
 
 
     //renderer.cleanup();
