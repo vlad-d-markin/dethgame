@@ -1,6 +1,7 @@
 #ifndef DETHGAME_H
 #define DETHGAME_H
 
+#include <string>
 #include "oxygine-framework.h"
 
 #include "screens/basescreen.h"
@@ -15,6 +16,9 @@ private:
 
 public:
     static DethGame * instance();
+
+    oxygine::spStage getMainStage();
+    std::string getGuiResPath();
 
     void preInit();
     void init();
