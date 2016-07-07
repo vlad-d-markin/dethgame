@@ -7,7 +7,7 @@ LIST:
 	- Mustakrakish
 
 
-ХАРАТЕРИСТИКИ:
+РҐРђР РђРўР•Р РРЎРўРРљР:
 	- type			
 	- hp		
 	- melee damage
@@ -30,7 +30,7 @@ Metal Masked Assassin: (melee: machete, range: knives)
 	- pursuit		everywhere
 	- attack range		Rpers * 0,8
 	- attack speed		1hit/2sec	
-	- skill			критический удар с шансом (30%)
+	- skill			РєСЂРёС‚РёС‡РµСЃРєРёР№ СѓРґР°СЂ СЃ С€Р°РЅСЃРѕРј (30%)
 
 Lavona Succuboso: (melee: kick in the balls, range: harpoon)
 	- type			melee and range
@@ -42,7 +42,7 @@ Lavona Succuboso: (melee: kick in the balls, range: harpoon)
 	- pursuit		everywhere
 	- attack range		Rpers * 0,8
 	- attack speed		1hit/2sec
-	- skill			притягивает к себе с башем 1(2) секунды (30%) 
+	- skill			РїСЂРёС‚СЏРіРёРІР°РµС‚ Рє СЃРµР±Рµ СЃ Р±Р°С€РµРј 1(2) СЃРµРєСѓРЅРґС‹ (30%) 
 
 Dr. Rockso: (melee: punching, range: syringes)
 	- type			melee and range
@@ -54,10 +54,10 @@ Dr. Rockso: (melee: punching, range: syringes)
 	- pursuit		everywhere
 	- attack range		Rpers * 0,8
 	- attack speed		1hit/2sec
-	- skill			периодический урон по hp=50 и sp=40 каждую секунду от poison 
-				breathe (5 сек) в небольшом радусе на порогах в 100 hp
+	- skill			РїРµСЂРёРѕРґРёС‡РµСЃРєРёР№ СѓСЂРѕРЅ РїРѕ hp=50 Рё sp=40 РєР°Р¶РґСѓСЋ СЃРµРєСѓРЅРґСѓ РѕС‚ poison 
+				breathe (5 СЃРµРє) РІ РЅРµР±РѕР»СЊС€РѕРј СЂР°РґСѓСЃРµ РЅР° РїРѕСЂРѕРіР°С… РІ 100 hp
 
-Mustakrakish: (melee: punching, range: fire ball) - можно собрать dethtelephone!
+Mustakrakish: (melee: punching, range: fire ball) - РјРѕР¶РЅРѕ СЃРѕР±СЂР°С‚СЊ dethtelephone!
 	- type			melee and range
 	- hp			900
 	- melee damage		70
