@@ -2,11 +2,12 @@
 <resources>
 	<set path = "images" />
 	<atlas>
-		<image id="base_button_bg" file="button.png" cols = "3"/>
-		<image id="main_menu_bg" file="mordhaus_bg.jpg" />		
+		<image id="main_menu_bg" file="Logo.png" />		
+		<image id="start" file="Start.png" cols = "2"/>
+		<image id="rules" file="Rules.png" cols = "2"/>
+		<image id="exit" file="Exit.png" cols = "2"/>
 	</atlas>
 	
 	<set path = "fonts" />
 	<font file="main.fnt" />
-	<font file="barbecue52.fnt" />
 </resources>

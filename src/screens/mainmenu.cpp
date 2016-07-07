@@ -14,8 +14,18 @@ MainMenu::MainMenu()
     background->setScale(scale_factor);
     background->attachTo(this);
 
-
-    spTextButton btn = new TextButton(m_resources, "NEW GAME");
+    //Buttons
+    spImageButton btn = new ImageButton(m_resources->getResAnim("start"));
+    btn->setScale(scale_factor);
+    btn->setPosition(getWidth()/2 - btn->getWidth()/2*scale_factor + 13, 50 + getHeight()/2);
+    btn->attachTo(this);
+    btn = new ImageButton(m_resources->getResAnim("rules"));
+    btn->setScale(scale_factor);
+    btn->setPosition(getWidth()/2 - btn->getWidth()/2*scale_factor + 13, 50 + getHeight()/2 + btn->getHeight()*scale_factor);
+    btn->attachTo(this);
+    btn = new ImageButton(m_resources->getResAnim("exit"));
+    btn->setScale(scale_factor);
+    btn->setPosition(getWidth()/2 - btn->getWidth()/2*scale_factor + 13, 50 + getHeight()/2 + 2*btn->getHeight()*scale_factor);
     btn->attachTo(this);
 }
 

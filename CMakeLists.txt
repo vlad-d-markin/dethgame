@@ -18,17 +18,13 @@ file(GLOB_RECURSE SRC_FILES "./src/*.cpp")
 
 add_executable(${PROJECT_NAME} ${SRC_FILES})
 target_link_libraries(${PROJECT_NAME} ${OXYGINE_CORE_LIBS})
-# Copy dlls to output dir
-add_custom_command(TARGET dethgame POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_directory
-        "${PROJECT_SOURCE_DIR}/data"
-        $<TARGET_FILE_DIR:dethgame>)
 
 # Copy dlls to output dir
-add_custom_command(TARGET dethgame POST_BUILD
+add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory
         "${PROJECT_SOURCE_DIR}/data"
-        $<TARGET_FILE_DIR:dethgame>)
+        $<TARGET_FILE_DIR:${PROJECT_NAME}>)
+
 
 #disable console mode for VC++
 if (WIN32) 

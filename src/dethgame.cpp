@@ -16,7 +16,6 @@ DethGame::DethGame()
 }
 
 
-
 spStage DethGame::getMainStage()
 {
     return getStage();

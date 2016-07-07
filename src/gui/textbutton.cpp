@@ -21,7 +21,6 @@ TextButton::TextButton(Resources *resManager, const std::string &text)
     title->setText(text);
     title->attachTo(this);
 
-
 //    addEventListener()
 }
 
