@@ -1,0 +1,70 @@
+=========================== BOSSES ===========================
+
+LIST:
+ 	- Metal Masked Assassin
+	- Lavona Succuboso
+	- Dr. Rockso
+	- Mustakrakish
+
+
+’ј–ј“≈–»—“» »:
+	- type			
+	- hp		
+	- melee damage
+	- range damage	
+	- speed
+	- agr range
+	- pursuit
+	- attack range
+	- attack speed
+	- skill
+
+
+Metal Masked Assassin: (melee: machete, range: knives)
+	- type			melee and range			
+	- hp			200	
+	- melee damage		50
+	- range damage		30
+	- speed			Vnorm * 0,7
+	- agr range		Rpers * 1,3
+	- pursuit		everywhere
+	- attack range		Rpers * 0,8
+	- attack speed		1hit/2sec	
+	- skill			критический удар с шансом (30%)
+
+Lavona Succuboso: (melee: kick in the balls, range: harpoon)
+	- type			melee and range
+	- hp			250
+	- melee damage		50
+	- range damage		40
+	- speed			Vnorm * 0,8
+	- agr range		Rpers * 1,3
+	- pursuit		everywhere
+	- attack range		Rpers * 0,8
+	- attack speed		1hit/2sec
+	- skill			прит€гивает к себе с башем 1(2) секунды (30%) 
+
+Dr. Rockso: (melee: punching, range: syringes)
+	- type			melee and range
+	- hp			500
+	- melee damage		60
+	- range damage		60
+	- speed			Vnorm * 0,9
+	- agr range		Rpers * 1,3
+	- pursuit		everywhere
+	- attack range		Rpers * 0,8
+	- attack speed		1hit/2sec
+	- skill			периодический урон по hp=50 и sp=40 каждую секунду от poison 
+				breathe (5 сек) в небольшом радусе на порогах в 100 hp
+
+Mustakrakish: (melee: punching, range: fire ball) - можно собрать dethtelephone!
+	- type			melee and range
+	- hp			900
+	- melee damage		70
+	- range damage		70
+	- speed			Vnorm
+	- agr range		Rpers * 1,3
+	- pursuit		everywhere
+	- attack range		Rpers * 0,8
+	- attack speed		1hit/2sec
+	- skill			if dist > Rpers then dist -= Rpers*0,4
