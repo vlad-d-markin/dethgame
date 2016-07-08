@@ -1,4 +1,7 @@
 #include "dethgame.h"
+#include "screens/mainmenu.h"
+
+using namespace oxygine;
 
 DethGame * DethGame::instance()
 {
@@ -13,6 +16,18 @@ DethGame::DethGame()
 }
 
 
+spStage DethGame::getMainStage()
+{
+    return getStage();
+}
+
+std::string DethGame::getGuiResPath()
+{
+    return "gui.xml";
+}
+
+
+
 void DethGame::preInit()
 {
 
@@ -22,7 +37,8 @@ void DethGame::preInit()
 
 void DethGame::init()
 {
-
+    spMainMenu menu = new MainMenu();
+    getMainStage()->addChild(menu);
 }
 
 
@@ -37,3 +53,5 @@ void DethGame::destroy()
 {
 
 }
+
+

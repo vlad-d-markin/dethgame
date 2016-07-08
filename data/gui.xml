@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<resources>
+	<set path = "images" />
+	<atlas>
+		<image id="main_menu_bg" file="Logo.png" />		
+		<image id="start" file="Start.png" cols = "2"/>
+		<image id="rules" file="Rules.png" cols = "2"/>
+		<image id="exit" file="Exit.png" cols = "2"/>
+	</atlas>
+	
+	<set path = "fonts" />
+	<font file="main.fnt" />
+</resources>
