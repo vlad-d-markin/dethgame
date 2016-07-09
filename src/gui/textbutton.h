@@ -2,23 +2,28 @@
 #define BUTTON_H
 
 #include <string>
+#include "button.h"
 #include "oxygine-framework.h"
 
 using namespace oxygine;
 
-class TextButton : public Button
-{
-private:
-    Resources * m_resources;
-public:
-    TextButton(Resources * resManager, const std::string& text = "Click me");
-    virtual ~TextButton();
+namespace Gui {
 
-private:
-    void onClick();
-    void onHover();
-};
+    DECLARE_SMART(TextButton, spTextButton);
+    class TextButton : public BaseButton {
+    private:
+        spTextField m_title;
 
-typedef ::oxygine::intrusive_ptr<TextButton> spTextButton;
+    public:
+        TextButton(const std::string &text = "Click me");
+        virtual ~TextButton();
 
+        void setText(const std::string& text);
+
+
+    protected:
+        virtual void onSizeChanged(const Vector2 &size);
+
+    };
+}
 #endif
