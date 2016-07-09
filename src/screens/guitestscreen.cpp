@@ -4,6 +4,7 @@
 #include "../gui/button.h"
 #include "../gui/textbutton.h"
 #include "../gui/bar.h"
+#include "../gui/panel.h"
 
 GuiTestScreen::GuiTestScreen()
 {
@@ -23,7 +24,7 @@ GuiTestScreen::GuiTestScreen()
     tbtn->attachTo(this);
     tbtn->setName("Text button");
     tbtn->setPosition(100, 160);
-    tbtn->setText("EXIT");
+    tbtn->setText("Text button");
 
     Gui::spBar pbar = new Gui::Bar();
     pbar->setPosition(100, 200);
@@ -32,6 +33,21 @@ GuiTestScreen::GuiTestScreen()
 
     pbar->setMaxValue(100);
     pbar->setValue(34);
+
+    Gui::spPanel panel = new Gui::Panel();
+    panel->setSize(400, 300);
+    panel->setPosition(500, 80);
+    panel->showBoundaries(true);
+    panel->attachTo(this);
+
+    Gui::spBar pbar1 = new Gui::Bar();
+    pbar1->setPosition(10, 10);
+    pbar1->attachTo(this);
+    pbar1->setSize(60, 500);
+
+    pbar1->setMaxValue(1130);
+    pbar1->setValue(562);
+    panel->addElement(pbar1);
 }
 
 GuiTestScreen::~GuiTestScreen()
