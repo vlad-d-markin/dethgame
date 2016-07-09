@@ -25,7 +25,7 @@ public:
     void update();
     void destroy();
 
-
+    void quit();
 
 };
 
