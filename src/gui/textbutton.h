@@ -13,6 +13,7 @@ namespace Gui {
     class TextButton : public BaseButton {
     private:
         spTextField m_title;
+        spColorRectSprite m_background;
 
     public:
         TextButton(const std::string &text = "Click me");
@@ -22,6 +23,11 @@ namespace Gui {
 
 
     protected:
+        virtual void onOvered();
+        virtual void onLeft();
+        virtual void onPressed();
+        virtual void onReleased();
+
         virtual void onSizeChanged(const Vector2 &size);
 
     };

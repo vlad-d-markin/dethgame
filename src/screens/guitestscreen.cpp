@@ -3,6 +3,7 @@
 #include "../gui/guielement.h"
 #include "../gui/button.h"
 #include "../gui/textbutton.h"
+#include "../gui/bar.h"
 
 GuiTestScreen::GuiTestScreen()
 {
@@ -19,11 +20,18 @@ GuiTestScreen::GuiTestScreen()
 
     Gui::spTextButton tbtn = new Gui::TextButton("Some text");
     tbtn->setSize(300, 30);
-    tbtn->showBoundaries(true);
     tbtn->attachTo(this);
     tbtn->setName("Text button");
     tbtn->setPosition(100, 160);
     tbtn->setText("EXIT");
+
+    Gui::spBar pbar = new Gui::Bar();
+    pbar->setPosition(100, 200);
+    pbar->attachTo(this);
+    pbar->setSize(60, 500);
+
+    pbar->setMaxValue(100);
+    pbar->setValue(34);
 }
 
 GuiTestScreen::~GuiTestScreen()
