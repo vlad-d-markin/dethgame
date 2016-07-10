@@ -37,9 +37,12 @@ Gui::Bar::~Bar() { }
 
 void Gui::Bar::setValue(double value)
 {
+    if(value < 0 || value > m_maxvalue)
+        return;
+
     m_value = value;
     if(m_maxvalue > 0) {
-        m_bar->setWidth((float) m_value / m_maxvalue * m_background->getWidth() - 6);
+        m_bar->setWidth((float) m_value / m_maxvalue * (m_background->getWidth() - 6));
         updateText();
     }
 }
@@ -51,6 +54,9 @@ double Gui::Bar::getValue()
 
 void Gui::Bar::setMaxValue(double maxvalue)
 {
+    if(maxvalue < 0)
+        return;
+
     m_maxvalue = maxvalue;
 }
 
