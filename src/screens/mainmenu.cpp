@@ -3,6 +3,7 @@
 
 MainMenu::MainMenu()
 {
+    setName("Menu");
     m_resources = new Resources();
     m_resources->loadXML(DethGame::instance()->getGuiResPath());
 
@@ -18,6 +19,8 @@ MainMenu::MainMenu()
     spImageButton btn = new ImageButton(m_resources->getResAnim("start"));
     btn->setScale(scale_factor);
     btn->setPosition(getWidth()/2 - btn->getWidth()/2*scale_factor + 13, 50 + getHeight()/2);
+    EventCallback cb = CLOSURE(DethGame::instance(),&DethGame::startGame);
+    btn->addEventListener(TouchEvent::CLICK, cb);
     btn->attachTo(this);
     btn = new ImageButton(m_resources->getResAnim("rules"));
     btn->setScale(scale_factor);

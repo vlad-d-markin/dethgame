@@ -19,12 +19,14 @@ public:
 
     oxygine::spStage getMainStage();
     std::string getGuiResPath();
+    std::string getTileResPath();
 
     void preInit();
     void init();
     void update();
     void destroy();
 
+    void startGame(Event *event);
 
 
 };
