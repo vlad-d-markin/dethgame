@@ -1,10 +1,6 @@
 #include "guitestscreen.h"
 
-#include "../gui/guielement.h"
-#include "../gui/button.h"
-#include "../gui/textbutton.h"
-#include "../gui/bar.h"
-#include "../gui/panel.h"
+#include "../gui/gui.h"
 
 GuiTestScreen::GuiTestScreen()
 {
@@ -25,6 +21,7 @@ GuiTestScreen::GuiTestScreen()
     tbtn->setName("Text button");
     tbtn->setPosition(100, 160);
     tbtn->setText("Text button");
+//    tbtn->setVisible(false);
 
     Gui::spBar pbar = new Gui::Bar();
     pbar->setPosition(100, 200);
@@ -48,6 +45,13 @@ GuiTestScreen::GuiTestScreen()
     pbar1->setMaxValue(1130);
     pbar1->setValue(562);
     panel->addElement(pbar1);
+//    panel->setVisible(false);
+
+    Gui::spTextLabel lbl = new Gui::TextLabel();
+    lbl->setText("This is a text label");
+    lbl->setPosition(10, 50);
+    panel->addElement(lbl);
+    lbl->showBoundaries(true);
 }
 
 GuiTestScreen::~GuiTestScreen()
