@@ -6,6 +6,7 @@ class GameScreen : public BaseScreen
 {
 public:
     GameScreen();
+    Resources* getResources();
 private:
     Resources * m_resources;
 };

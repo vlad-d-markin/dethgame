@@ -2,7 +2,7 @@
 <resources>
 	<set path = "images" />
 	<atlas>
-		<image id="grass" file="grass-tiles-2-small.png" cols="12" rows="6" />
+		<image id="background" file="grass-tiles-2-small.png" cols="12" rows="6" />
 		<image id="shrooms" file="littleshrooms_0.png" />
 		<image id="dup" file="qubodup-bush_0.png"/>
 		<image id="berries" file="qubodup-bush_berries_0.png" />

@@ -43,8 +43,8 @@ class Map
 {
     Resources * m_resources;
 
-	int width_map;  //tiles
-	int height_map; //tiles
+    int row_map;  //tiles
+    int col_map; //tiles
 
 	int width_tile;
 	int height_tile;
@@ -75,6 +75,7 @@ public:
     void xmlParser(std::string path);
     void loadTiles();
     void attachToMap(GameScreen *gs);
+    void drawLayer(layer &m_layer, GameScreen *gs);
 };
 
 

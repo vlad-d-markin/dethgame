@@ -18,13 +18,14 @@ GameScreen::GameScreen()
     Map* map = new Map();
     map->attachToMap(this);
 
-    /*// Background
+/*
+    // Background
     spSprite background = new Sprite();
     background->setResAnim(m_resources->getResAnim("main_menu_bg"));
     background->setSize(getSize());
-    //background->attachTo(this);
-
-
+    background->attachTo(this);
+*/
+/*
     spMySprite sprite = new MySprite;
     sprite->setAnchor(0.5, 0.5);
     sprite->setResAnim(m_resources->getResAnim("skin"));
@@ -36,5 +37,11 @@ GameScreen::GameScreen()
     camera->addChild(background);
     camera->addChild(sprite);
     camera->setAnchor(0.5, 0.5);
-    getStage()->addChild(camera);*/
+    getStage()->addChild(camera);
+    */
+}
+
+Resources* GameScreen::getResources()
+{
+    return m_resources;
 }

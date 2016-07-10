@@ -4,6 +4,7 @@
 #include <iostream>
 #include "Sprite.h"
 #include "dethgame.h"
+#include "mySprite.h"
 
 
 #define COLLISION   "Collision"
@@ -39,8 +40,8 @@ void Map::xmlParser(std::string path)
     }
     pugi::xml_node map = doc.child("map");
 
-    width_map = atoi(map.attribute("width").value());
-    height_map = atoi(map.attribute("height").value());
+    row_map = atoi(map.attribute("width").value());
+    col_map = atoi(map.attribute("height").value());
 
     width_tile = atoi(map.attribute("tilewidth").value());
     height_tile = atoi(map.attribute("tileheight").value());
@@ -178,13 +179,67 @@ void Map::loadTiles()
 
 void Map::attachToMap(GameScreen *gs)
 {
-    spSprite background = new Sprite();
-    background->setResAnim(m_resources->getResAnim("grass"));
-    background->setSize(getStage()->getSize());
-    background->attachTo(gs);
+
+
+        drawLayer(layers[0], gs);
+
+        spMySprite sprite = new MySprite;
+        sprite->setAnchor(0.5, 0.5);
+        sprite->setResAnim(gs->getResources()->getResAnim("skin"));
+        sprite->attachTo(gs);
+        sprite->setPosition(gs->getSize() / 2);
+
+    /*
+    //camera
+    spActor camera = new Actor;
+    camera->addChild(sprite);
+    camera->setAnchor(0.5, 0.5);
+    getStage()->addChild(camera);
+    */
+
+
 }
+
+
+void Map::drawLayer(layer& m_layer, GameScreen *gs)
+{
+    spSprite tile = new Sprite();
+    tile->setResAnim(m_resources->getResAnim("background"));
+
+
+    for(int i_row = 0, x = -(tile->getWidth()), y = 0; i_row < m_layer.gid_set.size(); i_row++) {
+
+        spSprite tile = new Sprite();
+        tile->setResAnim(m_resources->getResAnim("background"));
+
+        int width = tile->getResAnim()->getColumns();
+
+        tile->setRow(m_layer.gid_set[i_row]/width);
+        if(m_layer.gid_set[i_row] % width == 0 )
+                tile->setRow(m_layer.gid_set[i_row]/width -1);
+
+        tile->setColumn( m_layer.gid_set[i_row] % width - 1);
+        if(m_layer.gid_set[i_row] % width  == 0)
+            tile->setColumn(width);
+
+
+        x+=tile->getWidth();
+        if(x >= (tile->getWidth())*(m_layer.width)) {
+            x = 0;
+            y+= tile->getHeight();
+        }
+
+
+        tile->setPosition(x, y);
+        tile->setSize(getStage()->getSize());
+        tile->attachTo(gs);
+    }
+}
+
 
 Map::~Map()
 {
 
 }
+
+
