@@ -12,7 +12,7 @@ void MySprite::doUpdate(const UpdateState &us)
 	const Uint8* data = SDL_GetKeyboardState(0);
 
 	//calculate speed using delta time
-    float speed = 500.0f * (us.dt / 1000.0f);
+	float speed = 500.0f * (us.dt / 1000.0f);
 
 	Vector2 pos = getPosition();
 
@@ -24,42 +24,50 @@ void MySprite::doUpdate(const UpdateState &us)
 	// move player
 	setPosition(pos);
 
-
 	Vector2 windowSize(getParent()->getSize());
+
+	std::cout << (getMapSize().x > windowSize.x) << std::endl;
 
 	// move camera
 	//x 
-	if (getPosition().x > windowSize.x / 2 && getPosition().x < getMapSize().x - windowSize.x / 2)
+	if (getMapSize().x > windowSize.x)
 	{
-		getParent()->setPosition(-getPosition().x + windowSize.x / 2, getParent()->getPosition().y);
-	}
-	else
-	{
-		if (getPosition().x < windowSize.x / 2)
+		if (getPosition().x > windowSize.x / 2 && getPosition().x < getMapSize().x - windowSize.x / 2)
 		{
-			getParent()->setPosition(0, getParent()->getPosition().y);
+			getParent()->setPosition(-getPosition().x + windowSize.x / 2, getParent()->getPosition().y);
 		}
+		else
+		{
+			if (getPosition().x < windowSize.x / 2)
+			{
+				getParent()->setPosition(0, getParent()->getPosition().y);
+			}
 
-		if (getPosition().x > getMapSize().x - windowSize.x / 2)
-		{
-			getParent()->setPosition(-getMapSize().x + windowSize.x, getParent()->getPosition().y);
+			if (getPosition().x > getMapSize().x - windowSize.x / 2)
+			{
+				getParent()->setPosition(-getMapSize().x + windowSize.x, getParent()->getPosition().y);
+			}
 		}
 	}
+	
 	//y 
-	if (getPosition().y > windowSize.y / 2 && getPosition().y < getMapSize().y - windowSize.y / 2)
+	if (getMapSize().y > windowSize.y)
 	{
-		getParent()->setPosition(getParent()->getPosition().x, -getPosition().y + windowSize.y / 2);
-	}
-	else
-	{
-		if (getPosition().y < windowSize.y / 2)
+		if (getPosition().y > windowSize.y / 2 && getPosition().y < getMapSize().y - windowSize.y / 2)
 		{
-			getParent()->setPosition(getParent()->getPosition().x, 0);
+			getParent()->setPosition(getParent()->getPosition().x, -getPosition().y + windowSize.y / 2);
 		}
-
-		if (getPosition().y > getMapSize().y - windowSize.y / 2)
+		else
 		{
-			getParent()->setPosition(getParent()->getPosition().x, -getMapSize().y + windowSize.y);
+			if (getPosition().y < windowSize.y / 2)
+			{
+				getParent()->setPosition(getParent()->getPosition().x, 0);
+			}
+
+			if (getPosition().y > getMapSize().y - windowSize.y / 2)
+			{
+				getParent()->setPosition(getParent()->getPosition().x, -getMapSize().y + windowSize.y);
+			}
 		}
 	}
 }
