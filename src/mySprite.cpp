@@ -23,13 +23,15 @@ void MySprite::doUpdate(const UpdateState &us)
 
 	setPosition(pos);
 
-	if (getPosition().x > getParent()->getParent()->getSize().x / 2)
+	Vector2 windowSize(getParent()->getSize());
+
+	if (getPosition().x > windowSize.x / 2 && getPosition().x < getMapSize().x - windowSize.x / 2)
 	{
-		getParent()->setPosition(-getPosition().x + getParent()->getParent()->getSize().x / 2, getParent()->getPosition().y);
+		getParent()->setPosition(-getPosition().x + windowSize.x / 2, getParent()->getPosition().y);
 	}
 
-	if (getPosition().y > getParent()->getParent()->getSize().y / 2)
+	if (getPosition().y > windowSize.y / 2 && getPosition().y < getMapSize().y - windowSize.y / 2)
 	{
-		getParent()->setPosition(getParent()->getPosition().x, -getPosition().y + getParent()->getParent()->getSize().y / 2);
+		getParent()->setPosition(getParent()->getPosition().x, -getPosition().y + windowSize.y / 2);
 	}
 }
