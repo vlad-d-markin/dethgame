@@ -11,7 +11,7 @@ DethGame * DethGame::instance()
 }
 
 
-DethGame::DethGame()
+DethGame::DethGame():config(CONFIG)
 {
 
 }
@@ -32,11 +32,18 @@ std::string DethGame::getTileResPath()
     return "tile.xml";
 }
 
+void DethGame::setFullscreen(SDL_Window* window, bool is_fullscreen)
+{
+    Uint32 FullscreenFlag = SDL_WINDOW_FULLSCREEN;
+    bool IsFullscreen = SDL_GetWindowFlags(window) & FullscreenFlag;
+    SDL_SetWindowFullscreen(window, (IsFullscreen && is_fullscreen) ? 0 : FullscreenFlag);
+    SDL_ShowCursor(IsFullscreen);
+}
 
 
 void DethGame::preInit()
 {
-
+    config.load();
 }
 
 
@@ -47,6 +54,9 @@ void DethGame::init()
     getMainStage()->addChild(menu);
     //spBaseScreen game = new BaseScreen();
     //getMainStage()->addChild(game);
+    config.setMusicVolume(77);
+    oxygine::log::messageln("volume=%d",config.getMusicVolume());
+//    setFullscreen(core::getWindow(), config.getFullScreen());
 }
 
 void DethGame::startGame(Event * event)
@@ -70,7 +80,8 @@ void DethGame::update()
 
 void DethGame::destroy()
 {
-
+    oxygine::log::messageln("destroy it bitch");
+    config.save();
 }
 
 

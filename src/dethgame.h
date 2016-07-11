@@ -3,16 +3,18 @@
 
 #include <string>
 #include "oxygine-framework.h"
-
+#include "configuration.h"
 #include "screens/basescreen.h"
 
+#define CONFIG "dethconfig.json"
 
 class DethGame
 {
 private:
     DethGame();
-    DethGame(const DethGame&){}
+    DethGame(const DethGame&):config(CONFIG){}
     DethGame& operator=(const DethGame&){}
+    Configuration config;
 
 public:
     static DethGame * instance();
@@ -20,6 +22,8 @@ public:
     oxygine::spStage getMainStage();
     std::string getGuiResPath();
     std::string getTileResPath();
+
+    void setFullscreen(SDL_Window* window, bool is_fullscreen);
 
     void preInit();
     void init();

@@ -39,7 +39,6 @@ int main(int argc, char* argv[])
 #include "core/oxygine.h"
 #include "Stage.h"
 #include "DebugActor.h"
-#include "example.h"
 #include "dethgame.h"
 
 using namespace oxygine;
