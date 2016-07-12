@@ -278,14 +278,14 @@ Vector2 Map::getMapSize()
 
 bool Map::checkObstacle(RectT<Vector2> rect_player)
 {
-    for(int i = 0; i  <vec_maptiles.size(); i++)
+    for(int i = 0; i < vec_maptiles.size(); i++)
     {
         if((vec_maptiles[i].getTiletype()) != _COLLISION)
             continue;
 
         RectT<Vector2> obj(vec_maptiles[i].getTile()->getPosition(), vec_maptiles[i].getTile()->getSize());
 
-        if(rect_player.isIntersecting(obj)==true)
+        if(rect_player.isIntersecting(obj) == true)
             return true;
     }
 

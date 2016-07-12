@@ -31,6 +31,28 @@ Player::Player() : Sprite()
     weaponHandlingSpeed = Vnorm;
 }
 
+Vector2 Player::getDirectionX()
+{
+    return Vector2(dirX, 0);
+}
+
+Vector2 Player::getDirectionY()
+{
+    return Vector2(0, dirY);
+}
+
+void Player::moveX()
+{
+    pos.x += dirX;
+    setPosition(pos);
+}
+
+void Player::moveY()
+{
+    pos.y += dirY;
+    setPosition(pos);
+}
+
 void Player::doUpdate(const UpdateState &us)
 {
 	const Uint8* data = SDL_GetKeyboardState(0);
@@ -39,21 +61,17 @@ void Player::doUpdate(const UpdateState &us)
 	float speed = 500.0f * (us.dt / 1000.0f);
 
     //Vector2 pos = getPosition();
-    dir.x = 0;
-    dir.y = 0;
+    dirX = 0;
+    dirY = 0;
 
-    if (data[SDL_SCANCODE_A]) dir.x -= speed;
-    if (data[SDL_SCANCODE_D]) dir.x += speed;
-    if (data[SDL_SCANCODE_W]) dir.y -= speed;
-    if (data[SDL_SCANCODE_S]) dir.y += speed;
-
-    // move player
-    pos += dir;
-	setPosition(pos);
+    if (data[SDL_SCANCODE_A]) dirX -= speed;
+    if (data[SDL_SCANCODE_D]) dirX += speed;
+    if (data[SDL_SCANCODE_W]) dirY -= speed;
+    if (data[SDL_SCANCODE_S]) dirY += speed;
 
     //rotate player
-    if(! ( ( dir.x == 0 ) && ( dir.y == 0 ) ) )
-        this->setRotation(atan2(dir.y, dir.x));
+    if(! ( ( dirX == 0 ) && ( dirY == 0 ) ) )
+        this->setRotation(atan2(dirY, dirX));
 
 	Vector2 windowSize(getParent()->getSize());
 

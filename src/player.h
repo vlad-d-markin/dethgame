@@ -16,7 +16,9 @@ private:
     Resources * my_resources;
     ResAnim* resAnim;
     Vector2 pos;
-    Vector2 dir;
+    float dirX;
+    float dirY;
+    RectT<Vector2> * rectangle;
     int healthPoints;
     int stamina;
     int healthRegenerationSpeed;
@@ -36,6 +38,10 @@ public:
     Player();
 	void setMapSize(Vector2 _mapSize) { mapSize = _mapSize; }
 	Vector2 getMapSize() const { return mapSize; }
+    Vector2 getDirectionX();
+    Vector2 getDirectionY();
+    void moveX();
+    void moveY();
 };
 
 typedef ::oxygine::intrusive_ptr<Player> spPlayer;
