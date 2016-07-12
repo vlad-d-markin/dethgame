@@ -26,6 +26,8 @@ Gui::TextButton::TextButton(const std::string &text)
 
     m_title->setText(text);
     m_title->attachTo(this);
+
+    setSize(m_title->getTextRect().getSize() * 1.5);
 }
 
 Gui::TextButton::~TextButton()

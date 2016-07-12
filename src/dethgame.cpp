@@ -1,6 +1,7 @@
 #include "dethgame.h"
 #include "screens/mainmenu.h"
 #include "screens/gamescreen.h"
+#include "screens/optionsscreen.h"
 #include "screens/guitestscreen.h"
 
 using namespace oxygine;
@@ -57,19 +58,21 @@ void DethGame::preInit()
 
 void DethGame::init()
 {
-<<<<<<< HEAD
-    spMainMenu menu = new MainMenu();
-    getMainStage()->addChild(menu);
-    //spBaseScreen game = new BaseScreen();
-    //getMainStage()->addChild(game);
-    config.setMusicVolume(77);
-    oxygine::log::messageln("volume=%d",config.getMusicVolume());
-//    setFullscreen(core::getWindow(), config.getFullScreen());
-=======
 //    spMainMenu menu = new MainMenu();
-    spGuiTestScreen test = new GuiTestScreen();
-    getMainStage()->addChild(test);
->>>>>>> dev
+//    getMainStage()->addChild(menu);
+//    //spBaseScreen game = new BaseScreen();
+//    //getMainStage()->addChild(game);
+//    config.setMusicVolume(77);
+//    oxygine::log::messageln("volume=%d",config.getMusicVolume());
+//    setFullscreen(core::getWindow(), config.getFullScreen());
+
+//    spMainMenu menu = new MainMenu();
+//    spGuiTestScreen test = new GuiTestScreen();
+//    getMainStage()->addChild(test);
+
+    spOptionsScreen opt_screen = new OptionsScreen();
+    opt_screen->setDebugging(true);
+    getMainStage()->addChild(opt_screen);
 }
 
 void DethGame::startGame(Event * event)
