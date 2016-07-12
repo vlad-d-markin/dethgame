@@ -1,5 +1,6 @@
 #include "dethgame.h"
 #include "screens/mainmenu.h"
+#include "screens/guitestscreen.h"
 
 using namespace oxygine;
 
@@ -28,6 +29,12 @@ std::string DethGame::getGuiResPath()
 
 
 
+void DethGame::quit()
+{
+    core::requestQuit();
+}
+
+
 void DethGame::preInit()
 {
 
@@ -37,8 +44,9 @@ void DethGame::preInit()
 
 void DethGame::init()
 {
-    spMainMenu menu = new MainMenu();
-    getMainStage()->addChild(menu);
+//    spMainMenu menu = new MainMenu();
+    spGuiTestScreen test = new GuiTestScreen();
+    getMainStage()->addChild(test);
 }
 
 
