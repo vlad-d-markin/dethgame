@@ -1,3 +1,5 @@
+#ifndef MYSPRITE_H
+#define MYSPRITE_H
 #include "SDL.h"
 #include "SDL_keyboard.h"
 #include "core/oxygine.h"
@@ -18,3 +20,5 @@ public:
 };
 
 typedef ::oxygine::intrusive_ptr<MySprite> spMySprite;
+
+#endif // MYSPRITE_H

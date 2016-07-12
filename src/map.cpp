@@ -29,6 +29,7 @@ Map::Map()
 {
     parseXML();
     loadResources();
+    vec_maptiles.reserve(num_tiles_col*num_tiles_col);
 }
 
 
@@ -189,13 +190,13 @@ void Map::parseXML()
 }
 
 
-void Map::drawMap(GameScreen *gamescreen)
+void Map::drawGround(GameScreen *gamescreen)
 {
     // TODO: draw layers
 
-    drawLayer(vec_layers[0], gamescreen);
+    drawLayer(vec_layers[0], gamescreen, BACKGROUND);
     drawLayer(vec_layers[1], gamescreen);
-    drawLayer(vec_layers[2], gamescreen);
+    drawLayer(vec_layers[2], gamescreen, _COLLISION);
 
 	spMySprite sprite = new MySprite;
 	sprite->setAnchor(0.5, 0.5);
@@ -205,14 +206,19 @@ void Map::drawMap(GameScreen *gamescreen)
     sprite->setMapSize(Vector2(num_tiles_row * pix_tile_width, num_tiles_col * pix_tile_height));
 }
 
+void Map::drawTop(GameScreen *gamescreen)
+{
+    drawLayer(vec_layers[3], gamescreen);
+}
 
-void Map::drawLayer(Layer& layer, GameScreen *gs)
+
+void Map::drawLayer(Layer& layer, GameScreen *gs, int tiletype)
 {
     // for each GID of the layer
     for (int i_gid = 0, x = -pix_tile_width, y = 0; i_gid < layer.gid_set.size(); i_gid++)
     {
         // initial values
-        spSprite tile = new Sprite();
+        Sprite *tile = new Sprite();
         tile->setResAnim(map_resources->getResAnim(vec_tilesets[0].name));
         //tile->setRes
         int columns_count, gid = layer.gid_set[i_gid];
@@ -255,9 +261,15 @@ void Map::drawLayer(Layer& layer, GameScreen *gs)
             tile->setColumn(columns_count-1);
 
         // draw the tile on the stage
-		tile->setPosition(x, y);
-		tile->setSize(getStage()->getSize());
-		tile->attachTo(gs);
+        tile->setPosition(x, y);
+        tile->setSize(getStage()->getSize());
+        tile->attachTo(gs);
+
+        // fullfilling the vec of collisions
+        if (tiletype!=-1){
+            Tile obj_tile(tile, tiletype);
+            vec_maptiles[i_gid] = obj_tile;
+        }
 	}
 }
 

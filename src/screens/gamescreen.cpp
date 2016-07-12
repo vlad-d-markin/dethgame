@@ -16,29 +16,9 @@ GameScreen::GameScreen()
     m_resources->loadXML(DethGame::instance()->getGuiResPath());
 
     Map* map = new Map();
-    map->drawMap(this);
-
-/*
-    // Background
-    spSprite background = new Sprite();
-    background->setResAnim(m_resources->getResAnim("main_menu_bg"));
-    background->setSize(getSize());
-    background->attachTo(this);
-*/
-/*
-    spMySprite sprite = new MySprite;
-    sprite->setAnchor(0.5, 0.5);
-    sprite->setResAnim(m_resources->getResAnim("skin"));
-    sprite->attachTo(this);
-    sprite->setPosition(getSize() / 2);
-
-    //camera
-    spActor camera = new Actor;
-    camera->addChild(background);
-    camera->addChild(sprite);
-    camera->setAnchor(0.5, 0.5);
-    getStage()->addChild(camera);
-    */
+    map->drawGround(this);
+    // ...pers draw
+    map->drawTop(this);
 }
 
 Resources* GameScreen::getResources()

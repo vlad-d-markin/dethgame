@@ -26,7 +26,7 @@ void MySprite::doUpdate(const UpdateState &us)
 
 	Vector2 windowSize(getParent()->getSize());
 
-	std::cout << (getMapSize().x > windowSize.x) << std::endl;
+    //std::cout << (getMapSize().x > windowSize.x) << std::endl;
 
 	// move camera
 	//x 
