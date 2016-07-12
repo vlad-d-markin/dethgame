@@ -31,7 +31,7 @@ public:
     void destroy();
 
     void startGame(Event *event);
-
+    void quit();
 
 };
 

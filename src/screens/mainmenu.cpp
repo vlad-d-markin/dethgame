@@ -30,6 +30,9 @@ MainMenu::MainMenu()
     btn->setScale(scale_factor);
     btn->setPosition(getWidth()/2 - btn->getWidth()/2*scale_factor + 13, 50 + getHeight()/2 + 2*btn->getHeight()*scale_factor);
     btn->attachTo(this);
+
+    // Tmp
+    // btn->addClickListener([](){ DethGame::instance()->quit(); });
 }
 
 
