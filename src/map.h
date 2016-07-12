@@ -8,74 +8,74 @@
 
 using namespace oxygine;
 
-typedef struct {
-	int firstgid;
-	std::string name;
-	int tilewidth;
-	int tileheight;
-	int tilecount;
-	int columns;
 
+// information about the specific tileset
+typedef struct {
+    int first_gid;
+    int pix_tile_width;
+    int pix_tile_height;
+    int tile_count;
+    int columns_count;
+
+    int pix_img_width;
+    int pix_img_height;
+
+    std::string name;
 	std::string source;
-	int img_width;
-	int img_height;
-}tileset;
+} Tileset;
 
-
+// information about the specific layer
 typedef struct {
 	std::string name;
-	int width;
-	int height;
+    int num_tile_row;
+    int num_tile_col;
 	std::vector<int> gid_set;
-}layer;
+} Layer;
 
-
+// position and name of the object
 typedef struct {
 	int x;
 	int y;
 	std::string name;
-}position;
-
+} Position;
 
 
 
 class Map
 {
-    Resources * m_resources;
+    Resources * map_resources;
 
-    int row_map;  //tiles
-    int col_map; //tiles
+    // map specifications
+    int num_tiles_row;
+    int num_tiles_col;
+    int pix_tile_width;
+    int pix_tile_height;
 
-	int width_tile;
-	int height_tile;
+    // vectors of tilesets and layers
+    std::vector<Tileset> vec_tilesets;
+    std::vector<Layer> vec_layers;
 
-	std::vector<tileset> tilesets;
-	std::vector<layer> layers;
-
-
-	position hero_pos;
-
-	std::vector<position> melee_fan_pos;
-	std::vector<position> range_fan_pos;
-	std::vector<position> rapper_pos;
-	std::vector<position> army_pos;
-	std::vector<position> devil_pos;
-	std::vector<position> zombie_pos;
-	std::vector<position> pixie_pos;
-
-	std::vector<position> boss_pos;
-
-	std::vector<position> treasure_pos;
-
+    // positions of hero, bosses, mobs and treasures
+    Position pos_hero;
+    std::vector<Position> vec_pos_boss;
+    std::vector<Position> vec_pos_treasure;
+    std::vector<Position> vec_pos_melee_fan;
+    std::vector<Position> vec_pos_range_fan;
+    std::vector<Position> vec_pos_rapper;
+    std::vector<Position> vec_pos_army;
+    std::vector<Position> vec_pos_devil;
+    std::vector<Position> vec_pos_zombie;
+    std::vector<Position> vec_pos_pixie;
 
 
 public:
     Map();
 	~Map();
-    void xmlParser(std::string path);
-    void loadTiles();
-    void attachToMap(GameScreen *gs);
-    void drawLayer(layer &m_layer, GameScreen *gs);
+
+    void parseXML();
+    void loadResources();
+    void drawMap(GameScreen *gamescreen);
+    void drawLayer(Layer &m_layer, GameScreen *gamescreen);
 };
 
 

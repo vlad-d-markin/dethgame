@@ -20,6 +20,7 @@ public:
     oxygine::spStage getMainStage();
     std::string getGuiResPath();
     std::string getTileResPath();
+    std::string getMapTmxPath();
 
     void preInit();
     void init();
