@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include <oxygine-framework.h>
+#include "tile.h"
 #include "screens/gamescreen.h"
 
 using namespace oxygine;
@@ -67,6 +68,8 @@ class Map
     std::vector<Position> vec_pos_zombie;
     std::vector<Position> vec_pos_pixie;
 
+    std::vector<Tile> vec_maptiles;
+
 
 public:
     Map();
@@ -74,8 +77,9 @@ public:
 
     void parseXML();
     void loadResources();
-    void drawMap(GameScreen *gamescreen);
-    void drawLayer(Layer &m_layer, GameScreen *gamescreen);
+    void drawGround(GameScreen *gamescreen);\
+    void drawTop(GameScreen *gamescreen);
+    void drawLayer(Layer &m_layer, GameScreen *gamescreen, int tiletype=-1);
 };
 
 
