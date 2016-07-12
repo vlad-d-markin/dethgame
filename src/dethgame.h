@@ -22,6 +22,7 @@ public:
     oxygine::spStage getMainStage();
     std::string getGuiResPath();
     std::string getTileResPath();
+    Configuration * getConfiguration();
 
     void setFullscreen(SDL_Window* window, bool is_fullscreen);
 

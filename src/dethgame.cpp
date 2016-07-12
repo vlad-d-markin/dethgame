@@ -37,9 +37,15 @@ std::string DethGame::getTileResPath()
 void DethGame::setFullscreen(SDL_Window* window, bool is_fullscreen)
 {
     Uint32 FullscreenFlag = SDL_WINDOW_FULLSCREEN;
-    bool IsFullscreen = SDL_GetWindowFlags(window) & FullscreenFlag;
-    SDL_SetWindowFullscreen(window, (IsFullscreen && is_fullscreen) ? 0 : FullscreenFlag);
-    SDL_ShowCursor(IsFullscreen);
+    Uint32 old_flags = SDL_GetWindowFlags(window);
+
+    SDL_SetWindowFullscreen(window, is_fullscreen ? old_flags | FullscreenFlag : old_flags & ~FullscreenFlag);
+}
+
+
+Configuration * DethGame::getConfiguration()
+{
+    return &config;
 }
 
 
@@ -52,12 +58,14 @@ void DethGame::quit()
 void DethGame::preInit()
 {
     config.load();
+
 }
 
 
 
 void DethGame::init()
 {
+    setFullscreen(core::getWindow(), config.getFullScreen());
 //    spMainMenu menu = new MainMenu();
 //    getMainStage()->addChild(menu);
 //    //spBaseScreen game = new BaseScreen();
