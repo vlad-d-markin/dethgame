@@ -1,9 +1,10 @@
 #include "optionsscreen.h"
+#include "../dethgame.h"
 
 OptionsScreen::OptionsScreen()
 {
     setName("Options screen");
-
+    setEnable(true);
     // Add panels
     Gui::spPanel main_panel = new Gui::Panel();
     main_panel->attachTo(this);
@@ -57,4 +58,17 @@ void OptionsScreen::onButtonClicked(Event * e)
     Gui::ButtonClickedEvent * ev = reinterpret_cast<Gui::ButtonClickedEvent *> (e);
 
     log::messageln("Options button clicked: %s", ev->m_action.c_str());
+}
+
+void OptionsScreen::doUpdate(const UpdateState &us)
+{
+    const Uint8* data = SDL_GetKeyboardState(0);
+
+    if (data[SDL_SCANCODE_ESCAPE] && enable)
+        DethGame::instance()->setScreen("Menu");
+}
+
+void OptionsScreen::setEnable(bool _enable)
+{
+    enable = _enable;
 }

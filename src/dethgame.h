@@ -5,6 +5,10 @@
 #include "oxygine-framework.h"
 #include "configuration.h"
 #include "screens/basescreen.h"
+#include "screens/mainmenu.h"
+#include "screens/gamescreen.h"
+#include "screens/guitestscreen.h"
+#include "screens/optionsscreen.h"
 
 #define CONFIG "dethconfig.json"
 
@@ -15,6 +19,9 @@ private:
     DethGame(const DethGame&):config(CONFIG){}
     DethGame& operator=(const DethGame&){}
     Configuration config;
+    spMainMenu m_menuScreen;
+    spGameScreen m_gameScreen;
+    spOptionsScreen m_optionsScreen;
 
 public:
     static DethGame * instance();
@@ -29,8 +36,10 @@ public:
     void init();
     void update();
     void destroy();
+    void setScreen(std::string name);
 
     void startGame(Event *event);
+    void optionsScreen(Event *event);
     void quit();
 
 };
