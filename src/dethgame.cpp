@@ -1,8 +1,4 @@
 #include "dethgame.h"
-#include "screens/mainmenu.h"
-#include "screens/gamescreen.h"
-#include "screens/optionsscreen.h"
-#include "screens/guitestscreen.h"
 
 using namespace oxygine;
 
@@ -12,12 +8,10 @@ DethGame * DethGame::instance()
     return &game;
 }
 
-
 DethGame::DethGame():config(CONFIG)
 {
 
 }
-
 
 spStage DethGame::getMainStage()
 {
@@ -54,58 +48,75 @@ void DethGame::quit()
     core::requestQuit();
 }
 
-
 void DethGame::preInit()
 {
     config.load();
 
 }
 
-
-
 void DethGame::init()
 {
     setFullscreen(core::getWindow(), config.getFullScreen());
-//    spMainMenu menu = new MainMenu();
-//    getMainStage()->addChild(menu);
-//    //spBaseScreen game = new BaseScreen();
-//    //getMainStage()->addChild(game);
-//    config.setMusicVolume(77);
-//    oxygine::log::messageln("volume=%d",config.getMusicVolume());
+    m_menuScreen = new MainMenu();
+    getMainStage()->addChild(m_menuScreen);
+    config.setMusicVolume(77);
+    oxygine::log::messageln("volume=%d",config.getMusicVolume());
 //    setFullscreen(core::getWindow(), config.getFullScreen());
-
-//    spMainMenu menu = new MainMenu();
-//    spGuiTestScreen test = new GuiTestScreen();
-//    getMainStage()->addChild(test);
-
-    spOptionsScreen opt_screen = new OptionsScreen();
-    opt_screen->setDebugging(true);
-    getMainStage()->addChild(opt_screen);
 }
 
 void DethGame::startGame(Event * event)
 {
-//    getMainStage()->getChild("menu")->detach();
-    spGameScreen game = new GameScreen();
-//    getMainStage()->getFirstChild()->detach();
-    getMainStage()->addChild(game);
-    getMainStage()->getLastChild()->setVisible(false);
-    //getMainStage()->getChild("Menu")->setVisible(true);
-
-    //oxygine::log::messageln("%s",getMainStage()->getChildren(getMainStage()));
+    m_gameScreen = new GameScreen();
+    getMainStage()->addChild(m_gameScreen);
+    setScreen("Game screen");
 }
 
+void DethGame::optionsScreen(Event *event)
+{
+    m_optionsScreen = new OptionsScreen();
+    getMainStage()->addChild(m_optionsScreen);
+    setScreen("Options screen");
+}
 
 void DethGame::update()
 {
 
 }
 
-
 void DethGame::destroy()
 {
-    oxygine::log::messageln("destroy it bitch");
+    oxygine::log::messageln("destroy all. that's brutal");
     config.save();
 }
 
+void DethGame::setScreen(std::string name)
+{
+    if (name == "Menu") {
+        if (getMainStage()->getChild("Game screen")) {
+            m_gameScreen->setVisible(false);
+            m_gameScreen->setEnable(false);
+        }
+        if (getMainStage()->getChild("Options screen")) {
+            m_optionsScreen->setVisible(false);
+            m_optionsScreen->setEnable(false);
+        }
+        m_menuScreen->setVisible(true);
+    } else if (name == "Options screen") {
+        if (getMainStage()->getChild("Game screen")) {
+            m_gameScreen->setVisible(false);
+            m_gameScreen->setEnable(false);
+        }
+        if (getMainStage()->getChild("Options screen")) {
+            m_optionsScreen->setVisible(true);
+            m_optionsScreen->setEnable(true);
+        }
+        m_menuScreen->setVisible(false);
+    } else if (name == "Game screen") {
+        if (getMainStage()->getChild("Options screen")) {
+            m_optionsScreen->setVisible(false);
+            m_optionsScreen->setEnable(false);
+        }
+        m_menuScreen->setVisible(false);
+    }
+}
 

@@ -4,7 +4,7 @@
 OptionsScreen::OptionsScreen()
 {
     setName("Options screen");
-
+    setEnable(true);
     // Add panels
     Gui::spPanel main_panel = new Gui::Panel();
     main_panel->attachTo(this);
@@ -92,7 +92,6 @@ void OptionsScreen::onButtonClicked(Event * e)
     log::messageln("Options button clicked: %s", ev->m_action.c_str());
 }
 
-
 void OptionsScreen::onFullscreenChanged(Event *e)
 {
     Gui::SwitchStateChangedEvent * ev = reinterpret_cast<Gui::SwitchStateChangedEvent *> (e);
@@ -100,3 +99,17 @@ void OptionsScreen::onFullscreenChanged(Event *e)
     DethGame::instance()->getConfiguration()->setFullScreen(ev->state);
     DethGame::instance()->setFullscreen(core::getWindow(), ev->state);
 }
+
+void OptionsScreen::doUpdate(const UpdateState &us)
+{
+    const Uint8* data = SDL_GetKeyboardState(0);
+
+    if (data[SDL_SCANCODE_ESCAPE] && enable)
+        DethGame::instance()->setScreen("Menu");
+}
+
+void OptionsScreen::setEnable(bool _enable)
+{
+    enable = _enable;
+}
+
