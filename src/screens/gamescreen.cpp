@@ -1,6 +1,6 @@
 #include "gamescreen.h"
 #include "../dethgame.h"
-#include "../mySprite.h"
+#include "../player.h"
 #include <iostream>
 #include "basescreen.h"
 #include "../map.h"
@@ -26,7 +26,7 @@ GameScreen::GameScreen()
     background->attachTo(this);
 */
 /*
-    spMySprite sprite = new MySprite;
+    spPlayer sprite = new Player;
     sprite->setAnchor(0.5, 0.5);
     sprite->setResAnim(m_resources->getResAnim("skin"));
     sprite->attachTo(this);

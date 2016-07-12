@@ -4,7 +4,7 @@
 #include <iostream>
 #include "Sprite.h"
 #include "dethgame.h"
-#include "mySprite.h"
+#include "player.h"
 
 
 #define COLLISION   "Collision"
@@ -45,7 +45,7 @@ void Map::attachToMap(GameScreen *gs)
         drawLayer(*i_layer, gs);
 
 
-	spMySprite sprite = new MySprite;
+    spPlayer sprite = new Player;
 	sprite->setAnchor(0.5, 0.5);
 	sprite->setResAnim(gs->getResources()->getResAnim("skin"));
 	sprite->attachTo(gs);
