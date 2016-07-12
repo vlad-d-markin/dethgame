@@ -1,6 +1,8 @@
 #include "world.h"
 #include "map.h"
 
+#include <iostream>
+
 World::World(GameScreen *gs)
 {
     map = new Map();
@@ -24,7 +26,10 @@ void World::draw()
 
 void World::doUpdate(const UpdateState &us)
 {
-    RectT<Vector2> rect_player(player->getPosition(),player->getSize());
-    map->checkObstacle(rect_player);
+    RectT<Vector2> new_rect_player(player->getPosition(),player->getSize());
+
+    // works incorrectly!
+    if(map->checkObstacle(new_rect_player) == true)
+        std::cout << "obstacle" << std::endl;
 
 }

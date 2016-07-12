@@ -45,6 +45,7 @@ typedef struct {
 class Map
 {
     Resources * map_resources;
+    std::vector<Tile> vec_maptiles;
 
     // map specifications
     int num_tiles_row;
@@ -67,8 +68,6 @@ class Map
     std::vector<Position> vec_pos_devil;
     std::vector<Position> vec_pos_zombie;
     std::vector<Position> vec_pos_pixie;
-
-    std::vector<Tile> vec_maptiles;
 
 
 public:

@@ -29,7 +29,6 @@ Map::Map()
 {
     parseXML();
     loadResources();
-    vec_maptiles.reserve(num_tiles_col*num_tiles_col);
 }
 
 
@@ -261,7 +260,10 @@ void Map::drawLayer(Layer& layer, GameScreen *gs, int tiletype)
         // fullfilling the vec of collisions
         if (tiletype!=-1){
             Tile obj_tile(tile, tiletype);
-            vec_maptiles[i_gid] = obj_tile;
+            if (tiletype == BACKGROUND)
+                vec_maptiles.push_back(obj_tile);
+            if (tiletype == _COLLISION)
+                vec_maptiles[i_gid] = obj_tile;
         }
 	}
 }
@@ -276,15 +278,18 @@ Vector2 Map::getMapSize()
 
 bool Map::checkObstacle(RectT<Vector2> rect_player)
 {
-    for(int i=0; i<vec_maptiles.size(); i++)
+    for(int i = 0; i  <vec_maptiles.size(); i++)
     {
+        if((vec_maptiles[i].getTiletype()) != _COLLISION)
+            continue;
+
         RectT<Vector2> obj(vec_maptiles[i].getTile()->getPosition(), vec_maptiles[i].getTile()->getSize());
+
         if(rect_player.isIntersecting(obj)==true)
-        {
-            std::cout<<"true"<<std::endl;
             return true;
-        }
     }
+
+    return false;
 }
 
 Map::~Map()

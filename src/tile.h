@@ -17,6 +17,7 @@ class Tile
 public:
     Tile(Sprite *t, int tt);
     Sprite* getTile();
+    int getTiletype();
 };
 
 #endif // TILE_H

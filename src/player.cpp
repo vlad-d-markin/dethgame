@@ -81,7 +81,7 @@ void Player::doUpdate(const UpdateState &us)
 		}
 	}
 	
-	//y 
+    //
 	if (getMapSize().y > windowSize.y)
 	{
 		if (getPosition().y > windowSize.y / 2 && getPosition().y < getMapSize().y - windowSize.y / 2)
