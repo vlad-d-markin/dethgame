@@ -3,7 +3,8 @@
 	<set path = "images" />
 	<atlas>
 		<image id="grass-tiles-2-small" file="grass-tiles-2-small.png" cols="12" rows="6" />
-		<image id="tree2-final" file="tree2-final.png" cols="8" rows="8" />		
+		<image id="tree2-final" file="tree2-final.png" cols="8" rows="8" />
+		<image id="Derevo" file="Derevo.png" cols="8" rows="8" />		
 		<image id="littleshrooms_0" file="littleshrooms_0.png" />
 		<image id="qubodup-bush_0" file="qubodup-bush_0.png"/>
 		<image id="qubodup-bush_berries_0" file="qubodup-bush_berries_0.png" />

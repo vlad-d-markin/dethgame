@@ -16,7 +16,7 @@ GameScreen::GameScreen()
     m_resources->loadXML(DethGame::instance()->getGuiResPath());
 
     Map* map = new Map();
-    map->attachToMap(this);
+    map->drawMap(this);
 
 /*
     // Background
