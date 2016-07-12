@@ -197,13 +197,6 @@ void Map::drawGround(GameScreen *gamescreen)
     drawLayer(vec_layers[0], gamescreen, BACKGROUND);
     drawLayer(vec_layers[1], gamescreen);
     drawLayer(vec_layers[2], gamescreen, _COLLISION);
-
-    Player* sprite = new Player;
-	sprite->setAnchor(0.5, 0.5);
-    //sprite->setResAnim(gamescreen->getResources()->getResAnim("skin"));
-    sprite->attachTo(gamescreen);
-    sprite->setPosition(gamescreen->getSize() / 2);
-    sprite->setMapSize(Vector2(num_tiles_row * pix_tile_width, num_tiles_col * pix_tile_height));
 }
 
 void Map::drawTop(GameScreen *gamescreen)
@@ -273,6 +266,26 @@ void Map::drawLayer(Layer& layer, GameScreen *gs, int tiletype)
 	}
 }
 
+Vector2 Map::getMapSize()
+{
+    Vector2 size;
+    size.x = num_tiles_row * pix_tile_width;
+    size.y = num_tiles_col * pix_tile_height;
+    return size;
+}
+
+bool Map::checkObstacle(RectT<Vector2> rect_player)
+{
+    for(int i=0; i<vec_maptiles.size(); i++)
+    {
+        RectT<Vector2> obj(vec_maptiles[i].getTile()->getPosition(), vec_maptiles[i].getTile()->getSize());
+        if(rect_player.isIntersecting(obj)==true)
+        {
+            std::cout<<"true"<<std::endl;
+            return true;
+        }
+    }
+}
 
 Map::~Map()
 {

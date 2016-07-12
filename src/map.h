@@ -80,6 +80,9 @@ public:
     void drawGround(GameScreen *gamescreen);\
     void drawTop(GameScreen *gamescreen);
     void drawLayer(Layer &m_layer, GameScreen *gamescreen, int tiletype=-1);
+    Vector2 getMapSize();
+    std::vector<Tile>* getTileVec();
+    bool checkObstacle(RectT<Vector2> rect_player);
 };
 
 

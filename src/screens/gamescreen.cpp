@@ -1,9 +1,8 @@
 #include "gamescreen.h"
 #include "../dethgame.h"
-#include "../player.h"
 #include <iostream>
 #include "basescreen.h"
-#include "../map.h"
+#include "../world.h"
 
 using namespace oxygine;
 
@@ -15,11 +14,10 @@ GameScreen::GameScreen()
     m_resources = new Resources();
     m_resources->loadXML(DethGame::instance()->getGuiResPath());
 
-    Map* map = new Map();
-    //map->drawMap(this);
-    map->drawGround(this);
-    // ...pers draw
-    map->drawTop(this);
+    World* gameworld = new World(this);
+    gameworld->draw();
+    gameworld->attachTo(this);
+
 }
 
 Resources* GameScreen::getResources()

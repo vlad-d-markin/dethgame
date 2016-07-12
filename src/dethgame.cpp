@@ -1,6 +1,7 @@
 #include "dethgame.h"
 #include "screens/mainmenu.h"
 #include "screens/gamescreen.h"
+#include <iostream>
 
 #define MAP_TMX_PATH "map.tmx"
 
