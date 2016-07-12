@@ -1,6 +1,6 @@
 #ifndef TILE_H
 #define TILE_H
-#include "mySprite.h"
+#include "player.h"
 #include "Sprite.h"
 
 enum tiletype

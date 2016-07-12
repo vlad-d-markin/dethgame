@@ -200,7 +200,7 @@ void Map::drawGround(GameScreen *gamescreen)
 
     Player* sprite = new Player;
 	sprite->setAnchor(0.5, 0.5);
-    sprite->setResAnim(gamescreen->getResources()->getResAnim("skin"));
+    //sprite->setResAnim(gamescreen->getResources()->getResAnim("skin"));
     sprite->attachTo(gamescreen);
     sprite->setPosition(gamescreen->getSize() / 2);
     sprite->setMapSize(Vector2(num_tiles_row * pix_tile_width, num_tiles_col * pix_tile_height));

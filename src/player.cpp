@@ -14,7 +14,7 @@ Player::Player() : Sprite()
     my_resources = new Resources();
     my_resources->loadXML("res.xml");
     resAnim = my_resources->getResAnim("button_with_arrow");
-    //this->setResAnim(resAnim);    //should be here but doesn't work in this place
+    this->setResAnim(resAnim);
 
     //Vnorm = ???
     healthPoints = 500;
@@ -33,8 +33,6 @@ Player::Player() : Sprite()
 
 void Player::doUpdate(const UpdateState &us)
 {
-    this->setResAnim(resAnim);  //should be in the constructor
-
 	const Uint8* data = SDL_GetKeyboardState(0);
 
 	//calculate speed using delta time
