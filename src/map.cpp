@@ -197,7 +197,7 @@ void Map::drawMap(GameScreen *gamescreen)
     drawLayer(vec_layers[1], gamescreen);
     drawLayer(vec_layers[2], gamescreen);
 
-	spMySprite sprite = new MySprite;
+    Player* sprite = new Player;
 	sprite->setAnchor(0.5, 0.5);
     sprite->setResAnim(gamescreen->getResources()->getResAnim("skin"));
     sprite->attachTo(gamescreen);

@@ -14,11 +14,26 @@ Player::Player() : Sprite()
     my_resources = new Resources();
     my_resources->loadXML("res.xml");
     resAnim = my_resources->getResAnim("button_with_arrow");
+    //this->setResAnim(resAnim);    //should be here but doesn't work in this place
+
+    //Vnorm = ???
+    healthPoints = 500;
+    stamina = 300;
+    healthRegenerationSpeed = Vnorm;
+    staminaRegenerationSpeed = Vnorm;
+    movementSpeed = Vnorm;
+    //criticalHit = урон оружия;
+    accuracy = 0.7;
+    hitResistance = 0;
+    shotResistance = 0;
+    hitEvasion = 0.1;
+    shotEvasion = 0.1;
+    weaponHandlingSpeed = Vnorm;
 }
 
 void Player::doUpdate(const UpdateState &us)
 {
-    this->setResAnim(resAnim);
+    this->setResAnim(resAnim);  //should be in the constructor
 
 	const Uint8* data = SDL_GetKeyboardState(0);
 

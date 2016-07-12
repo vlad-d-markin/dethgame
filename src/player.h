@@ -1,3 +1,6 @@
+#ifndef PLAYER_H
+#define PLAYER_H
+
 #include "SDL.h"
 #include "SDL_keyboard.h"
 #include "core/oxygine.h"
@@ -14,6 +17,19 @@ private:
     ResAnim* resAnim;
     Vector2 pos;
     Vector2 dir;
+    int healthPoints;
+    int stamina;
+    int healthRegenerationSpeed;
+    int staminaRegenerationSpeed;
+    int movementSpeed;
+    int criticalHit;
+    int accuracy;
+    int hitResistance;
+    int shotResistance;
+    int hitEvasion;
+    int shotEvasion;
+    int weaponHandlingSpeed;
+    int Vnorm;
 protected:
 	void doUpdate(const UpdateState &us);
 public:
@@ -23,3 +39,5 @@ public:
 };
 
 typedef ::oxygine::intrusive_ptr<Player> spPlayer;
+
+#endif // PLAYER_H
