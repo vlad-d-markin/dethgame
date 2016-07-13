@@ -11,6 +11,7 @@ World::World(GameScreen *gs)
     gamescreen = gs;
 
     spTestMob kaban = new TestMob();
+    kaban->setPosition(100, 100);
     m_mobs.push_back(kaban);
 }
 
@@ -33,6 +34,19 @@ void World::draw()
 
 void World::doUpdate(const UpdateState &us)
 {
+    // Remove decayed corpses
+    for(auto it = m_mobs.begin(); it != m_mobs.end(); it++)
+    {
+        spMob mob = *it;
+        if(mob->isDecayed())
+        {
+            m_mobs.erase(it);
+            this->removeChild(mob);
+        }
+    }
+
+
+
     if( player->getDirection() == Vector2(0,0) )
         return;
 

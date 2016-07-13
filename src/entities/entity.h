@@ -14,6 +14,7 @@ private:
 
 public:
     Entity();
+    virtual RectT<Vector2> getCollisionBox();
 
 protected:
     virtual void doUpdate(const UpdateState& us);
