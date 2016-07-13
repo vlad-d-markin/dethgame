@@ -25,12 +25,14 @@ public:
     };
      */
 
-private:
+protected:
     int m_health;
     int m_attack_damage;
     RectT<Vector2> m_attack_area;
     State m_state;
     bool m_decayed;
+
+    float m_dead_time;
 
 public:
     Mob();

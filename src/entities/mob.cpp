@@ -3,6 +3,8 @@
 Mob::Mob()
 {
     m_state = IDLE;
+    m_decayed = false;
+    m_dead_time = 0;
 }
 
 
@@ -14,6 +16,24 @@ Mob::~Mob() {}
 void Mob::doUpdate(const UpdateState &us)
 {
     Entity::doUpdate(us);
+
+    switch (m_state){
+        case DEAD:
+            if(m_decayed)
+                break;
+
+            m_dead_time += us.dt;
+            log::messageln("%d", us.dt);
+            if(m_dead_time >= 5000){
+                log::messageln("Mob is decayed");
+                m_decayed = true;
+            }
+            break;
+
+        case IDLE:
+            // Switch idle animation
+            break;
+    }
 }
 
 

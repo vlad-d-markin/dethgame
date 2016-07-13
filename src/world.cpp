@@ -30,6 +30,9 @@ void World::draw()
     m_mobs[0]->attachTo(this);
 
     map->drawTop(gamescreen);
+
+    // TODO: Somebody remove it, pls
+    m_mobs[0]->getHit(100);
 }
 
 void World::doUpdate(const UpdateState &us)
@@ -40,8 +43,8 @@ void World::doUpdate(const UpdateState &us)
         spMob mob = *it;
         if(mob->isDecayed())
         {
-            m_mobs.erase(it);
-            this->removeChild(mob);
+//            m_mobs.erase(it, it+1);
+//            this->removeChild(mob);
         }
     }
 
