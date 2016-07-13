@@ -1,5 +1,7 @@
 #include "dethgame.h"
 
+#define MAP_TMX_PATH "map.tmx"
+
 using namespace oxygine;
 
 DethGame * DethGame::instance()
@@ -28,6 +30,11 @@ std::string DethGame::getTileResPath()
     return "tile.xml";
 }
 
+std::string DethGame::getMapTmxPath()
+{
+    return MAP_TMX_PATH;
+}
+
 void DethGame::setFullscreen(SDL_Window* window, bool is_fullscreen)
 {
     Uint32 FullscreenFlag = SDL_WINDOW_FULLSCREEN;
@@ -35,7 +42,6 @@ void DethGame::setFullscreen(SDL_Window* window, bool is_fullscreen)
 
     SDL_SetWindowFullscreen(window, is_fullscreen ? old_flags | FullscreenFlag : old_flags & ~FullscreenFlag);
 }
-
 
 Configuration * DethGame::getConfiguration()
 {

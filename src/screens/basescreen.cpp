@@ -1,6 +1,6 @@
 #include "basescreen.h"
 #include "../dethgame.h"
-#include "../mySprite.h"
+#include "../player.h"
 #include <iostream>
 
 using namespace oxygine;
