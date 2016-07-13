@@ -280,17 +280,19 @@ Vector2 Map::getMapSize()
 
 bool Map::checkObstacle(RectT<Vector2> rect_player)
 {
+    rect_player.setPosition(rect_player.getLeftTop()-Vector2(pix_tile_width/2,pix_tile_height/2));
+
     for(int i = 0; i < vec_maptiles.size(); i++)
     {
         if((vec_maptiles[i].getTiletype()) != _COLLISION)
             continue;
 
-        RectT<Vector2> obj(vec_maptiles[i].getTile()->getPosition() + Vector2(rect_player.getWidth()/2, 0),
-                           Vector2(pix_tile_width, pix_tile_height));
+        RectT<Vector2> obj(vec_maptiles[i].getTile()->getPosition(), Vector2(pix_tile_width, pix_tile_height));
 
-        if(rect_player.isIntersecting(obj) == true)
-
+        if(rect_player.isIntersecting(obj) == true) {
             return true;
+        }
+
     }
 
     return false;

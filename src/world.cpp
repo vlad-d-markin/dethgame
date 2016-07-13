@@ -26,17 +26,27 @@ void World::draw()
 
 void World::doUpdate(const UpdateState &us)
 {
-    std::cout << "x = " << player->getSize().y << std::endl;
-    RectT<Vector2> new_rect_player_x(player->getPosition() + player->getDirectionX(), player->getSize());
-    RectT<Vector2> new_rect_player_y(player->getPosition() + player->getDirectionY(), player->getSize());
+    if( player->getDirection() == Vector2(0,0) )
+        return;
 
-    if(map->checkObstacle(new_rect_player_x) == false)
-        player->moveX();
-    else
-        std::cout << "obstacle X" << std::endl;
+    int num_steps = 10;
+    float step_speed_x = (player->getDirection().x) / num_steps;
+    float step_speed_y = (player->getDirection().y) / num_steps;
 
-    if(map->checkObstacle(new_rect_player_y) == false)
-        player->moveY();
-    else
-        std::cout << "obstacle Y" << std::endl;
+    for(int i = 0; i < num_steps; i++) {
+
+        RectT<Vector2> new_rect_player_x(player->getPosition()+Vector2(step_speed_x,0), player->getSize());
+        if(map->checkObstacle(new_rect_player_x) == false) {
+            player->setDirection(step_speed_x, 0);
+            player->moveX();
+        }
+
+        RectT<Vector2> new_rect_player_y(player->getPosition()+Vector2(0, step_speed_y), player->getSize());
+        if(map->checkObstacle(new_rect_player_y) == false) {
+            player->setDirection(0, step_speed_y);
+            player->moveY();
+        }
+
+    }
+
 }

@@ -38,8 +38,8 @@ public:
     Player();
 	void setMapSize(Vector2 _mapSize) { mapSize = _mapSize; }
 	Vector2 getMapSize() const { return mapSize; }
-    Vector2 getDirectionX();
-    Vector2 getDirectionY();
+    Vector2 getDirection();
+    void setDirection(float dir_x, float dir_y);
     void moveX();
     void moveY();
 };
