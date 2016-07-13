@@ -285,7 +285,8 @@ bool Map::checkObstacle(RectT<Vector2> rect_player)
         if((vec_maptiles[i].getTiletype()) != _COLLISION)
             continue;
 
-        RectT<Vector2> obj(vec_maptiles[i].getTile()->getPosition(), Vector2(pix_tile_width, pix_tile_height));
+        RectT<Vector2> obj(vec_maptiles[i].getTile()->getPosition() + Vector2(rect_player.getWidth()/2, 0),
+                           Vector2(pix_tile_width, pix_tile_height));
 
         if(rect_player.isIntersecting(obj) == true)
 
@@ -299,5 +300,3 @@ Map::~Map()
 {
 
 }
-
-
