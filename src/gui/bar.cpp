@@ -79,7 +79,7 @@ void Gui::Bar::updateSizes(const Vector2 &basesize)
     m_bar->setHeight(basesize.y - 6);
     m_bar->setWidth(0);
     if(m_maxvalue > 0) {
-        m_bar->setWidth((float) m_value / m_maxvalue * m_background->getWidth() - 6);
+        m_bar->setWidth((float) m_value / m_maxvalue * (m_background->getWidth() - 6));
     }
     m_bar->setPosition(3, 3);
 

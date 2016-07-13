@@ -1,7 +1,3 @@
-//
-// Created by lonelyowl on 09.07.16.
-//
-
 #ifndef DETHGAME_GUIELEMENT_H
 #define DETHGAME_GUIELEMENT_H
 

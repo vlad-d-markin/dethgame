@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<resources>
+	<set path = "images" />
+	<atlas>
+		<image id="background" file="grass-tiles-2-small.png" cols="12" rows="6" />
+		<image id="shrooms" file="littleshrooms_0.png" />
+		<image id="dup" file="qubodup-bush_0.png"/>
+		<image id="berries" file="qubodup-bush_berries_0.png" />
+		<image id="tree" file="tree2-final.png" cols="8" rows="8" />
+	</atlas>
+</resources>
