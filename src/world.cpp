@@ -43,7 +43,9 @@ void World::doUpdate(const UpdateState &us)
         spMob mob = *it;
         if(mob->isDecayed())
         {
-//            m_mobs.erase(it, it+1);
+//            m_mobs.erase(it);
+//            it++;
+//
 //            this->removeChild(mob);
         }
     }

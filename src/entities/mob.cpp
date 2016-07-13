@@ -9,7 +9,7 @@ Mob::Mob()
 
 
 
-Mob::~Mob() {}
+Mob::~Mob() { log::messageln("Mob was deleted"); }
 
 
 
@@ -23,7 +23,6 @@ void Mob::doUpdate(const UpdateState &us)
                 break;
 
             m_dead_time += us.dt;
-            log::messageln("%d", us.dt);
             if(m_dead_time >= 5000){
                 log::messageln("Mob is decayed");
                 m_decayed = true;
