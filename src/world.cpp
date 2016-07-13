@@ -33,16 +33,18 @@ void World::doUpdate(const UpdateState &us)
     float step_speed_x = (player->getDirection().x) / num_steps;
     float step_speed_y = (player->getDirection().y) / num_steps;
 
-    for(int i = 0; i < num_steps; i++) {
-
+    for(int i = 0; i < num_steps; i++)
+    {
+        // horizontal motion
         RectT<Vector2> new_rect_player_x(player->getPosition()+Vector2(step_speed_x,0), player->getSize());
-        if(map->checkObstacle(new_rect_player_x) == false) {
+        if(map->isObstacle(new_rect_player_x) == false) {
             player->setDirection(step_speed_x, 0);
             player->moveX();
         }
 
+        // vertical motion
         RectT<Vector2> new_rect_player_y(player->getPosition()+Vector2(0, step_speed_y), player->getSize());
-        if(map->checkObstacle(new_rect_player_y) == false) {
+        if(map->isObstacle(new_rect_player_y) == false) {
             player->setDirection(0, step_speed_y);
             player->moveY();
         }

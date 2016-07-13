@@ -6,14 +6,16 @@
 enum tiletype
 {
     BACKGROUND,
-    _COLLISION,
-    OBJECT
+    BACKGROUND_OBJECTS,
+    COLLISIONS,
+    TOP_OBJECTS
 };
 
 class Tile
 {
     Sprite *tile;
     int tiletype;
+
 public:
     Tile(Sprite *t, int tt);
     Sprite* getTile();

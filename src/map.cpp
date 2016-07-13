@@ -1,15 +1,15 @@
 #include "map.h"
 #include "tile.h"
-#include "pugixml/pugixml.hpp"
-#include <stdlib.h>
-#include <iostream>
-#include "Sprite.h"
 #include "dethgame.h"
 #include "player.h"
 
+#include "pugixml/pugixml.hpp"
+#include "Sprite.h"
+#include <stdlib.h>
+#include <iostream>
+
 
 // the names of object types in the "Tiled"
-#define COLLISION   "Collision"
 #define HERO        "Hero"
 #define MOBS        "Mobs"
 #define BOSSES      "Bosses"
@@ -191,16 +191,15 @@ void Map::parseXML()
 
 void Map::drawGround(GameScreen *gamescreen)
 {
-    // TODO: draw layers
-
-    drawLayer(vec_layers[0], gamescreen, BACKGROUND);
-    drawLayer(vec_layers[1], gamescreen);
-    drawLayer(vec_layers[2], gamescreen, _COLLISION);
+    drawLayer(vec_layers[BACKGROUND], gamescreen);
+    drawLayer(vec_layers[BACKGROUND_OBJECTS], gamescreen);
+    drawLayer(vec_layers[COLLISIONS], gamescreen, COLLISIONS);
 }
+
 
 void Map::drawTop(GameScreen *gamescreen)
 {
-    drawLayer(vec_layers[3], gamescreen);
+    drawLayer(vec_layers[TOP_OBJECTS], gamescreen);
 }
 
 
@@ -211,8 +210,7 @@ void Map::drawLayer(Layer& layer, GameScreen *gs, int tiletype)
     {
         // initial values
         Sprite *tile = new Sprite();
-        tile->setResAnim(map_resources->getResAnim(vec_tilesets[0].name));
-        //tile->setRes
+        tile->setResAnim(map_resources->getResAnim(vec_tilesets[0].name));      
         int columns_count, gid = layer.gid_set[i_gid];
 
         // set tile coordinates
@@ -233,11 +231,9 @@ void Map::drawLayer(Layer& layer, GameScreen *gs, int tiletype)
 
                 gid = gid - vec_tilesets[i].first_gid + 1;
                 tile->setResAnim(map_resources->getResAnim(vec_tilesets[i].name));
-                //Tile t(map_resources->getResAnim(vec_tilesets[i].name));
                 columns_count = vec_tilesets[i].columns_count;
 
                 break;
-
             }
         }
 
@@ -257,46 +253,89 @@ void Map::drawLayer(Layer& layer, GameScreen *gs, int tiletype)
         tile->setSize(getStage()->getSize());
         tile->attachTo(gs);
 
-        // fullfilling the vec of collisions
-        if (tiletype!=-1){
+        // filling the vec of collisions
+        if (tiletype == COLLISIONS){
             Tile obj_tile(tile, tiletype);
-            if (tiletype == BACKGROUND)
-                vec_maptiles.push_back(obj_tile);
-            if (tiletype == _COLLISION) {
-                vec_maptiles[i_gid] = obj_tile;
-                std::cout << "gid = " << i_gid << std::endl;
-            }
+            vec_collisions.push_back(obj_tile);
         }
 	}
 }
 
+
 Vector2 Map::getMapSize()
 {
-    Vector2 size;
-    size.x = num_tiles_row * pix_tile_width;
-    size.y = num_tiles_col * pix_tile_height;
-    return size;
+    return Vector2(num_tiles_row * pix_tile_width, num_tiles_col * pix_tile_height);
 }
 
-bool Map::checkObstacle(RectT<Vector2> rect_player)
+
+bool Map::isObstacle(RectT<Vector2> rect_player)
 {
     rect_player.setPosition(rect_player.getLeftTop()-Vector2(pix_tile_width/2,pix_tile_height/2));
 
-    for(int i = 0; i < vec_maptiles.size(); i++)
-    {
-        if((vec_maptiles[i].getTiletype()) != _COLLISION)
-            continue;
+    for(int i = 0; i < vec_collisions.size(); i++) {
 
-        RectT<Vector2> obj(vec_maptiles[i].getTile()->getPosition(), Vector2(pix_tile_width, pix_tile_height));
-
-        if(rect_player.isIntersecting(obj) == true) {
+        RectT<Vector2> obj(vec_collisions[i].getTile()->getPosition(), Vector2(pix_tile_width, pix_tile_height));
+        if(rect_player.isIntersecting(obj) == true)
             return true;
-        }
-
     }
 
     return false;
 }
+
+
+Position Map::getPosHero()
+{
+    return pos_hero;
+}
+
+
+std::vector<Position> Map::getPosBoss()
+{
+    return vec_pos_boss;
+}
+
+
+std::vector<Position> Map::getPosMeleeFan()
+{
+    return vec_pos_melee_fan;
+}
+
+
+std::vector<Position> Map::getPosRangeFan()
+{
+    return vec_pos_range_fan;
+}
+
+
+std::vector<Position> Map::getPosRapper()
+{
+    return vec_pos_rapper;
+}
+
+
+std::vector<Position> Map::getPosArmy()
+{
+    return vec_pos_army;
+}
+
+
+std::vector<Position> Map::getPosDevil()
+{
+    return vec_pos_devil;
+}
+
+
+std::vector<Position> Map::getPosZombie()
+{
+    return vec_pos_zombie;
+}
+
+
+std::vector<Position> Map::getPosPixie()
+{
+    return vec_pos_pixie;
+}
+
 
 Map::~Map()
 {

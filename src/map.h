@@ -45,7 +45,7 @@ typedef struct {
 class Map
 {
     Resources * map_resources;
-    std::vector<Tile> vec_maptiles;
+    std::vector<Tile> vec_collisions;
 
     // map specifications
     int num_tiles_row;
@@ -76,12 +76,23 @@ public:
 
     void parseXML();
     void loadResources();
+
     void drawGround(GameScreen *gamescreen);\
     void drawTop(GameScreen *gamescreen);
     void drawLayer(Layer &m_layer, GameScreen *gamescreen, int tiletype=-1);
+
     Vector2 getMapSize();
-    std::vector<Tile>* getTileVec();
-    bool checkObstacle(RectT<Vector2> rect_player);
+    bool isObstacle(RectT<Vector2> rect_player);
+
+    Position getPosHero();
+    std::vector<Position> getPosBoss();
+    std::vector<Position> getPosMeleeFan();
+    std::vector<Position> getPosRangeFan();
+    std::vector<Position> getPosRapper();
+    std::vector<Position> getPosArmy();
+    std::vector<Position> getPosDevil();
+    std::vector<Position> getPosZombie();
+    std::vector<Position> getPosPixie();
 };
 
 
