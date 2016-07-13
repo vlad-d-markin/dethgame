@@ -1,5 +1,6 @@
 #include "world.h"
 #include "map.h"
+#include "entities/testmob.h"
 
 #include <iostream>
 
@@ -8,6 +9,9 @@ World::World(GameScreen *gs)
     map = new Map();
     player = new Player();
     gamescreen = gs;
+
+    spTestMob kaban = new TestMob();
+    m_mobs.push_back(kaban);
 }
 
 void World::draw()
@@ -20,6 +24,9 @@ void World::draw()
     player->attachTo(gamescreen);
     player->setPosition(gamescreen->getSize() / 2);
     player->setMapSize(map->getMapSize());
+
+    // TODO: No to do like this again
+    m_mobs[0]->attachTo(this);
 
     map->drawTop(gamescreen);
 }
