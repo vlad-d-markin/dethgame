@@ -9,7 +9,7 @@ OptionsScreen::OptionsScreen()
     Gui::spPanel main_panel = new Gui::Panel();
     main_panel->attachTo(this);
     main_panel->setSize(400, 400);
-    main_panel->setPosition(200, 200);
+    main_panel->setPosition(getSize() / 2 - main_panel->getSize() / 2);
 
     Gui::spPanel music_volume_panel = new Gui::Panel();
     main_panel->addElement(music_volume_panel);
