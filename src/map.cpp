@@ -262,8 +262,10 @@ void Map::drawLayer(Layer& layer, GameScreen *gs, int tiletype)
             Tile obj_tile(tile, tiletype);
             if (tiletype == BACKGROUND)
                 vec_maptiles.push_back(obj_tile);
-            if (tiletype == _COLLISION)
+            if (tiletype == _COLLISION) {
                 vec_maptiles[i_gid] = obj_tile;
+                std::cout << "gid = " << i_gid << std::endl;
+            }
         }
 	}
 }
@@ -283,9 +285,10 @@ bool Map::checkObstacle(RectT<Vector2> rect_player)
         if((vec_maptiles[i].getTiletype()) != _COLLISION)
             continue;
 
-        RectT<Vector2> obj(vec_maptiles[i].getTile()->getPosition(), vec_maptiles[i].getTile()->getSize());
+        RectT<Vector2> obj(vec_maptiles[i].getTile()->getPosition(), Vector2(pix_tile_width, pix_tile_height));
 
         if(rect_player.isIntersecting(obj) == true)
+
             return true;
     }
 

@@ -26,12 +26,14 @@ void World::draw()
 
 void World::doUpdate(const UpdateState &us)
 {
+    std::cout << "x = " << player->getSize().y << std::endl;
     RectT<Vector2> new_rect_player_x(player->getPosition() + player->getDirectionX(), player->getSize());
 
     if(map->checkObstacle(new_rect_player_x) == true)
         std::cout << "obstacle X" << std::endl;
     else
         player->moveX();
+
 
     RectT<Vector2> new_rect_player_y(player->getPosition() + player->getDirectionY(), player->getSize());
 

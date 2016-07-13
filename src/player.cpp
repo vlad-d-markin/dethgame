@@ -58,7 +58,7 @@ void Player::doUpdate(const UpdateState &us)
 	const Uint8* data = SDL_GetKeyboardState(0);
 
 	//calculate speed using delta time
-	float speed = 500.0f * (us.dt / 1000.0f);
+    float speed = 100.0f * (us.dt / 1000.0f);
 
     //Vector2 pos = getPosition();
     dirX = 0;
