@@ -8,5 +8,7 @@
 		<image id="bushes" file="bushes.png" cols="6" rows="1"/>
 		<image id="blood" file="blood.png" cols="5" rows="1"/>
 		<image id="big_blood" file="big_blood.png" cols="8" rows="2" />
+		<image id="fence" file="fence.png" cols="4" rows="4" />
+		<image id="graves" file="graves.png" cols="6" rows="3" />
 	</atlas>
 </resources>

@@ -254,12 +254,11 @@ void Map::drawLayer(Layer& layer, GameScreen *gs, int tiletype)
         tile->attachTo(gs);
 
         // filling the vec of collisions
-        if (tiletype == BACKGROUND)
-        {
+        if (tiletype == BACKGROUND) {
             Tile obj_tile(tile, tiletype);
             vec_collisions.push_back(obj_tile);
         }
-        if (tiletype == COLLISIONS){
+        if (tiletype == COLLISIONS) {
             Tile obj_tile(tile, tiletype);
             vec_collisions[i_gid] = obj_tile;
         }
@@ -275,7 +274,10 @@ Vector2 Map::getMapSize()
 
 bool Map::isObstacle(RectT<Vector2> rect_player)
 {
-    rect_player.setPosition(rect_player.getLeftTop()-Vector2(pix_tile_width/2,pix_tile_height/2));
+    // make collision box of hero
+    rect_player.setPosition(rect_player.getLeftTop()-Vector2((rect_player.getSize().x)/2, 0));
+    rect_player.setSize(rect_player.getSize().x, (rect_player.getSize().y)/2);
+
     if(isPointCollision(rect_player.getLeftTop())==true)
         return true;
     if(isPointCollision(rect_player.getRightTop())==true)
@@ -287,15 +289,14 @@ bool Map::isObstacle(RectT<Vector2> rect_player)
     return false;
 }
 
+
 bool Map::isPointCollision(Vector2 pos)
 {
-    int col=pos.x/pix_tile_width+1;
-    int row=pos.y/pix_tile_height+1;
-    int gid = num_tiles_in_row*(row-1)+col-1;
+    int col = pos.x / pix_tile_width+1;
+    int row = pos.y / pix_tile_height+1;
+    int gid = num_tiles_in_row * (row-1) + col - 1;
     if (vec_collisions[gid].getTiletype()==COLLISIONS)
-    {
         return true;
-    }
     else
         return false;
 }
