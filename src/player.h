@@ -18,6 +18,11 @@ private:
     Vector2 pos;
     float dirX;
     float dirY;
+    float dirXOld;
+    float dirYOld;
+    bool movingOld;
+    int VerticalAnimationDuration;
+    int HorizontalAnimationDuration;
     RectT<Vector2> * rectangle;
     int healthPoints;
     int stamina;

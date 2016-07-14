@@ -11,10 +11,27 @@ using namespace oxygine;
 
 Player::Player() : Sprite()
 {
-    my_resources = new Resources();
-    my_resources->loadXML("res.xml");
-    resAnim = my_resources->getResAnim("button_with_arrow");
-    this->setResAnim(resAnim);
+    gamescreen = gs;
+
+    VerticalAnimationDuration = 450;
+    HorizontalAnimationDuration = 700;
+    persAnimUp = gamescreen->getResources()->getResAnim("skin_goes_up");
+    persAnimDown = gamescreen->getResources()->getResAnim("skin_goes_down");
+    persAnimRight = gamescreen->getResources()->getResAnim("skin_goes_right");
+    persStandsUp = gamescreen->getResources()->getResAnim("skin_stands_up");
+    persStandsDown = gamescreen->getResources()->getResAnim("skin_stands_down");
+    persStandsRight = gamescreen->getResources()->getResAnim("skin_goes_right");
+
+    setResAnim(persStandsDown);
+    orientation = down;
+    moving = false;
+    movingOld = false;
+    dirX = 0;
+    dirY = 0;
+    dirXOld = 0;
+    dirYOld = 0;
+    pos.x = 250;
+    pos.y = 250;
 
 
     pos = Vector2(300,300);
@@ -51,6 +68,12 @@ void Player::moveY()
     setPosition(pos);
 }
 
+void Player::setMoving(const bool isMoving)
+{
+    movingOld = moving;
+    moving = isMoving;
+}
+
 void Player::doUpdate(const UpdateState &us)
 {
 	const Uint8* data = SDL_GetKeyboardState(0);
@@ -67,9 +90,14 @@ void Player::doUpdate(const UpdateState &us)
     if (data[SDL_SCANCODE_W]) dirY -= speed;
     if (data[SDL_SCANCODE_S]) dirY += speed;
 
-    //rotate player
-    if(! ( ( dirX == 0 ) && ( dirY == 0 ) ) )
-        this->setRotation(atan2(dirY, dirX));
+    //choose an appropriate animation
+    if( getSign(dirX) != getSign(dirXOld)
+        || ( getSign(dirX) == 0 && getSign(dirY) != getSign(dirYOld) )
+        || getSign(moving) != getSign(movingOld) )
+    {
+        //std::cerr << "X=" << dirX << " Xo=" << dirXOld << " Y=" << dirY << " Yo=" << dirYOld << " M=" << moving << " Mo=" << movingOld << std::endl;
+        rotate();
+    }
 
 	Vector2 windowSize(getParent()->getSize());
 
@@ -119,7 +147,95 @@ void Player::doUpdate(const UpdateState &us)
 	}
 }
 
-void Player::setDirection(float dir_x, float dir_y)
+void Player::rotate()
+{
+    if(moving)
+    {
+        if(dirX > 0)   //goes right
+        {
+            persAnimCurrent = persAnimRight;
+            orientation = right;
+        }
+        else if(dirX < 0)  //goes left
+        {
+            persAnimCurrent = persAnimRight;
+            orientation = left;
+        }
+        else
+        {
+            if(dirY > 0)   //goes down
+            {
+                persAnimCurrent = persAnimDown;
+                orientation = down;
+            }
+            else if(dirY < 0)  //goes up
+            {
+                persAnimCurrent = persAnimUp;
+                orientation = up;
+            }
+        }
+        removeTween(tween);
+        if(persAnimCurrent == persAnimRight)
+            tween = addTween(TweenAnim(persAnimCurrent), HorizontalAnimationDuration, -1, true);
+        else
+            tween = addTween(TweenAnim(persAnimCurrent), VerticalAnimationDuration, -1);
+    }
+    else    //if not moving
+    {
+        removeTween(tween);
+
+        if(dirX > 0)   //stands right
+        {
+            persAnimCurrent = persStandsRight;
+            orientation = right;
+        }
+        else if(dirX < 0)  //stands left
+        {
+            persAnimCurrent = persStandsRight;
+            orientation = left;
+        }
+        else    // dirX == 0
+        {
+            if(dirY > 0)   //stands down
+            {
+                persAnimCurrent = persStandsDown;
+                orientation = down;
+            }
+            else if(dirY < 0)  //stands up
+            {
+                persAnimCurrent = persStandsUp;
+                orientation = up;
+            }
+            else    // dirY == 0
+            {
+                if(orientation == right || orientation == left)
+                    persAnimCurrent = persStandsRight;
+                else if(orientation == up)
+                    persAnimCurrent = persStandsUp;
+                else if(orientation == down)
+                    persAnimCurrent = persStandsDown;
+            }
+        }
+
+        if(persAnimCurrent == persStandsRight)
+            setResAnim(persAnimCurrent, 1);
+        else
+            setResAnim(persAnimCurrent);
+    }
+    setFlippedX(orientation == left);
+}
+
+int Player::getSign(const float number)
+{
+    if(number > 0)
+        return 1;
+    else if(number < 0)
+        return -1;
+    else
+        return 0;
+}
+
+direction Player::getOrientation()
 {
     dirX = dir_x;
     dirY = dir_y;
