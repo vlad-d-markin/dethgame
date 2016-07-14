@@ -27,6 +27,7 @@ private:
 
     ResAnim * m_attack_south;
     ResAnim * m_attack_east;
+    ResAnim * m_attack_west;
 
     ResAnim * m_die_anim;
     ResAnim * m_idle_anim;

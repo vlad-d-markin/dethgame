@@ -31,7 +31,9 @@ public:
         DEAD,
 
         PUNCHING_SOUTH,
-        PUNCHING_EAST
+        PUNCHING_EAST,
+        PUNCHING_WEST,
+        PUNCHING_NORTH
     };
 
     /*
