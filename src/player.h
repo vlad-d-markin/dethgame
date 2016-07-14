@@ -5,9 +5,15 @@
 #include "SDL_keyboard.h"
 #include "core/oxygine.h"
 #include "Sprite.h"
+#include "screens/gamescreen.h"
 #include <iostream>
 
 using namespace oxygine;
+
+enum direction
+{
+    right, down, left, up
+};
 
 class Player : public Sprite
 {
@@ -18,6 +24,10 @@ private:
     Vector2 pos;
     float dirX;
     float dirY;
+    float dirXOld;
+    float dirYOld;
+    bool movingOld;
+    int animationDuration;
     RectT<Vector2> * rectangle;
     int healthPoints;
     int stamina;
@@ -32,16 +42,31 @@ private:
     int shotEvasion;
     int weaponHandlingSpeed;
     int Vnorm;
+    GameScreen *gamescreen;
+    ResAnim* persAnimUp;
+    ResAnim* persAnimDown;
+    ResAnim* persAnimRight;
+    ResAnim* persStandsUp;
+    ResAnim* persStandsDown;
+    ResAnim* persStandsRight;
+    ResAnim* persAnimCurrent;
+    void rotate();
+    bool moving;
+    int getSign(const float number);
+    spTween tween;
+    direction orientation;
 protected:
 	void doUpdate(const UpdateState &us);
 public:
     Player();
+    Player(GameScreen *gs);
 	void setMapSize(Vector2 _mapSize) { mapSize = _mapSize; }
 	Vector2 getMapSize() const { return mapSize; }
     Vector2 getDirection();
-    void setDirection(float dir_x, float dir_y);
-    void moveX();
-    void moveY();
+    void moveX(const float distance);
+    void moveY(const float distance);
+    void setMoving(const bool isMoving);
+    direction getOrientation();
 };
 
 typedef ::oxygine::intrusive_ptr<Player> spPlayer;
