@@ -17,6 +17,11 @@ public:
         WEST
     };
 
+    enum {
+        HP = 100,
+        DAMAGE = 10
+    };
+
 private:
     Resources resources;
 
@@ -57,8 +62,9 @@ class ZombiePunchEvent : public Event
 public:
     enum { EVENT = eventID('Z', 'p', 'H', 'R') };
     RectT<Vector2> attack_area;
+    int damage;
 
-    ZombiePunchEvent(RectT<Vector2> area) : Event(EVENT), attack_area(area) {}
+    ZombiePunchEvent(RectT<Vector2> area, int dmg) : Event(EVENT), attack_area(area), damage(dmg) {}
 };
 
 

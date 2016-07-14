@@ -16,7 +16,13 @@ Player::Player() : Sprite()
     resAnim = my_resources->getResAnim("button_with_arrow");
     this->setResAnim(resAnim);
 
+    pos = Vector2(300,300);
+    setPosition(pos);
+
     //Vnorm = ???
+    weaponDamage = 50;
+    attackArea.setSize(80,80);
+
     healthPoints = 500;
     stamina = 300;
     healthRegenerationSpeed = Vnorm;
@@ -63,6 +69,7 @@ void Player::doUpdate(const UpdateState &us)
     if (data[SDL_SCANCODE_D]) dirX += speed;
     if (data[SDL_SCANCODE_W]) dirY -= speed;
     if (data[SDL_SCANCODE_S]) dirY += speed;
+    if (data[SDL_SCANCODE_SPACE]) punch(WEST);
 
     //rotate player
     if(! ( ( dirX == 0 ) && ( dirY == 0 ) ) )
@@ -120,4 +127,43 @@ void Player::setDirection(float dir_x, float dir_y)
 {
     dirX = dir_x;
     dirY = dir_y;
+}
+
+
+void Player::takeDamage(int damage)
+{
+    if((healthPoints -= damage) <= 0) {
+        std::cout << "RIP Nathan" << std::endl;
+        // TODO: get rekt
+    }
+
+    std::cout << "Nathan -" << damage << "hp (" << healthPoints << ")" << std::endl;
+}
+
+
+RectT<Vector2> Player::getRectPlayer()
+{
+    RectT<Vector2> rect_player(getPosition(), getSize());
+    rect_player.setPosition(rect_player.getLeftTop()-getSize()/2);
+
+    return rect_player;
+}
+
+
+void Player::punch(Direction dir)
+{
+
+    switch(dir)
+    {
+    case WEST:
+        attackArea.setPosition(getPosition().x - attackArea.getWidth(), getPosition().y - attackArea.getHeight() / 2);
+        break;
+    default:
+        break;
+    }
+
+    attackArea.setPosition(attackArea.getLeftTop() - getSize()/2);
+
+    PlayerPunchEvent punchEvent(attackArea, weaponDamage);
+    dispatchEvent(&punchEvent);
 }

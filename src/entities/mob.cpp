@@ -1,4 +1,5 @@
 #include "mob.h"
+#include <iostream>
 
 Mob::Mob()
 {
@@ -32,6 +33,7 @@ void Mob::doUpdate(const UpdateState &us)
             break;
 
         case IDLE:
+            std::cout << "IDLE" << std::endl;
             // Switch idle animation
             break;
     }
@@ -93,3 +95,8 @@ bool Mob::isDecayed()
     return m_decayed;
 }
 
+RectT<Vector2> Mob::getMobBox()
+{
+    mob_box.setPosition(getPosition());
+    return mob_box;
+}

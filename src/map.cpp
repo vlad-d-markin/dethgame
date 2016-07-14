@@ -264,7 +264,6 @@ void Map::drawLayer(Layer& layer, GameScreen *gs, int tiletype)
                 vec_maptiles.push_back(obj_tile);
             if (tiletype == _COLLISION) {
                 vec_maptiles[i_gid] = obj_tile;
-                std::cout << "gid = " << i_gid << std::endl;
             }
         }
 	}

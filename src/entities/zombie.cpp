@@ -1,4 +1,5 @@
 #include "zombie.h"
+#include <iostream>
 
 #define IDLE_TWEEN addTween(TweenAnim(m_idle_anim), 1600, -1, true)
 #define DIE_TWEEN addTween(TweenAnim(m_die_anim), 800)
@@ -27,6 +28,11 @@ Zombie::Zombie() : Mob()
 
     m_current_tween = IDLE_TWEEN;
     m_state = IDLE;
+
+    m_health = HP;
+    m_attack_damage = 50;//DAMAGE;
+
+    mob_box.setSize(Vector2(50,50));
 }
 
 
@@ -38,6 +44,9 @@ Zombie::~Zombie()
 
 void Zombie::punch(Direction dir)
 {
+    if(m_state == DEAD)
+        return;
+
     switch (dir){
         case SOUTH: {
             m_state = PUNCHING_SOUTH;
@@ -47,7 +56,7 @@ void Zombie::punch(Direction dir)
 
             m_attack_area.setPosition(getX() - m_attack_area.getWidth() / 2, getY() + getHeight());
             m_attack_area.setSize(80, 80);
-            ZombiePunchEvent punchEvent(m_attack_area);
+            ZombiePunchEvent punchEvent(m_attack_area, m_attack_damage);
             dispatchEvent(&punchEvent);
         }
             break;
@@ -60,7 +69,7 @@ void Zombie::punch(Direction dir)
 
             m_attack_area.setPosition(getX() + getWidth(), getY() - m_attack_area.getHeight() / 2);
             m_attack_area.setSize(80, 80);
-            ZombiePunchEvent punchEvent(m_attack_area);
+            ZombiePunchEvent punchEvent(m_attack_area, m_attack_damage);
             dispatchEvent(&punchEvent);
         }
             break;
@@ -73,7 +82,7 @@ void Zombie::punch(Direction dir)
 
             m_attack_area.setPosition(getX() - m_attack_area.getWidth(), getY() - m_attack_area.getHeight() / 2);
             m_attack_area.setSize(80, 80);
-            ZombiePunchEvent punchEvent(m_attack_area);
+            ZombiePunchEvent punchEvent(m_attack_area, m_attack_damage);
             dispatchEvent(&punchEvent);
         }
             break;
@@ -87,7 +96,7 @@ void Zombie::punch(Direction dir)
 
             m_attack_area.setPosition(getX() - m_attack_area.getWidth() / 2, getY() - getHeight() - m_attack_area.getHeight());
             m_attack_area.setSize(80, 80);
-            ZombiePunchEvent punchEvent(m_attack_area);
+            ZombiePunchEvent punchEvent(m_attack_area, m_attack_damage);
             dispatchEvent(&punchEvent);
         }
             break;
@@ -101,8 +110,8 @@ void Zombie::punch(Direction dir)
 
 
 void Zombie::doUpdate(UpdateState &us)
-{
-    Mob::doUpdate(us);
+{ 
+   Mob::doUpdate(us);
 }
 
 

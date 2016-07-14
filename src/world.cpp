@@ -16,6 +16,9 @@ World::World(GameScreen *gs)
     zombie->setPosition(100, 100);
     zombie->setName("zomb");
     addMob(zombie);
+    dt_zombie = 0;
+
+
 }
 
 
@@ -23,6 +26,7 @@ void World::addMob(spMob mob)
 {
     mob->attachTo(this);
     mob->addEventListener(MobCorpseDecayedEvent::EVENT, CLOSURE(this, &World::corpseDecayed));
+    mob->addEventListener(ZombiePunchEvent::EVENT, CLOSURE(this, &World::zombieAttacks));
     m_mobs.insert(mob);
 }
 
@@ -34,10 +38,9 @@ void World::draw()
     player->setAnchor(0.5, 0.5);
     //sprite->setResAnim(gamescreen->getResources()->getResAnim("skin"));
     player->attachTo(gamescreen);
-    player->setPosition(gamescreen->getSize() / 2);
+    //player->setPosition(gamescreen->getSize() / 2);
     player->setMapSize(map->getMapSize());
-
-    // TODO: No to do like this again
+    player->addEventListener(PlayerPunchEvent::EVENT, CLOSURE(this, &World::onPlayerPunch));
 
 
     map->drawTop(gamescreen);
@@ -51,15 +54,17 @@ void World::doUpdate(const UpdateState &us)
     Actor::doUpdate(us);
 
     // TEST
-    static bool a = true;
-    if(us.time > 3000 && a)
-    {
-        a = false;
+
+    if(dt_zombie < 2000) {
+        dt_zombie += us.dt;
+    }
+    else {
         for(auto it = m_mobs.begin(); it != m_mobs.end(); it++)
         {
             spMob m = *it;
-            zombie->punch(Zombie::NORTH);
+            zombie->punch(Zombie::EAST);
         }
+        dt_zombie = 0;
     }
 
     static bool o = true;
@@ -68,7 +73,7 @@ void World::doUpdate(const UpdateState &us)
         o = false;
         for(auto it = m_mobs.begin(); it != m_mobs.end(); it++)
         {
-            (*it)->getHit(100);
+            //(*it)->getHit(100);
         }
     }
     // END OF TEST
@@ -100,7 +105,6 @@ void World::doUpdate(const UpdateState &us)
 }
 
 
-
 void World::corpseDecayed(Event *event)
 {
     log::messageln("Corpse decayed");
@@ -112,3 +116,58 @@ void World::corpseDecayed(Event *event)
 //    ev->mob->detach();
 //    delete ev->mob;
 }
+
+
+
+void World::zombieAttacks(Event *event)
+{
+    std::cout << "ZOMBIE ATTACK!!!" << std::endl;
+    ZombiePunchEvent * ev = reinterpret_cast<ZombiePunchEvent *>(event);
+
+
+    RectT<Vector2> attack_box;
+    attack_box = ev->attack_area;
+
+    /*
+    spColorRectSprite rect = new ColorRectSprite();
+    rect->setPosition(attack_box.getLeftTop());
+    rect->setSize(attack_box.getSize());
+    rect->attachTo(this);
+*/
+
+    RectT<Vector2> player_box = player->getRectPlayer();
+
+    if(player_box.isIntersecting(attack_box))
+        player->takeDamage(ev->damage);
+}
+
+
+void World::onPlayerPunch(Event * event)
+{
+    std::cout << "PLAYER ATTACK!!!" << std::endl;
+    PlayerPunchEvent * ev = reinterpret_cast<PlayerPunchEvent *>(event);
+
+
+    RectT<Vector2> attack_box;
+    attack_box = ev->attack_area;
+
+    RectT<Vector2> player_box = player->getRectPlayer();
+
+
+
+
+
+    for(auto it = m_mobs.begin(); it != m_mobs.end(); it++)
+    {
+        /*
+        spColorRectSprite rect = new ColorRectSprite();
+        rect->setPosition((*it)->getMobBox().getLeftTop());
+        rect->setSize((*it)->getMobBox().getSize());
+        rect->attachTo(this);*/
+
+        if(player_box.isIntersecting((*it)->getMobBox())) {
+            (*it)->getHit(ev->damage);
+        }
+    }
+}
+

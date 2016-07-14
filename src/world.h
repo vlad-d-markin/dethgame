@@ -16,6 +16,7 @@ class World : public Actor
     GameScreen* gamescreen;
 
     std::set<spMob> m_mobs;
+    float dt_zombie;
 
 public:
     World(GameScreen* gs);
@@ -26,6 +27,9 @@ public:
 
 protected:
     void doUpdate(const UpdateState &us);
+    void zombieAttacks(Event * event);
+
+    void onPlayerPunch(Event * event);
 
 };
 

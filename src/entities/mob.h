@@ -55,6 +55,8 @@ protected:
 
     bool m_state_changed;
 
+    RectT<Vector2> mob_box;
+
 public:
     Mob();
     virtual ~Mob();
@@ -63,6 +65,7 @@ public:
     void attack(/*Entity (Character) * target*/);
     void die();
     void walkTo(Vector2 dest);
+    RectT<Vector2> getMobBox();
 
     void setState(State s);
 
