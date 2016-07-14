@@ -30,7 +30,8 @@ public:
         WALKING_EAST,
         DEAD,
 
-        PUNCHING_SOUTH
+        PUNCHING_SOUTH,
+        PUNCHING_EAST
     };
 
     /*
