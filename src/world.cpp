@@ -58,7 +58,7 @@ void World::doUpdate(const UpdateState &us)
         for(auto it = m_mobs.begin(); it != m_mobs.end(); it++)
         {
             spMob m = *it;
-            zombie->punch(Zombie::WEST);
+            zombie->punch(Zombie::NORTH);
         }
     }
 

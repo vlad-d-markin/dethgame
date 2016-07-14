@@ -9,6 +9,7 @@
 		<image file="zombie_attack_south.png" cols="3"/>
 		<image file="zombie_attack_east.png" cols="3"/>
 		<image file="zombie_attack_west.png" cols="3"/>
+		<image file="zombie_attack_north.png" cols="3"/>
 	</atlas>
 
 </resources>

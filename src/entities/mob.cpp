@@ -53,7 +53,7 @@ void Mob::getHit(int damage)
 {
     if(m_state == DEAD)
         return;
-    
+
     log::messageln("Mob got damage %d (%d)", damage, m_health);
     m_health -= damage;
 

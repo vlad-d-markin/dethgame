@@ -6,6 +6,7 @@
 #define PUNCH_SOUTH_TWEEN addTween(TweenAnim(m_attack_south), 600)
 #define PUNCH_EAST_TWEEN addTween(TweenAnim(m_attack_east), 600)
 #define PUNCH_WEST_TWEEN addTween(TweenAnim(m_attack_west), 600)
+#define PUNCH_NORTH_TWEEN addTween(TweenAnim(m_attack_north), 600)
 
 Zombie::Zombie() : Mob()
 {
@@ -19,6 +20,7 @@ Zombie::Zombie() : Mob()
     m_attack_south = resources.getResAnim("zombie_attack_south");
     m_attack_east = resources.getResAnim("zombie_attack_east");
     m_attack_west = resources.getResAnim("zombie_attack_west");
+    m_attack_north = resources.getResAnim("zombie_attack_north");
 
     m_die_anim = resources.getResAnim("zombie_die");
     m_idle_anim = resources.getResAnim("zombie_idle");
@@ -70,6 +72,20 @@ void Zombie::punch(Direction dir)
             m_current_tween->setDoneCallback(CLOSURE(this, &Zombie::onPunchFinished));
 
             m_attack_area.setPosition(getX() - m_attack_area.getWidth(), getY() - m_attack_area.getHeight() / 2);
+            m_attack_area.setSize(80, 80);
+            ZombiePunchEvent punchEvent(m_attack_area);
+            dispatchEvent(&punchEvent);
+        }
+            break;
+
+
+        case NORTH: {
+            m_state = PUNCHING_NORTH;
+            removeTween(m_current_tween);
+            m_current_tween = PUNCH_NORTH_TWEEN;
+            m_current_tween->setDoneCallback(CLOSURE(this, &Zombie::onPunchFinished));
+
+            m_attack_area.setPosition(getX() - m_attack_area.getWidth() / 2, getY() - getHeight() - m_attack_area.getHeight());
             m_attack_area.setSize(80, 80);
             ZombiePunchEvent punchEvent(m_attack_area);
             dispatchEvent(&punchEvent);
