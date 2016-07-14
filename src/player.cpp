@@ -21,13 +21,15 @@ Player::Player(GameScreen *gs) : Sprite()
     persStandsRight = gamescreen->getResources()->getResAnim("skin_stands_right");
 
     setResAnim(persStandsDown);
+    orientation = down;
     moving = false;
     movingOld = false;
     dirX = 0;
     dirY = 0;
     dirXOld = 0;
     dirYOld = 0;
-    left = false;
+    pos.x = 250;
+    pos.y = 250;
 
     //Vnorm = ???
     healthPoints = 500;
@@ -85,18 +87,13 @@ void Player::doUpdate(const UpdateState &us)
     if (data[SDL_SCANCODE_D]) dirX += speed;
     if (data[SDL_SCANCODE_W]) dirY -= speed;
     if (data[SDL_SCANCODE_S]) dirY += speed;
-/*
-    if(dirX == 0 && dirY == 0)
-    {
-        setMoving(false);
-    }
-*/
-    //rotate player
+
+    //choose appropriate animation
     if( getSign(dirX) != getSign(dirXOld)
         || ( getSign(dirX) == 0 && getSign(dirY) != getSign(dirYOld) )
         || getSign(moving) != getSign(movingOld) )
     {
-        //std::cout << "X=" << dirX << " Xo=" << dirXOld << " Y=" << dirY << " Yo=" << dirYOld << " M=" << moving << " Mo=" << movingOld;
+        //std::cerr << "X=" << dirX << " Xo=" << dirXOld << " Y=" << dirY << " Yo=" << dirYOld << " M=" << moving << " Mo=" << movingOld << std::endl;
         rotate();
     }
 
@@ -126,7 +123,7 @@ void Player::doUpdate(const UpdateState &us)
 		}
 	}
 	
-    //
+    //y
 	if (getMapSize().y > windowSize.y)
 	{
 		if (getPosition().y > windowSize.y / 2 && getPosition().y < getMapSize().y - windowSize.y / 2)
@@ -147,39 +144,32 @@ void Player::doUpdate(const UpdateState &us)
 		}
 	}
 }
-/*
-void Player::setDirection(const float dir_x, const float dir_y)
-{
-    dirXOld = dirX;
-    dirYOld = dirY;
-    dirX = dir_x;
-    dirY = dir_y;
-}
-*/
+
 void Player::rotate()
-{//std::cout<<"player_rotated"<<std::endl;
+{
     if(moving)
     {
         if(dirX > 0)   //goes right
         {
             persAnimCurrent = persAnimRight;
-            left = false;
+            orientation = right;
         }
         else if(dirX < 0)  //goes left
         {
             persAnimCurrent = persAnimRight;
-            left = true;
+            orientation = left;
         }
         else
         {
-            left = false;
             if(dirY > 0)   //goes down
             {
                 persAnimCurrent = persAnimDown;
+                orientation = down;
             }
             else if(dirY < 0)  //goes up
             {
                 persAnimCurrent = persAnimUp;
+                orientation = up;
             }
         }
         removeTween(tween);
@@ -188,64 +178,43 @@ void Player::rotate()
     else    //if not moving
     {
         removeTween(tween);
-/*
+
         if(dirX > 0)   //stands right
         {
             persAnimCurrent = persStandsRight;
+            orientation = right;
         }
         else if(dirX < 0)  //stands left
         {
             persAnimCurrent = persStandsRight;
-            setFlippedX(true);
+            orientation = left;
         }
         else    // dirX == 0
         {
             if(dirY > 0)   //stands down
             {
                 persAnimCurrent = persStandsDown;
+                orientation = down;
             }
             else if(dirY < 0)  //stands up
             {
                 persAnimCurrent = persStandsUp;
+                orientation = up;
             }
-            else    // dirY == 0 too
+            else    // dirY == 0
             {
-                if(dirXOld > 0)   //stands right
-                {
+                if(orientation == right || orientation == left)
                     persAnimCurrent = persStandsRight;
-                }
-                else if(dirXOld < 0)  //stands left
-                {
-                    persAnimCurrent = persStandsRight;
-                    setFlippedX(true);
-                }
-                else    // dirXOld == 0
-                {
-                    if(dirYOld >= 0)   //stands down
-                    {
-                        persAnimCurrent = persStandsDown;
-                    }
-                    else //dirYOld < 0  //stands up
-                    {
-                        persAnimCurrent = persStandsUp;
-                    }
-                }
+                else if(orientation == up)
+                    persAnimCurrent = persStandsUp;
+                else if(orientation == down)
+                    persAnimCurrent = persStandsDown;
             }
-        }*/
-        if(persAnimCurrent == persAnimRight)
-            persAnimCurrent = persStandsRight;
-        else if(persAnimCurrent == persAnimUp)
-            persAnimCurrent = persStandsUp;
-        else if(persAnimCurrent == persAnimDown)
-            persAnimCurrent = persStandsDown;
-        else if(persAnimCurrent == persStandsDown || persAnimCurrent == persStandsRight || persAnimCurrent == persStandsUp)
-        {}
-        else
-            std::cerr << "which animation?!\n";
+        }
 
         setResAnim(persAnimCurrent);
     }
-    setFlippedX(left);
+    setFlippedX(orientation == left);
 }
 
 int Player::getSign(const float number)
@@ -256,4 +225,9 @@ int Player::getSign(const float number)
         return -1;
     else
         return 0;
+}
+
+direction Player::getOrientation()
+{
+    return orientation;
 }

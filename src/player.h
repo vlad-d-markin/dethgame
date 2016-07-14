@@ -10,6 +10,11 @@
 
 using namespace oxygine;
 
+enum direction
+{
+    right, down, left, up
+};
+
 class Player : public Sprite
 {
 private: 
@@ -49,7 +54,7 @@ private:
     bool moving;
     int getSign(const float number);
     spTween tween;
-    bool left;
+    direction orientation;
 protected:
 	void doUpdate(const UpdateState &us);
 public:
@@ -58,10 +63,10 @@ public:
 	void setMapSize(Vector2 _mapSize) { mapSize = _mapSize; }
 	Vector2 getMapSize() const { return mapSize; }
     Vector2 getDirection();
-    //void setDirection(const float dir_x, const float dir_y);
     void moveX(const float distance);
     void moveY(const float distance);
     void setMoving(const bool isMoving);
+    direction getOrientation();
 };
 
 typedef ::oxygine::intrusive_ptr<Player> spPlayer;
