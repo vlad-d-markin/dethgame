@@ -40,6 +40,9 @@ MainMenu::MainMenu()
     btn->setScale(scale_factor);
     btn->setPosition(getWidth()/2 - btn->getWidth()/2*scale_factor, GAP_SIZE + getHeight()/2 + 3*btn->getHeight()*scale_factor);
     btn->attachTo(this);
+    btn->addEventListener(TouchEvent::CLICK, [](Event *){
+        DethGame::instance()->quit();
+    });
 
     // Tmp
     // btn->addClickListener([](){ DethGame::instance()->quit(); });

@@ -22,6 +22,9 @@ public:
     int getMusicVolume();
     void setMusicVolume(unsigned int volume);
 
+    int getFxVolume();
+    void setFxVolume(int volume);
+
     bool getFullScreen();
     void setFullScreen(bool isfullscreen);
 };
