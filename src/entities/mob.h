@@ -63,6 +63,8 @@ public:
 protected:
     virtual void doUpdate(const UpdateState& us);
 
+    virtual void onDie() {}
+
 };
 
 

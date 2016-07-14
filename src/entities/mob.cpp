@@ -76,6 +76,7 @@ void Mob::die()
     m_health = 0;
     m_state = DEAD;
     log::messageln("Mob is dead");
+    onDie();
 }
 
 

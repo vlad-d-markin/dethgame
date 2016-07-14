@@ -1,6 +1,6 @@
 #include "world.h"
 #include "map.h"
-#include "entities/testmob.h"
+#include "entities/zombie.h"
 
 #include <iostream>
 
@@ -10,13 +10,18 @@ World::World(GameScreen *gs)
     player = new Player();
     gamescreen = gs;
 
-    TestMob * kaban = new TestMob();
-    kaban->setPosition(100, 100);
-//    m_mobs.push_back(kaban);
+    spZombie zombie = new Zombie();
+    zombie->setPosition(100, 100);
+    zombie->setName("zomb");
+    addMob(zombie);
+}
 
-    kaban->attachTo(this);
-    kaban->getHit(100);
-    kaban->addEventListener(MobCorpseDecayedEvent::EVENT, CLOSURE(this, &World::corpseDecayed));
+
+void World::addMob(spMob mob)
+{
+    mob->attachTo(this);
+    mob->addEventListener(MobCorpseDecayedEvent::EVENT, CLOSURE(this, &World::corpseDecayed));
+    m_mobs.insert(mob);
 }
 
 void World::draw()
@@ -41,6 +46,18 @@ void World::draw()
 
 void World::doUpdate(const UpdateState &us)
 {
+    Actor::doUpdate(us);
+
+    static bool o = true;
+    if(us.time > 5000 && o)
+    {
+        o = false;
+        for(auto it = m_mobs.begin(); it != m_mobs.end(); it++)
+        {
+            (*it)->getHit(100);
+        }
+    }
+
     if( player->getDirection() == Vector2(0,0) )
         return;
 
@@ -74,6 +91,8 @@ void World::corpseDecayed(Event *event)
     MobCorpseDecayedEvent * ev = reinterpret_cast<MobCorpseDecayedEvent *>(event);
 
     removeChild(ev->mob);
+
+    m_mobs.erase(ev->mob);
 //    ev->mob->detach();
 //    delete ev->mob;
 }

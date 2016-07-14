@@ -6,7 +6,7 @@
 using namespace oxygine;
 
 DECLARE_SMART(Entity, spEntiy)
-class Entity : public Actor
+class Entity : public Sprite
 {
 private:
     RectT<Vector2> m_collision_box;

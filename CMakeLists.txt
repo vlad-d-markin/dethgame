@@ -13,7 +13,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OXYGINE_CXX_FLAGS}")
 
 
 # Project source code
-aux_source_directory(./src _SRC_FILES)
+#aux_source_directory(./src _SRC_FILES)
 file(GLOB_RECURSE SRC_FILES "./src/*.cpp")
 
 

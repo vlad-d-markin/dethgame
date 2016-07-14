@@ -3,7 +3,7 @@
 #include "oxygine-framework.h"
 #include "map.h"
 #include "player.h"
-#include <vector>
+#include <set>
 #include "entities/mob.h"
 
 
@@ -15,12 +15,13 @@ class World : public Actor
     Player* player;
     GameScreen* gamescreen;
 
-    std::vector<Mob *> m_mobs;
+    std::set<spMob> m_mobs;
 
 public:
     World(GameScreen* gs);
     void draw();
 
+    void addMob(spMob mob);
     void corpseDecayed(Event * event);
 
 protected:
