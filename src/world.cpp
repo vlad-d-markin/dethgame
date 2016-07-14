@@ -1,5 +1,6 @@
 #include "world.h"
 #include "map.h"
+#include "entities/testmob.h"
 
 #include <iostream>
 
@@ -8,6 +9,14 @@ World::World(GameScreen *gs)
     map = new Map();
     player = new Player();
     gamescreen = gs;
+
+    TestMob * kaban = new TestMob();
+    kaban->setPosition(100, 100);
+//    m_mobs.push_back(kaban);
+
+    kaban->attachTo(this);
+    kaban->getHit(100);
+    kaban->addEventListener(MobCorpseDecayedEvent::EVENT, CLOSURE(this, &World::corpseDecayed));
 }
 
 void World::draw()
@@ -22,7 +31,13 @@ void World::draw()
     player->setPosition(Vector2(50,50));
     player->setMapSize(map->getMapSize());
 
+    // TODO: No to do like this again
+
+
     map->drawTop(gamescreen);
+
+    // TODO: Somebody remove it, pls
+
 }
 
 void World::doUpdate(const UpdateState &us)
@@ -52,4 +67,16 @@ void World::doUpdate(const UpdateState &us)
 
     }
 
+}
+
+
+
+void World::corpseDecayed(Event *event)
+{
+    log::messageln("Corpse decayed");
+    MobCorpseDecayedEvent * ev = reinterpret_cast<MobCorpseDecayedEvent *>(event);
+
+    removeChild(ev->mob);
+//    ev->mob->detach();
+//    delete ev->mob;
 }
