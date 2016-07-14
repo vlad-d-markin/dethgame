@@ -2,10 +2,10 @@
 <resources>
 	<set path = "images" />
 	<atlas>
-		<image file="anim.png" cols = "8" />
-		<image file="button.png"/>		
+		<image file="button.png"/>
+		<image file="button_with_arrow.png"/>
 	</atlas>
-	
+
 	<set path = "fonts" />
-	<font file="main.fnt" />	
+	<font file="main.fnt" />
 </resources>

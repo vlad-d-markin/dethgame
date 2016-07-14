@@ -5,31 +5,16 @@
 #include "player.h"
 #include "dethgame.h"
 #include <iostream>
+#include <cmath>
 
 using namespace oxygine;
 
-Player::Player(GameScreen *gs) : Sprite()
+Player::Player() : Sprite()
 {
-    gamescreen = gs;
-
-    animationDuration = 450;
-    persAnimUp = gamescreen->getResources()->getResAnim("skin_goes_up");
-    persAnimDown = gamescreen->getResources()->getResAnim("skin_goes_down");
-    persAnimRight = gamescreen->getResources()->getResAnim("skin_goes_right");
-    persStandsUp = gamescreen->getResources()->getResAnim("skin_stands_up");
-    persStandsDown = gamescreen->getResources()->getResAnim("skin_stands_down");
-    persStandsRight = gamescreen->getResources()->getResAnim("skin_stands_right");
-
-    setResAnim(persStandsDown);
-    orientation = down;
-    moving = false;
-    movingOld = false;
-    dirX = 0;
-    dirY = 0;
-    dirXOld = 0;
-    dirYOld = 0;
-    pos.x = 250;
-    pos.y = 250;
+    my_resources = new Resources();
+    my_resources->loadXML("res.xml");
+    resAnim = my_resources->getResAnim("button_with_arrow");
+    this->setResAnim(resAnim);
 
     //Vnorm = ???
     healthPoints = 500;
@@ -51,24 +36,16 @@ Vector2 Player::getDirection()
     return Vector2(dirX, dirY);
 }
 
-void Player::moveX(const float distance)
+void Player::moveX()
 {
-    pos.x += distance;
+    pos.x += dirX;
     setPosition(pos);
-    //setMoving(true);
 }
 
-void Player::moveY(const float distance)
+void Player::moveY()
 {
-    pos.y += distance;
+    pos.y += dirY;
     setPosition(pos);
-    //setMoving(true);
-}
-
-void Player::setMoving(const bool isMoving)
-{
-    movingOld = moving;
-    moving = isMoving;
 }
 
 void Player::doUpdate(const UpdateState &us)
@@ -76,10 +53,9 @@ void Player::doUpdate(const UpdateState &us)
 	const Uint8* data = SDL_GetKeyboardState(0);
 
 	//calculate speed using delta time
-    float speed = 150.0f * (us.dt / 1000.0f);
+    float speed = 500.0f * (us.dt / 1000.0f);
 
-    dirXOld = dirX;
-    dirYOld = dirY;
+    //Vector2 pos = getPosition();
     dirX = 0;
     dirY = 0;
 
@@ -88,14 +64,9 @@ void Player::doUpdate(const UpdateState &us)
     if (data[SDL_SCANCODE_W]) dirY -= speed;
     if (data[SDL_SCANCODE_S]) dirY += speed;
 
-    //choose appropriate animation
-    if( getSign(dirX) != getSign(dirXOld)
-        || ( getSign(dirX) == 0 && getSign(dirY) != getSign(dirYOld) )
-        || getSign(moving) != getSign(movingOld) )
-    {
-        //std::cerr << "X=" << dirX << " Xo=" << dirXOld << " Y=" << dirY << " Yo=" << dirYOld << " M=" << moving << " Mo=" << movingOld << std::endl;
-        rotate();
-    }
+    //rotate player
+    if(! ( ( dirX == 0 ) && ( dirY == 0 ) ) )
+        this->setRotation(atan2(dirY, dirX));
 
 	Vector2 windowSize(getParent()->getSize());
 
@@ -123,7 +94,7 @@ void Player::doUpdate(const UpdateState &us)
 		}
 	}
 	
-    //y
+    //
 	if (getMapSize().y > windowSize.y)
 	{
 		if (getPosition().y > windowSize.y / 2 && getPosition().y < getMapSize().y - windowSize.y / 2)
@@ -145,89 +116,8 @@ void Player::doUpdate(const UpdateState &us)
 	}
 }
 
-void Player::rotate()
+void Player::setDirection(float dir_x, float dir_y)
 {
-    if(moving)
-    {
-        if(dirX > 0)   //goes right
-        {
-            persAnimCurrent = persAnimRight;
-            orientation = right;
-        }
-        else if(dirX < 0)  //goes left
-        {
-            persAnimCurrent = persAnimRight;
-            orientation = left;
-        }
-        else
-        {
-            if(dirY > 0)   //goes down
-            {
-                persAnimCurrent = persAnimDown;
-                orientation = down;
-            }
-            else if(dirY < 0)  //goes up
-            {
-                persAnimCurrent = persAnimUp;
-                orientation = up;
-            }
-        }
-        removeTween(tween);
-        tween = addTween(TweenAnim(persAnimCurrent), animationDuration, -1);
-    }
-    else    //if not moving
-    {
-        removeTween(tween);
-
-        if(dirX > 0)   //stands right
-        {
-            persAnimCurrent = persStandsRight;
-            orientation = right;
-        }
-        else if(dirX < 0)  //stands left
-        {
-            persAnimCurrent = persStandsRight;
-            orientation = left;
-        }
-        else    // dirX == 0
-        {
-            if(dirY > 0)   //stands down
-            {
-                persAnimCurrent = persStandsDown;
-                orientation = down;
-            }
-            else if(dirY < 0)  //stands up
-            {
-                persAnimCurrent = persStandsUp;
-                orientation = up;
-            }
-            else    // dirY == 0
-            {
-                if(orientation == right || orientation == left)
-                    persAnimCurrent = persStandsRight;
-                else if(orientation == up)
-                    persAnimCurrent = persStandsUp;
-                else if(orientation == down)
-                    persAnimCurrent = persStandsDown;
-            }
-        }
-
-        setResAnim(persAnimCurrent);
-    }
-    setFlippedX(orientation == left);
-}
-
-int Player::getSign(const float number)
-{
-    if(number > 0)
-        return 1;
-    else if(number < 0)
-        return -1;
-    else
-        return 0;
-}
-
-direction Player::getOrientation()
-{
-    return orientation;
+    dirX = dir_x;
+    dirY = dir_y;
 }
