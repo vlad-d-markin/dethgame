@@ -5,11 +5,10 @@
 #include "player.h"
 #include "dethgame.h"
 #include <iostream>
-#include <cmath>
 
 using namespace oxygine;
 
-Player::Player() : Sprite()
+Player::Player(GameScreen *gs) : Sprite()
 {
     gamescreen = gs;
 
@@ -30,11 +29,8 @@ Player::Player() : Sprite()
     dirY = 0;
     dirXOld = 0;
     dirYOld = 0;
-    pos.x = 250;
-    pos.y = 250;
 
-
-    pos = Vector2(300,300);
+    pos = Vector2(300, 300);
     setPosition(pos);
     //Vnorm = ???
     healthPoints = 500;
@@ -56,15 +52,15 @@ Vector2 Player::getDirection()
     return Vector2(dirX, dirY);
 }
 
-void Player::moveX()
+void Player::moveX(const float distance)
 {
-    pos.x += dirX;
+    pos.x += distance;
     setPosition(pos);
 }
 
-void Player::moveY()
+void Player::moveY(const float distance)
 {
-    pos.y += dirY;
+    pos.y += distance;
     setPosition(pos);
 }
 
@@ -79,9 +75,11 @@ void Player::doUpdate(const UpdateState &us)
 	const Uint8* data = SDL_GetKeyboardState(0);
 
 	//calculate speed using delta time
-    float speed = 500.0f * (us.dt / 1000.0f);
+    float speed = 150.0f * (us.dt / 1000.0f);
 
     //Vector2 pos = getPosition();
+    dirXOld = dirX;
+    dirYOld = dirY;
     dirX = 0;
     dirY = 0;
 
@@ -125,7 +123,7 @@ void Player::doUpdate(const UpdateState &us)
 		}
 	}
 	
-    //
+    //y
 	if (getMapSize().y > windowSize.y)
 	{
 		if (getPosition().y > windowSize.y / 2 && getPosition().y < getMapSize().y - windowSize.y / 2)
@@ -237,6 +235,5 @@ int Player::getSign(const float number)
 
 direction Player::getOrientation()
 {
-    dirX = dir_x;
-    dirY = dir_y;
+    return orientation;
 }
