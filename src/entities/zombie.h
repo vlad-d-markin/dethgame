@@ -49,5 +49,14 @@ protected:
 
 };
 
+class ZombiePunchEvent : public Event
+{
+public:
+    enum { EVENT = eventID('Z', 'p', 'H', 'R') };
+    RectT<Vector2> attack_area;
+
+    ZombiePunchEvent(RectT<Vector2> area) : Event(EVENT), attack_area(area) {}
+};
+
 
 #endif //DETHGAME_ZOMBIE_H

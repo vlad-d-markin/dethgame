@@ -2,6 +2,7 @@
 
 #define IDLE_TWEEN addTween(TweenAnim(m_idle_anim), 1600, -1, true)
 #define DIE_TWEEN addTween(TweenAnim(m_die_anim), 800)
+
 #define PUNCH_SOUTH_TWEEN addTween(TweenAnim(m_attack_south), 600)
 
 Zombie::Zombie() : Mob()
@@ -32,10 +33,17 @@ Zombie::~Zombie()
 void Zombie::punch(Direction dir)
 {
     switch (dir){
-        case SOUTH:
+        case SOUTH: {
+            m_state = PUNCHING_SOUTH;
             removeTween(m_current_tween);
             m_current_tween = PUNCH_SOUTH_TWEEN;
             m_current_tween->setDoneCallback(CLOSURE(this, &Zombie::onPunchFinished));
+
+            m_attack_area.setPosition(getX() - m_attack_area.getWidth() / 2, getY() + getHeight());
+            m_attack_area.setSize(80, 80);
+            ZombiePunchEvent punchEvent(m_attack_area);
+            dispatchEvent(&punchEvent);
+        }
             break;
 
         default:
@@ -47,21 +55,7 @@ void Zombie::punch(Direction dir)
 
 void Zombie::doUpdate(UpdateState &us)
 {
-//    m_zombie_sprite->setPosition(getPosition())
     Mob::doUpdate(us);
-
-//    if(m_state_changed){
-//        switch (m_state){
-//            case IDLE:
-//                m_current_tween = IDLE_TWEEN;
-//                break;
-//
-//            case PUNCHING_SOUTH:
-//                removeTween(m_current_tween);
-//                m_current_tween = PUNCH_SOUTH_TWEEN;
-//                break;
-//        }
-//    }
 }
 
 
@@ -77,4 +71,5 @@ void Zombie::onPunchFinished(Event *e)
 {
     removeTween(m_current_tween);
     m_current_tween = IDLE_TWEEN;
+    m_state = IDLE;
 }
