@@ -15,13 +15,17 @@ class World : public Actor
     Player* player;
     GameScreen* gamescreen;
 
-    std::vector<spMob> m_mobs;
+    std::vector<Mob *> m_mobs;
 
 public:
     World(GameScreen* gs);
     void draw();
+
+    void corpseDecayed(Event * event);
+
 protected:
     void doUpdate(const UpdateState &us);
+
 };
 
 #endif // WORLD_H

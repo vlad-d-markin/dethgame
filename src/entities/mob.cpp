@@ -26,6 +26,8 @@ void Mob::doUpdate(const UpdateState &us)
             if(m_dead_time >= 5000){
                 log::messageln("Mob is decayed");
                 m_decayed = true;
+                MobCorpseDecayedEvent decayedEvent(this);
+                dispatchEvent(&decayedEvent);
             }
             break;
 

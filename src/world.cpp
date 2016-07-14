@@ -10,9 +10,13 @@ World::World(GameScreen *gs)
     player = new Player();
     gamescreen = gs;
 
-    spTestMob kaban = new TestMob();
+    TestMob * kaban = new TestMob();
     kaban->setPosition(100, 100);
-    m_mobs.push_back(kaban);
+//    m_mobs.push_back(kaban);
+
+    kaban->attachTo(this);
+    kaban->getHit(100);
+    kaban->addEventListener(MobCorpseDecayedEvent::EVENT, CLOSURE(this, &World::corpseDecayed));
 }
 
 void World::draw()
@@ -27,31 +31,16 @@ void World::draw()
     player->setMapSize(map->getMapSize());
 
     // TODO: No to do like this again
-    m_mobs[0]->attachTo(this);
+
 
     map->drawTop(gamescreen);
 
     // TODO: Somebody remove it, pls
-    m_mobs[0]->getHit(100);
+
 }
 
 void World::doUpdate(const UpdateState &us)
 {
-    // Remove decayed corpses
-    for(auto it = m_mobs.begin(); it != m_mobs.end(); it++)
-    {
-        spMob mob = *it;
-        if(mob->isDecayed())
-        {
-//            m_mobs.erase(it);
-//            it++;
-//
-//            this->removeChild(mob);
-        }
-    }
-
-
-
     if( player->getDirection() == Vector2(0,0) )
         return;
 
@@ -75,4 +64,16 @@ void World::doUpdate(const UpdateState &us)
 
     }
 
+}
+
+
+
+void World::corpseDecayed(Event *event)
+{
+    log::messageln("Corpse decayed");
+    MobCorpseDecayedEvent * ev = reinterpret_cast<MobCorpseDecayedEvent *>(event);
+
+    removeChild(ev->mob);
+//    ev->mob->detach();
+//    delete ev->mob;
 }

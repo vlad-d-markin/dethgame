@@ -5,7 +5,21 @@
 #include "entity.h"
 
 
+using namespace oxygine;
+
+class Mob;
 DECLARE_SMART(Mob, spMob)
+
+class MobCorpseDecayedEvent : public Event
+{
+public:
+    spMob mob;
+
+    enum { EVENT = eventID('m', 'C', 'd', 'Y') };
+    MobCorpseDecayedEvent(spMob m) : Event(EVENT), mob(m) {}
+};
+
+
 class Mob : public Entity {
 public:
     enum State {
