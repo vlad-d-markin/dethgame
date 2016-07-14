@@ -2,11 +2,11 @@
 <resources>
 	<set path = "images" />
 	<atlas>
-		<image id="grass-tiles-2-small" file="grass-tiles-2-small.png" cols="12" rows="6" />
-		<image id="tree2-final" file="tree2-final.png" cols="8" rows="8" />
-		<image id="Derevo" file="Derevo.png" cols="8" rows="8" />		
-		<image id="littleshrooms_0" file="littleshrooms_0.png" />
-		<image id="qubodup-bush_0" file="qubodup-bush_0.png"/>
-		<image id="qubodup-bush_berries_0" file="qubodup-bush_berries_0.png" />
+		<image id="bg" file="bg.png" cols="8" rows="16" />
+		<image id="roads" file="roads.png" cols="16" rows="16" />
+		<image id="dead_trees" file="tree.png" cols="16" rows="8" />
+		<image id="bushes" file="bushes.png" cols="6" rows="1"/>
+		<image id="blood" file="blood.png" cols="5" rows="1"/>
+		<image id="big_blood" file="big_blood.png" cols="8" rows="2" />
 	</atlas>
 </resources>
