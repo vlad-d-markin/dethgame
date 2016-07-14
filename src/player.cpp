@@ -16,6 +16,9 @@ Player::Player() : Sprite()
     resAnim = my_resources->getResAnim("button_with_arrow");
     this->setResAnim(resAnim);
 
+
+    pos = Vector2(300,300);
+    setPosition(pos);
     //Vnorm = ???
     healthPoints = 500;
     stamina = 300;

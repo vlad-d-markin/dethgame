@@ -28,7 +28,6 @@ void World::draw()
     //sprite->setResAnim(gamescreen->getResources()->getResAnim("skin"));
     player->attachTo(gamescreen);
    // player->setPosition(gamescreen->getSize() / 2);
-    player->setPosition(Vector2(50,50));
     player->setMapSize(map->getMapSize());
 
     // TODO: No to do like this again
