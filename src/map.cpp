@@ -51,8 +51,8 @@ void Map::parseXML()
     pugi::xml_node map = doc.child("map");
 
     // read map specifications
-    num_tiles_row = atoi(map.attribute("width").value());
-    num_tiles_col = atoi(map.attribute("height").value());
+    num_tiles_in_row = atoi(map.attribute("width").value());
+    num_tiles_in_col = atoi(map.attribute("height").value());
     pix_tile_width = atoi(map.attribute("tilewidth").value());
     pix_tile_height = atoi(map.attribute("tileheight").value());
 
@@ -191,7 +191,7 @@ void Map::parseXML()
 
 void Map::drawGround(GameScreen *gamescreen)
 {
-    drawLayer(vec_layers[BACKGROUND], gamescreen);
+    drawLayer(vec_layers[BACKGROUND], gamescreen, BACKGROUND);
     drawLayer(vec_layers[BACKGROUND_OBJECTS], gamescreen);
     drawLayer(vec_layers[COLLISIONS], gamescreen, COLLISIONS);
 }
@@ -254,9 +254,14 @@ void Map::drawLayer(Layer& layer, GameScreen *gs, int tiletype)
         tile->attachTo(gs);
 
         // filling the vec of collisions
-        if (tiletype == COLLISIONS){
+        if (tiletype == BACKGROUND)
+        {
             Tile obj_tile(tile, tiletype);
             vec_collisions.push_back(obj_tile);
+        }
+        if (tiletype == COLLISIONS){
+            Tile obj_tile(tile, tiletype);
+            vec_collisions[i_gid] = obj_tile;
         }
 	}
 }
@@ -264,22 +269,35 @@ void Map::drawLayer(Layer& layer, GameScreen *gs, int tiletype)
 
 Vector2 Map::getMapSize()
 {
-    return Vector2(num_tiles_row * pix_tile_width, num_tiles_col * pix_tile_height);
+    return Vector2(num_tiles_in_row * pix_tile_width, num_tiles_in_col * pix_tile_height);
 }
 
 
 bool Map::isObstacle(RectT<Vector2> rect_player)
 {
     rect_player.setPosition(rect_player.getLeftTop()-Vector2(pix_tile_width/2,pix_tile_height/2));
-
-    for(int i = 0; i < vec_collisions.size(); i++) {
-
-        RectT<Vector2> obj(vec_collisions[i].getTile()->getPosition(), Vector2(pix_tile_width, pix_tile_height));
-        if(rect_player.isIntersecting(obj) == true)
-            return true;
-    }
-
+    if(isPointCollision(rect_player.getLeftTop())==true)
+        return true;
+    if(isPointCollision(rect_player.getRightTop())==true)
+        return true;
+    if(isPointCollision(rect_player.getRightBottom())==true)
+        return true;
+    if(isPointCollision(rect_player.getLeftBottom())==true)
+        return true;
     return false;
+}
+
+bool Map::isPointCollision(Vector2 pos)
+{
+    int col=pos.x/pix_tile_width+1;
+    int row=pos.y/pix_tile_height+1;
+    int gid = num_tiles_in_row*(row-1)+col-1;
+    if (vec_collisions[gid].getTiletype()==COLLISIONS)
+    {
+        return true;
+    }
+    else
+        return false;
 }
 
 

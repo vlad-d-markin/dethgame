@@ -18,7 +18,8 @@ void World::draw()
     player->setAnchor(0.5, 0.5);
     //sprite->setResAnim(gamescreen->getResources()->getResAnim("skin"));
     player->attachTo(gamescreen);
-    player->setPosition(gamescreen->getSize() / 2);
+   // player->setPosition(gamescreen->getSize() / 2);
+    player->setPosition(Vector2(50,50));
     player->setMapSize(map->getMapSize());
 
     map->drawTop(gamescreen);

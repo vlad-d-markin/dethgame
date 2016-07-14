@@ -48,8 +48,8 @@ class Map
     std::vector<Tile> vec_collisions;
 
     // map specifications
-    int num_tiles_row;
-    int num_tiles_col;
+    int num_tiles_in_row;
+    int num_tiles_in_col;
     int pix_tile_width;
     int pix_tile_height;
 
@@ -83,6 +83,7 @@ public:
 
     Vector2 getMapSize();
     bool isObstacle(RectT<Vector2> rect_player);
+    bool isPointCollision(Vector2 pos);
 
     Position getPosHero();
     std::vector<Position> getPosBoss();
