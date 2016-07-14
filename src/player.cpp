@@ -12,13 +12,14 @@ Player::Player(GameScreen *gs) : Sprite()
 {
     gamescreen = gs;
 
-    animationDuration = 450;
+    VerticalAnimationDuration = 450;
+    HorizontalAnimationDuration = 700;
     persAnimUp = gamescreen->getResources()->getResAnim("skin_goes_up");
     persAnimDown = gamescreen->getResources()->getResAnim("skin_goes_down");
     persAnimRight = gamescreen->getResources()->getResAnim("skin_goes_right");
     persStandsUp = gamescreen->getResources()->getResAnim("skin_stands_up");
     persStandsDown = gamescreen->getResources()->getResAnim("skin_stands_down");
-    persStandsRight = gamescreen->getResources()->getResAnim("skin_stands_right");
+    persStandsRight = gamescreen->getResources()->getResAnim("skin_goes_right");
 
     setResAnim(persStandsDown);
     orientation = down;
@@ -55,14 +56,12 @@ void Player::moveX(const float distance)
 {
     pos.x += distance;
     setPosition(pos);
-    //setMoving(true);
 }
 
 void Player::moveY(const float distance)
 {
     pos.y += distance;
     setPosition(pos);
-    //setMoving(true);
 }
 
 void Player::setMoving(const bool isMoving)
@@ -88,7 +87,7 @@ void Player::doUpdate(const UpdateState &us)
     if (data[SDL_SCANCODE_W]) dirY -= speed;
     if (data[SDL_SCANCODE_S]) dirY += speed;
 
-    //choose appropriate animation
+    //choose an appropriate animation
     if( getSign(dirX) != getSign(dirXOld)
         || ( getSign(dirX) == 0 && getSign(dirY) != getSign(dirYOld) )
         || getSign(moving) != getSign(movingOld) )
@@ -173,7 +172,10 @@ void Player::rotate()
             }
         }
         removeTween(tween);
-        tween = addTween(TweenAnim(persAnimCurrent), animationDuration, -1);
+        if(persAnimCurrent == persAnimRight)
+            tween = addTween(TweenAnim(persAnimCurrent), HorizontalAnimationDuration, -1, true);
+        else
+            tween = addTween(TweenAnim(persAnimCurrent), VerticalAnimationDuration, -1);
     }
     else    //if not moving
     {
@@ -212,7 +214,10 @@ void Player::rotate()
             }
         }
 
-        setResAnim(persAnimCurrent);
+        if(persAnimCurrent == persStandsRight)
+            setResAnim(persAnimCurrent, 1);
+        else
+            setResAnim(persAnimCurrent);
     }
     setFlippedX(orientation == left);
 }

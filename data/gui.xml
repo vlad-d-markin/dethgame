@@ -2,11 +2,11 @@
 <resources>
 	<set path = "images" />
 	<atlas>
-		<image id="skin_goes_down" file="nathan_goes_down.png" cols = "2"/>	
-		<image id="skin_goes_up" file="nathan_goes_up.png" cols = "2"/>	
-		<image id="skin_goes_right" file="nathan_goes_right.png" cols = "2"/>
-		<image id="skin_stands_down" file="nathan_stands_down.png"/>	
-		<image id="skin_stands_up" file="nathan_stands_up.png"/>	
+		<image id="skin_goes_down" file="steps_front.png" cols = "2"/>	
+		<image id="skin_goes_up" file="steps_back.png" cols = "2"/>	
+		<image id="skin_goes_right" file="steps_sideways.png" cols = "3"/>
+		<image id="skin_stands_down" file="stand_front.png"/>	
+		<image id="skin_stands_up" file="stand_back.png"/>	
 		<image id="skin_stands_right" file="nathan_stands_right.png"/>
 		<image id="main_menu_bg" file="Logo.png" />
 		<image id="start" file="Start.png" cols = "2"/>

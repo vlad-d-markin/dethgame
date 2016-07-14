@@ -7,7 +7,6 @@ World::World(GameScreen *gs)
 {
     map = new Map();
     gamescreen = gs;
-    //player = new Player(gamescreen);
 }
 
 void World::draw()

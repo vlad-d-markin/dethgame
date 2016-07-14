@@ -27,7 +27,8 @@ private:
     float dirXOld;
     float dirYOld;
     bool movingOld;
-    int animationDuration;
+    int VerticalAnimationDuration;
+    int HorizontalAnimationDuration;
     RectT<Vector2> * rectangle;
     int healthPoints;
     int stamina;
