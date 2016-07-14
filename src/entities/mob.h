@@ -28,7 +28,9 @@ public:
         WALKING_SOUTH,
         WALKING_WEST,
         WALKING_EAST,
-        DEAD
+        DEAD,
+
+        PUNCHING_SOUTH
     };
 
     /*
@@ -48,6 +50,8 @@ protected:
 
     float m_dead_time;
 
+    bool m_state_changed;
+
 public:
     Mob();
     virtual ~Mob();
@@ -56,6 +60,8 @@ public:
     void attack(/*Entity (Character) * target*/);
     void die();
     void walkTo(Vector2 dest);
+
+    void setState(State s);
 
     bool isDecayed();
 

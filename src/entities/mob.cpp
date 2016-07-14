@@ -2,7 +2,7 @@
 
 Mob::Mob()
 {
-    m_state = IDLE;
+    setState(IDLE);
     m_decayed = false;
     m_dead_time = 0;
 }
@@ -69,6 +69,11 @@ void Mob::walkTo(Vector2 dest)
     // log::messageln("Mob walks to %d,%d", dest.x, dest.y);
 }
 
+
+void Mob::setState(State s) {
+    m_state = s;
+    m_state_changed = true;
+}
 
 
 void Mob::die()

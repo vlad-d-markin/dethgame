@@ -4,13 +4,15 @@
 
 #include <iostream>
 
+spZombie zombie;
+
 World::World(GameScreen *gs)
 {
     map = new Map();
     player = new Player();
     gamescreen = gs;
 
-    spZombie zombie = new Zombie();
+    zombie = new Zombie();
     zombie->setPosition(100, 100);
     zombie->setName("zomb");
     addMob(zombie);
@@ -48,6 +50,18 @@ void World::doUpdate(const UpdateState &us)
 {
     Actor::doUpdate(us);
 
+    // TEST
+    static bool a = true;
+    if(us.time > 3000 && a)
+    {
+        a = false;
+        for(auto it = m_mobs.begin(); it != m_mobs.end(); it++)
+        {
+            spMob m = *it;
+            zombie->punch(Zombie::SOUTH);
+        }
+    }
+
     static bool o = true;
     if(us.time > 5000 && o)
     {
@@ -57,6 +71,8 @@ void World::doUpdate(const UpdateState &us)
             (*it)->getHit(100);
         }
     }
+    // END OF TEST
+
 
     if( player->getDirection() == Vector2(0,0) )
         return;
