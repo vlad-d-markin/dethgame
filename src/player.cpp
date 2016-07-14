@@ -14,6 +14,7 @@ Player::Player(GameScreen *gs) : Sprite()
 
     VerticalAnimationDuration = 450;
     HorizontalAnimationDuration = 700;
+
     persAnimUp = gamescreen->getResources()->getResAnim("skin_goes_up");
     persAnimDown = gamescreen->getResources()->getResAnim("skin_goes_down");
     persAnimRight = gamescreen->getResources()->getResAnim("skin_goes_right");
@@ -21,7 +22,15 @@ Player::Player(GameScreen *gs) : Sprite()
     persStandsDown = gamescreen->getResources()->getResAnim("skin_stands_down");
     persStandsRight = gamescreen->getResources()->getResAnim("skin_goes_right");
 
+    persAnimUpAttack = gamescreen->getResources()->getResAnim("skin_goes_up_attack");
+    persAnimDownAttack = gamescreen->getResources()->getResAnim("skin_goes_down_attack");
+    persAnimRightAttack = gamescreen->getResources()->getResAnim("skin_goes_right_attack");
+    persStandsUpAttack = gamescreen->getResources()->getResAnim("skin_stands_up_attack");
+    persStandsDownAttack = gamescreen->getResources()->getResAnim("skin_stands_down_attack");
+    persStandsRightAttack = gamescreen->getResources()->getResAnim("skin_goes_right_attack");
+
     setResAnim(persStandsDown);
+    punch = false;
     orientation = down;
     moving = false;
     movingOld = false;
@@ -82,11 +91,18 @@ void Player::doUpdate(const UpdateState &us)
     dirYOld = dirY;
     dirX = 0;
     dirY = 0;
+    punch = false;
 
-    if (data[SDL_SCANCODE_A]) dirX -= speed;
-    if (data[SDL_SCANCODE_D]) dirX += speed;
-    if (data[SDL_SCANCODE_W]) dirY -= speed;
-    if (data[SDL_SCANCODE_S]) dirY += speed;
+    if (data[SDL_SCANCODE_A])
+        dirX -= speed;
+    if (data[SDL_SCANCODE_D])
+        dirX += speed;
+    if (data[SDL_SCANCODE_W])
+        dirY -= speed;
+    if (data[SDL_SCANCODE_S])
+        dirY += speed;
+    if (data[SDL_SCANCODE_SPACE])
+        punch == true;
 
     //choose an appropriate animation
     if( getSign(dirX) != getSign(dirXOld)
@@ -147,79 +163,159 @@ void Player::doUpdate(const UpdateState &us)
 
 void Player::rotate()
 {
-    if(moving)
+    if(punch)
     {
-        if(dirX > 0)   //goes right
+        if(moving)
         {
-            persAnimCurrent = persAnimRight;
-            orientation = right;
-        }
-        else if(dirX < 0)  //goes left
-        {
-            persAnimCurrent = persAnimRight;
-            orientation = left;
-        }
-        else
-        {
-            if(dirY > 0)   //goes down
+            if(dirX > 0)   //goes right
             {
-                persAnimCurrent = persAnimDown;
-                orientation = down;
+                persAnimCurrent = persAnimRightAttack;
+                orientation = right;
             }
-            else if(dirY < 0)  //goes up
+            else if(dirX < 0)  //goes left
             {
-                persAnimCurrent = persAnimUp;
-                orientation = up;
+                persAnimCurrent = persAnimRightAttack;
+                orientation = left;
             }
+            else
+            {
+                if(dirY > 0)   //goes down
+                {
+                    persAnimCurrent = persAnimDownAttack;
+                    orientation = down;
+                }
+                else if(dirY < 0)  //goes up
+                {
+                    persAnimCurrent = persAnimUpAttack;
+                    orientation = up;
+                }
+            }
+            removeTween(tween);
+            if(persAnimCurrent == persAnimRightAttack)
+                tween = addTween(TweenAnim(persAnimCurrent), HorizontalAnimationDuration, 1, true);
+            else
+                tween = addTween(TweenAnim(persAnimCurrent), VerticalAnimationDuration, 1);
         }
-        removeTween(tween);
-        if(persAnimCurrent == persAnimRight)
-            tween = addTween(TweenAnim(persAnimCurrent), HorizontalAnimationDuration, -1, true);
-        else
-            tween = addTween(TweenAnim(persAnimCurrent), VerticalAnimationDuration, -1);
-    }
-    else    //if not moving
-    {
-        removeTween(tween);
+        else    //if not moving
+        {
+            removeTween(tween);
 
-        if(dirX > 0)   //stands right
-        {
-            persAnimCurrent = persStandsRight;
-            orientation = right;
-        }
-        else if(dirX < 0)  //stands left
-        {
-            persAnimCurrent = persStandsRight;
-            orientation = left;
-        }
-        else    // dirX == 0
-        {
-            if(dirY > 0)   //stands down
+            if(dirX > 0)   //stands right
             {
-                persAnimCurrent = persStandsDown;
-                orientation = down;
+                persAnimCurrent = persStandsRightAttack;
+                orientation = right;
             }
-            else if(dirY < 0)  //stands up
+            else if(dirX < 0)  //stands left
             {
-                persAnimCurrent = persStandsUp;
-                orientation = up;
+                persAnimCurrent = persStandsRightAttack;
+                orientation = left;
             }
-            else    // dirY == 0
+            else    // dirX == 0
             {
-                if(orientation == right || orientation == left)
-                    persAnimCurrent = persStandsRight;
-                else if(orientation == up)
-                    persAnimCurrent = persStandsUp;
-                else if(orientation == down)
+                if(dirY > 0)   //stands down
+                {
+                    persAnimCurrent = persStandsDownAttack;
+                    orientation = down;
+                }
+                else if(dirY < 0)  //stands up
+                {
+                    persAnimCurrent = persStandsUpAttack;
+                    orientation = up;
+                }
+                else    // dirY == 0
+                {
+                    if(orientation == right || orientation == left)
+                        persAnimCurrent = persStandsRightAttack;
+                    else if(orientation == up)
+                        persAnimCurrent = persStandsUpAttack;
+                    else if(orientation == down)
+                        persAnimCurrent = persStandsDownAttack;
+                }
+            }
+
+            if(persAnimCurrent == persStandsRightAttack)
+                setResAnim(persAnimCurrent, 1);
+            else
+                setResAnim(persAnimCurrent);
+        }
+    }
+    else    // if(!punch)
+    {
+        if(moving)
+        {
+            if(dirX > 0)   //goes right
+            {
+                persAnimCurrent = persAnimRight;
+                orientation = right;
+            }
+            else if(dirX < 0)  //goes left
+            {
+                persAnimCurrent = persAnimRight;
+                orientation = left;
+            }
+            else
+            {
+                if(dirY > 0)   //goes down
+                {
+                    persAnimCurrent = persAnimDown;
+                    orientation = down;
+                }
+                else if(dirY < 0)  //goes up
+                {
+                    persAnimCurrent = persAnimUp;
+                    orientation = up;
+                }
+            }
+            removeTween(tween);
+            if(persAnimCurrent == persAnimRight)
+                tween = addTween(TweenAnim(persAnimCurrent), HorizontalAnimationDuration, -1, true);
+            else
+                tween = addTween(TweenAnim(persAnimCurrent), VerticalAnimationDuration, -1);
+        }
+        else    //if not moving
+        {
+            removeTween(tween);
+
+            if(dirX > 0)   //stands right
+            {
+                persAnimCurrent = persStandsRight;
+                orientation = right;
+            }
+            else if(dirX < 0)  //stands left
+            {
+                persAnimCurrent = persStandsRight;
+                orientation = left;
+            }
+            else    // dirX == 0
+            {
+                if(dirY > 0)   //stands down
+                {
                     persAnimCurrent = persStandsDown;
+                    orientation = down;
+                }
+                else if(dirY < 0)  //stands up
+                {
+                    persAnimCurrent = persStandsUp;
+                    orientation = up;
+                }
+                else    // dirY == 0
+                {
+                    if(orientation == right || orientation == left)
+                        persAnimCurrent = persStandsRight;
+                    else if(orientation == up)
+                        persAnimCurrent = persStandsUp;
+                    else if(orientation == down)
+                        persAnimCurrent = persStandsDown;
+                }
             }
-        }
 
-        if(persAnimCurrent == persStandsRight)
-            setResAnim(persAnimCurrent, 1);
-        else
-            setResAnim(persAnimCurrent);
+            if(persAnimCurrent == persStandsRight)
+                setResAnim(persAnimCurrent, 1);
+            else
+                setResAnim(persAnimCurrent);
+        }
     }
+
     setFlippedX(orientation == left);
 }
 

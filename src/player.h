@@ -50,12 +50,19 @@ private:
     ResAnim* persStandsUp;
     ResAnim* persStandsDown;
     ResAnim* persStandsRight;
+    ResAnim* persAnimUpAttack;
+    ResAnim* persAnimDownAttack;
+    ResAnim* persAnimRightAttack;
+    ResAnim* persStandsUpAttack;
+    ResAnim* persStandsDownAttack;
+    ResAnim* persStandsRightAttack;
     ResAnim* persAnimCurrent;
     void rotate();
     bool moving;
     int getSign(const float number);
     spTween tween;
     direction orientation;
+    bool punch;
 protected:
 	void doUpdate(const UpdateState &us);
 public:

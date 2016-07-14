@@ -6,8 +6,12 @@
 		<image id="skin_goes_up" file="steps_back.png" cols = "2"/>	
 		<image id="skin_goes_right" file="steps_sideways.png" cols = "3"/>
 		<image id="skin_stands_down" file="stand_front.png"/>	
-		<image id="skin_stands_up" file="stand_back.png"/>	
-		<image id="skin_stands_right" file="nathan_stands_right.png"/>
+		<image id="skin_stands_up" file="stand_back.png"/>
+		<image id="skin_goes_down_attack" file="punch_steps_front.png" cols = "2"/>	
+		<image id="skin_goes_up_attack" file="punch_steps_back.png" cols = "2"/>	
+		<image id="skin_goes_right_attack" file="punch_steps_sideways.png" cols = "3"/>
+		<image id="skin_stands_down_attack" file="punch_stand_front.png"/>	
+		<image id="skin_stands_up_attack" file="punch_stand_back.png"/>
 		<image id="main_menu_bg" file="Logo.png" />
 		<image id="start" file="Start.png" cols = "2"/>
 		<image id="rules" file="Rules.png" cols = "2"/>
