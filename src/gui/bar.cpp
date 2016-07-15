@@ -1,39 +1,49 @@
 #include "bar.h"
+#include "../dethgame.h"
 
 #define BAR_PADDING 3;
-
+using namespace oxygine;
 
 Gui::Bar::Bar(double maxvalue)
 {
+	m_resources = new Resources;
+	m_resources->loadXML(DethGame::instance()->getGuiResPath());
+
     m_maxvalue = maxvalue;
     m_value = 0;
 
     setName("BasicProgressBar");
-    setSize(200, 20);
+    setSize(170, 11);
 
-    m_background = new ColorRectSprite();
-    m_background->attachTo(this);
-    m_background->setColor(Color::Green);
-
+	m_background = new Sprite();
+	m_background->attachTo(this);
+	m_background->setResAnim(m_resources->getResAnim("pg"));
+	m_background->setAnchor(0, 1);
+	m_background->setPosition(0, 0);
+						   
     m_bar = new ColorRectSprite();
-    m_bar->setColor(Color::Lime);
+	m_bar->setColor(Color::Black);
     m_bar->attachTo(m_background);
 
     m_title = new TextField();
     TextStyle style = m_title->getStyle();
 //    style.font = resManager->getResFont("barbecue52")->getFont();
-    style.color = Color::White;
+    style.color = Color::Firebrick;
     style.vAlign = TextStyle::VALIGN_MIDDLE;
     style.hAlign = TextStyle::HALIGN_CENTER;
     m_title->setStyle(style);
+	m_title->setPosition(5, -12);
     m_title->attachTo(this);
-
 
     updateSizes(getSize());
     updateText();
 }
 
-Gui::Bar::~Bar() { }
+Gui::Bar::~Bar() 
+{
+	m_resources->free();
+	delete m_resources;
+}
 
 void Gui::Bar::setValue(double value)
 {
@@ -81,7 +91,7 @@ void Gui::Bar::updateSizes(const Vector2 &basesize)
     if(m_maxvalue > 0) {
         m_bar->setWidth((float) m_value / m_maxvalue * (m_background->getWidth() - 6));
     }
-    m_bar->setPosition(3, 3);
+	m_bar->setPosition(15, m_background->getHeight() * 2);
 
     m_title->setSize(basesize);
 //    m_title->setPosition(0, 0);

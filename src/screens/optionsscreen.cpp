@@ -17,8 +17,18 @@ OptionsScreen::OptionsScreen()
 
     Gui::spTextLabel options_label = new Gui::TextLabel();
     options_label->setText("Options");
-    options_label->setPosition(m_main_panel->getWidth() / 2 - options_label->getWidth() / 2, 11);
+	TextStyle style = options_label->getTextStyle();
+	style.fontSize = 40;
+	m_resources = new Resources();
+	m_resources->loadXML(DethGame::instance()->getGuiResPath());
+	style.font = m_resources->getResFont("font")->getFont();
+	options_label->setTextStyle(style);
+	options_label->setAnchor(0.5, 0.5);
+    options_label->setPosition(m_main_panel->getWidth() / 2 - options_label->getWidth() / 2, -20);
     m_main_panel->addElement(options_label);
+
+	m_resources = new Resources();
+	m_resources->loadXML(DethGame::instance()->getGuiResPath());
 
     // Add buttons
     addMusicVolPanel();
@@ -91,10 +101,17 @@ void OptionsScreen::addMusicVolPanel()
     music_volume_panel->setSize(400, 30);
     music_volume_panel->setPosition(0, 40);
 
+
     Gui::spTextLabel music_vol_label = new Gui::TextLabel();
+
+	TextStyle style = music_vol_label->getTextStyle();
+	style.font = m_resources->getResFont("font")->getFont();
+	style.fontSize = 20;
+	music_vol_label->setTextStyle(style);
+
     music_vol_label->setText("Music volume:");
     music_volume_panel->addElement(music_vol_label);
-    music_vol_label->setPosition(10, 8);
+    music_vol_label->setPosition(-30, 0);
 
     m_dec_music_vol = new Gui::TextButton("-");
     music_volume_panel->addElement(m_dec_music_vol);
@@ -124,12 +141,19 @@ void OptionsScreen::addFxVolPanel()
     Gui::spPanel effects_volume_panel = new Gui::Panel();
     m_main_panel->addElement(effects_volume_panel);
     effects_volume_panel->setSize(400, 30);
-    effects_volume_panel->setPosition(0, 80);
+    effects_volume_panel->setPosition(0, 90);
 
     Gui::spTextLabel fx_vol_label = new Gui::TextLabel();
+
+	TextStyle style = fx_vol_label->getTextStyle();
+	
+	style.font = m_resources->getResFont("font")->getFont();
+	style.fontSize = 20;
+	fx_vol_label->setTextStyle(style);
+
     fx_vol_label->setText("Effects volume:");
     effects_volume_panel->addElement(fx_vol_label);
-    fx_vol_label->setPosition(10, 8);
+    fx_vol_label->setPosition(-30, 0);
 
 
     m_dec_fx_vol = new Gui::TextButton("-");
@@ -163,12 +187,18 @@ void OptionsScreen::addFullscreenPanel()
     Gui::spPanel fullscreen_panel = new Gui::Panel();
     m_main_panel->addElement(fullscreen_panel);
     fullscreen_panel->setSize(400, 30);
-    fullscreen_panel->setPosition(0, 120);
+    fullscreen_panel->setPosition(0, 140);
 
     Gui::spTextLabel fullscreen_label = new Gui::TextLabel();
+
+	TextStyle style = fullscreen_label->getTextStyle();
+	style.font = m_resources->getResFont("font")->getFont();
+	style.fontSize = 20;
+	fullscreen_label->setTextStyle(style);
+
     fullscreen_label->setText("Full screen:");
     fullscreen_panel->addElement(fullscreen_label);
-    fullscreen_label->setPosition(10, 8);
+    fullscreen_label->setPosition(-30, 0);
 
     m_fullscreen_switch = new Gui::Switch(DethGame::instance()->getConfiguration()->getFullScreen());
     fullscreen_panel->addElement(m_fullscreen_switch);
@@ -177,4 +207,10 @@ void OptionsScreen::addFullscreenPanel()
                                           CLOSURE(this, &OptionsScreen::onFullscreenChanged));
 
 //    fullscreen_panel->showBoundaries(true);
+}
+
+OptionsScreen::~OptionsScreen()
+{
+	m_resources->free();
+	delete m_resources;
 }

@@ -23,8 +23,11 @@ private:
 
     Gui::spSwitch m_fullscreen_switch;
 
+	Resources * m_resources;
+
 public:
     OptionsScreen();
+	~OptionsScreen();
     void setEnable(bool _enable);
 
 protected:

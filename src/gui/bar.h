@@ -18,8 +18,10 @@ namespace Gui {
         double m_maxvalue;
 
         spTextField m_title;
-        spColorRectSprite m_background;
+		spSprite m_background;
         spColorRectSprite m_bar;
+
+		Resources * m_resources;
 
     public:
         Bar(double maxvalue = 100);

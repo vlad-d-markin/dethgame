@@ -8,7 +8,7 @@ Gui::Switch::Switch(bool state)
 
     m_background = new ColorRectSprite();
     m_background->setSize(20, 20);
-    m_background->setColor(Color::DarkGreen);
+    m_background->setColor(Color::DarkRed);
     m_background->attachTo(this);
 
     m_indicator = new ColorRectSprite();
@@ -31,10 +31,10 @@ void Gui::Switch::toggle()
 void Gui::Switch::updateIndicator()
 {
     if(m_state) {
-        m_indicator->setColor(Color::Lime);
+        m_indicator->setColor(Color::Firebrick);
     }
     else {
-        m_indicator->setColor(Color::Green);
+        m_indicator->setColor(Color::Maroon);
     }
 }
 
@@ -46,10 +46,10 @@ void Gui::Switch::onClicked(Event *event)
 
 void Gui::Switch::onOvered()
 {
-    m_background->setColor(Color::Olive);
+    m_background->setColor(Color::Maroon);
 }
 
 void Gui::Switch::onLeft()
 {
-    m_background->setColor(Color::DarkGreen);
+    m_background->setColor(Color::DarkRed);
 }

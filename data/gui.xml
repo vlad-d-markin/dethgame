@@ -17,8 +17,9 @@
 		<image id="rules" file="Rules.png" cols = "2"/>
 		<image id="options" file="Options.png" cols = "2"/>
 		<image id="exit" file="Exit.png" cols = "2"/>
+		<image id="pg" file="pg.png"/>
 	</atlas>
 
 	<set path = "fonts" />
-	<font file="main.fnt" />
+	<font file="font.fnt" />
 </resources>
