@@ -133,7 +133,7 @@ void World::zombieAttacks(Event *event)
     rect->setPosition(attack_box.getLeftTop());
     rect->setSize(attack_box.getSize());
     rect->attachTo(this);
-*/
+    */
 
     RectT<Vector2> player_box = player->getRectPlayer();
 

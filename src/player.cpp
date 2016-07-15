@@ -21,6 +21,7 @@ Player::Player() : Sprite()
 
     //Vnorm = ???
     weaponDamage = 30;
+    intPunch = 0;
     attackArea.setSize(80,80);
 
     healthPoints = 500;
@@ -56,6 +57,8 @@ void Player::moveY()
 
 void Player::doUpdate(const UpdateState &us)
 {
+    intPunch += us.dt;
+
 	const Uint8* data = SDL_GetKeyboardState(0);
 
 	//calculate speed using delta time
@@ -152,6 +155,10 @@ RectT<Vector2> Player::getRectPlayer()
 
 void Player::punch(Direction dir)
 {
+    if(intPunch < 1000)
+        return;
+    else
+        intPunch = 0;
 
     switch(dir)
     {

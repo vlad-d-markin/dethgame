@@ -27,6 +27,7 @@ private:
     RectT<Vector2> * rectangle;
 
     int weaponDamage;
+    float intPunch;
     RectT<Vector2> attackArea;
 
     int healthPoints;
