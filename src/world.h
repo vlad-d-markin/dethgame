@@ -3,6 +3,7 @@
 #include "oxygine-framework.h"
 #include "map.h"
 #include "player.h"
+#include "banana.h"
 #include <set>
 #include "entities/mob.h"
 
@@ -18,6 +19,8 @@ class World : public Actor
     std::set<spMob> m_mobs;
     float dt_zombie;
 
+    std::vector<Banana> m_bananas;
+
 public:
     World(GameScreen* gs);
     void draw();
@@ -30,6 +33,7 @@ protected:
     void zombieAttacks(Event * event);
 
     void onPlayerPunch(Event * event);
+    void checkBanana();
 
 };
 

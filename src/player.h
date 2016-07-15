@@ -30,6 +30,8 @@ private:
     float intPunch;
     RectT<Vector2> attackArea;
 
+
+    // что мы планировали использовать
     int healthPoints;
     int stamina;
     int healthRegenerationSpeed;
@@ -43,6 +45,10 @@ private:
     int shotEvasion;
     int weaponHandlingSpeed;
     int Vnorm;
+
+    // что мы используем на самом деле
+    int bananaCount;
+
 protected:
 	void doUpdate(const UpdateState &us);
 public:
@@ -50,6 +56,8 @@ public:
 	void setMapSize(Vector2 _mapSize) { mapSize = _mapSize; }
 	Vector2 getMapSize() const { return mapSize; }
     Vector2 getDirection();
+    RectT<Vector2> getCollisionBox();
+
     void setDirection(float dir_x, float dir_y);
     void moveX();
     void moveY();
@@ -58,6 +66,8 @@ public:
     void takeDamage(int damage);
 
     RectT<Vector2> getRectPlayer();
+
+    void getBanana();
 };
 
 

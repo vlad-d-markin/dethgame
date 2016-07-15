@@ -174,3 +174,19 @@ void Player::punch(Direction dir)
     PlayerPunchEvent punchEvent(attackArea, weaponDamage);
     dispatchEvent(&punchEvent);
 }
+
+
+RectT<Vector2> Player::getCollisionBox()
+{
+    RectT<Vector2> rect_player(getPosition(), getSize());
+    rect_player.setPosition(rect_player.getLeftTop()-Vector2((rect_player.getSize().x)/2, 0));
+    rect_player.setSize(rect_player.getSize().x, (rect_player.getSize().y)/2);
+
+    return rect_player;
+}
+
+
+void Player::getBanana()
+{
+    bananaCount++;
+}

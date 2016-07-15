@@ -297,6 +297,19 @@ bool Map::checkObstacle(RectT<Vector2> rect_player)
     return false;
 }
 
+
+std::vector<Vector2> Map::getBananasPos()
+{
+    std::vector<Vector2> vec_bananas;
+
+    vec_bananas.push_back(Vector2(50,50));
+    vec_bananas.push_back(Vector2(100,100));
+    vec_bananas.push_back(Vector2(150,150));
+
+    return vec_bananas;
+}
+
+
 Map::~Map()
 {
 

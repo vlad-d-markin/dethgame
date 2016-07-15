@@ -1,7 +1,7 @@
 #include "world.h"
 #include "map.h"
 #include "entities/zombie.h"
-
+#include "banana.h"
 #include <iostream>
 
 spZombie zombie;
@@ -19,6 +19,7 @@ World::World(GameScreen *gs)
     dt_zombie = 0;
 
 
+
 }
 
 
@@ -33,6 +34,14 @@ void World::addMob(spMob mob)
 void World::draw()
 {
     map->drawGround(gamescreen);
+
+    std::vector<Vector2> pos_bananas = map->getBananasPos();
+    for(int i=0; i < pos_bananas.size(); i++) {
+         std::cout << "BANANA ADDED!!!" << pos_bananas.size() << std::endl;
+        Banana banana(pos_bananas[i], gamescreen);
+        m_bananas.push_back(banana);
+    }
+
 
     player = new Player;
     player->setAnchor(0.5, 0.5);
@@ -51,7 +60,10 @@ void World::draw()
 
 void World::doUpdate(const UpdateState &us)
 {
+
     Actor::doUpdate(us);
+
+    checkBanana();
 
     // TEST
 
@@ -173,3 +185,16 @@ void World::onPlayerPunch(Event * event)
     }
 }
 
+
+void World::checkBanana() {
+   RectT<Vector2> player_box = player->getCollisionBox();
+
+   for(int i=0; i < m_bananas.size(); i++){
+       if(player_box.isIntersecting(m_bananas[i].getCollisionBox()) == true) {
+           std::cout << "BANANA!!!" << std::endl;
+           player->getBanana();
+           m_bananas[i].deleteBanana();
+       }
+   }
+
+}

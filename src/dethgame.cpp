@@ -35,6 +35,11 @@ std::string DethGame::getTileResPath()
     return "tile.xml";
 }
 
+std::string DethGame::getBananaResPath()
+{
+    return "banana.xml";
+}
+
 std::string DethGame::getMapTmxPath()
 {
     return MAP_TMX_PATH;
