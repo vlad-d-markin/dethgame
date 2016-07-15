@@ -33,7 +33,6 @@ void Mob::doUpdate(const UpdateState &us)
             break;
 
         case IDLE:
-            std::cout << "IDLE" << std::endl;
             // Switch idle animation
             break;
     }

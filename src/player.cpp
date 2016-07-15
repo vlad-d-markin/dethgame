@@ -20,7 +20,7 @@ Player::Player() : Sprite()
     setPosition(pos);
 
     //Vnorm = ???
-    weaponDamage = 50;
+    weaponDamage = 30;
     attackArea.setSize(80,80);
 
     healthPoints = 500;

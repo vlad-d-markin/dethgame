@@ -151,11 +151,12 @@ void World::onPlayerPunch(Event * event)
     RectT<Vector2> attack_box;
     attack_box = ev->attack_area;
 
-    RectT<Vector2> player_box = player->getRectPlayer();
-
-
-
-
+/*
+    spColorRectSprite rect = new ColorRectSprite();
+    rect->setPosition((ev->attack_area).getLeftTop());
+    rect->setSize((ev->attack_area).getSize());
+    rect->attachTo(this);
+*/
 
     for(auto it = m_mobs.begin(); it != m_mobs.end(); it++)
     {
@@ -163,9 +164,10 @@ void World::onPlayerPunch(Event * event)
         spColorRectSprite rect = new ColorRectSprite();
         rect->setPosition((*it)->getMobBox().getLeftTop());
         rect->setSize((*it)->getMobBox().getSize());
-        rect->attachTo(this);*/
+        rect->attachTo(this);
+        */
 
-        if(player_box.isIntersecting((*it)->getMobBox())) {
+        if(attack_box.isIntersecting((*it)->getMobBox())) {
             (*it)->getHit(ev->damage);
         }
     }
