@@ -31,6 +31,7 @@ Player::Player(GameScreen *gs) : Sprite()
 
     setResAnim(persStandsDown);
     punch = false;
+    punchOld = false;
     orientation = down;
     moving = false;
     movingOld = false;
@@ -89,6 +90,7 @@ void Player::doUpdate(const UpdateState &us)
     //Vector2 pos = getPosition();
     dirXOld = dirX;
     dirYOld = dirY;
+    punchOld = punch;
     dirX = 0;
     dirY = 0;
     punch = false;
@@ -102,14 +104,19 @@ void Player::doUpdate(const UpdateState &us)
     if (data[SDL_SCANCODE_S])
         dirY += speed;
     if (data[SDL_SCANCODE_SPACE])
+    {
         punch == true;
+        std::cerr << "punch == true";
+    }
 
     //choose an appropriate animation
     if( getSign(dirX) != getSign(dirXOld)
         || ( getSign(dirX) == 0 && getSign(dirY) != getSign(dirYOld) )
-        || getSign(moving) != getSign(movingOld) )
+        || getSign(moving) != getSign(movingOld)
+        || punch != punchOld )
     {
-        //std::cerr << "X=" << dirX << " Xo=" << dirXOld << " Y=" << dirY << " Yo=" << dirYOld << " M=" << moving << " Mo=" << movingOld << std::endl;
+        std::cerr << "X=" << dirX << " Xo=" << dirXOld << " Y=" << dirY << " Yo=" << dirYOld <<
+                    " M=" << moving << " Mo=" << movingOld << " P=" << punch << std::endl;
         rotate();
     }
 
@@ -163,7 +170,7 @@ void Player::doUpdate(const UpdateState &us)
 
 void Player::rotate()
 {
-    if(punch)
+    if(!punch)  //DEMONSTRATION
     {
         if(moving)
         {
@@ -192,9 +199,9 @@ void Player::rotate()
             }
             removeTween(tween);
             if(persAnimCurrent == persAnimRightAttack)
-                tween = addTween(TweenAnim(persAnimCurrent), HorizontalAnimationDuration, 1, true);
+                tween = addTween(TweenAnim(persAnimCurrent), HorizontalAnimationDuration, -1, true);
             else
-                tween = addTween(TweenAnim(persAnimCurrent), VerticalAnimationDuration, 1);
+                tween = addTween(TweenAnim(persAnimCurrent), VerticalAnimationDuration, -1);
         }
         else    //if not moving
         {

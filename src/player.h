@@ -63,6 +63,7 @@ private:
     spTween tween;
     direction orientation;
     bool punch;
+    bool punchOld;
 protected:
 	void doUpdate(const UpdateState &us);
 public:
