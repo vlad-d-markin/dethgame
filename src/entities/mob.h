@@ -28,7 +28,12 @@ public:
         WALKING_SOUTH,
         WALKING_WEST,
         WALKING_EAST,
-        DEAD
+        DEAD,
+
+        PUNCHING_SOUTH,
+        PUNCHING_EAST,
+        PUNCHING_WEST,
+        PUNCHING_NORTH
     };
 
     /*
@@ -48,6 +53,10 @@ protected:
 
     float m_dead_time;
 
+    bool m_state_changed;
+
+    RectT<Vector2> mob_box;
+
 public:
     Mob();
     virtual ~Mob();
@@ -56,12 +65,17 @@ public:
     void attack(/*Entity (Character) * target*/);
     void die();
     void walkTo(Vector2 dest);
+    RectT<Vector2> getMobBox();
+
+    void setState(State s);
 
     bool isDecayed();
 
 
 protected:
     virtual void doUpdate(const UpdateState& us);
+
+    virtual void onDie() {}
 
 };
 

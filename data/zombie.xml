@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<resources>
+	<set path = "images" />
+	<atlas>
+		<image file="zombie_walk_south.png" cols="4"/>
+
+		<image file="zombie_die.png" cols="5"/>
+		<image file="zombie_idle.png" cols="5"/>
+		<image file="zombie_attack_south.png" cols="3"/>
+		<image file="zombie_attack_east.png" cols="3"/>
+		<image file="zombie_attack_west.png" cols="3"/>
+		<image file="zombie_attack_north.png" cols="3"/>
+	</atlas>
+
+</resources>

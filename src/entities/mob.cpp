@@ -1,8 +1,9 @@
 #include "mob.h"
+#include <iostream>
 
 Mob::Mob()
 {
-    m_state = IDLE;
+    setState(IDLE);
     m_decayed = false;
     m_dead_time = 0;
 }
@@ -51,8 +52,11 @@ void Mob::attack(/* target */)
 
 void Mob::getHit(int damage)
 {
-    log::messageln("Mob got damage %d (%d)", damage, m_health);
+    if(m_state == DEAD)
+        return;
+
     m_health -= damage;
+    std::cout << "Mob got damage " << damage << " (" << m_health << ")" << std::endl;
 
     if(m_health <= 0)
     {
@@ -70,12 +74,18 @@ void Mob::walkTo(Vector2 dest)
 }
 
 
+void Mob::setState(State s) {
+    m_state = s;
+    m_state_changed = true;
+}
+
 
 void Mob::die()
 {
     m_health = 0;
     m_state = DEAD;
     log::messageln("Mob is dead");
+    onDie();
 }
 
 
@@ -84,3 +94,8 @@ bool Mob::isDecayed()
     return m_decayed;
 }
 
+RectT<Vector2> Mob::getMobBox()
+{
+    mob_box.setPosition(getPosition());
+    return mob_box;
+}

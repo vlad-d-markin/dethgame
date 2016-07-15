@@ -22,22 +22,22 @@ typedef struct {
     int pix_img_height;
 
     std::string name;
-	std::string source;
+    std::string source;
 } Tileset;
 
 // information about the specific layer
 typedef struct {
-	std::string name;
+    std::string name;
     int num_tile_row;
     int num_tile_col;
-	std::vector<int> gid_set;
+    std::vector<int> gid_set;
 } Layer;
 
 // position and name of the object
 typedef struct {
-	int x;
-	int y;
-	std::string name;
+    int x;
+    int y;
+    std::string name;
 } Position;
 
 
@@ -72,7 +72,7 @@ class Map
 
 public:
     Map();
-	~Map();
+    ~Map();
 
     void parseXML();
     void loadResources();
@@ -94,6 +94,9 @@ public:
     std::vector<Position> getPosDevil();
     std::vector<Position> getPosZombie();
     std::vector<Position> getPosPixie();
+    std::vector<Tile>* getTileVec();
+    std::vector<Vector2> getBananasPos();
+
 };
 
 
