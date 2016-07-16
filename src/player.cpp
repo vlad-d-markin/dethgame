@@ -114,7 +114,7 @@ void Player::doUpdate(const UpdateState &us)
     if (data[SDL_SCANCODE_SPACE])
     {
         isPunching == true;
-        punch(left);
+        punch();
         //std::cerr << "isPunching == true";
     }
 
@@ -371,17 +371,26 @@ RectT<Vector2> Player::getRectPlayer()
 }
 
 
-void Player::punch(Direction dir)
+void Player::punch()
 {
     if(intPunch < 1000)
         return;
     else
         intPunch = 0;
 
-    switch(dir)
+    switch(getOrientation())
     {
     case left:
-        attackArea.setPosition(getPosition().x - attackArea.getWidth(), getPosition().y - attackArea.getHeight() / 2);
+        attackArea.setPosition(getPosition().x - attackArea.getWidth() + getSize().x/2, getPosition().y - attackArea.getHeight() / 2 + getSize().y/2);
+        break;
+    case right:
+        attackArea.setPosition(getPosition().x + attackArea.getWidth() - getSize().x, getPosition().y - attackArea.getHeight() / 2 + getSize().y/2);
+        break;
+    case up:
+        attackArea.setPosition(getPosition().x - getSize().x/3, getPosition().y - attackArea.getHeight() + getSize().y/3);
+        break;
+    case down:
+        attackArea.setPosition(getPosition().x - getSize().x/3, getPosition().y + attackArea.getHeight()/2 + getSize().y/3);
         break;
     default:
         break;

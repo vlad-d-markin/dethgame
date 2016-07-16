@@ -12,12 +12,10 @@ World::World(GameScreen *gs)
     gamescreen = gs;
 
     zombie = new Zombie();
-    zombie->setPosition(100, 100);
+    zombie->setPosition(200, 200);
     zombie->setName("zomb");
     addMob(zombie);
     dt_zombie = 0;
-
-
 
 }
 
@@ -146,12 +144,12 @@ void World::zombieAttacks(Event *event)
     RectT<Vector2> attack_box;
     attack_box = ev->attack_area;
 
-    /*
+/*
     spColorRectSprite rect = new ColorRectSprite();
     rect->setPosition(attack_box.getLeftTop());
     rect->setSize(attack_box.getSize());
     rect->attachTo(this);
-    */
+*/
 
     RectT<Vector2> player_box = player->getRectPlayer();
 

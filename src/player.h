@@ -53,7 +53,6 @@ private:
     bool isPunching;
     bool isPunchingOld;
 
-    // что мы планировали использовать
     int healthPoints;
     int stamina;
     int healthRegenerationSpeed;
@@ -68,7 +67,6 @@ private:
     int weaponHandlingSpeed;
     int Vnorm;
 
-    // что мы используем на самом деле
     int bananaCount;
 
 protected:
@@ -86,7 +84,7 @@ public:
     void setMoving(const bool isMoving);
     Direction getOrientation();
 
-    void punch(Direction dir);
+    void punch();
     void takeDamage(int damage);
 
     RectT<Vector2> getRectPlayer();
