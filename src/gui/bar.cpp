@@ -19,7 +19,6 @@ Gui::Bar::Bar(double maxvalue)
 	m_background->attachTo(this);
 	m_background->setResAnim(m_resources->getResAnim("pg"));
 	m_background->setAnchor(0, 1);
-	m_background->setPosition(0, 0);
 						   
     m_bar = new ColorRectSprite();
 	m_bar->setColor(Color::Black);
@@ -27,7 +26,6 @@ Gui::Bar::Bar(double maxvalue)
 
     m_title = new TextField();
     TextStyle style = m_title->getStyle();
-//    style.font = resManager->getResFont("barbecue52")->getFont();
     style.color = Color::Firebrick;
     style.vAlign = TextStyle::VALIGN_MIDDLE;
     style.hAlign = TextStyle::HALIGN_CENTER;
@@ -120,4 +118,10 @@ void Gui::Bar::setTextPosition(Vector2 pos)
 Vector2 Gui::Bar::getTextPosition()
 {
 	return m_title->getPosition();
+}
+
+void Gui::Bar::removeBackground()
+{
+	m_bar->detach();
+	m_background->detach();
 }

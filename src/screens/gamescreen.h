@@ -10,15 +10,17 @@ public:
 	~GameScreen();
     Resources* getResources();
     void setEnable(bool _enable);
-	void setHpBarPos(Vector2 pos);
+	void setBarsPos(Vector2 pos);
 	Vector2 getHpBarSize();
 	void setHp(int hp);
 	int getHp();
+	void setBananas(int bananas);
 
 private:
     Resources * m_resources;
     bool enable;
 	Gui::spBar hp_bar;
+	Gui::spBar bananaCounter;
 protected:
     void doUpdate(const UpdateState &us);
 };
