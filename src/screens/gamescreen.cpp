@@ -28,6 +28,14 @@ GameScreen::GameScreen()
 	hp_bar->setTextPosition(Vector2(5, 7));
 	hp_bar->attachTo(this);
 
+	bananaCounter = new Gui::Bar();
+	bananaCounter->setMaxValue(5);
+	bananaCounter->setValue(0);
+	bananaCounter->removeBackground();
+	style.color = Color::Yellow;
+	bananaCounter->setTextStyle(style);
+	bananaCounter->attachTo(this);
+
 }
 
 void GameScreen::doUpdate(const UpdateState &us)
@@ -49,9 +57,10 @@ void GameScreen::setEnable(bool _enable)
     enable = _enable;
 }
 
-void GameScreen::setHpBarPos(Vector2 pos)
+void GameScreen::setBarsPos(Vector2 pos)
 {
 	hp_bar->setPosition(pos);
+	bananaCounter->setPosition(pos);
 }
 
 Vector2 GameScreen::getHpBarSize()
@@ -67,6 +76,11 @@ void GameScreen::setHp(int hp)
 int GameScreen::getHp()
 {
 	return hp_bar->getValue();
+}
+
+void GameScreen::setBananas(int bananas)
+{
+	bananaCounter->setValue(bananas);
 }
 
 GameScreen::~GameScreen()

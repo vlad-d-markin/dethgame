@@ -35,6 +35,7 @@ namespace Gui {
 		TextStyle getTextStyle();
 		void setTextPosition(Vector2 pos);
 		Vector2 getTextPosition();
+		void removeBackground();
 
     protected:
         virtual void onSizeChanged(const Vector2 &size);

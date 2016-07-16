@@ -59,6 +59,8 @@ Player::Player(GameScreen *gs) : Sprite()
     hitEvasion = 0.1;
     shotEvasion = 0.1;
     weaponHandlingSpeed = Vnorm;
+
+	bananaCount = 0;
 }
 
 Vector2 Player::getDirection()
@@ -137,20 +139,22 @@ void Player::doUpdate(const UpdateState &us)
 		if (getPosition().x > windowSize.x / 2 && getPosition().x < getMapSize().x - windowSize.x / 2)
 		{
 			getParent()->setPosition(-getPosition().x + windowSize.x / 2, getParent()->getPosition().y);
-			gamescreen->setHpBarPos(Vector2(getPosition().x - windowSize.x / 2 + guiOffset.x, getParent()->getPosition().y + guiOffset.y));
+			gamescreen->setBarsPos(Vector2(getPosition().x - windowSize.x / 2 + guiOffset.x, getParent()->getPosition().y + guiOffset.y));
+			
 		}
 		else
 		{
 			if (getPosition().x < windowSize.x / 2)
 			{
 				getParent()->setPosition(0, getParent()->getPosition().y);
-				gamescreen->setHpBarPos(Vector2(guiOffset.x, getParent()->getPosition().y + guiOffset.y));
+				gamescreen->setBarsPos(Vector2(guiOffset.x, getParent()->getPosition().y + guiOffset.y));
 			}
+				
 
 			if (getPosition().x > getMapSize().x - windowSize.x / 2)
 			{
 				getParent()->setPosition(-getMapSize().x + windowSize.x, getParent()->getPosition().y);
-				gamescreen->setHpBarPos(Vector2(getMapSize().x - windowSize.x + guiOffset.x, getParent()->getPosition().y + guiOffset.y));
+				gamescreen->setBarsPos(Vector2(getMapSize().x - windowSize.x + guiOffset.x, getParent()->getPosition().y + guiOffset.y));
 			}
 		}
 	}
@@ -161,20 +165,20 @@ void Player::doUpdate(const UpdateState &us)
 		if (getPosition().y > windowSize.y / 2 && getPosition().y < getMapSize().y - windowSize.y / 2)
 		{
 			getParent()->setPosition(getParent()->getPosition().x, -getPosition().y + windowSize.y / 2);
-			gamescreen->setHpBarPos(Vector2(-getParent()->getPosition().x + guiOffset.x, getPosition().y - windowSize.y / 2 + guiOffset.y));
+			gamescreen->setBarsPos(Vector2(-getParent()->getPosition().x + guiOffset.x, getPosition().y - windowSize.y / 2 + guiOffset.y));
 		}
 		else
 		{
 			if (getPosition().y < windowSize.y / 2)
 			{
 				getParent()->setPosition(getParent()->getPosition().x, 0);
-				gamescreen->setHpBarPos(Vector2(getParent()->getPosition().x + guiOffset.x, guiOffset.y));
+				gamescreen->setBarsPos(Vector2(-getParent()->getPosition().x + guiOffset.x, guiOffset.y));
 			}
 
 			if (getPosition().y > getMapSize().y - windowSize.y / 2)
 			{
 				getParent()->setPosition(getParent()->getPosition().x, -getMapSize().y + windowSize.y);
-				gamescreen->setHpBarPos(Vector2(-getParent()->getPosition().x + guiOffset.x, getMapSize().y - windowSize.y + guiOffset.y));
+				gamescreen->setBarsPos(Vector2(-getParent()->getPosition().x + guiOffset.x, getMapSize().y - windowSize.y + guiOffset.y));
 			}
 		}
 	}
@@ -419,4 +423,5 @@ RectT<Vector2> Player::getCollisionBox()
 void Player::addBanana()
 {
     bananaCount++;
+	gamescreen->setBananas(bananaCount);
 }
