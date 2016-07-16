@@ -31,6 +31,10 @@ namespace Gui {
         double getValue();
         void setMaxValue(double maxvalue);
         double getMaxValue();
+		void setTextStyle(TextStyle style);
+		TextStyle getTextStyle();
+		void setTextPosition(Vector2 pos);
+		Vector2 getTextPosition();
 
     protected:
         virtual void onSizeChanged(const Vector2 &size);

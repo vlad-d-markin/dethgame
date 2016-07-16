@@ -32,6 +32,7 @@ public:
     std::string getBananaResPath();
     std::string getMapTmxPath();
     Configuration * getConfiguration();
+	int getPlayerMaxHealth();
 
     void setFullscreen(SDL_Window* window, bool is_fullscreen);
 

@@ -19,6 +19,15 @@ GameScreen::GameScreen()
     gameworld->draw();
     gameworld->attachTo(this);
 
+	hp_bar = new Gui::Bar();
+	hp_bar->setMaxValue(DethGame::instance()->getPlayerMaxHealth());
+	hp_bar->setValue(DethGame::instance()->getPlayerMaxHealth());
+	TextStyle style = hp_bar->getTextStyle();
+	style.color = Color::Silver;
+	hp_bar->setTextStyle(style);
+	hp_bar->setTextPosition(Vector2(5, 7));
+	hp_bar->attachTo(this);
+
 }
 
 void GameScreen::doUpdate(const UpdateState &us)
@@ -38,4 +47,30 @@ Resources* GameScreen::getResources()
 void GameScreen::setEnable(bool _enable)
 {
     enable = _enable;
+}
+
+void GameScreen::setHpBarPos(Vector2 pos)
+{
+	hp_bar->setPosition(pos);
+}
+
+Vector2 GameScreen::getHpBarSize()
+{
+	return hp_bar->getSize();
+}
+
+void GameScreen::setHp(int hp)
+{
+	hp_bar->setValue(hp);
+}
+
+int GameScreen::getHp()
+{
+	return hp_bar->getValue();
+}
+
+GameScreen::~GameScreen()
+{
+	m_resources->free();
+	delete m_resources;
 }

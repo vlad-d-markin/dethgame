@@ -153,8 +153,12 @@ void World::zombieAttacks(Event *event)
 
     RectT<Vector2> player_box = player->getRectPlayer();
 
-    if(player_box.isIntersecting(attack_box))
-        player->takeDamage(ev->damage);
+	if (player_box.isIntersecting(attack_box))
+	{
+		player->takeDamage(ev->damage);
+		gamescreen->setHp(gamescreen->getHp() - ev->damage);
+	}
+        
 }
 
 

@@ -101,3 +101,23 @@ void Gui::Bar::onSizeChanged(const Vector2 &size)
 {
 //    updateSizes(size);
 }
+
+void Gui::Bar::setTextStyle(TextStyle style)
+{
+	m_title->setStyle(style);
+}
+
+TextStyle Gui::Bar::getTextStyle()
+{
+	return m_title->getStyle();
+}
+
+void Gui::Bar::setTextPosition(Vector2 pos)
+{
+	m_title->setPosition(pos);
+}
+
+Vector2 Gui::Bar::getTextPosition()
+{
+	return m_title->getPosition();
+}

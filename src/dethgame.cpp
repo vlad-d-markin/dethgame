@@ -40,6 +40,11 @@ std::string DethGame::getMapTmxPath()
     return MAP_TMX_PATH;
 }
 
+int DethGame::getPlayerMaxHealth()
+{
+	return 500;
+}
+
 void DethGame::setFullscreen(SDL_Window* window, bool is_fullscreen)
 {
     Uint32 FullscreenFlag = SDL_WINDOW_FULLSCREEN;
@@ -70,7 +75,7 @@ void DethGame::init()
     setFullscreen(core::getWindow(), config.getFullScreen());
     m_menuScreen = new MainMenu();
     getMainStage()->addChild(m_menuScreen);
-    config.setMusicVolume(77);
+    config.setMusicVolume(78);
     oxygine::log::messageln("volume=%d",config.getMusicVolume());
 //    setFullscreen(core::getWindow(), config.getFullScreen());
 }
