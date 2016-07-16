@@ -169,12 +169,12 @@ void World::onPlayerPunch(Event * event)
     RectT<Vector2> attack_box;
     attack_box = ev->attack_area;
 
-/*
+
     spColorRectSprite rect = new ColorRectSprite();
     rect->setPosition((ev->attack_area).getLeftTop());
     rect->setSize((ev->attack_area).getSize());
     rect->attachTo(this);
-*/
+
 
     for(auto it = m_mobs.begin(); it != m_mobs.end(); it++)
     {
