@@ -7,7 +7,7 @@ Banana::Banana(Vector2 pos, GameScreen *gs)
     is_found = false;
     banana_resources = new Resources();
     banana_resources->loadXML(DethGame::instance()->getBananaResPath());
-    spSprite banana = new Sprite;
+    banana=new Sprite;
     banana->setResAnim(banana_resources->getResAnim("banana"));
     banana->setPosition(pos);
     banana->attachTo(gs);
@@ -37,5 +37,6 @@ void Banana::found()
 void Banana::deleteBanana()
 {
     // TODO: delete banana
-    std::cout << "Banana deleted" << std::endl;
+    banana->detach();
+
 }

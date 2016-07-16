@@ -7,11 +7,12 @@
 
 using namespace oxygine;
 
-class Banana : public Sprite
+class Banana
 {
     Resources * banana_resources;
     bool is_found;
     RectT<Vector2> collision_box;
+    spSprite banana;
 
 public:
     Banana(Vector2 pos, GameScreen *gs);

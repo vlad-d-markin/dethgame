@@ -67,7 +67,7 @@ public:
 
     RectT<Vector2> getRectPlayer();
 
-    void getBanana();
+    void addBanana();
 };
 
 

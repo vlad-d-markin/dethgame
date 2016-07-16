@@ -36,6 +36,8 @@ Player::Player() : Sprite()
     hitEvasion = 0.1;
     shotEvasion = 0.1;
     weaponHandlingSpeed = Vnorm;
+
+    bananaCount=0;
 }
 
 Vector2 Player::getDirection()
@@ -186,7 +188,8 @@ RectT<Vector2> Player::getCollisionBox()
 }
 
 
-void Player::getBanana()
+void Player::addBanana()
 {
     bananaCount++;
+    std::cout<<"Banana count = "<<bananaCount<<std::endl;
 }
