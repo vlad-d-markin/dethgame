@@ -192,14 +192,17 @@ void World::onPlayerPunch(Event * event)
 }
 
 
-void World::checkBanana() {
+void World::checkBanana()
+{
    RectT<Vector2> player_box = player->getCollisionBox();
 
-   for(int i=0; i < m_bananas.size(); i++){
-       if(player_box.isIntersecting(m_bananas[i].getCollisionBox()) == true) {
-           std::cout << "BANANA!!!" << std::endl;
-           player->getBanana();
-           m_bananas[i].deleteBanana();
+   for(std::vector<Banana>::iterator i = m_bananas.begin(); i!=m_bananas.end(); i++){
+       if(player_box.isIntersecting((*i).getCollisionBox()) == true) {
+           player->addBanana();
+           std::cout<<"BANAN!"<<std::endl;
+           (*i).deleteBanana();
+           m_bananas.erase(i);
+           break;
        }
    }
 
