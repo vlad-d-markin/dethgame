@@ -262,7 +262,7 @@ void Map::drawLayer(Layer& layer, GameScreen *gs, int tiletype)
             Tile obj_tile(tile, tiletype);
             vec_collisions[i_gid] = obj_tile;
         }
-	}
+    }
 }
 
 
@@ -353,6 +353,17 @@ std::vector<Position> Map::getPosZombie()
 std::vector<Position> Map::getPosPixie()
 {
     return vec_pos_pixie;
+}
+
+std::vector<Vector2> Map::getBananasPos()
+{
+    std::vector<Vector2> vec_bananas;
+
+    vec_bananas.push_back(Vector2(50,50));
+    vec_bananas.push_back(Vector2(100,100));
+    vec_bananas.push_back(Vector2(150,150));
+
+    return vec_bananas;
 }
 
 

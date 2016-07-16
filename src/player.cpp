@@ -30,8 +30,8 @@ Player::Player(GameScreen *gs) : Sprite()
     persStandsRightAttack = gamescreen->getResources()->getResAnim("skin_goes_right_attack");
 
     setResAnim(persStandsDown);
-    punch = false;
-    punchOld = false;
+    isPunching = false;
+    isPunchingOld = false;
     orientation = down;
     moving = false;
     movingOld = false;
@@ -43,6 +43,10 @@ Player::Player(GameScreen *gs) : Sprite()
     pos = Vector2(300, 300);
     setPosition(pos);
     //Vnorm = ???
+    weaponDamage = 30;
+    intPunch = 0;
+    attackArea.setSize(80,80);
+
     healthPoints = 500;
     stamina = 300;
     healthRegenerationSpeed = Vnorm;
@@ -82,6 +86,8 @@ void Player::setMoving(const bool isMoving)
 
 void Player::doUpdate(const UpdateState &us)
 {
+    intPunch += us.dt;
+
 	const Uint8* data = SDL_GetKeyboardState(0);
 
 	//calculate speed using delta time
@@ -90,10 +96,10 @@ void Player::doUpdate(const UpdateState &us)
     //Vector2 pos = getPosition();
     dirXOld = dirX;
     dirYOld = dirY;
-    punchOld = punch;
+    isPunchingOld = isPunching;
     dirX = 0;
     dirY = 0;
-    punch = false;
+    isPunching = false;
 
     if (data[SDL_SCANCODE_A])
         dirX -= speed;
@@ -105,18 +111,19 @@ void Player::doUpdate(const UpdateState &us)
         dirY += speed;
     if (data[SDL_SCANCODE_SPACE])
     {
-        punch == true;
-        std::cerr << "punch == true";
+        isPunching == true;
+        punch(left);
+        //std::cerr << "isPunching == true";
     }
 
     //choose an appropriate animation
     if( getSign(dirX) != getSign(dirXOld)
         || ( getSign(dirX) == 0 && getSign(dirY) != getSign(dirYOld) )
         || getSign(moving) != getSign(movingOld)
-        || punch != punchOld )
+        || isPunching != isPunchingOld )
     {
-        std::cerr << "X=" << dirX << " Xo=" << dirXOld << " Y=" << dirY << " Yo=" << dirYOld <<
-                    " M=" << moving << " Mo=" << movingOld << " P=" << punch << std::endl;
+        //std::cerr << "X=" << dirX << " Xo=" << dirXOld << " Y=" << dirY << " Yo=" << dirYOld <<
+        //            " M=" << moving << " Mo=" << movingOld << " P=" << isPunching << std::endl;
         rotate();
     }
 
@@ -146,7 +153,7 @@ void Player::doUpdate(const UpdateState &us)
 		}
 	}
 	
-    //y
+        //y
 	if (getMapSize().y > windowSize.y)
 	{
 		if (getPosition().y > windowSize.y / 2 && getPosition().y < getMapSize().y - windowSize.y / 2)
@@ -170,7 +177,7 @@ void Player::doUpdate(const UpdateState &us)
 
 void Player::rotate()
 {
-    if(!punch)  //DEMONSTRATION
+    if(isPunching)  //DEMONSTRATION
     {
         if(moving)
         {
@@ -246,7 +253,7 @@ void Player::rotate()
                 setResAnim(persAnimCurrent);
         }
     }
-    else    // if(!punch)
+    else    // if(!isPunching)
     {
         if(moving)
         {
@@ -336,7 +343,66 @@ int Player::getSign(const float number)
         return 0;
 }
 
-direction Player::getOrientation()
+Direction Player::getOrientation()
 {
     return orientation;
+}
+
+
+void Player::takeDamage(int damage)
+{
+    if((healthPoints -= damage) <= 0) {
+        std::cout << "RIP Nathan" << std::endl;
+        // TODO: get rekt
+    }
+
+    std::cout << "Nathan -" << damage << "hp (" << healthPoints << ")" << std::endl;
+}
+
+
+RectT<Vector2> Player::getRectPlayer()
+{
+    RectT<Vector2> rect_player(getPosition(), getSize());
+    rect_player.setPosition(rect_player.getLeftTop()-getSize()/2);
+
+    return rect_player;
+}
+
+
+void Player::punch(Direction dir)
+{
+    if(intPunch < 1000)
+        return;
+    else
+        intPunch = 0;
+
+    switch(dir)
+    {
+    case left:
+        attackArea.setPosition(getPosition().x - attackArea.getWidth(), getPosition().y - attackArea.getHeight() / 2);
+        break;
+    default:
+        break;
+    }
+
+    attackArea.setPosition(attackArea.getLeftTop() - getSize()/2);
+
+    PlayerPunchEvent punchEvent(attackArea, weaponDamage);
+    dispatchEvent(&punchEvent);
+}
+
+
+RectT<Vector2> Player::getCollisionBox()
+{
+    RectT<Vector2> rect_player(getPosition(), getSize());
+    rect_player.setPosition(rect_player.getLeftTop()-Vector2((rect_player.getSize().x)/2, 0));
+    rect_player.setSize(rect_player.getSize().x, (rect_player.getSize().y)/2);
+
+    return rect_player;
+}
+
+
+void Player::getBanana()
+{
+    bananaCount++;
 }

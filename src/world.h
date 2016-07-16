@@ -3,8 +3,10 @@
 #include "oxygine-framework.h"
 #include "map.h"
 #include "player.h"
-#include <vector>
+#include "banana.h"
+#include <set>
 #include "entities/mob.h"
+#include "direction.h"
 
 
 using namespace oxygine;
@@ -15,16 +17,24 @@ class World : public Actor
     Player* player;
     GameScreen* gamescreen;
 
-    std::vector<Mob *> m_mobs;
+    std::set<spMob> m_mobs;
+    float dt_zombie;
+
+    std::vector<Banana> m_bananas;
 
 public:
     World(GameScreen* gs);
     void draw();
 
+    void addMob(spMob mob);
     void corpseDecayed(Event * event);
 
 protected:
     void doUpdate(const UpdateState &us);
+    void zombieAttacks(Event * event);
+
+    void onPlayerPunch(Event * event);
+    void checkBanana();
 
 };
 
