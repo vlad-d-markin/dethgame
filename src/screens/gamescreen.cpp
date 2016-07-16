@@ -29,7 +29,7 @@ GameScreen::GameScreen()
 	hp_bar->attachTo(this);
 
 	bananaCounter = new Gui::Bar();
-	bananaCounter->setMaxValue(5);
+	bananaCounter->setMaxValue(bananasOnMap);
 	bananaCounter->setValue(0);
 	bananaCounter->removeBackground();
 	style.color = Color::Yellow;
@@ -81,6 +81,11 @@ int GameScreen::getHp()
 void GameScreen::setBananas(int bananas)
 {
 	bananaCounter->setValue(bananas);
+}
+
+void GameScreen::setBananasOnMap(int bananas)
+{
+	bananasOnMap = bananas;
 }
 
 GameScreen::~GameScreen()

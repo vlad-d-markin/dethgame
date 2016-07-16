@@ -17,6 +17,7 @@ World::World(GameScreen *gs)
     addMob(zombie);
     dt_zombie = 0;
 
+	gamescreen->setBananasOnMap(map->getPosBananas().size());
 }
 
 

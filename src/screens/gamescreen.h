@@ -14,6 +14,7 @@ public:
 	Vector2 getHpBarSize();
 	void setHp(int hp);
 	int getHp();
+	void setBananasOnMap(int bananas);
 	void setBananas(int bananas);
 
 private:
@@ -21,6 +22,7 @@ private:
     bool enable;
 	Gui::spBar hp_bar;
 	Gui::spBar bananaCounter;
+	int bananasOnMap;
 protected:
     void doUpdate(const UpdateState &us);
 };
