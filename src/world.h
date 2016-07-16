@@ -28,13 +28,14 @@ public:
 
     void addMob(spMob mob);
     void corpseDecayed(Event * event);
+    void checkBanana();
 
 protected:
     void doUpdate(const UpdateState &us);
     void zombieAttacks(Event * event);
 
     void onPlayerPunch(Event * event);
-    void checkBanana();
+
 
 };
 

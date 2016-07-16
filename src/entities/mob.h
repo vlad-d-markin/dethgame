@@ -3,6 +3,7 @@
 
 #include "oxygine-framework.h"
 #include "entity.h"
+#include "mobbrain.h"
 
 
 using namespace oxygine;
@@ -12,15 +13,20 @@ DECLARE_SMART(Mob, spMob)
 
 class MobCorpseDecayedEvent : public Event
 {
+
 public:
     spMob mob;
 
     enum { EVENT = eventID('m', 'C', 'd', 'Y') };
     MobCorpseDecayedEvent(spMob m) : Event(EVENT), mob(m) {}
+
 };
 
 
 class Mob : public Entity {
+
+    MobBrain brain;
+
 public:
     enum State {
         IDLE,
@@ -61,8 +67,7 @@ public:
     Mob();
     virtual ~Mob();
 
-    void getHit(int damage);
-    void attack(/*Entity (Character) * target*/);
+    void getHit(int damage);  
     void die();
     void walkTo(Vector2 dest);
     RectT<Vector2> getMobBox();
@@ -71,6 +76,9 @@ public:
 
     bool isDecayed();
 
+    void attack(/*Entity (Character) * target*/);
+
+    void setPosPlayer(Vector2 pos);
 
 protected:
     virtual void doUpdate(const UpdateState& us);

@@ -1,5 +1,7 @@
 #include "entity.h"
 
+#include <iostream>
+
 Entity::Entity() {
 
 }

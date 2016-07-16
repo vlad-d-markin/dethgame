@@ -1,4 +1,5 @@
 #include "zombie.h"
+#include "../player.h"
 #include <iostream>
 
 #define IDLE_TWEEN addTween(TweenAnim(m_idle_anim), 1600, -1, true)

@@ -17,6 +17,7 @@ public:
     };
 
 private:
+
     Resources resources;
 
     ResAnim * m_walk_north_anim;

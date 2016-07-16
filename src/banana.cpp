@@ -36,7 +36,5 @@ void Banana::found()
 
 void Banana::deleteBanana()
 {
-    // TODO: delete banana
     banana->detach();
-
 }

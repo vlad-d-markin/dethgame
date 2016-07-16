@@ -419,5 +419,4 @@ RectT<Vector2> Player::getCollisionBox()
 void Player::addBanana()
 {
     bananaCount++;
-    std::cout<<"Banana count = "<<bananaCount<<std::endl;
 }

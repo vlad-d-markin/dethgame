@@ -34,7 +34,6 @@ void World::draw()
 
     std::vector<Vector2> pos_bananas = map->getPosBananas();
     for(int i=0; i < pos_bananas.size(); i++) {
-         std::cout << "BANANA ADDED!!!" << pos_bananas.size() << std::endl;
         Banana banana(pos_bananas[i], gamescreen);
         m_bananas.push_back(banana);
     }
@@ -45,7 +44,6 @@ void World::draw()
     player->attachTo(gamescreen);
     player->setMapSize(map->getMapSize());
     player->addEventListener(PlayerPunchEvent::EVENT, CLOSURE(this, &World::onPlayerPunch));
-
 
     map->drawTop(gamescreen);
 
@@ -118,6 +116,11 @@ void World::doUpdate(const UpdateState &us)
         }
     }
     player->setMoving(playerMoved);
+
+    for(auto it = m_mobs.begin(); it != m_mobs.end(); it++) {
+         (*it)->setPosPlayer(player->getPosition());
+    }
+
 }
 
 
@@ -138,8 +141,8 @@ void World::corpseDecayed(Event *event)
 void World::zombieAttacks(Event *event)
 {
     std::cout << "ZOMBIE ATTACK!!!" << std::endl;
-    ZombiePunchEvent * ev = reinterpret_cast<ZombiePunchEvent *>(event);
 
+    ZombiePunchEvent * ev = reinterpret_cast<ZombiePunchEvent *>(event);
 
     RectT<Vector2> attack_box;
     attack_box = ev->attack_area;
@@ -171,12 +174,12 @@ void World::onPlayerPunch(Event * event)
     RectT<Vector2> attack_box;
     attack_box = ev->attack_area;
 
-
+/*
     spColorRectSprite rect = new ColorRectSprite();
     rect->setPosition((ev->attack_area).getLeftTop());
     rect->setSize((ev->attack_area).getSize());
     rect->attachTo(this);
-
+*/
 
     for(auto it = m_mobs.begin(); it != m_mobs.end(); it++)
     {
@@ -201,7 +204,6 @@ void World::checkBanana()
    for(std::vector<Banana>::iterator i = m_bananas.begin(); i!=m_bananas.end(); i++){
        if(player_box.isIntersecting((*i).getCollisionBox()) == true) {
            player->addBanana();
-           std::cout<<"BANAN!"<<std::endl;
            (*i).deleteBanana();
            m_bananas.erase(i);
            break;

@@ -1,4 +1,5 @@
 #include "mob.h"
+#include "../player.h"
 #include <iostream>
 
 Mob::Mob()
@@ -17,6 +18,8 @@ Mob::~Mob() { log::messageln("Mob was deleted"); }
 void Mob::doUpdate(const UpdateState &us)
 {
     Entity::doUpdate(us);
+
+    brain.doUpdate(us);
 
     switch (m_state){
         case DEAD:
@@ -98,4 +101,10 @@ RectT<Vector2> Mob::getMobBox()
 {
     mob_box.setPosition(getPosition());
     return mob_box;
+}
+
+
+void Mob::setPosPlayer(Vector2 pos)
+{
+    brain.setPosPlayer(pos);
 }
