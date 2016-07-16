@@ -140,6 +140,7 @@ void Player::doUpdate(const UpdateState &us)
 		{
 			getParent()->setPosition(-getPosition().x + windowSize.x / 2, getParent()->getPosition().y);
 			gamescreen->setBarsPos(Vector2(getPosition().x - windowSize.x / 2 + guiOffset.x, getParent()->getPosition().y + guiOffset.y));
+			
 		}
 		else
 		{
@@ -148,6 +149,7 @@ void Player::doUpdate(const UpdateState &us)
 				getParent()->setPosition(0, getParent()->getPosition().y);
 				gamescreen->setBarsPos(Vector2(guiOffset.x, getParent()->getPosition().y + guiOffset.y));
 			}
+				
 
 			if (getPosition().x > getMapSize().x - windowSize.x / 2)
 			{
@@ -170,7 +172,7 @@ void Player::doUpdate(const UpdateState &us)
 			if (getPosition().y < windowSize.y / 2)
 			{
 				getParent()->setPosition(getParent()->getPosition().x, 0);
-				gamescreen->setBarsPos(Vector2(getParent()->getPosition().x + guiOffset.x, guiOffset.y));
+				gamescreen->setBarsPos(Vector2(-getParent()->getPosition().x + guiOffset.x, guiOffset.y));
 			}
 
 			if (getPosition().y > getMapSize().y - windowSize.y / 2)
