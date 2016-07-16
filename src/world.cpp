@@ -34,7 +34,7 @@ void World::draw()
 {
     map->drawGround(gamescreen);
 
-    std::vector<Vector2> pos_bananas = map->getBananasPos();
+    std::vector<Vector2> pos_bananas = map->getPosBananas();
     for(int i=0; i < pos_bananas.size(); i++) {
          std::cout << "BANANA ADDED!!!" << pos_bananas.size() << std::endl;
         Banana banana(pos_bananas[i], gamescreen);

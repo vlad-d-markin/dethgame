@@ -14,6 +14,7 @@
 #define MOBS        "Mobs"
 #define BOSSES      "Bosses"
 #define TREASURE    "Treasure"
+#define BANANAS     "Bananas"
 
 // object names in the "Tiled"
 #define MELEE_FAN   "melee_fan"
@@ -23,6 +24,7 @@
 #define DEVIL       "devil"
 #define ZOMBIE      "zombie"
 #define PIXIE       "pixie"
+
 
 
 Map::Map()
@@ -180,6 +182,18 @@ void Map::parseXML()
                 tr_pos.name = _object.attribute("name").value();
 
                 vec_pos_treasure.push_back(tr_pos);
+            }
+        }
+
+        if (_objectgroup.attribute("name").value()==std::string(BANANAS)){
+            for (pugi::xml_node _object = _objectgroup.child("object"); _object; _object = _object.next_sibling("object"))
+            {
+                Vector2 banana_pos;
+
+                banana_pos.x = atoi(_object.attribute("x").value());
+                banana_pos.y = atoi(_object.attribute("y").value());
+
+                vec_pos_bananas.push_back(banana_pos);
             }
         }
 
@@ -355,15 +369,9 @@ std::vector<Position> Map::getPosPixie()
     return vec_pos_pixie;
 }
 
-std::vector<Vector2> Map::getBananasPos()
+std::vector<Vector2> Map::getPosBananas()
 {
-    std::vector<Vector2> vec_bananas;
-
-    vec_bananas.push_back(Vector2(50,50));
-    vec_bananas.push_back(Vector2(100,100));
-    vec_bananas.push_back(Vector2(150,150));
-
-    return vec_bananas;
+    return vec_pos_bananas;
 }
 
 

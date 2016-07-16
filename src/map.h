@@ -69,6 +69,8 @@ class Map
     std::vector<Position> vec_pos_zombie;
     std::vector<Position> vec_pos_pixie;
 
+    std::vector<Vector2> vec_pos_bananas;
+
 
 public:
     Map();
@@ -95,7 +97,7 @@ public:
     std::vector<Position> getPosZombie();
     std::vector<Position> getPosPixie();
     std::vector<Tile>* getTileVec();
-    std::vector<Vector2> getBananasPos();
+    std::vector<Vector2> getPosBananas();
 
 };
 
