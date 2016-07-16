@@ -25,7 +25,7 @@ public:
 
 class Mob : public Entity {
 
-    MobBrain brain;
+   // MobBrain brain;
 
 public:
     enum State {
@@ -57,11 +57,17 @@ protected:
     State m_state;
     bool m_decayed;
 
+    float m_agr_range;
+    float m_attack_range;
+
     float m_dead_time;
 
     bool m_state_changed;
 
     RectT<Vector2> mob_box;
+    Vector2 m_pos_spawn;
+
+    MobBrain * brain;
 
 public:
     Mob();

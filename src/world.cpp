@@ -11,8 +11,8 @@ World::World(GameScreen *gs)
     map = new Map();
     gamescreen = gs;
 
-    zombie = new Zombie();
-    zombie->setPosition(200, 200);
+    zombie = new Zombie(Vector2(200,200));
+
     zombie->setName("zomb");
     addMob(zombie);
     dt_zombie = 0;

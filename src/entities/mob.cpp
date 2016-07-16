@@ -19,7 +19,9 @@ void Mob::doUpdate(const UpdateState &us)
 {
     Entity::doUpdate(us);
 
-    brain.doUpdate(us);
+    brain->setMobPosition(getPosition());
+
+    brain->doUpdate(us);
 
     switch (m_state){
         case DEAD:
@@ -106,5 +108,5 @@ RectT<Vector2> Mob::getMobBox()
 
 void Mob::setPosPlayer(Vector2 pos)
 {
-    brain.setPosPlayer(pos);
+    brain->setPosPlayer(pos);
 }

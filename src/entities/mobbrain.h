@@ -15,11 +15,16 @@ enum State {
 
 class MobBrain : public Sprite
 {
-    int activeState;
-    Vector2 posPlayer;
+    int m_active_state;
+    float m_agr_range;
+    float m_attack_range;
+
+    Vector2 m_pos_player;
+    Vector2 m_pos_mob;
+    Vector2 m_pos_spawn;
 
 public:
-    MobBrain();
+    MobBrain(float agr_range, float attack_range, Vector2 pos_spawn);
 
     void setState(State state);
     void updateState();
@@ -32,6 +37,7 @@ public:
     virtual void doUpdate(const UpdateState& us);
 
     void setPosPlayer(Vector2 pos);
+    void setMobPosition(Vector2 pos);
 
 };
 
