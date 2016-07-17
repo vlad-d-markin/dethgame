@@ -69,19 +69,19 @@ void MobBrain::doUpdate(const UpdateState& us)
     switch(m_active_state)
     {
     case WAIT:
-        std::cout << "WAIT" << std::endl;
+        //std::cout << "WAIT" << std::endl;
         stateWait();
         break;
     case PURSUIT:
-        std::cout << "PURSUIT" << std::endl;
+        //std::cout << "PURSUIT" << std::endl;
         statePursuit();
         break;
     case ATTACK:
-        std::cout << "ATTACK" << std::endl;
+        //std::cout << "ATTACK" << std::endl;
         stateAttack();
         break;
     case GO_BACK:
-        std::cout << "GO BACK" << std::endl;
+        //std::cout << "GO BACK" << std::endl;
         stateGoBack();
         break;
     default:

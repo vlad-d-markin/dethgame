@@ -69,6 +69,10 @@ private:
 
     int bananaCount;
 
+    void updatePunching(bool _isPunching);
+    void onEvent(Event* ev);
+    void onTweenDone(Event *event);
+
 protected:
 	void doUpdate(const UpdateState &us);
 public:

@@ -1,5 +1,6 @@
 #include "SDL.h"
 #include "SDL_keyboard.h"
+#include "Input.h"
 #include "core/oxygine.h"
 #include "Sprite.h"
 #include "player.h"
@@ -27,7 +28,7 @@ Player::Player(GameScreen *gs) : Sprite()
     persAnimRightAttack = gamescreen->getResources()->getResAnim("skin_goes_right_attack");
     persStandsUpAttack = gamescreen->getResources()->getResAnim("skin_stands_up_attack");
     persStandsDownAttack = gamescreen->getResources()->getResAnim("skin_stands_down_attack");
-    persStandsRightAttack = gamescreen->getResources()->getResAnim("skin_goes_right_attack");
+    persStandsRightAttack = gamescreen->getResources()->getResAnim("skin_stands_right_attack");
 
     setResAnim(persStandsDown);
     isPunching = false;
@@ -60,7 +61,7 @@ Player::Player(GameScreen *gs) : Sprite()
     shotEvasion = 0.1;
     weaponHandlingSpeed = Vnorm;
 
-	bananaCount = 0;
+    bananaCount = 0;
 }
 
 Vector2 Player::getDirection()
@@ -98,10 +99,8 @@ void Player::doUpdate(const UpdateState &us)
     //Vector2 pos = getPosition();
     dirXOld = dirX;
     dirYOld = dirY;
-    isPunchingOld = isPunching;
     dirX = 0;
     dirY = 0;
-    isPunching = false;
 
     if (data[SDL_SCANCODE_A])
         dirX -= speed;
@@ -112,11 +111,7 @@ void Player::doUpdate(const UpdateState &us)
     if (data[SDL_SCANCODE_S])
         dirY += speed;
     if (data[SDL_SCANCODE_SPACE])
-    {
-        isPunching == true;
-        punch();
-        //std::cerr << "isPunching == true";
-    }
+        updatePunching(true);
 
     //choose an appropriate animation
     if( getSign(dirX) != getSign(dirXOld)
@@ -213,15 +208,15 @@ void Player::rotate()
                     orientation = up;
                 }
             }
-            removeTween(tween);
+            removeTweens();
             if(persAnimCurrent == persAnimRightAttack)
-                tween = addTween(TweenAnim(persAnimCurrent), HorizontalAnimationDuration, -1, true);
+                tween = addTween(TweenAnim(persAnimCurrent), HorizontalAnimationDuration);
             else
-                tween = addTween(TweenAnim(persAnimCurrent), VerticalAnimationDuration, -1);
+                tween = addTween(TweenAnim(persAnimCurrent), VerticalAnimationDuration * 2);
         }
         else    //if not moving
         {
-            removeTween(tween);
+            removeTweens();
 
             if(dirX > 0)   //stands right
             {
@@ -256,13 +251,16 @@ void Player::rotate()
                 }
             }
 
-            if(persAnimCurrent == persStandsRightAttack)
-                setResAnim(persAnimCurrent, 1);
+            removeTweens();
+            if(persAnimCurrent == persAnimRightAttack)
+                tween = addTween(TweenAnim(persAnimCurrent), HorizontalAnimationDuration);
             else
-                setResAnim(persAnimCurrent);
+                tween = addTween(TweenAnim(persAnimCurrent), VerticalAnimationDuration * 2);
         }
+
+        tween->setDoneCallback(CLOSURE(this, &Player::onTweenDone));
     }
-    else    // if(!isPunching)
+    else    // if not punching
     {
         if(moving)
         {
@@ -289,7 +287,7 @@ void Player::rotate()
                     orientation = up;
                 }
             }
-            removeTween(tween);
+            removeTweens();
             if(persAnimCurrent == persAnimRight)
                 tween = addTween(TweenAnim(persAnimCurrent), HorizontalAnimationDuration, -1, true);
             else
@@ -297,7 +295,7 @@ void Player::rotate()
         }
         else    //if not moving
         {
-            removeTween(tween);
+            removeTweens();
 
             if(dirX > 0)   //stands right
             {
@@ -424,4 +422,16 @@ void Player::addBanana()
 {
     bananaCount++;
 	gamescreen->setBananas(bananaCount);
+}
+
+void Player::updatePunching(bool _isPunching)
+{
+    isPunchingOld = isPunching;
+    isPunching = _isPunching;
+}
+
+void Player::onTweenDone(Event *event)
+{
+    log::messageln("tween done");
+    updatePunching(false);
 }
