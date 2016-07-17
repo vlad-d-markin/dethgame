@@ -38,6 +38,7 @@ Zombie::Zombie(Vector2 spawn_pos) : Mob()
 
     m_agr_range = 300;
     m_attack_range = 65;
+    m_attack_area.setSize(80,80);
 
     mob_box.setSize(Vector2(50,50));
 
@@ -64,8 +65,8 @@ void Zombie::punch(Direction dir)
             m_current_tween = PUNCH_SOUTH_TWEEN;
             m_current_tween->setDoneCallback(CLOSURE(this, &Zombie::onPunchFinished));
 
-            m_attack_area.setPosition(getX() - m_attack_area.getWidth() / 2, getY() + getHeight());
-            m_attack_area.setSize(80, 80);
+            m_attack_area.setPosition(getX() - m_attack_area.getWidth() / 2, getY());
+
             ZombiePunchEvent punchEvent(m_attack_area, m_attack_damage);
             dispatchEvent(&punchEvent);
         }
@@ -77,8 +78,8 @@ void Zombie::punch(Direction dir)
             m_current_tween = PUNCH_EAST_TWEEN;
             m_current_tween->setDoneCallback(CLOSURE(this, &Zombie::onPunchFinished));
 
-            m_attack_area.setPosition(getX() + getWidth(), getY() - m_attack_area.getHeight() / 2);
-            m_attack_area.setSize(80, 80);
+            m_attack_area.setPosition(getX(), getY() - m_attack_area.getHeight() / 2);
+
             ZombiePunchEvent punchEvent(m_attack_area, m_attack_damage);
             dispatchEvent(&punchEvent);
         }
@@ -91,7 +92,7 @@ void Zombie::punch(Direction dir)
             m_current_tween->setDoneCallback(CLOSURE(this, &Zombie::onPunchFinished));
 
             m_attack_area.setPosition(getX() - m_attack_area.getWidth(), getY() - m_attack_area.getHeight() / 2);
-            m_attack_area.setSize(80, 80);
+
             ZombiePunchEvent punchEvent(m_attack_area, m_attack_damage);
             dispatchEvent(&punchEvent);
         }
@@ -104,8 +105,8 @@ void Zombie::punch(Direction dir)
             m_current_tween = PUNCH_NORTH_TWEEN;
             m_current_tween->setDoneCallback(CLOSURE(this, &Zombie::onPunchFinished));
 
-            m_attack_area.setPosition(getX() - m_attack_area.getWidth() / 2, getY() - getHeight() - m_attack_area.getHeight());
-            m_attack_area.setSize(80, 80);
+            m_attack_area.setPosition(getX() - m_attack_area.getWidth() / 2, getY() - m_attack_area.getHeight());
+
             ZombiePunchEvent punchEvent(m_attack_area, m_attack_damage);
             dispatchEvent(&punchEvent);
         }
