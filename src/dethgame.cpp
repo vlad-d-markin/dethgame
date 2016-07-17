@@ -1,4 +1,6 @@
 #include "dethgame.h"
+#include <iostream>
+
 
 #define MAP_TMX_PATH "map_bananas.tmx"
 
@@ -50,7 +52,24 @@ void DethGame::setFullscreen(SDL_Window* window, bool is_fullscreen)
     Uint32 FullscreenFlag = SDL_WINDOW_FULLSCREEN;
     Uint32 old_flags = SDL_GetWindowFlags(window);
 
+	SDL_DisplayMode mode;
+	SDL_GetCurrentDisplayMode(0, &mode);
+
     SDL_SetWindowFullscreen(window, is_fullscreen ? old_flags | FullscreenFlag : old_flags & ~FullscreenFlag);
+
+	if (is_fullscreen)
+	{
+		SDL_SetWindowSize(window, mode.w, mode.h);
+	}
+	else
+	{
+		SDL_SetWindowSize(window, getMainStage()->getSize().x, getMainStage()->getSize().y);
+	}
+
+	if (m_optionsScreen)
+	{
+		m_optionsScreen->updateLayout();
+	}
 }
 
 Configuration * DethGame::getConfiguration()
@@ -116,6 +135,7 @@ void DethGame::setScreen(std::string name)
             m_optionsScreen->setVisible(false);
             m_optionsScreen->setEnable(false);
         }
+		m_menuScreen->updateLayout();
         m_menuScreen->setVisible(true);
     } else if (name == "Options screen") {
         if (getMainStage()->getChild("Game screen")) {
@@ -125,6 +145,7 @@ void DethGame::setScreen(std::string name)
         if (getMainStage()->getChild("Options screen")) {
             m_optionsScreen->setVisible(true);
             m_optionsScreen->setEnable(true);
+			m_optionsScreen->updateLayout();
         }
         m_menuScreen->setVisible(false);
     } else if (name == "Game screen") {

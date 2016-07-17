@@ -11,9 +11,16 @@ class MainMenu : public BaseScreen
 {
 private:
     Resources * m_resources;
+	spSprite background;
+	spImageButton btn_start;
+	spImageButton btn_rules;
+	spImageButton btn_options;
+	spImageButton btn_exit;
+
 public:
     MainMenu();
     virtual ~MainMenu();
+	void updateLayout();
 };
 
 typedef ::oxygine::intrusive_ptr<MainMenu> spMainMenu;
