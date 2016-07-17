@@ -39,7 +39,6 @@ int main(int argc, char* argv[])
 #include "core/oxygine.h"
 #include "Stage.h"
 #include "DebugActor.h"
-#include "example.h"
 #include "dethgame.h"
 
 using namespace oxygine;
@@ -62,7 +61,7 @@ int mainloop()
 
 	if (core::beginRendering())
 	{
-		Color clearColor(32, 32, 32, 255);
+        Color clearColor(0, 0, 0, 255);
 		Rect viewport(Point(0, 0), core::getDisplaySize());
 		// Render all actors inside the stage. Actor::render will also be called for all its children
 		getStage()->render(clearColor, viewport);

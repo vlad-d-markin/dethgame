@@ -1,40 +1,95 @@
 #include "gamescreen.h"
 #include "../dethgame.h"
-#include "../mySprite.h"
 #include <iostream>
 #include "basescreen.h"
-#include "../map.h"
+#include "../world.h"
 
 using namespace oxygine;
 
 GameScreen::GameScreen()
 {
     setName("Game screen");
+    setEnable(true);
     setSize(DethGame::instance()->getMainStage()->getSize());
 
     m_resources = new Resources();
     m_resources->loadXML(DethGame::instance()->getGuiResPath());
 
-    Map* map = new Map();
-    map->attachToMap(this);
+    World* gameworld = new World(this);
+    gameworld->draw();
+    gameworld->attachTo(this);
 
-    /*// Background
-    spSprite background = new Sprite();
-    background->setResAnim(m_resources->getResAnim("main_menu_bg"));
-    background->setSize(getSize());
-    //background->attachTo(this);
+	hp_bar = new Gui::Bar();
+	hp_bar->setMaxValue(DethGame::instance()->getPlayerMaxHealth());
+	hp_bar->setValue(DethGame::instance()->getPlayerMaxHealth());
+	TextStyle style = hp_bar->getTextStyle();
+	style.color = Color::Silver;
+	hp_bar->setTextStyle(style);
+	hp_bar->setTextPosition(Vector2(5, 7));
+	hp_bar->attachTo(this);
+
+	bananaCounter = new Gui::Bar();
+	bananaCounter->setMaxValue(bananasOnMap);
+	bananaCounter->setValue(0);
+	bananaCounter->removeBackground();
+	style.color = Color::Yellow;
+	bananaCounter->setTextStyle(style);
+	bananaCounter->attachTo(this);
+
+}
+
+void GameScreen::doUpdate(const UpdateState &us)
+{
+    const Uint8* data = SDL_GetKeyboardState(0);
+
+    if (data[SDL_SCANCODE_ESCAPE] && enable)
+        DethGame::instance()->setScreen("Menu");
+}
 
 
-    spMySprite sprite = new MySprite;
-    sprite->setAnchor(0.5, 0.5);
-    sprite->setResAnim(m_resources->getResAnim("skin"));
-    sprite->attachTo(this);
-    sprite->setPosition(getSize() / 2);
+Resources* GameScreen::getResources()
+{
+    return m_resources;
+}
 
-    //camera
-    spActor camera = new Actor;
-    camera->addChild(background);
-    camera->addChild(sprite);
-    camera->setAnchor(0.5, 0.5);
-    getStage()->addChild(camera);*/
+void GameScreen::setEnable(bool _enable)
+{
+    enable = _enable;
+}
+
+void GameScreen::setBarsPos(Vector2 pos)
+{
+	hp_bar->setPosition(pos);
+	bananaCounter->setPosition(pos);
+}
+
+Vector2 GameScreen::getHpBarSize()
+{
+	return hp_bar->getSize();
+}
+
+void GameScreen::setHp(int hp)
+{
+	hp_bar->setValue(hp);
+}
+
+int GameScreen::getHp()
+{
+	return hp_bar->getValue();
+}
+
+void GameScreen::setBananas(int bananas)
+{
+	bananaCounter->setValue(bananas);
+}
+
+void GameScreen::setBananasOnMap(int bananas)
+{
+	bananasOnMap = bananas;
+}
+
+GameScreen::~GameScreen()
+{
+	m_resources->free();
+	delete m_resources;
 }

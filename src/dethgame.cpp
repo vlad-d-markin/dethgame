@@ -1,6 +1,8 @@
 #include "dethgame.h"
-#include "screens/mainmenu.h"
-#include "screens/gamescreen.h"
+#include <iostream>
+
+
+#define MAP_TMX_PATH "map.tmx"
 
 using namespace oxygine;
 
@@ -10,12 +12,10 @@ DethGame * DethGame::instance()
     return &game;
 }
 
-
-DethGame::DethGame()
+DethGame::DethGame():config(CONFIG)
 {
 
 }
-
 
 spStage DethGame::getMainStage()
 {
@@ -32,45 +32,153 @@ std::string DethGame::getTileResPath()
     return "tile.xml";
 }
 
-
-
-void DethGame::preInit()
+std::string DethGame::getBananaResPath()
 {
+    return "banana.xml";
+}
 
+std::string DethGame::getMapTmxPath()
+{
+    return MAP_TMX_PATH;
+}
+
+int DethGame::getPlayerMaxHealth()
+{
+	return 500;
+}
+
+void DethGame::setFullscreen(SDL_Window* window, bool is_fullscreen)
+{
+    Uint32 FullscreenFlag = SDL_WINDOW_FULLSCREEN;
+    Uint32 old_flags = SDL_GetWindowFlags(window);
+
+	SDL_DisplayMode mode;
+	SDL_GetCurrentDisplayMode(0, &mode);
+
+    SDL_SetWindowFullscreen(window, is_fullscreen ? old_flags | FullscreenFlag : old_flags & ~FullscreenFlag);
+
+	if (is_fullscreen)
+	{
+		SDL_SetWindowSize(window, mode.w, mode.h);
+	}
+	else
+	{
+		SDL_SetWindowSize(window, getMainStage()->getSize().x, getMainStage()->getSize().y);
+	}
+
+	if (m_optionsScreen)
+	{
+		m_optionsScreen->updateLayout();
+	}
+}
+
+Configuration * DethGame::getConfiguration()
+{
+    return &config;
 }
 
 
+void DethGame::quit()
+{
+    core::requestQuit();
+}
+
+void DethGame::preInit()
+{
+    config.load();
+
+}
 
 void DethGame::init()
 {
-    spMainMenu menu = new MainMenu();
-    getMainStage()->addChild(menu);
-    //spBaseScreen game = new BaseScreen();
-    //getMainStage()->addChild(game);
+    setFullscreen(core::getWindow(), config.getFullScreen());
+    m_menuScreen = new MainMenu();
+    getMainStage()->addChild(m_menuScreen);
+    m_optionsScreen = new OptionsScreen();
+    getMainStage()->addChild(m_optionsScreen);
+    m_rulesScreen = new RulesScreen();
+    getMainStage()->addChild(m_rulesScreen);
+    m_gameScreen = new GameScreen();
+    getMainStage()->addChild(m_gameScreen);
+
+    setScreen("Menu");
 }
 
 void DethGame::startGame(Event * event)
 {
-//    getMainStage()->getChild("menu")->detach();
-    spGameScreen game = new GameScreen();
-//    getMainStage()->getFirstChild()->detach();
-    getMainStage()->addChild(game);
-    getMainStage()->getLastChild()->setVisible(false);
-    //getMainStage()->getChild("Menu")->setVisible(true);
-
-    //oxygine::log::messageln("%s",getMainStage()->getChildren(getMainStage()));
+    setScreen("Game screen");
 }
 
+void DethGame::optionsScreen(Event *event)
+{
+    setScreen("Options screen");
+}
+
+void DethGame::rulesScreen(Event *event)
+{
+    setScreen("Rules screen");
+}
 
 void DethGame::update()
 {
 
 }
 
-
 void DethGame::destroy()
 {
-
+    oxygine::log::messageln("destroy all. that's brutal");
+    config.save();
 }
 
+void DethGame::setScreen(std::string name)
+{
+    if (name == "Menu") {
+        m_gameScreen->setVisible(false);
+        m_gameScreen->setEnable(false);
+
+        m_rulesScreen->setVisible(false);
+        m_rulesScreen->setEnable(false);
+
+        m_optionsScreen->setVisible(false);
+        m_optionsScreen->setEnable(false);
+
+        m_menuScreen->updateLayout();
+        m_menuScreen->setVisible(true);
+    } else if (name == "Rules screen") {
+        m_gameScreen->setVisible(false);
+        m_gameScreen->setEnable(false);
+
+        m_optionsScreen->setVisible(false);
+        m_optionsScreen->setEnable(false);
+
+        m_menuScreen->setVisible(false);
+
+        m_rulesScreen->setVisible(true);
+        m_rulesScreen->setEnable(true);
+		m_rulesScreen->updateLayout();
+    } else if (name == "Options screen") {
+        m_gameScreen->setVisible(false);
+        m_gameScreen->setEnable(false);
+
+        m_rulesScreen->setVisible(false);
+        m_rulesScreen->setEnable(false);
+
+        m_menuScreen->setVisible(false);
+
+        m_optionsScreen->setVisible(true);
+        m_optionsScreen->setEnable(true);
+        m_optionsScreen->updateLayout();
+    } else if (name == "Game screen") {
+        m_optionsScreen->setVisible(false);
+        m_optionsScreen->setEnable(false);
+
+        m_rulesScreen->setVisible(false);
+        m_rulesScreen->setEnable(false);
+
+        m_menuScreen->setVisible(false);
+
+        m_gameScreen->setVisible(true);
+        m_gameScreen->setEnable(true);
+    }
+}
 

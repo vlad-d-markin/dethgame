@@ -1,0 +1,115 @@
+=========================== MOBS ===========================
+// прогружаются при создании карты (?)
+
+ХАРАТЕРИСТИКИ:
+	- hp
+	- damage
+	- speed
+	- agr range
+	- pursuit
+	- type
+	- skill
+	- attack range
+	- attack speed
+
+
+TYPE:
+	- fans		
+	- rapper	
+	- army		
+	- zombies	
+	- devils	
+	- pixies
+
+
+melee fan: (агр одного = агр все)
+	type		melee
+	hp		50 
+	damage		20
+	speed		Vnorm * 0,7
+	agr cond	Rhigh * 1,05
+	attack range	minimum
+	pursuit		everywhere
+	skill		none
+	attack speed	1 hit/sec
+
+range fan: (агр одного = агр все)
+	type		range
+	hp		35 
+	damage		40
+	speed		Vnorm * 0,5
+	agr cond	Rhigh * 1,05
+	attack range	Rhigh * 0,6
+	pursuit		everywhere
+	skill		none
+	attack speed	1 hit/2sec
+
+rapper: (играет рэп, пока жив хоть кто-то из реперов, агр одного = агр все)
+	type		melee
+	hp		35 
+	damage		15
+	speed		Vnorm
+	agr cond	наша агрессия
+	attack range	minimum
+	pursuit		everywhere
+	skill		-1 hp/sec (range = Rpers * 1,3)
+	attack speed	1 hit/sec
+
+army: (расстановка треугольником, на радиусе, больше радиуса их атаки)
+	type		range
+	hp		60 
+	damage		30
+	speed		0
+	agr cond	Rpers
+	attack range	Rhigh * 1,5
+	pursuit		none
+	skill		возможность застанить на секунду (транквилизатор) с вероятностью 0,2
+	attack speed	1 hit/sec
+
+zombie: (восстание по времени)
+	type		melee
+	hp		90
+	damage		60
+	speed		Vnorm * 0,7
+	agr cond	Rhigh+(Rskill-Rhigh)/2 
+	attack range	minimum
+	pursuit		границы лабиринта
+	skill		восстание через 30 секунд после убийства
+	attack speed	1 hit/2sec
+
+devil: ()
+	type		melee
+	hp		150
+	damage		50
+	speed		Vpers * 1,05
+	agr cond	Rview
+	attack range	minimum
+	pursuit		everywhere
+	skill		none
+	attack speed	1hit/sec
+
+pixie: ()
+	type		range
+	hp		150
+	damage		50
+	speed		Vpers * 0,8
+	agr cond	Rpers * 0,7 || наша агрессия любой феи
+	attack range	Rpers * 0,7
+	pursuit		everywhere
+	skill		возможность застанить на 1 секунды (заворожение) с вероятностью 0,2
+	attack speed	2hit/3sec
+
+
+
+Распределение мобов по карте:
+	level 1 - melee fans, num=3, пачка
+	level 2 - fans, num=4=3melee+1range, пачка
+	level 3 - fans, num=5=2melee+3range, рассеянная расстановка
+	level 4 - rapper, num=6, пачка по кругу
+	level 5 - fans + rapper, num=7=2melee+4rapper+1range, 2melee и 4rapper по разные стороны дороги, range стоит по центру
+	level 6 - army, num=3х2, 2 пачки (треугольником) последовательно (на достаточном расстоянии)
+	level 7 - devil, num=5, стоят около сундуков
+		- zombie, num=4x4, 4 пачки стоят в заданных точках лабиринта
+	level 8 - pixie, num=3,  "<" расстановка
+	level 9 - pixie, num=4, "<>" расстановка 
+	level 10- all, num=12=2army(по бокам)+3zombie(по центру)+3melee(за zombie)+2range(за melee)+2pixie(сзади)

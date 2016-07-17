@@ -4,77 +4,105 @@
 #include <string>
 #include <vector>
 #include <oxygine-framework.h>
+#include "tile.h"
 #include "screens/gamescreen.h"
 
 using namespace oxygine;
 
+
+// information about the specific tileset
 typedef struct {
-	int firstgid;
-	std::string name;
-	int tilewidth;
-	int tileheight;
-	int tilecount;
-	int columns;
+    int first_gid;
+    int pix_tile_width;
+    int pix_tile_height;
+    int tile_count;
+    int columns_count;
 
-	std::string source;
-	int img_width;
-	int img_height;
-}tileset;
+    int pix_img_width;
+    int pix_img_height;
 
+    std::string name;
+    std::string source;
+} Tileset;
 
+// information about the specific layer
 typedef struct {
-	std::string name;
-	int width;
-	int height;
-	std::vector<int> gid_set;
-}layer;
+    std::string name;
+    int num_tile_row;
+    int num_tile_col;
+    std::vector<int> gid_set;
+} Layer;
 
-
+// position and name of the object
 typedef struct {
-	int x;
-	int y;
-	std::string name;
-}position;
-
+    int x;
+    int y;
+    std::string name;
+} Position;
 
 
 
 class Map
 {
-    Resources * m_resources;
+    Resources * map_resources;
+    std::vector<Tile> vec_collisions;
+    std::vector<std::vector<bool>> vecCollisionsBool;
 
-	int width_map;  //tiles
-	int height_map; //tiles
+    // map specifications
+    int num_tiles_in_row;
+    int num_tiles_in_col;
+    int pix_tile_width;
+    int pix_tile_height;
 
-	int width_tile;
-	int height_tile;
+    // vectors of tilesets and layers
+    std::vector<Tileset> vec_tilesets;
+    std::vector<Layer> vec_layers;
 
-	std::vector<tileset> tilesets;
-	std::vector<layer> layers;
+    // positions of hero, bosses, mobs and treasures
+    Position pos_hero;
+    std::vector<Position> vec_pos_boss;
+    std::vector<Position> vec_pos_treasure;
+    std::vector<Position> vec_pos_melee_fan;
+    std::vector<Position> vec_pos_range_fan;
+    std::vector<Position> vec_pos_rapper;
+    std::vector<Position> vec_pos_army;
+    std::vector<Position> vec_pos_devil;
+    std::vector<Position> vec_pos_zombie;
+    std::vector<Position> vec_pos_pixie;
 
-
-	position hero_pos;
-
-	std::vector<position> melee_fan_pos;
-	std::vector<position> range_fan_pos;
-	std::vector<position> rapper_pos;
-	std::vector<position> army_pos;
-	std::vector<position> devil_pos;
-	std::vector<position> zombie_pos;
-	std::vector<position> pixie_pos;
-
-	std::vector<position> boss_pos;
-
-	std::vector<position> treasure_pos;
-
+    std::vector<Vector2> vec_pos_bananas;
 
 
 public:
     Map();
-	~Map();
-    void xmlParser(std::string path);
-    void loadTiles();
-    void attachToMap(GameScreen *gs);
+    ~Map();
+
+    void parseXML();
+    void loadResources();
+
+    void drawGround(GameScreen *gamescreen);\
+    void drawTop(GameScreen *gamescreen);
+    void drawLayer(Layer &m_layer, GameScreen *gamescreen, int tiletype=-1);
+
+    void setVecBoolCollisions();
+
+    Vector2 getMapSize();
+    bool isObstacle(RectT<Vector2> rect_player);
+    bool isPointCollision(Vector2 pos);
+    std::vector<std::vector<bool>> getVecBoolCollisions();
+
+    Position getPosHero();
+    std::vector<Position> getPosBoss();
+    std::vector<Position> getPosMeleeFan();
+    std::vector<Position> getPosRangeFan();
+    std::vector<Position> getPosRapper();
+    std::vector<Position> getPosArmy();
+    std::vector<Position> getPosDevil();
+    std::vector<Position> getPosZombie();
+    std::vector<Position> getPosPixie();
+    std::vector<Tile>* getTileVec();
+    std::vector<Vector2> getPosBananas();
+
 };
 
 

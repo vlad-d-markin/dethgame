@@ -2,13 +2,26 @@
 <resources>
 	<set path = "images" />
 	<atlas>
-		<image id="skin" file="button.png" />	
+		<image id="skin_goes_down" file="steps_front.png" cols = "2"/>	
+		<image id="skin_goes_up" file="steps_back.png" cols = "2"/>	
+		<image id="skin_goes_right" file="steps_sideways.png" cols = "3"/>
+		<image id="skin_stands_down" file="stand_front.png"/>	
+		<image id="skin_stands_up" file="stand_back.png"/>
+		<image id="skin_goes_down_attack" file="punch_steps_front.png" cols = "4"/>	
+		<image id="skin_goes_up_attack" file="punch_steps_back.png" cols = "4"/>	
+		<image id="skin_goes_right_attack" file="punch_steps_sideways.png" cols = "6"/>
+		<image id="skin_stands_down_attack" file="punch_stand_front.png" cols = "2"/>	
+		<image id="skin_stands_up_attack" file="punch_stand_back.png" cols = "2"/>
+		<image id="skin_stands_right_attack" file="punch_stand_sideways.png" cols = "2"/>
+		<image id="skin_died" file="Dead_Nathan.png" />
 		<image id="main_menu_bg" file="Logo.png" />
 		<image id="start" file="Start.png" cols = "2"/>
 		<image id="rules" file="Rules.png" cols = "2"/>
+		<image id="options" file="Options.png" cols = "2"/>
 		<image id="exit" file="Exit.png" cols = "2"/>
+		<image id="pg" file="pg.png"/>
 	</atlas>
 
 	<set path = "fonts" />
-	<font file="main.fnt" />
+	<font file="font.fnt" />
 </resources>
