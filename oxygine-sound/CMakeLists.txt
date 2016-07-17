@@ -105,11 +105,11 @@ endif(EMSCRIPTEN)
 
 include_directories(${OXYGINESOUND_INCLUDE_DIRS})
 
-
-
+#LINK_DIRECTORIES("D:/Github/dethgame/oxygine-sound/libs/win32/")
 
 target_link_libraries(oxygine-sound -lopenal)
 target_link_libraries(oxygine-sound -logg)
+
 
 
 #target_link_libraries(oxyginemagicparticles)

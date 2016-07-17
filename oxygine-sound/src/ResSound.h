@@ -1,5 +1,6 @@
 #pragma once
 #include "res/Resource.h"
+//#include "../../oxygine-framework/oxygine/src/res/Resource.h"
 
 namespace oxygine
 {
