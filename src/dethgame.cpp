@@ -155,6 +155,7 @@ void DethGame::setScreen(std::string name)
 
         m_rulesScreen->setVisible(true);
         m_rulesScreen->setEnable(true);
+		m_rulesScreen->updateLayout();
     } else if (name == "Options screen") {
         m_gameScreen->setVisible(false);
         m_gameScreen->setEnable(false);
