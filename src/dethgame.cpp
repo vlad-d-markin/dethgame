@@ -1,6 +1,6 @@
 #include "dethgame.h"
 
-#define MAP_TMX_PATH "map_bananas.tmx"
+#define MAP_TMX_PATH "map.tmx"
 
 using namespace oxygine;
 

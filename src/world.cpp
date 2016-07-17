@@ -11,12 +11,15 @@ World::World(GameScreen *gs)
     map = new Map();
     gamescreen = gs;
 
-    zombie = new Zombie(Vector2(200,200));
-
-    zombie->setName("zomb");
-    addMob(zombie);
-    dt_zombie = 0;
-
+    std::vector<Position> zombie_pos=map->getPosZombie();
+    std::cout<<"size = "<<zombie_pos.size();
+    for (int i=0; i<(zombie_pos.size()); i++)
+    {
+        std::cout<<"x = "<< zombie_pos[i].x<<" y="<<zombie_pos[i].y<<std::endl;
+        zombie = new Zombie(Vector2(zombie_pos[i].x,zombie_pos[i].y));
+        zombie->setName("zomb");
+        addMob(zombie);
+    }
 	gamescreen->setBananasOnMap(map->getPosBananas().size());
 }
 
@@ -121,6 +124,7 @@ void World::doUpdate(const UpdateState &us)
 
     for(auto it = m_mobs.begin(); it != m_mobs.end(); it++) {
          (*it)->setPosPlayer(player->getPosition());
+        std::cout << "SIZE=" << m_mobs.size() << std::endl;
     }
 
 }
