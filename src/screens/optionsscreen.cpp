@@ -12,7 +12,7 @@ OptionsScreen::OptionsScreen()
     m_main_panel = new Gui::Panel();
     m_main_panel->attachTo(this);
     m_main_panel->setSize(400, 400);
-    m_main_panel->setPosition(getSize() / 2 - m_main_panel->getSize() / 2);
+   
 
 
     Gui::spTextLabel options_label = new Gui::TextLabel();
@@ -42,6 +42,12 @@ OptionsScreen::OptionsScreen()
 
 }
 
+void OptionsScreen::updateLayout()
+{
+	int x, y;
+	SDL_GetWindowSize(core::getWindow(), &x, &y);
+	m_main_panel->setPosition(Vector2(x,y) / 2 - m_main_panel->getSize() / 2);
+}
 
 
 void OptionsScreen::onButtonClicked(Event * e)

@@ -126,8 +126,11 @@ void Player::doUpdate(const UpdateState &us)
         rotate();
     }
 
-	Vector2 windowSize(getParent()->getSize());
-	Vector2 guiOffset(10, gamescreen->getSize().y - gamescreen->getHpBarSize().y * 3.65);
+	int x, y;
+	SDL_GetWindowSize(core::getWindow(), &x, &y);
+	Vector2 windowSize(x, y);
+		
+	Vector2 guiOffset(10, windowSize.y - gamescreen->getHpBarSize().y * 3.65);
 
 	// move camera
 	//x 
