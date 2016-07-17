@@ -221,4 +221,6 @@ void Zombie::onWalkComplete(Event *e)
     removeTween(m_currentMoveTween);
     m_current_tween = IDLE_TWEEN;
     m_state = IDLE;
+    ZombieArrived zombieArrived(getPosition());
+    dispatchEvent(&zombieArrived);
 }

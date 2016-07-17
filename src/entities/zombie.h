@@ -66,4 +66,14 @@ public:
 };
 
 
+class ZombieArrived : public Event
+{
+public:
+    enum { EVENT = eventID('Z', 'a', 'T', 't') };
+    Vector2 destination;
+
+    ZombieArrived(Vector2 dest) : Event(EVENT), destination(dest) {}
+};
+
+
 #endif //DETHGAME_ZOMBIE_H

@@ -64,14 +64,6 @@ void World::doUpdate(const UpdateState &us)
 
     checkBanana();
 
-    static bool a = true;
-    static float time = 0;
-    time += us.dt;
-    if(a && time > 6000) {
-        a = false;
-        (*m_mobs.begin()).second->walk(Direction::down_right);
-    }
-
     // TEST
 /*
     if(dt_zombie < 2000) {
