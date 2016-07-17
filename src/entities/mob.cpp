@@ -2,11 +2,15 @@
 #include "../player.h"
 #include <iostream>
 
+#define distance(x1, y1, x2, y2) sqrt((x2-x1)*(x2-x1)+(y2-y1)*(y2-y1))
+
 Mob::Mob()
 {
     setState(IDLE);
     m_decayed = false;
     m_dead_time = 0;
+    m_hit_freq = 1500;
+    m_last_hit_time = 0;
 }
 
 
@@ -22,6 +26,22 @@ void Mob::doUpdate(const UpdateState &us)
     brain->setMobPosition(getPosition());
 
     brain->doUpdate(us);
+    switch (brain->getState()) {
+    case WAIT:
+
+        break;
+    case PURSUIT:
+        walkTo(m_pos_player);
+        break;
+    case ATTACK:
+        attack(us);
+        break;
+    case GO_BACK:
+        walkTo(m_pos_spawn);
+        break;
+    default:
+        break;
+    }
 
     switch (m_state){
         case DEAD:
@@ -45,12 +65,75 @@ void Mob::doUpdate(const UpdateState &us)
 
 
 
-void Mob::attack(/* target */)
+void Mob::attack(const UpdateState &us)
 {
-    // walkTo(target)
-    // if near then
-    //      target->getHit(m_damage);
-    //      log::messageln("Mob attacks %s", target->getName);
+    if(m_last_hit_time < m_hit_freq)
+        m_last_hit_time += us.dt;
+    else
+    {
+        m_last_hit_time=0;
+
+        float x=distance(m_pos_player.x, m_pos_player.y, m_pos_player.x, getPosition().y);
+        float y=distance(getPosition().x, getPosition().y, m_pos_player.x, m_pos_player.y);
+        float sin=x/y;
+
+        if (((getPosition().x < m_pos_player.x))&&(getPosition().y > m_pos_player.y))
+        {
+            if(fabs(sin)<(sqrt(2)/2))
+            {
+                punch(right);
+                return;
+            }
+            else
+            {
+                punch(up);
+                return;
+            }
+        }
+
+        if (((getPosition().x < m_pos_player.x))&&(getPosition().y < m_pos_player.y))
+        {
+            if(fabs(sin)<(sqrt(2)/2))
+            {
+                punch(right);
+                return;
+            }
+            else
+            {
+                punch(down);
+                return;
+            }
+        }
+
+        if (((getPosition().x > m_pos_player.x))&&(getPosition().y < m_pos_player.y))
+        {
+            if(fabs(sin)<(sqrt(2)/2))
+            {
+                punch(left);
+                return;
+            }
+            else
+            {
+                punch(down);
+                return;
+            }
+        }
+
+        if (((getPosition().x > m_pos_player.x))&&(getPosition().y > m_pos_player.y))
+        {
+            if(fabs(sin)<(sqrt(2)/2))
+            {
+                punch(left);
+                return;
+            }
+            else
+            {
+                punch(up);
+                return;
+            }
+        }
+
+    }
 }
 
 
@@ -108,5 +191,6 @@ RectT<Vector2> Mob::getMobBox()
 
 void Mob::setPosPlayer(Vector2 pos)
 {
+    m_pos_player=pos;
     brain->setPosPlayer(pos);
 }
