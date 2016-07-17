@@ -84,6 +84,8 @@ public:
     void walkTo(Vector2 dest);
     void attack(const UpdateState &us);
 
+    virtual void walk(Direction dir) {}
+
     void die();
     bool isDecayed();
 
