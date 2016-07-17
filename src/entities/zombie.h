@@ -37,7 +37,7 @@ private:
 
 
 public:
-    Zombie();
+    Zombie(Vector2 spawn_pos);
     virtual ~Zombie();
 
     void punch(Direction dir);

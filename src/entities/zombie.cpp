@@ -10,7 +10,7 @@
 #define PUNCH_WEST_TWEEN addTween(TweenAnim(m_attack_west), 600)
 #define PUNCH_NORTH_TWEEN addTween(TweenAnim(m_attack_north), 600)
 
-Zombie::Zombie() : Mob()
+Zombie::Zombie(Vector2 spawn_pos) : Mob()
 {
     resources.loadXML("zombie.xml");
 
@@ -30,10 +30,19 @@ Zombie::Zombie() : Mob()
     m_current_tween = IDLE_TWEEN;
     m_state = IDLE;
 
+    m_pos_spawn = spawn_pos;
+    setPosition(spawn_pos);
+
     m_health = HP;
     m_attack_damage = 50;//DAMAGE;
 
+    m_agr_range = 300;
+    m_attack_range = 65;
+
     mob_box.setSize(Vector2(50,50));
+
+    setAnchor(0.5, 0.5);
+    brain = new MobBrain(m_agr_range, m_attack_range, m_pos_spawn);
 }
 
 
