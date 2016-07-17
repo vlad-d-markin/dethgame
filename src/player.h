@@ -45,6 +45,8 @@ private:
     ResAnim* persStandsDownAttack;
     ResAnim* persStandsRightAttack;
     ResAnim* persAnimCurrent;
+    ResAnim* persDeath;
+
     void rotate();
     bool moving;
     int getSign(const float number);

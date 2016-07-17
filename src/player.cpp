@@ -29,6 +29,7 @@ Player::Player(GameScreen *gs) : Sprite()
     persStandsUpAttack = gamescreen->getResources()->getResAnim("skin_stands_up_attack");
     persStandsDownAttack = gamescreen->getResources()->getResAnim("skin_stands_down_attack");
     persStandsRightAttack = gamescreen->getResources()->getResAnim("skin_stands_right_attack");
+    persDeath = gamescreen->getResources()->getResAnim("skin_died");
 
     setResAnim(persStandsDown);
     isPunching = false;
@@ -102,17 +103,19 @@ void Player::doUpdate(const UpdateState &us)
     dirX = 0;
     dirY = 0;
 
-    if (data[SDL_SCANCODE_A])
-        dirX -= speed;
-    if (data[SDL_SCANCODE_D])
-        dirX += speed;
-    if (data[SDL_SCANCODE_W])
-        dirY -= speed;
-    if (data[SDL_SCANCODE_S])
-        dirY += speed;
-    if (data[SDL_SCANCODE_SPACE]) {
-        updatePunching(true);
-        punch();
+    if (healthPoints > 0) {
+        if (data[SDL_SCANCODE_A])
+            dirX -= speed;
+        if (data[SDL_SCANCODE_D])
+            dirX += speed;
+        if (data[SDL_SCANCODE_W])
+            dirY -= speed;
+        if (data[SDL_SCANCODE_S])
+            dirY += speed;
+        if (data[SDL_SCANCODE_SPACE]) {
+            updatePunching(true);
+            punch();
+        }
     }
 
     //choose an appropriate animation
@@ -363,11 +366,15 @@ Direction Player::getOrientation()
 
 void Player::takeDamage(int damage)
 {
-    if((healthPoints -= damage) <= 0) {
+    if (healthPoints > 0)
+        healthPoints -= damage;
+    else return;
+    if(healthPoints <= 0) {
         std::cout << "RIP Nathan" << std::endl;
+        persAnimCurrent = persDeath;
+        setResAnim(persAnimCurrent);
         // TODO: get rekt
     }
-
     std::cout << "Nathan -" << damage << "hp (" << healthPoints << ")" << std::endl;
 }
 

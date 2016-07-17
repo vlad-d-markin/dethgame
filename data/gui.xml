@@ -13,6 +13,7 @@
 		<image id="skin_stands_down_attack" file="punch_stand_front.png" cols = "2"/>	
 		<image id="skin_stands_up_attack" file="punch_stand_back.png" cols = "2"/>
 		<image id="skin_stands_right_attack" file="punch_stand_sideways.png" cols = "2"/>
+		<image id="skin_died" file="Dead_Nathan.png" />
 		<image id="main_menu_bg" file="Logo.png" />
 		<image id="start" file="Start.png" cols = "2"/>
 		<image id="rules" file="Rules.png" cols = "2"/>
