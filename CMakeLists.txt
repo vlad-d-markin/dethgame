@@ -10,11 +10,11 @@ include_directories(${OXYGINE_INCLUDE_DIRS})
 link_directories(${OXYGINE_LIBRARY_DIRS})
 
 
-#add_subdirectory(./oxygine-sound)
+add_subdirectory(./oxygine-sound)
 
-#add_definitions(${OXYGINESOUND_DEFINITIONS})
-#include_directories(${OXYGINESOUND_INCLUDE_DIRS})
-#link_directories(${OXYGINESOUND_LIBRARY_DIRS})
+add_definitions(${OXYGINESOUND_DEFINITIONS})
+include_directories(${OXYGINESOUND_INCLUDE_DIRS})
+link_directories(${OXYGINESOUND_LIBRARY_DIRS})
 
 INCLUDE_DIRECTORIES("./oxygine-sound/src")
 LINK_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR}/lib)
@@ -32,7 +32,7 @@ file(GLOB_RECURSE SRC_FILES "./src/*.cpp")
 
 
 add_executable(${PROJECT_NAME} ${SRC_FILES})
-target_link_libraries(${PROJECT_NAME} ${OXYGINE_CORE_LIBS} ${CMAKE_CURRENT_SOURCE_DIR}/lib/oxygine-sound.lib)
+target_link_libraries(${PROJECT_NAME} ${OXYGINE_CORE_LIBS} ${OXYGINESOUND_LIBS})
 
 # Copy dlls to output dir
 add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD

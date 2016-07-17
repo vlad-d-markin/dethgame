@@ -2,5 +2,5 @@
 <resources>
     <set path = "sounds" /> 
 	
-    <sound id="crush_the_industry" file="crush_the_industry.ogg" />
+    <sound file="crush_the_industry.ogg" />
 </resources>

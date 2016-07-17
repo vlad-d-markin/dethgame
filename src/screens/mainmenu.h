@@ -15,6 +15,10 @@ private:
 public:
     MainMenu();
     virtual ~MainMenu();
+
+protected:
+
+    void doUpdate(const UpdateState& us);
 };
 
 typedef ::oxygine::intrusive_ptr<MainMenu> spMainMenu;

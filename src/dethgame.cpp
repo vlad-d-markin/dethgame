@@ -62,10 +62,12 @@ void DethGame::preInit()
 
 void DethGame::init()
 {
+    SoundSystem::create()->init(2);
+    SoundPlayer::initialize();
+
     setFullscreen(core::getWindow(), config.getFullScreen());
     m_menuScreen = new MainMenu();
     getMainStage()->addChild(m_menuScreen);
-    config.setMusicVolume(77);
     oxygine::log::messageln("volume=%d",config.getMusicVolume());
 //    setFullscreen(core::getWindow(), config.getFullScreen());
 }
@@ -86,13 +88,18 @@ void DethGame::optionsScreen(Event *event)
 
 void DethGame::update()
 {
-
+    SoundSystem::get()->update();
+    m_fx_player.update();
+    m_music_player.update();
 }
 
 void DethGame::destroy()
 {
     oxygine::log::messageln("destroy all. that's brutal");
     config.save();
+
+    SoundPlayer::free();
+    SoundSystem::free();
 }
 
 void DethGame::setScreen(std::string name)
@@ -124,5 +131,18 @@ void DethGame::setScreen(std::string name)
         }
         m_menuScreen->setVisible(false);
     }
+}
+
+
+
+SoundPlayer& DethGame::getMusicPlayer()
+{
+    return m_music_player;
+}
+
+
+SoundPlayer& DethGame::getFxPlayer()
+{
+    return m_fx_player;
 }
 

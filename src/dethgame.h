@@ -9,6 +9,7 @@
 #include "screens/gamescreen.h"
 #include "screens/guitestscreen.h"
 #include "screens/optionsscreen.h"
+#include "oxygine-sound.h"
 
 #define CONFIG "dethconfig.json"
 
@@ -22,6 +23,9 @@ private:
     spMainMenu m_menuScreen;
     spGameScreen m_gameScreen;
     spOptionsScreen m_optionsScreen;
+
+    SoundPlayer m_music_player;
+    SoundPlayer m_fx_player;
 
 public:
     static DethGame * instance();
@@ -39,6 +43,9 @@ public:
     void update();
     void destroy();
     void setScreen(std::string name);
+
+    SoundPlayer& getMusicPlayer();
+    SoundPlayer& getFxPlayer();
 
     void startGame(Event *event);
     void optionsScreen(Event *event);

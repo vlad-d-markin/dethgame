@@ -6,12 +6,21 @@
 MainMenu::MainMenu()
 {
     setName("Menu");
+
+
+
     m_resources = new Resources();
     m_resources->loadXML(DethGame::instance()->getGuiResPath());
     m_resources_music = new Resources();
     m_resources_music->loadXML("sounds.xml");
-    player.setVolume(1.0f);
-    player.play(m_resources_music->get("crush_the_industry"),PlayOptions().loop().fade(1500));
+
+
+//    player.setVolume(1.0f);
+//    player.play(m_resources_music->get("crush_the_industry"), PlayOptions().loop().fade(1500));
+
+    DethGame::instance()->getMusicPlayer().setVolume(1.0f);
+    DethGame::instance()->getMusicPlayer().play(m_resources_music->get("crush_the_industry"), PlayOptions().loop().fade(1500));
+
     // Background
     spSprite background = new Sprite();
     background->setResAnim(m_resources->getResAnim("main_menu_bg"));
@@ -60,7 +69,14 @@ MainMenu::~MainMenu()
     delete m_resources;
     m_resources_music->free();
     delete m_resources;
+
     player.stop();
-    SoundPlayer::free();
-    SoundSystem::free();
+
+}
+
+
+void MainMenu::doUpdate(const UpdateState &us)
+{
+
+    player.update();
 }
