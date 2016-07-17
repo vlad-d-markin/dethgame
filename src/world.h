@@ -4,7 +4,7 @@
 #include "map.h"
 #include "player.h"
 #include "banana.h"
-#include <set>
+#include <map>
 #include "entities/mob.h"
 #include "direction.h"
 
@@ -17,7 +17,7 @@ class World : public Actor
     Player* player;
     GameScreen* gamescreen;
 
-    std::set<spMob> m_mobs;
+    std::map<int, spMob> m_mobs;
     float dt_zombie;
 
     std::vector<Banana> m_bananas;

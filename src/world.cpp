@@ -4,10 +4,12 @@
 #include "banana.h"
 #include <iostream>
 
-spZombie zombie;
+
 
 World::World(GameScreen *gs)
 {
+    spZombie zombie;
+
     map = new Map();
     gamescreen = gs;
 
@@ -29,7 +31,7 @@ void World::addMob(spMob mob)
     mob->attachTo(this);
     mob->addEventListener(MobCorpseDecayedEvent::EVENT, CLOSURE(this, &World::corpseDecayed));
     mob->addEventListener(ZombiePunchEvent::EVENT, CLOSURE(this, &World::zombieAttacks));
-    m_mobs.insert(mob);
+    m_mobs.insert(std::pair<int, spMob>(mob->getObjectID(), mob));
 }
 
 void World::draw()
@@ -123,7 +125,7 @@ void World::doUpdate(const UpdateState &us)
     player->setMoving(playerMoved);
 
     for(auto it = m_mobs.begin(); it != m_mobs.end(); it++) {
-         (*it)->setPosPlayer(player->getPosition());
+         (*it).second->setPosPlayer(player->getPosition());
         std::cout << "SIZE=" << m_mobs.size() << std::endl;
     }
 
@@ -137,7 +139,7 @@ void World::corpseDecayed(Event *event)
 
     removeChild(ev->mob);
 
-    m_mobs.erase(ev->mob);
+    m_mobs.erase(ev->mob->getObjectID());
 //    ev->mob->detach();
 //    delete ev->mob;
 }
@@ -196,8 +198,8 @@ void World::onPlayerPunch(Event * event)
         rect->attachTo(this);
         */
 
-        if(attack_box.isIntersecting((*it)->getMobBox())) {
-            (*it)->getHit(ev->damage);
+        if(attack_box.isIntersecting((*it).second->getMobBox())) {
+            (*it).second->getHit(ev->damage);
         }
     }
 }
