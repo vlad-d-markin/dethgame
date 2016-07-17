@@ -26,8 +26,10 @@ class MobBrain : public Sprite
 public:
     MobBrain(float agr_range, float attack_range, Vector2 pos_spawn);
 
+    int getState();
     void setState(State state);
-    void updateState();
+    void setPosPlayer(Vector2 pos);
+    void setMobPosition(Vector2 pos);
 
     void stateAttack();
     void stateWait();
@@ -35,9 +37,6 @@ public:
     void stateGoBack();
 
     virtual void doUpdate(const UpdateState& us);
-
-    void setPosPlayer(Vector2 pos);
-    void setMobPosition(Vector2 pos);
 
 };
 

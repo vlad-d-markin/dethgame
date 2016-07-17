@@ -60,7 +60,7 @@ void World::doUpdate(const UpdateState &us)
     checkBanana();
 
     // TEST
-
+/*
     if(dt_zombie < 2000) {
         dt_zombie += us.dt;
     }
@@ -83,6 +83,7 @@ void World::doUpdate(const UpdateState &us)
         }
     }
     // END OF TEST
+    */
 
 
     if( player->getDirection() == Vector2(0,0) )
