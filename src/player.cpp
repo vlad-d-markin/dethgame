@@ -186,7 +186,7 @@ void Player::doUpdate(const UpdateState &us)
 
 void Player::rotate()
 {
-    if(isPunching)  //DEMONSTRATION
+    if(isPunching)
     {
         if(moving)
         {
