@@ -110,8 +110,10 @@ void Player::doUpdate(const UpdateState &us)
         dirY -= speed;
     if (data[SDL_SCANCODE_S])
         dirY += speed;
-    if (data[SDL_SCANCODE_SPACE])
+    if (data[SDL_SCANCODE_SPACE]) {
         updatePunching(true);
+        punch();
+    }
 
     //choose an appropriate animation
     if( getSign(dirX) != getSign(dirXOld)
