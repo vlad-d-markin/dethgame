@@ -46,6 +46,7 @@ class Map
 {
     Resources * map_resources;
     std::vector<Tile> vec_collisions;
+    std::vector<std::vector<bool>> vecCollisionsBool;
 
     // map specifications
     int num_tiles_in_row;
@@ -83,9 +84,12 @@ public:
     void drawTop(GameScreen *gamescreen);
     void drawLayer(Layer &m_layer, GameScreen *gamescreen, int tiletype=-1);
 
+    void setVecBoolCollisions();
+
     Vector2 getMapSize();
     bool isObstacle(RectT<Vector2> rect_player);
     bool isPointCollision(Vector2 pos);
+    std::vector<std::vector<bool>> getVecBoolCollisions();
 
     Position getPosHero();
     std::vector<Position> getPosBoss();

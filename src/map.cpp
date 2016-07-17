@@ -208,6 +208,8 @@ void Map::drawGround(GameScreen *gamescreen)
     drawLayer(vec_layers[BACKGROUND], gamescreen, BACKGROUND);
     drawLayer(vec_layers[BACKGROUND_OBJECTS], gamescreen);
     drawLayer(vec_layers[COLLISIONS], gamescreen, COLLISIONS);
+
+    setVecBoolCollisions();
 }
 
 
@@ -372,6 +374,25 @@ std::vector<Position> Map::getPosPixie()
 std::vector<Vector2> Map::getPosBananas()
 {
     return vec_pos_bananas;
+}
+
+
+void Map::setVecBoolCollisions()
+{
+    for(int i_row = 0; i_row < num_tiles_in_col; i_row++) {
+
+        std::vector<bool> row;
+        for(int i_col = 0; i_col < num_tiles_in_row; i_col++) {
+            row.push_back(isPointCollision(Vector2(i_col*pix_tile_width+1, i_row*pix_tile_height+1)));
+        }
+        vecCollisionsBool.push_back(row);
+    }
+}
+
+
+std::vector<std::vector<bool>> Map::getVecBoolCollisions()
+{
+    return vecCollisionsBool;
 }
 
 
