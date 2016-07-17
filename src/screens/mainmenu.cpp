@@ -6,6 +6,7 @@
 MainMenu::MainMenu()
 {
     setName("Menu");
+
     m_resources = new Resources();
     m_resources->loadXML(DethGame::instance()->getGuiResPath());
 
@@ -21,6 +22,7 @@ MainMenu::MainMenu()
 	btn_start->attachTo(this);
     //rules button
     btn_rules = new ImageButton(m_resources->getResAnim("rules"));
+    btn_rules->addEventListener(TouchEvent::CLICK, CLOSURE(DethGame::instance(), &DethGame::rulesScreen));
 	btn_rules->attachTo(this);
     //options button
     btn_options = new ImageButton(m_resources->getResAnim("options"));
