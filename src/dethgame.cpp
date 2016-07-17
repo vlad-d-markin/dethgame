@@ -94,23 +94,29 @@ void DethGame::init()
     setFullscreen(core::getWindow(), config.getFullScreen());
     m_menuScreen = new MainMenu();
     getMainStage()->addChild(m_menuScreen);
-    config.setMusicVolume(78);
-    oxygine::log::messageln("volume=%d",config.getMusicVolume());
-//    setFullscreen(core::getWindow(), config.getFullScreen());
+    m_optionsScreen = new OptionsScreen();
+    getMainStage()->addChild(m_optionsScreen);
+    m_rulesScreen = new RulesScreen();
+    getMainStage()->addChild(m_rulesScreen);
+    m_gameScreen = new GameScreen();
+    getMainStage()->addChild(m_gameScreen);
+
+    setScreen("Menu");
 }
 
 void DethGame::startGame(Event * event)
 {
-    m_gameScreen = new GameScreen();
-    getMainStage()->addChild(m_gameScreen);
     setScreen("Game screen");
 }
 
 void DethGame::optionsScreen(Event *event)
 {
-    m_optionsScreen = new OptionsScreen();
-    getMainStage()->addChild(m_optionsScreen);
     setScreen("Options screen");
+}
+
+void DethGame::rulesScreen(Event *event)
+{
+    setScreen("Rules screen");
 }
 
 void DethGame::update()
@@ -127,33 +133,51 @@ void DethGame::destroy()
 void DethGame::setScreen(std::string name)
 {
     if (name == "Menu") {
-        if (getMainStage()->getChild("Game screen")) {
-            m_gameScreen->setVisible(false);
-            m_gameScreen->setEnable(false);
-        }
-        if (getMainStage()->getChild("Options screen")) {
-            m_optionsScreen->setVisible(false);
-            m_optionsScreen->setEnable(false);
-        }
-		m_menuScreen->updateLayout();
+        m_gameScreen->setVisible(false);
+        m_gameScreen->setEnable(false);
+
+        m_rulesScreen->setVisible(false);
+        m_rulesScreen->setEnable(false);
+
+        m_optionsScreen->setVisible(false);
+        m_optionsScreen->setEnable(false);
+
+        m_menuScreen->updateLayout();
         m_menuScreen->setVisible(true);
+    } else if (name == "Rules screen") {
+        m_gameScreen->setVisible(false);
+        m_gameScreen->setEnable(false);
+
+        m_optionsScreen->setVisible(false);
+        m_optionsScreen->setEnable(false);
+
+        m_menuScreen->setVisible(false);
+
+        m_rulesScreen->setVisible(true);
+        m_rulesScreen->setEnable(true);
     } else if (name == "Options screen") {
-        if (getMainStage()->getChild("Game screen")) {
-            m_gameScreen->setVisible(false);
-            m_gameScreen->setEnable(false);
-        }
-        if (getMainStage()->getChild("Options screen")) {
-            m_optionsScreen->setVisible(true);
-            m_optionsScreen->setEnable(true);
-			m_optionsScreen->updateLayout();
-        }
+        m_gameScreen->setVisible(false);
+        m_gameScreen->setEnable(false);
+
+        m_rulesScreen->setVisible(false);
+        m_rulesScreen->setEnable(false);
+
         m_menuScreen->setVisible(false);
+
+        m_optionsScreen->setVisible(true);
+        m_optionsScreen->setEnable(true);
+        m_optionsScreen->updateLayout();
     } else if (name == "Game screen") {
-        if (getMainStage()->getChild("Options screen")) {
-            m_optionsScreen->setVisible(false);
-            m_optionsScreen->setEnable(false);
-        }
+        m_optionsScreen->setVisible(false);
+        m_optionsScreen->setEnable(false);
+
+        m_rulesScreen->setVisible(false);
+        m_rulesScreen->setEnable(false);
+
         m_menuScreen->setVisible(false);
+
+        m_gameScreen->setVisible(true);
+        m_gameScreen->setEnable(true);
     }
 }
 
