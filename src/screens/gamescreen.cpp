@@ -16,10 +16,8 @@ GameScreen::GameScreen()
     m_resources->loadXML(DethGame::instance()->getGuiResPath());
 
     World* world = new World(this);
-    world->draw();
     world->attachTo(this);
-
-    gameworld=world;
+    gameworld = world;
 
 	hp_bar = new Gui::Bar();
 	hp_bar->setMaxValue(DethGame::instance()->getPlayerMaxHealth());
@@ -37,7 +35,6 @@ GameScreen::GameScreen()
 	style.color = Color::Yellow;
 	bananaCounter->setTextStyle(style);
 	bananaCounter->attachTo(this);
-
 }
 
 void GameScreen::doUpdate(const UpdateState &us)
@@ -90,10 +87,9 @@ void GameScreen::setBananasOnMap(int bananas)
 	bananasOnMap = bananas;
 }
 
-
 void GameScreen::rebuildWorld()
 {
-    gameworld->reset();
+    gameworld->reBuildWorld();
 }
 
 GameScreen::~GameScreen()

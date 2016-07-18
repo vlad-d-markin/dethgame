@@ -11,6 +11,7 @@ class GameScreen : public BaseScreen
 public:
     GameScreen();
 	~GameScreen();
+    void rebuildWorld();
     Resources* getResources();
     void setEnable(bool _enable);
 	void setBarsPos(Vector2 pos);
@@ -19,7 +20,7 @@ public:
 	int getHp();
 	void setBananasOnMap(int bananas);
 	void setBananas(int bananas);
-    void rebuildWorld();
+
 
 private:
     Resources * m_resources;

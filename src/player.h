@@ -82,9 +82,12 @@ protected:
 public:
     Player();
     Player(GameScreen *gs);
+    void reset();
+
 	void setMapSize(Vector2 _mapSize) { mapSize = _mapSize; }
 	Vector2 getMapSize() const { return mapSize; }
     Vector2 getDirection();
+    int getHP();
     RectT<Vector2> getCollisionBox();
 
     void moveX(const float distance);
@@ -98,7 +101,6 @@ public:
     RectT<Vector2> getRectPlayer();
 
     void addBanana();
-    void resetPlayer();
 };
 
 

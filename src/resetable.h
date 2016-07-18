@@ -3,7 +3,7 @@
 
 class Resetable{
 public:
-    virtual void reset()=0;
+    virtual void reBuildWorld()=0;
 };
 
 #endif // RESETABLE_H

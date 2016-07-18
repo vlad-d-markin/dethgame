@@ -449,9 +449,17 @@ void Player::onTweenDone(Event *event)
     updatePunching(false);
 }
 
-void Player::resetPlayer()
+void Player::reset()
 {
     setPosition(position_spawn);
-    healthPoints=500;
-    pos=position_spawn;
+    pos = position_spawn;
+
+    healthPoints = 500;
+    bananaCount = 0;
+}
+
+
+int Player::getHP()
+{
+    return healthPoints;
 }
