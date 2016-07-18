@@ -30,6 +30,7 @@ public:
 	int getHp();
 	void setBananasOnMap(int bananas);
 	void setBananas(int bananas);
+	int getBananas();
 
 private:
     Clock * m_clock_gamescreen;

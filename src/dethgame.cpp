@@ -70,6 +70,10 @@ void DethGame::setFullscreen(SDL_Window* window, bool is_fullscreen)
 	{
 		m_optionsScreen->updateLayout();
 	}
+	if (m_winScreen)
+	{
+		m_winScreen->updateLayout();
+	}
 }
 
 Configuration * DethGame::getConfiguration()
@@ -100,6 +104,8 @@ void DethGame::init()
     getMainStage()->addChild(m_rulesScreen);
     m_gameScreen = new GameScreen();
     getMainStage()->addChild(m_gameScreen);
+	m_winScreen = new WinScreen();
+	getMainStage()->addChild(m_winScreen);
 
     setScreen("Menu");
 }
@@ -140,6 +146,9 @@ void DethGame::setScreen(std::string name)
         m_rulesScreen->setVisible(false);
         m_rulesScreen->setEnable(false);
 
+		m_winScreen->setVisible(false);
+		m_winScreen->setEnable(false);
+
         m_optionsScreen->setVisible(false);
         m_optionsScreen->setEnable(false);
 
@@ -151,6 +160,9 @@ void DethGame::setScreen(std::string name)
 
         m_optionsScreen->setVisible(false);
         m_optionsScreen->setEnable(false);
+
+		m_winScreen->setVisible(false);
+		m_winScreen->setEnable(false);
 
         m_menuScreen->setVisible(false);
 
@@ -164,6 +176,9 @@ void DethGame::setScreen(std::string name)
         m_rulesScreen->setVisible(false);
         m_rulesScreen->setEnable(false);
 
+		m_winScreen->setVisible(false);
+		m_winScreen->setEnable(false);
+
         m_menuScreen->setVisible(false);
 
         m_optionsScreen->setVisible(true);
@@ -176,11 +191,28 @@ void DethGame::setScreen(std::string name)
         m_rulesScreen->setVisible(false);
         m_rulesScreen->setEnable(false);
 
+		m_winScreen->setVisible(false);
+		m_winScreen->setEnable(false);
+
         m_menuScreen->setVisible(false);
 
         m_gameScreen->rebuildWorld();
         m_gameScreen->setVisible(true);
         m_gameScreen->setEnable(true);
-    }
+	} else if (name == "Win screen") {
+		m_optionsScreen->setVisible(false);
+		m_optionsScreen->setEnable(false);
+
+		m_rulesScreen->setVisible(false);
+		m_rulesScreen->setEnable(false);
+
+		m_menuScreen->setVisible(false);
+
+		m_gameScreen->setVisible(false);
+		m_gameScreen->setEnable(false);
+
+		m_winScreen->setVisible(true);
+		m_winScreen->setEnable(true);
+	}
 }
 

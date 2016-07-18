@@ -80,11 +80,21 @@ int GameScreen::getHp()
 void GameScreen::setBananas(int bananas)
 {
 	bananaCounter->setValue(bananas);
+	
+	if (bananaCounter->getValue() == bananaCounter->getMaxValue())
+	{
+		DethGame::instance()->setScreen("Win screen");
+	}
 }
 
 void GameScreen::setBananasOnMap(int bananas)
 {
 	bananasOnMap = bananas;
+}
+
+int GameScreen::getBananas()
+{
+	return bananaCounter->getValue();
 }
 
 void GameScreen::rebuildWorld()

@@ -10,6 +10,7 @@
 #include "screens/guitestscreen.h"
 #include "screens/optionsscreen.h"
 #include "screens/rulesscreen.h"
+#include "screens/winscreen.h"
 
 #define CONFIG "dethconfig.json"
 
@@ -24,6 +25,7 @@ private:
     spGameScreen m_gameScreen;
     spOptionsScreen m_optionsScreen;
     spRulesScreen m_rulesScreen;
+	spWinScreen m_winScreen;
 
 public:
     static DethGame * instance();
