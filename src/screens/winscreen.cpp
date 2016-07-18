@@ -42,8 +42,4 @@ void WinScreen::updateLayout()
 	winMsg->setPosition(x / 2 + winMsg->getWidth() / 2, y / 2);
 }
 
-WinScreen::~WinScreen()
-{
-
-
-}
+WinScreen::~WinScreen() {}

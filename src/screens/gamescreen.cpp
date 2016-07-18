@@ -40,11 +40,9 @@ GameScreen::GameScreen()
 void GameScreen::doUpdate(const UpdateState &us)
 {
     const Uint8* data = SDL_GetKeyboardState(0);
-
     if (data[SDL_SCANCODE_ESCAPE] && enable)
         DethGame::instance()->setScreen("Menu");
 }
-
 
 Resources* GameScreen::getResources()
 {
@@ -80,9 +78,7 @@ int GameScreen::getHp()
 void GameScreen::setBananas(int bananas)
 {
 	bananaCounter->setValue(bananas);
-	
-	if (bananaCounter->getValue() == bananaCounter->getMaxValue())
-	{
+    if (bananaCounter->getValue() == bananaCounter->getMaxValue()) {
 		DethGame::instance()->setScreen("Win screen");
 	}
 }
