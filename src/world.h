@@ -2,10 +2,8 @@
 #define WORLD_H
 
 #include <map>
-
 #include "oxygine-framework.h"
 #include "direction.h"
-
 #include "map.h"
 #include "player.h"
 #include "banana.h"
@@ -14,7 +12,6 @@
 #include "resetable.h"
 
 using namespace oxygine;
-
 
 class World : public Actor, public Resetable
 {
@@ -35,6 +32,8 @@ public:
     void setBananas();
     void setPlayer();
     void setMapTop();
+
+    void isPause();
 
     // updating methods
     void checkBanana();

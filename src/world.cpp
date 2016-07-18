@@ -2,7 +2,9 @@
 #include "map.h"
 #include "entities/zombie.h"
 #include "banana.h"
+#include "dethgame.h"
 #include <iostream>
+#include "dethgame.h"
 
 
 
@@ -24,6 +26,12 @@ World::World(GameScreen *gs)
 
 void World::reBuildWorld()
 {
+    if(m_pause_mode == true) {
+        m_clock_world->resume();
+        m_pause_mode=false;
+    }
+    gamescreen->turnPauseTextOff();
+
     // put the hero in default positions with initial characteristics
     m_player->reset();
     gamescreen->setHp(m_player->getHP());
@@ -32,6 +40,7 @@ void World::reBuildWorld()
 
     setBananas();
     gamescreen->setBananas(0);
+	DethGame::instance()->isWin = false;
 }
 
 
@@ -217,8 +226,13 @@ void World::onPause(Event* event)
     if(m_pause_mode == false) {
         m_clock_world->pause();
         m_pause_mode = true;
+        m_player->setNormalStateAnimation();
+        gamescreen->turnPauseTextOn();
     } else {
         m_clock_world->resume();
-        m_pause_mode = false;
+        m_pause_mode=false;
+        gamescreen->turnPauseTextOff();
     }
 }
+
+

@@ -60,8 +60,12 @@ void DethGame::setFullscreen(SDL_Window* window, bool is_fullscreen)
 
 	if (m_optionsScreen)
 		m_optionsScreen->updateLayout();
+
 	if (m_winScreen)
 		m_winScreen->updateLayout();
+
+	if (m_gameoverScreen)
+		m_gameoverScreen->updateLayout();
 }
 
 Configuration * DethGame::getConfiguration()
@@ -90,9 +94,10 @@ void DethGame::init()
     getMainStage()->addChild(m_rulesScreen);
     m_gameScreen = new GameScreen();
     getMainStage()->addChild(m_gameScreen);
-	m_winScreen = new WinScreen();
-	getMainStage()->addChild(m_winScreen);
+	m_gameoverScreen = new GameOverScreen();
+	getMainStage()->addChild(m_gameoverScreen);
 
+	isWin = false;
     setScreen("Menu");
 }
 
@@ -128,8 +133,8 @@ void DethGame::setScreen(std::string name)
         m_rulesScreen->setVisible(false);
         m_rulesScreen->setEnable(false);
 
-		m_winScreen->setVisible(false);
-		m_winScreen->setEnable(false);
+		m_gameoverScreen->setVisible(false);
+		m_gameoverScreen->setEnable(false);
 
         m_optionsScreen->setVisible(false);
         m_optionsScreen->setEnable(false);
@@ -137,14 +142,14 @@ void DethGame::setScreen(std::string name)
         m_menuScreen->updateLayout();
         m_menuScreen->setVisible(true);
     } else if (name == "Rules screen") {
-        m_gameScreen->setVisible(false);
-        m_gameScreen->setEnable(false);
+		m_gameScreen->setVisible(false);
+		m_gameScreen->setEnable(false);
 
         m_optionsScreen->setVisible(false);
         m_optionsScreen->setEnable(false);
 
-		m_winScreen->setVisible(false);
-		m_winScreen->setEnable(false);
+		m_gameoverScreen->setVisible(false);
+		m_gameoverScreen->setEnable(false);
 
         m_menuScreen->setVisible(false);
 
@@ -158,8 +163,8 @@ void DethGame::setScreen(std::string name)
         m_rulesScreen->setVisible(false);
         m_rulesScreen->setEnable(false);
 
-		m_winScreen->setVisible(false);
-		m_winScreen->setEnable(false);
+		m_gameoverScreen->setVisible(false);
+		m_gameoverScreen->setEnable(false);
 
         m_menuScreen->setVisible(false);
 
@@ -173,15 +178,15 @@ void DethGame::setScreen(std::string name)
         m_rulesScreen->setVisible(false);
         m_rulesScreen->setEnable(false);
 
-		m_winScreen->setVisible(false);
-		m_winScreen->setEnable(false);
+		m_gameoverScreen->setVisible(false);
+		m_gameoverScreen->setEnable(false);
 
         m_menuScreen->setVisible(false);
 
-        m_gameScreen->rebuildWorld();
+		m_gameScreen->rebuildWorld();
         m_gameScreen->setVisible(true);
         m_gameScreen->setEnable(true);
-	} else if (name == "Win screen") {
+	} else if (name == "Game over screen") {
 		m_optionsScreen->setVisible(false);
 		m_optionsScreen->setEnable(false);
 
@@ -193,8 +198,8 @@ void DethGame::setScreen(std::string name)
 		m_gameScreen->setVisible(false);
 		m_gameScreen->setEnable(false);
 
-		m_winScreen->setVisible(true);
-		m_winScreen->setEnable(true);
+		m_gameoverScreen->setVisible(true);
+		m_gameoverScreen->setEnable(true);
 	}
 }
 

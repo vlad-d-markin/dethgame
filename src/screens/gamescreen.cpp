@@ -35,6 +35,7 @@ GameScreen::GameScreen()
 	style.color = Color::Yellow;
 	bananaCounter->setTextStyle(style);
 	bananaCounter->attachTo(this);
+    setPauseText();
 }
 
 void GameScreen::doUpdate(const UpdateState &us)
@@ -78,8 +79,16 @@ int GameScreen::getHp()
 void GameScreen::setBananas(int bananas)
 {
 	bananaCounter->setValue(bananas);
+<<<<<<< HEAD
     if (bananaCounter->getValue() == bananaCounter->getMaxValue()) {
 		DethGame::instance()->setScreen("Win screen");
+=======
+	
+	if (bananaCounter->getValue() == bananaCounter->getMaxValue())
+	{
+		DethGame::instance()->isWin = true;
+		DethGame::instance()->setScreen("Game over screen");
+>>>>>>> fde62744a6b94edd86fae318b5a73b00653133d6
 	}
 }
 
@@ -97,6 +106,40 @@ void GameScreen::rebuildWorld()
 {
     gameworld->reBuildWorld();
 }
+
+void GameScreen::setPauseText()
+{
+    pause_label = new Gui::TextLabel();
+    pause_label->setText("PAUSE");
+    TextStyle style = pause_label->getTextStyle();
+    style.fontSize = 100;
+    m_pause_resources = new Resources();
+    m_pause_resources->loadXML(DethGame::instance()->getGuiResPath());
+    style.font = m_pause_resources->getResFont("font")->getFont();
+    pause_label->setTextStyle(style);
+    pause_label->setAnchor(0.5, 0.5);
+    pause_label->attachTo(this);
+    pause_label->setVisible(false);
+}
+
+
+void GameScreen::setTextPausePosition(Vector2 position)
+{
+    pause_label->setPosition(position);
+}
+
+
+void GameScreen::turnPauseTextOn()
+{
+    pause_label->setVisible(true);
+}
+
+
+void GameScreen::turnPauseTextOff()
+{
+    pause_label->setVisible(false);
+}
+
 
 GameScreen::~GameScreen()
 {
