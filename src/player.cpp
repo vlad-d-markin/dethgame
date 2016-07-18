@@ -8,6 +8,7 @@
 #include <iostream>
 
 #define DT_PAUSE_PRESS 100
+#define HEALING_SIZE 200
 
 using namespace oxygine;
 
@@ -105,7 +106,6 @@ void Player::doUpdate(const UpdateState &us)
             dispatchEvent(&gamePauseEvent);
         }
     }
-
     intPunch += us.dt;
 
 	//calculate speed using delta time
@@ -145,8 +145,7 @@ void Player::doUpdate(const UpdateState &us)
 
 	int x, y;
 	SDL_GetWindowSize(core::getWindow(), &x, &y);
-	Vector2 windowSize(x, y);
-		
+	Vector2 windowSize(x, y);		
 	Vector2 guiOffset(10, windowSize.y - gamescreen->getHpBarSize().y * 3.65);
 
 	// move camera
@@ -157,17 +156,14 @@ void Player::doUpdate(const UpdateState &us)
 		{
 			getParent()->setPosition(-getPosition().x + windowSize.x / 2, getParent()->getPosition().y);
 			gamescreen->setBarsPos(Vector2(getPosition().x - windowSize.x / 2 + guiOffset.x, getParent()->getPosition().y + guiOffset.y));
-			
 		}
 		else
 		{
 			if (getPosition().x < windowSize.x / 2)
 			{
-				getParent()->setPosition(0, getParent()->getPosition().y);
+                getParent()->setPosition(0, getParent()->getPosition().y);
 				gamescreen->setBarsPos(Vector2(guiOffset.x, getParent()->getPosition().y + guiOffset.y));
-			}
-				
-
+            }
 			if (getPosition().x > getMapSize().x - windowSize.x / 2)
 			{
 				getParent()->setPosition(-getMapSize().x + windowSize.x, getParent()->getPosition().y);
@@ -191,7 +187,6 @@ void Player::doUpdate(const UpdateState &us)
 				getParent()->setPosition(getParent()->getPosition().x, 0);
 				gamescreen->setBarsPos(Vector2(-getParent()->getPosition().x + guiOffset.x, guiOffset.y));
 			}
-
 			if (getPosition().y > getMapSize().y - windowSize.y / 2)
 			{
 				getParent()->setPosition(getParent()->getPosition().x, -getMapSize().y + windowSize.y);
@@ -272,14 +267,12 @@ void Player::rotate()
                         persAnimCurrent = persStandsDownAttack;
                 }
             }
-
             removeTweens();
             if(persAnimCurrent == persAnimRightAttack)
                 tween = addTween(TweenAnim(persAnimCurrent), HorizontalAnimationDuration);
             else
                 tween = addTween(TweenAnim(persAnimCurrent), VerticalAnimationDuration * 2);
         }
-
         tween->setDoneCallback(CLOSURE(this, &Player::onTweenDone));
     }
     else    // if not punching
@@ -318,7 +311,6 @@ void Player::rotate()
         else    //if not moving
         {
             removeTweens();
-
             if(dirX > 0)   //stands right
             {
                 persAnimCurrent = persStandsRight;
@@ -358,7 +350,6 @@ void Player::rotate()
                 setResAnim(persAnimCurrent);
         }
     }
-
     setFlippedX(orientation == left);
 }
 
@@ -377,7 +368,6 @@ Direction Player::getOrientation()
     return orientation;
 }
 
-
 void Player::takeDamage(int damage)
 {
     if (healthPoints > 0)
@@ -392,7 +382,6 @@ void Player::takeDamage(int damage)
     std::cout << "Nathan -" << damage << "hp (" << healthPoints << ")" << std::endl;
 }
 
-
 RectT<Vector2> Player::getRectPlayer()
 {
     RectT<Vector2> rect_player(getPosition(), getSize());
@@ -400,7 +389,6 @@ RectT<Vector2> Player::getRectPlayer()
 
     return rect_player;
 }
-
 
 void Player::punch()
 {
@@ -426,13 +414,11 @@ void Player::punch()
     default:
         break;
     }
-
     attackArea.setPosition(attackArea.getLeftTop() - getSize()/2);
 
     PlayerPunchEvent punchEvent(attackArea, weaponDamage);
     dispatchEvent(&punchEvent);
 }
-
 
 RectT<Vector2> Player::getCollisionBox()
 {
@@ -443,11 +429,19 @@ RectT<Vector2> Player::getCollisionBox()
     return rect_player;
 }
 
-
 void Player::addBanana()
 {
     bananaCount++;
 	gamescreen->setBananas(bananaCount);
+
+    if (healthPoints + HEALING_SIZE > DethGame::instance()->getPlayerMaxHealth()) {
+        healthPoints = DethGame::instance()->getPlayerMaxHealth();
+        gamescreen->setHp(healthPoints);
+    } else {
+        healthPoints += HEALING_SIZE;
+        gamescreen->setHp(healthPoints);
+    }
+    std::cout << "Nathan + 200" << " hp (" << healthPoints << ")" << std::endl;
 }
 
 void Player::updatePunching(bool _isPunching)
@@ -470,7 +464,6 @@ void Player::reset()
     healthPoints = 500;
     bananaCount = 0;
 }
-
 
 int Player::getHP()
 {
