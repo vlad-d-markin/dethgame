@@ -1,7 +1,6 @@
 #include "dethgame.h"
 #include <iostream>
 
-
 #define MAP_TMX_PATH "map.tmx"
 
 using namespace oxygine;
@@ -12,10 +11,7 @@ DethGame * DethGame::instance()
     return &game;
 }
 
-DethGame::DethGame():config(CONFIG)
-{
-
-}
+DethGame::DethGame():config(CONFIG) {}
 
 spStage DethGame::getMainStage()
 {
@@ -58,29 +54,20 @@ void DethGame::setFullscreen(SDL_Window* window, bool is_fullscreen)
     SDL_SetWindowFullscreen(window, is_fullscreen ? old_flags | FullscreenFlag : old_flags & ~FullscreenFlag);
 
 	if (is_fullscreen)
-	{
 		SDL_SetWindowSize(window, mode.w, mode.h);
-	}
 	else
-	{
 		SDL_SetWindowSize(window, getMainStage()->getSize().x, getMainStage()->getSize().y);
-	}
 
 	if (m_optionsScreen)
-	{
 		m_optionsScreen->updateLayout();
-	}
 	if (m_winScreen)
-	{
 		m_winScreen->updateLayout();
-	}
 }
 
 Configuration * DethGame::getConfiguration()
 {
     return &config;
 }
-
 
 void DethGame::quit()
 {
@@ -90,7 +77,6 @@ void DethGame::quit()
 void DethGame::preInit()
 {
     config.load();
-
 }
 
 void DethGame::init()
@@ -125,11 +111,7 @@ void DethGame::rulesScreen(Event *event)
     setScreen("Rules screen");
 }
 
-
-void DethGame::update()
-{
-
-}
+void DethGame::update() {}
 
 void DethGame::destroy()
 {

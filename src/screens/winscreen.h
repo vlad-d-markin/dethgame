@@ -12,7 +12,6 @@ public:
 	~WinScreen();
     void setEnable(bool _enable);
 	void updateLayout();
-
 protected:
     void doUpdate(const UpdateState &us);
 private:

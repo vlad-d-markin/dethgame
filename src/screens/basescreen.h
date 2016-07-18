@@ -10,10 +10,8 @@ class BaseScreen : public Actor
 private:
     bool m_debug_mode;
     spTextField m_screenNameField;
-
 public:
     BaseScreen(bool debugging = false);
-
     void setDebugging(bool b);
     virtual void show();
 };

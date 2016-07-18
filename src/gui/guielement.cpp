@@ -1,8 +1,6 @@
 #include "guielement.h"
 
-//using namespace Gui;
 using namespace oxygine;
-
 
 Gui::Element::Element()
 {
@@ -10,21 +8,15 @@ Gui::Element::Element()
     m_boundaries->setColor(Color(rand()));
     m_boundaries->attachTo(this);
     m_boundaries->setVisible(false);
-
     addClickListener(CLOSURE(this, &Element::onClicked));
 }
 
-Gui::Element::~Element()
-{ }
-
-
+Gui::Element::~Element() {}
 
 void Gui::Element::showBoundaries(bool visible)
 {
     m_boundaries->setVisible(visible);
 }
-
-
 
 void Gui::Element::onOvered()
 {
@@ -56,33 +48,22 @@ void Gui::Element::onSizeChanged(const Vector2 &size)
     log::messageln("GUI Element %s size changed.", getName().c_str());
 }
 
-
-
-
-
-
-
-
 void Gui::Element::updateStateOvered()
 {
     Actor::updateStateOvered();
-    if(getOvered()){
+    if(getOvered())
         onOvered();
-    }
-    else {
+     else
         onLeft();
-    }
 }
 
 void Gui::Element::updateStatePressed()
 {
     Actor::updateStatePressed();
-    if(getPressed()) {
+    if(getPressed())
         onPressed();
-    }
-    else {
+    else
         onReleased();
-    }
 }
 
 void Gui::Element::sizeChanged(const Vector2 &size)

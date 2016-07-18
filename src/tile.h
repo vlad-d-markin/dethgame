@@ -15,7 +15,6 @@ class Tile
 {
     Sprite *tile;
     int tiletype;
-
 public:
     Tile(Sprite *t, int tt);
     Sprite* getTile();

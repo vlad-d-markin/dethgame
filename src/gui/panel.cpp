@@ -1,16 +1,7 @@
 #include "panel.h"
 
-
-Gui::Panel::Panel()
-{
-
-}
-
-Gui::Panel::~Panel()
-{
-
-}
-
+Gui::Panel::Panel() {}
+Gui::Panel::~Panel() {}
 
 void Gui::Panel::addElement(spElement element)
 {

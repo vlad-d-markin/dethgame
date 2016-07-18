@@ -17,26 +17,20 @@ namespace Gui {
         SwitchStateChangedEvent(bool s) : Event(EVENT), state(s) {}
     };
 
-
     DECLARE_SMART(Switch, spSwitch);
     class Switch : public BaseButton {
     protected:
         bool m_state;
         ::oxygine::spColorRectSprite m_background;
         ::oxygine::spColorRectSprite m_indicator;
-
     public:
         Switch(bool state = false);
-
         void toggle();
-
     protected:
         void updateIndicator();
-
         virtual void onClicked(Event * event);
         virtual void onOvered();
         virtual void onLeft();
-
     };
 }
 

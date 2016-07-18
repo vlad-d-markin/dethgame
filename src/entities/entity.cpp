@@ -6,7 +6,6 @@ Entity::Entity() {
 
 }
 
-
 void Entity::doUpdate(const UpdateState &us)
 {
     m_collision_box.setPosition(getPosition());

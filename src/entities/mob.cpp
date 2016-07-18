@@ -13,11 +13,7 @@ Mob::Mob()
     m_last_hit_time = m_hit_freq + 1;
 }
 
-
-
 Mob::~Mob() { log::messageln("Mob was deleted"); }
-
-
 
 void Mob::doUpdate(const UpdateState &us)
 {

@@ -34,13 +34,8 @@ MainMenu::MainMenu()
 	btn_exit->addEventListener(TouchEvent::CLICK, [](Event *){
         DethGame::instance()->quit();
     });
-
 	updateLayout();
-
-    // Tmp
-    // btn->addClickListener([](){ DethGame::instance()->quit(); });
 }
-
 
 void MainMenu::updateLayout()
 {

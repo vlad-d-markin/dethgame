@@ -9,10 +9,7 @@ Gui::TextLabel::TextLabel()
     m_label->attachTo(this);
 }
 
-Gui::TextLabel::~TextLabel()
-{
-
-}
+Gui::TextLabel::~TextLabel() {}
 
 void Gui::TextLabel::setText(const std::string &text)
 {

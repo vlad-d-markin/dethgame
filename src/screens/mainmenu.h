@@ -3,8 +3,6 @@
 
 #include "basescreen.h"
 #include "oxygine-framework.h"
-
-//#include "../gui/textbutton.h"
 #include "../gui/imagebutton.h"
 
 class MainMenu : public BaseScreen
@@ -16,7 +14,6 @@ private:
 	spImageButton btn_rules;
 	spImageButton btn_options;
 	spImageButton btn_exit;
-
 public:
     MainMenu();
     virtual ~MainMenu();
