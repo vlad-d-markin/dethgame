@@ -42,6 +42,8 @@ public:
     void setPlayer();
     void setMapTop();
 
+    void isPause();
+
     // updating methods
     void checkBanana();
     void checkPlayerMovement();

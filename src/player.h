@@ -32,6 +32,7 @@ private:
     int weaponDamage;
     float intPunch;
     RectT<Vector2> attackArea;
+    bool m_pause_mode;
 
     GameScreen *gamescreen;
     ResAnim* persAnimUp;

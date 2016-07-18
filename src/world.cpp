@@ -26,6 +26,12 @@ World::World(GameScreen *gs)
 
 void World::reBuildWorld()
 {
+    if(m_pause_mode == true) {
+        m_clock_world->resume();
+        m_pause_mode=false;
+    }
+    gamescreen->turnPauseTextOff();
+
     // put the hero in default positions with initial characteristics
     m_player->reset();
     gamescreen->setHp(m_player->getHP());
@@ -221,13 +227,11 @@ void World::onPause(Event* event)
         m_clock_world->pause();
         m_pause_mode = true;
         m_player->setNormalStateAnimation();
-        //gamescreen->pause_label->setPosition(m_player->getPosition());
-        gamescreen->pause_label->setVisible(true);
+        gamescreen->turnPauseTextOn();
     } else {
         m_clock_world->resume();
         m_pause_mode=false;
-        gamescreen->pause_label->setVisible(false);
-
+        gamescreen->turnPauseTextOff();
     }
 }
 

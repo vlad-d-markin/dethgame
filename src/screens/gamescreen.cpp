@@ -119,6 +119,25 @@ void GameScreen::setPauseText()
     pause_label->setVisible(false);
 }
 
+
+void GameScreen::setTextPausePosition(Vector2 position)
+{
+    pause_label->setPosition(position);
+}
+
+
+void GameScreen::turnPauseTextOn()
+{
+    pause_label->setVisible(true);
+}
+
+
+void GameScreen::turnPauseTextOff()
+{
+    pause_label->setVisible(false);
+}
+
+
 GameScreen::~GameScreen()
 {
 	m_resources->free();
