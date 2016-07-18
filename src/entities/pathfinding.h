@@ -2,6 +2,7 @@
 #define PATHFINDING_H
 
 #include "../map.h"
+#include "../direction.h"
 #include <vector>
 #include <list>
 #include "mob.h"
@@ -13,6 +14,21 @@ struct Cell
     int G;
     int H;
     Cell *parent;
+    bool operator==(Cell that)
+    {
+        if( position == that.position &&
+            F == that.F &&
+            G == that.G &&
+            H == that.H &&
+            parent == that.parent)
+            return true;
+        else
+            return false;
+    }
+    bool operator!=(Cell that)
+    {
+        return (! operator==(that));
+    }
 };
 
 class pathFinding
@@ -39,7 +55,7 @@ private:
 
 public:
     pathFinding(Map *map);
-    void findPath(const VectorT2<int> _start, const VectorT2<int> _end);
+    std::vector<Direction> findPath(const VectorT2<int> _start, const VectorT2<int> _end);
 };
 
 #endif // PATHFINDING_H

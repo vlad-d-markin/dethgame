@@ -7,17 +7,14 @@ using namespace oxygine;
 pathFinding::pathFinding(Map* map)
 {
     mapa = map;
-    collisionMap = map->getVecBoolCollisions();
-    /*numberOfRows = collisionMap.size();
-    std::cerr <<"BBBBB";
-    numberOfColumns = (collisionMap.front()).size();
-    std::cerr <<"ARRA";*/
-    numberOfRows = map->getMapSize().y;
-    numberOfColumns = map->getMapSize().x;
+    collisionMap = mapa->getVecBoolCollisions();
+    numberOfRows = mapa->getMapSize().y;
+    numberOfColumns = mapa->getMapSize().x;
 }
 
-void pathFinding::findPath(const VectorT2<int> _start, const VectorT2<int> _end)
+std::vector<Direction> pathFinding::findPath(const VectorT2<int> _start, const VectorT2<int> _end)
 {
+    std::vector<Direction> stepQueue;
     //check if _start = _end
 
     end.position = _end;
@@ -49,12 +46,15 @@ void pathFinding::findPath(const VectorT2<int> _start, const VectorT2<int> _end)
         if(isInList(end.position, &openList))
         {
             std::cout << "path is found!\n";
+            //stepQueue.push_back();
+            //make vector of directions
         }
-        else if(openList.size() == 0)
+        else if(openList.empty())
         {
             std::cout << "there is no path!\n";
         }
     }
+    return stepQueue;
 }
 
 int pathFinding::calculateCost(VectorT2<int> _vector) const
@@ -71,8 +71,20 @@ void pathFinding::calculateG(Cell* _cell) const
 {
     Cell *currentCell = _cell;
     int G = 0;
-    while(currentCell != &start)
+    while(*currentCell != start)
     {
+        std::cerr << "x=" << currentCell->position.x << "  y=" << currentCell->position.y << std::endl;
+        if(currentCell->parent == NULL || currentCell->position == VectorT2<int>(0, 0)
+        || currentCell->parent->position == VectorT2<int>(0, 0))
+        {
+            std::cerr <<"null in calculateG\n";
+            return;
+        }
+        if(*currentCell == *(currentCell->parent))
+        {
+            std::cerr <<"recursion in calculateG\n";
+            return;
+        }
         G += calculateCost(currentCell->position - currentCell->parent->position);
         currentCell = currentCell->parent;
     }
@@ -111,11 +123,14 @@ void pathFinding::checkCellsAround(Cell *_cell)
 }
 
 void pathFinding::checkCell(VectorT2<int> _position)
-{std::cerr <<"BBBBB" << _position.x << "  " << _position.y << "\n";
-    if( (collisionMap[_position.y])[_position.x] == false
-     || isInList(_position, &closedList) ) //mapa->isPointCollision(Vector2(64 * (_position.x - 1) + 32, 64 * (_position.y - 1) + 32))
+{
+    if( (collisionMap[_position.y])[_position.x] == true
+            || isInList(_position, &closedList)
+            || _position.x >= numberOfColumns
+            || _position.x < 0
+            || _position.y >= numberOfRows
+            || _position.y < 0)
     {
-        std::cerr <<"AAAAAA";
         return;
     }
 
@@ -134,9 +149,10 @@ void pathFinding::checkCell(VectorT2<int> _position)
         newCell.position = _position;
         openList.push_back(newCell);
         cellForCheck = &(openList.back());
+        cellForCheck->parent = current;
     }
 
-    cellForCheck->parent = &(*current);
+
 
     calculateG(cellForCheck);
     calculateH(cellForCheck);
@@ -154,7 +170,7 @@ void pathFinding::checkCell(VectorT2<int> _position)
 }
 
 bool pathFinding::isInList(VectorT2<int> _position, std::list<Cell> *_list, Cell* _cellForCheck)
-{std::cerr <<"inList????????????????\n";
+{
     for(auto i = _list->begin(); i != _list->end(); ++i)
     {
         if(i->position == _position)

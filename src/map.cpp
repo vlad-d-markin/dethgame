@@ -307,20 +307,14 @@ bool Map::isObstacle(RectT<Vector2> rect_player)
 
 
 bool Map::isPointCollision(Vector2 pos)
-{std::cerr <<"ZZZZZZZZZZZZZZZ";
+{
     int col = pos.x / pix_tile_width+1;
     int row = pos.y / pix_tile_height+1;
-    int gid = num_tiles_in_row * (row-1) + col - 1; std::cerr <<"_________________--__--";
+    int gid = num_tiles_in_row * (row-1) + col - 1;
     if (vec_collisions[gid].getTiletype()==COLLISIONS)
-    {
-        std::cerr <<"WWWWWWWWWWWWWWWWWW";
         return true;
-    }
     else
-    {
-        std::cerr <<"PPPPPPPPPPPPP";
         return false;
-    }
 }
 
 
