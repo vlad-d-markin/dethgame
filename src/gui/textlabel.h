@@ -25,6 +25,7 @@ namespace Gui {
         void setTextStyle(TextStyle style);
 
         void setText(const std::string& text);
+		const std::string getText();
     };
 }
 
