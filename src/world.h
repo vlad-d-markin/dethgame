@@ -52,6 +52,7 @@ public:
     void onPlayerPunch(Event * event);
     void onPause(Event *event);
 
+
 };
 
 #endif // WORLD_H
