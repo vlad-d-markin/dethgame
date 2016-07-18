@@ -2,6 +2,7 @@
 #include "map.h"
 #include "entities/zombie.h"
 #include "banana.h"
+#include "dethgame.h"
 #include <iostream>
 #include "dethgame.h"
 
@@ -33,6 +34,7 @@ void World::reBuildWorld()
 
     setBananas();
     gamescreen->setBananas(0);
+	DethGame::instance()->isWin = false;
 }
 
 
