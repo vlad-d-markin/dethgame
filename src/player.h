@@ -98,6 +98,7 @@ public:
 
     void punch();
     void takeDamage(int damage);
+    void setNormalStateAnimation();
 
     RectT<Vector2> getRectPlayer();
 

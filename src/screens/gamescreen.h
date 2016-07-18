@@ -30,9 +30,16 @@ public:
 	void setBananasOnMap(int bananas);
 	void setBananas(int bananas);
 	int getBananas();
+
+     void setPauseText();
+     Gui::spTextLabel pause_label;
+
 private:
     Clock * m_clock_gamescreen;
     Resources * m_resources;
+    Resources * m_pause_resources;
+
+
     bool enable;
 	Gui::spBar hp_bar;
 	Gui::spBar bananaCounter;

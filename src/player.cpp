@@ -7,6 +7,7 @@
 #include "dethgame.h"
 #include <iostream>
 
+
 #define DT_PAUSE_PRESS 100
 #define HEALING_SIZE 200
 
@@ -147,6 +148,8 @@ void Player::doUpdate(const UpdateState &us)
 	SDL_GetWindowSize(core::getWindow(), &x, &y);
 	Vector2 windowSize(x, y);		
 	Vector2 guiOffset(10, windowSize.y - gamescreen->getHpBarSize().y * 3.65);
+    Vector2 pausePosX(0,0);
+    Vector2 pausePosY(0,0);
 
 	// move camera
 	//x 
@@ -156,6 +159,8 @@ void Player::doUpdate(const UpdateState &us)
 		{
 			getParent()->setPosition(-getPosition().x + windowSize.x / 2, getParent()->getPosition().y);
 			gamescreen->setBarsPos(Vector2(getPosition().x - windowSize.x / 2 + guiOffset.x, getParent()->getPosition().y + guiOffset.y));
+            pausePosX.x = getPosition().x - windowSize.x / 2;
+
 		}
 		else
 		{
@@ -168,18 +173,19 @@ void Player::doUpdate(const UpdateState &us)
 			{
 				getParent()->setPosition(-getMapSize().x + windowSize.x, getParent()->getPosition().y);
 				gamescreen->setBarsPos(Vector2(getMapSize().x - windowSize.x + guiOffset.x, getParent()->getPosition().y + guiOffset.y));
-			}
+                pausePosX.x = getMapSize().x - windowSize.x;
+            }
 		}
 	}
-	
     //y
 	if (getMapSize().y > windowSize.y)
 	{
 		if (getPosition().y > windowSize.y / 2 && getPosition().y < getMapSize().y - windowSize.y / 2)
 		{
-			getParent()->setPosition(getParent()->getPosition().x, -getPosition().y + windowSize.y / 2);
+            getParent()->setPosition(getParent()->getPosition().x, -getPosition().y + windowSize.y / 2);
 			gamescreen->setBarsPos(Vector2(-getParent()->getPosition().x + guiOffset.x, getPosition().y - windowSize.y / 2 + guiOffset.y));
-		}
+            pausePosY.y = getPosition().y - windowSize.y / 2;
+        }
 		else
 		{
 			if (getPosition().y < windowSize.y / 2)
@@ -191,10 +197,19 @@ void Player::doUpdate(const UpdateState &us)
 			{
 				getParent()->setPosition(getParent()->getPosition().x, -getMapSize().y + windowSize.y);
 				gamescreen->setBarsPos(Vector2(-getParent()->getPosition().x + guiOffset.x, getMapSize().y - windowSize.y + guiOffset.y));
-			}
+                pausePosY.y = getMapSize().y - windowSize.y;
+            }
 		}
 	}
+    gamescreen->pause_label->setPosition(pausePosX+pausePosY+windowSize/2-Vector2(115,50));
 }
+
+void Player::setNormalStateAnimation()
+{
+    setResAnim(persStandsDown);
+}
+
+
 
 void Player::rotate()
 {

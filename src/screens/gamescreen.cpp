@@ -35,6 +35,7 @@ GameScreen::GameScreen()
 	style.color = Color::Yellow;
 	bananaCounter->setTextStyle(style);
 	bananaCounter->attachTo(this);
+    setPauseText();
 }
 
 void GameScreen::doUpdate(const UpdateState &us)
@@ -97,6 +98,21 @@ int GameScreen::getBananas()
 void GameScreen::rebuildWorld()
 {
     gameworld->reBuildWorld();
+}
+
+void GameScreen::setPauseText()
+{
+    pause_label = new Gui::TextLabel();
+    pause_label->setText("PAUSE");
+    TextStyle style = pause_label->getTextStyle();
+    style.fontSize = 100;
+    m_pause_resources = new Resources();
+    m_pause_resources->loadXML(DethGame::instance()->getGuiResPath());
+    style.font = m_pause_resources->getResFont("font")->getFont();
+    pause_label->setTextStyle(style);
+    pause_label->setAnchor(0.5, 0.5);
+    pause_label->attachTo(this);
+    pause_label->setVisible(false);
 }
 
 GameScreen::~GameScreen()

@@ -3,6 +3,7 @@
 #include "entities/zombie.h"
 #include "banana.h"
 #include <iostream>
+#include "dethgame.h"
 
 
 
@@ -218,8 +219,15 @@ void World::onPause(Event* event)
     if(m_pause_mode == false) {
         m_clock_world->pause();
         m_pause_mode = true;
+        m_player->setNormalStateAnimation();
+        //gamescreen->pause_label->setPosition(m_player->getPosition());
+        gamescreen->pause_label->setVisible(true);
     } else {
         m_clock_world->resume();
-        m_pause_mode = false;
+        m_pause_mode=false;
+        gamescreen->pause_label->setVisible(false);
+
     }
 }
+
+

@@ -46,6 +46,7 @@ public:
     void zombieAttacks(Event * event);
     void onPlayerPunch(Event * event);
     void onPause(Event *event);
+
 };
 
 #endif // WORLD_H
