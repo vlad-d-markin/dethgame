@@ -389,6 +389,7 @@ void Player::takeDamage(int damage)
         setResAnim(persAnimCurrent);
 
 		DethGame::instance()->isWin = false;
+		DethGame::instance()->setScreen("Game over screen");
         // TODO: get rekt
     }
     std::cout << "Nathan -" << damage << "hp (" << healthPoints << ")" << std::endl;
