@@ -25,7 +25,7 @@ void GameOverScreen::doUpdate(const UpdateState &us)
 {
     const Uint8* data = SDL_GetKeyboardState(0);
 
-	if (data[SDL_SCANCODE_ESCAPE] && enable)
+    if ((data[SDL_SCANCODE_ESCAPE] || data[SDL_SCANCODE_RETURN]) && enable)
 		DethGame::instance()->setScreen("Menu");
 		//DethGame::instance()->quit();
 

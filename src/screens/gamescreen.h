@@ -31,13 +31,16 @@ public:
 	void setBananas(int bananas);
 	int getBananas();
 
-     void setPauseText();
-     Gui::spTextLabel pause_label;
+    void setPauseText();
+    void setTextPausePosition(Vector2 position);
+    void turnPauseTextOn();
+    void turnPauseTextOff();
 
 private:
     Clock * m_clock_gamescreen;
     Resources * m_resources;
     Resources * m_pause_resources;
+    Gui::spTextLabel pause_label;
 
 
     bool enable;
