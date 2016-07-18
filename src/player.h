@@ -32,7 +32,6 @@ private:
     int weaponDamage;
     float intPunch;
     RectT<Vector2> attackArea;
-    bool m_pause_mode;
 
     GameScreen *gamescreen;
     ResAnim* persAnimUp;
@@ -99,7 +98,6 @@ public:
 
     void punch();
     void takeDamage(int damage);
-    void setNormalStateAnimation();
 
     RectT<Vector2> getRectPlayer();
 

@@ -17,11 +17,6 @@ void Gui::TextLabel::setText(const std::string &text)
     setSize(m_label->getTextRect().getSize());
 }
 
-const std::string Gui::TextLabel::getText()
-{
-	return m_label->getText();
-}
-
 TextStyle Gui::TextLabel::getTextStyle()
 {
     return m_label->getStyle();

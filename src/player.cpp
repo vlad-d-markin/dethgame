@@ -7,7 +7,7 @@
 #include "dethgame.h"
 #include <iostream>
 
-#define DT_PAUSE_PRESS 300
+#define DT_PAUSE_PRESS 100
 #define HEALING_SIZE 200
 
 using namespace oxygine;
@@ -15,7 +15,6 @@ using namespace oxygine;
 Player::Player(GameScreen *gs) : Sprite()
 {
     gamescreen = gs;
-    m_pause_mode = false;
     dt_pause_press = DT_PAUSE_PRESS;
 
     VerticalAnimationDuration = 450;
@@ -102,16 +101,11 @@ void Player::doUpdate(const UpdateState &us)
     dt_pause_press += us.dt;
     if(dt_pause_press >= DT_PAUSE_PRESS) {
         if (data[SDL_SCANCODE_P]) {
-            m_pause_mode = !m_pause_mode;
             dt_pause_press = 0;
             GamePauseEvent gamePauseEvent(true);
             dispatchEvent(&gamePauseEvent);
         }
     }
-
-    if(m_pause_mode == true)
-        return;
-
     intPunch += us.dt;
 
 	//calculate speed using delta time
@@ -153,7 +147,6 @@ void Player::doUpdate(const UpdateState &us)
 	SDL_GetWindowSize(core::getWindow(), &x, &y);
 	Vector2 windowSize(x, y);		
 	Vector2 guiOffset(10, windowSize.y - gamescreen->getHpBarSize().y * 3.65);
-    float posPauseX, posPauseY;
 
 	// move camera
 	//x 
@@ -163,7 +156,6 @@ void Player::doUpdate(const UpdateState &us)
 		{
 			getParent()->setPosition(-getPosition().x + windowSize.x / 2, getParent()->getPosition().y);
 			gamescreen->setBarsPos(Vector2(getPosition().x - windowSize.x / 2 + guiOffset.x, getParent()->getPosition().y + guiOffset.y));
-            posPauseX = getPosition().x - windowSize.x / 2;
 		}
 		else
 		{
@@ -171,51 +163,38 @@ void Player::doUpdate(const UpdateState &us)
 			{
                 getParent()->setPosition(0, getParent()->getPosition().y);
 				gamescreen->setBarsPos(Vector2(guiOffset.x, getParent()->getPosition().y + guiOffset.y));
-                posPauseX = 0;
-			}
-				
+            }
 			if (getPosition().x > getMapSize().x - windowSize.x / 2)
 			{
 				getParent()->setPosition(-getMapSize().x + windowSize.x, getParent()->getPosition().y);
 				gamescreen->setBarsPos(Vector2(getMapSize().x - windowSize.x + guiOffset.x, getParent()->getPosition().y + guiOffset.y));
-                posPauseX = getMapSize().x - windowSize.x;
-            }
+			}
 		}
 	}
+	
     //y
 	if (getMapSize().y > windowSize.y)
 	{
 		if (getPosition().y > windowSize.y / 2 && getPosition().y < getMapSize().y - windowSize.y / 2)
 		{
-            getParent()->setPosition(getParent()->getPosition().x, -getPosition().y + windowSize.y / 2);
+			getParent()->setPosition(getParent()->getPosition().x, -getPosition().y + windowSize.y / 2);
 			gamescreen->setBarsPos(Vector2(-getParent()->getPosition().x + guiOffset.x, getPosition().y - windowSize.y / 2 + guiOffset.y));
-            posPauseY = getPosition().y - windowSize.y / 2;
-        }
+		}
 		else
 		{
 			if (getPosition().y < windowSize.y / 2)
 			{
 				getParent()->setPosition(getParent()->getPosition().x, 0);
 				gamescreen->setBarsPos(Vector2(-getParent()->getPosition().x + guiOffset.x, guiOffset.y));
-                posPauseY = 0;
 			}
 			if (getPosition().y > getMapSize().y - windowSize.y / 2)
 			{
 				getParent()->setPosition(getParent()->getPosition().x, -getMapSize().y + windowSize.y);
 				gamescreen->setBarsPos(Vector2(-getParent()->getPosition().x + guiOffset.x, getMapSize().y - windowSize.y + guiOffset.y));
-                posPauseY = getMapSize().y - windowSize.y;
-            }
+			}
 		}
 	}
-    gamescreen->setTextPausePosition(Vector2(posPauseX, posPauseY) + windowSize/2 - Vector2(115,50));
 }
-
-void Player::setNormalStateAnimation()
-{
-    setResAnim(persStandsDown);
-}
-
-
 
 void Player::rotate()
 {
@@ -398,9 +377,6 @@ void Player::takeDamage(int damage)
         std::cout << "RIP Nathan" << std::endl;
         persAnimCurrent = persDeath;
         setResAnim(persAnimCurrent);
-
-		DethGame::instance()->isWin = false;
-		DethGame::instance()->setScreen("Game over screen");
         // TODO: get rekt
     }
     std::cout << "Nathan -" << damage << "hp (" << healthPoints << ")" << std::endl;
@@ -482,9 +458,6 @@ void Player::onTweenDone(Event *event)
 
 void Player::reset()
 {
-    setNormalStateAnimation();
-    m_pause_mode = false;
-
     setPosition(position_spawn);
     pos = position_spawn;
 
