@@ -282,7 +282,7 @@ void Map::drawLayer(Layer& layer, GameScreen *gs, int tiletype)
 }
 
 
-Vector2 Map::getMapSize()
+Vector2 Map::getMapSize() const
 {
     return Vector2(num_tiles_in_row * pix_tile_width, num_tiles_in_col * pix_tile_height);
 }
@@ -307,14 +307,20 @@ bool Map::isObstacle(RectT<Vector2> rect_player)
 
 
 bool Map::isPointCollision(Vector2 pos)
-{
+{std::cerr <<"ZZZZZZZZZZZZZZZ";
     int col = pos.x / pix_tile_width+1;
     int row = pos.y / pix_tile_height+1;
-    int gid = num_tiles_in_row * (row-1) + col - 1;
+    int gid = num_tiles_in_row * (row-1) + col - 1; std::cerr <<"_________________--__--";
     if (vec_collisions[gid].getTiletype()==COLLISIONS)
+    {
+        std::cerr <<"WWWWWWWWWWWWWWWWWW";
         return true;
+    }
     else
+    {
+        std::cerr <<"PPPPPPPPPPPPP";
         return false;
+    }
 }
 
 
@@ -390,7 +396,7 @@ void Map::setVecBoolCollisions()
 }
 
 
-std::vector<std::vector<bool>> Map::getVecBoolCollisions()
+std::vector< std::vector<bool> > Map::getVecBoolCollisions() const
 {
     return vecCollisionsBool;
 }

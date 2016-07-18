@@ -7,6 +7,7 @@
 #include <set>
 #include "entities/mob.h"
 #include "direction.h"
+#include "entities/pathfinding.h"
 
 
 using namespace oxygine;
@@ -21,6 +22,8 @@ class World : public Actor
     float dt_zombie;
 
     std::vector<Banana> m_bananas;
+
+    pathFinding *pathFinder;
 
 public:
     World(GameScreen* gs);

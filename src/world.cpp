@@ -18,6 +18,8 @@ World::World(GameScreen *gs)
     dt_zombie = 0;
 
 	gamescreen->setBananasOnMap(map->getPosBananas().size());
+
+
 }
 
 
@@ -49,7 +51,8 @@ void World::draw()
     map->drawTop(gamescreen);
 
     // TODO: Somebody remove it, pls
-
+    pathFinder = new pathFinding(map);
+    pathFinder->findPath(VectorT2<int>(5, 5), VectorT2<int>(6, 5));
 }
 
 void World::doUpdate(const UpdateState &us)
