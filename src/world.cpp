@@ -9,6 +9,10 @@
 World::World(GameScreen *gs)
 {
     gamescreen = gs;
+    m_pause_mode = false;
+
+    m_clock_world = new Clock;
+    this->setClock(m_clock_world);
 
     setMapLand();
     setZombies();
@@ -89,6 +93,7 @@ void World::setPlayer()
     m_player->attachTo(gamescreen);
     m_player->setMapSize(m_map->getMapSize());
     m_player->addEventListener(PlayerPunchEvent::EVENT, CLOSURE(this, &World::onPlayerPunch));
+    m_player->addEventListener(GamePauseEvent::EVENT, CLOSURE(this, &World::onPause));
 }
 
 
@@ -203,5 +208,17 @@ void World::onPlayerPunch(Event * event)
         if(attack_box.isIntersecting((*it).second->getMobBox())) {
             (*it).second->getHit(ev->damage);
         }
+    }
+}
+
+
+void World::onPause(Event* event)
+{
+    if(m_pause_mode == false) {
+        m_clock_world->pause();
+        m_pause_mode = true;
+    } else {
+        m_clock_world->resume();
+        m_pause_mode = false;
     }
 }

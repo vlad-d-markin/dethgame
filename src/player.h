@@ -72,6 +72,7 @@ private:
     int Vnorm;
 
     int bananaCount;
+    float dt_pause_press;
 
     void updatePunching(bool _isPunching);
     void onEvent(Event* ev);
@@ -101,6 +102,8 @@ public:
     RectT<Vector2> getRectPlayer();
 
     void addBanana();
+
+
 };
 
 
@@ -113,6 +116,7 @@ public:
 
     PlayerPunchEvent(RectT<Vector2> area, int dmg) : Event(EVENT), attack_area(area), damage(dmg) {}
 };
+
 
 
 typedef ::oxygine::intrusive_ptr<Player> spPlayer;

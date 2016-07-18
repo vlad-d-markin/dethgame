@@ -91,7 +91,6 @@ void DethGame::preInit()
 
 void DethGame::init()
 {
-
     setFullscreen(core::getWindow(), config.getFullScreen());
     m_menuScreen = new MainMenu();
     getMainStage()->addChild(m_menuScreen);
@@ -119,6 +118,7 @@ void DethGame::rulesScreen(Event *event)
 {
     setScreen("Rules screen");
 }
+
 
 void DethGame::update()
 {

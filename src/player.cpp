@@ -7,11 +7,14 @@
 #include "dethgame.h"
 #include <iostream>
 
+#define DT_PAUSE_PRESS 100
+
 using namespace oxygine;
 
 Player::Player(GameScreen *gs) : Sprite()
 {
     gamescreen = gs;
+    dt_pause_press = DT_PAUSE_PRESS;
 
     VerticalAnimationDuration = 450;
     HorizontalAnimationDuration = 700;
@@ -91,9 +94,19 @@ void Player::setMoving(const bool isMoving)
 
 void Player::doUpdate(const UpdateState &us)
 {
-    intPunch += us.dt;
+    const Uint8* data = SDL_GetKeyboardState(0);
 
-	const Uint8* data = SDL_GetKeyboardState(0);
+    // check on pause press
+    dt_pause_press += us.dt;
+    if(dt_pause_press >= DT_PAUSE_PRESS) {
+        if (data[SDL_SCANCODE_P]) {
+            dt_pause_press = 0;
+            GamePauseEvent gamePauseEvent(true);
+            dispatchEvent(&gamePauseEvent);
+        }
+    }
+
+    intPunch += us.dt;
 
 	//calculate speed using delta time
     float speed = 150.0f * (us.dt / 1000.0f);
