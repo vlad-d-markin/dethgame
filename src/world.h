@@ -7,11 +7,11 @@
 #include <map>
 #include "entities/mob.h"
 #include "direction.h"
-
+#include "screens/gamescreen.h"
+#include "resetable.h"
 
 using namespace oxygine;
-
-class World : public Actor
+class World : public Actor,public Resetable
 {
     Map* map;
     Player* player;
@@ -25,6 +25,7 @@ class World : public Actor
 public:
     World(GameScreen* gs);
     void draw();
+    virtual void reset();
 
     void addMob(spMob mob);
     void corpseDecayed(Event * event);

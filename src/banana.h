@@ -20,7 +20,6 @@ public:
 
     bool isFound();
     void found();
-
     void deleteBanana();
 };
 

@@ -43,7 +43,8 @@ Player::Player(GameScreen *gs) : Sprite()
     dirYOld = 0;
 
     pos = Vector2(300, 300);
-    setPosition(pos);
+    position_spawn=pos;
+    setPosition(position_spawn);
     //Vnorm = ???
     weaponDamage = 30;
     intPunch = 0;
@@ -446,4 +447,11 @@ void Player::onTweenDone(Event *event)
 {
     log::messageln("tween done");
     updatePunching(false);
+}
+
+void Player::resetPlayer()
+{
+    setPosition(position_spawn);
+    healthPoints=500;
+    pos=position_spawn;
 }

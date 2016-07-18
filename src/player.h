@@ -18,6 +18,7 @@ private:
     Resources * my_resources;
     ResAnim* resAnim;
     Vector2 pos;
+    Vector2 position_spawn;
     float dirX;
     float dirY;
     float dirXOld;
@@ -26,6 +27,7 @@ private:
     int VerticalAnimationDuration;
     int HorizontalAnimationDuration;
     RectT<Vector2> * rectangle;
+
 
     int weaponDamage;
     float intPunch;
@@ -96,6 +98,7 @@ public:
     RectT<Vector2> getRectPlayer();
 
     void addBanana();
+    void resetPlayer();
 };
 
 

@@ -176,7 +176,7 @@ void DethGame::setScreen(std::string name)
         m_rulesScreen->setEnable(false);
 
         m_menuScreen->setVisible(false);
-
+        m_gameScreen->rebuildWorld();
         m_gameScreen->setVisible(true);
         m_gameScreen->setEnable(true);
     }

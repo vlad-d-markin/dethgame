@@ -2,6 +2,9 @@
 #define GAMESCREEN_H
 #include "basescreen.h"
 #include "../gui/gui.h"
+#include "../resetable.h"
+
+using namespace oxygine;
 
 class GameScreen : public BaseScreen
 {
@@ -16,6 +19,7 @@ public:
 	int getHp();
 	void setBananasOnMap(int bananas);
 	void setBananas(int bananas);
+    void rebuildWorld();
 
 private:
     Resources * m_resources;
@@ -23,10 +27,10 @@ private:
 	Gui::spBar hp_bar;
 	Gui::spBar bananaCounter;
 	int bananasOnMap;
+    Resetable* gameworld;
 protected:
     void doUpdate(const UpdateState &us);
 };
 
 typedef ::oxygine::intrusive_ptr<GameScreen> spGameScreen;
-
 #endif // GAMESCREEN_H

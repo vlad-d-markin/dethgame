@@ -25,6 +25,36 @@ World::World(GameScreen *gs)
 	gamescreen->setBananasOnMap(map->getPosBananas().size());
 }
 
+void World::reset()
+{
+    //reseting hero
+    player->resetPlayer();
+    //reseting zombie
+    for(auto it = m_mobs.begin(); it != m_mobs.end(); it++)
+    {
+        (*it).second->detach();
+    }
+    m_mobs.clear();
+    spZombie zombie;
+    std::vector<Position> zombie_pos=map->getPosZombie();
+    for (int i=0; i<(zombie_pos.size()); i++)
+    {
+        std::cout<<"x = "<< zombie_pos[i].x<<" y="<<zombie_pos[i].y<<std::endl;
+        zombie = new Zombie(Vector2(zombie_pos[i].x,zombie_pos[i].y));
+        zombie->setName("zomb");
+        addMob(zombie);
+    }
+
+    //reseting bananas
+    for(int i=0; i < m_bananas.size(); i++) {
+        m_bananas[i].deleteBanana();
+    }
+    std::vector<Vector2> pos_bananas = map->getPosBananas();
+    for(int i=0; i < pos_bananas.size(); i++) {
+        Banana banana(pos_bananas[i], gamescreen);
+        m_bananas.push_back(banana);
+    }
+}
 
 void World::addMob(spMob mob)
 {

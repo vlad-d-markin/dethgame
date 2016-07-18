@@ -15,9 +15,11 @@ GameScreen::GameScreen()
     m_resources = new Resources();
     m_resources->loadXML(DethGame::instance()->getGuiResPath());
 
-    World* gameworld = new World(this);
-    gameworld->draw();
-    gameworld->attachTo(this);
+    World* world = new World(this);
+    world->draw();
+    world->attachTo(this);
+
+    gameworld=world;
 
 	hp_bar = new Gui::Bar();
 	hp_bar->setMaxValue(DethGame::instance()->getPlayerMaxHealth());
@@ -86,6 +88,12 @@ void GameScreen::setBananas(int bananas)
 void GameScreen::setBananasOnMap(int bananas)
 {
 	bananasOnMap = bananas;
+}
+
+
+void GameScreen::rebuildWorld()
+{
+    gameworld->reset();
 }
 
 GameScreen::~GameScreen()
