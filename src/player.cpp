@@ -70,6 +70,9 @@ Player::Player(GameScreen *gs) : Sprite()
     weaponHandlingSpeed = Vnorm;
 
     bananaCount = 0;
+
+    m_collision_box.setSize(getSize().x, (getSize().y)/2);
+    m_collision_box.setPosition(getPosition()-Vector2((getSize().x)/2, 0));
 }
 
 Vector2 Player::getDirection()
@@ -400,7 +403,7 @@ void Player::takeDamage(int damage)
         std::cout << "RIP Nathan" << std::endl;
         persAnimCurrent = persDeath;
         setResAnim(persAnimCurrent);
-        // TODO: get rekt
+
 		DethGame::instance()->isWin = false;
 		DethGame::instance()->setScreen("Game over screen");
     }
@@ -447,11 +450,8 @@ void Player::punch()
 
 RectT<Vector2> Player::getCollisionBox()
 {
-    RectT<Vector2> rect_player(getPosition(), getSize());
-    rect_player.setPosition(rect_player.getLeftTop()-Vector2((rect_player.getSize().x)/2, 0));
-    rect_player.setSize(rect_player.getSize().x, (rect_player.getSize().y)/2);
-
-    return rect_player;
+    m_collision_box.setPosition(getPosition()-Vector2((getSize().x)/2, 0));
+    return m_collision_box;
 }
 
 void Player::addBanana()

@@ -290,10 +290,6 @@ Vector2 Map::getMapSize() const
 
 bool Map::isObstacle(RectT<Vector2> rect_player)
 {
-    // make collision box of hero
-    rect_player.setPosition(rect_player.getLeftTop()-Vector2((rect_player.getSize().x)/2, 0));
-    rect_player.setSize(rect_player.getSize().x, (rect_player.getSize().y)/2);
-
     if(isPointCollision(rect_player.getLeftTop())==true)
         return true;
     if(isPointCollision(rect_player.getRightTop())==true)
