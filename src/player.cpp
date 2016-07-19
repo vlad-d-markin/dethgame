@@ -139,7 +139,7 @@ void Player::doUpdate(const UpdateState &us)
         || isPunching != isPunchingOld )
     {
         //std::cerr << "X=" << dirX << " Xo=" << dirXOld << " Y=" << dirY << " Yo=" << dirYOld <<
-        //            " M=" << moving << " Mo=" << movingOld << " P=" << isPunching << std::endl;
+        //            " M=" << moving << " Mo=" << movingOld << " P=" << isPunching << " PO=" << isPunchingOld << std::endl;
         rotate();
     }
 
@@ -277,6 +277,7 @@ void Player::rotate()
     }
     else    // if not punching
     {
+        isPunchingOld = false;
         if(moving)
         {
             if(dirX > 0)   //goes right
@@ -353,7 +354,7 @@ void Player::rotate()
     setFlippedX(orientation == left);
 }
 
-int Player::getSign(const float number)
+int Player::getSign(const float number) const
 {
     if(number > 0)
         return 1;
@@ -458,8 +459,10 @@ void Player::onTweenDone(Event *event)
 
 void Player::reset()
 {
-    setPosition(position_spawn);
     pos = position_spawn;
+    setPosition(pos);
+    orientation = down;
+    setResAnim(persStandsDown);
 
     healthPoints = 500;
     bananaCount = 0;

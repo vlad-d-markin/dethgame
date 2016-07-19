@@ -51,7 +51,7 @@ private:
 
     void rotate();
     bool moving;
-    int getSign(const float number);
+    int getSign(const float number) const;
     spTween tween;
     Direction orientation;
     bool isPunching;
