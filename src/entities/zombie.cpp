@@ -5,6 +5,11 @@
 #define IDLE_TWEEN addTween(TweenAnim(m_idle_anim), 1600, -1, true)
 #define DIE_TWEEN addTween(TweenAnim(m_die_anim), 800)
 
+#define WALK_NORTH_TWEEN addTween(TweenAnim(m_walk_north_anim), 600)
+#define WALK_SOUTH_TWEEN addTween(TweenAnim(m_walk_south_anim), 600)
+#define WALK_EAST_TWEEN addTween(TweenAnim(m_walk_east_anim), 600)
+#define WALK_WEST_TWEEN addTween(TweenAnim(m_walk_west_anim), 600)
+
 #define PUNCH_SOUTH_TWEEN addTween(TweenAnim(m_attack_south), 600)
 #define PUNCH_EAST_TWEEN addTween(TweenAnim(m_attack_east), 600)
 #define PUNCH_WEST_TWEEN addTween(TweenAnim(m_attack_west), 600)
@@ -38,6 +43,7 @@ Zombie::Zombie(Vector2 spawn_pos) : Mob()
 
     m_agr_range = 300;
     m_attack_range = 65;
+    m_attack_area.setSize(80,80);
 
     mob_box.setSize(Vector2(50,50));
 
@@ -64,8 +70,8 @@ void Zombie::punch(Direction dir)
             m_current_tween = PUNCH_SOUTH_TWEEN;
             m_current_tween->setDoneCallback(CLOSURE(this, &Zombie::onPunchFinished));
 
-            m_attack_area.setPosition(getX() - m_attack_area.getWidth() / 2, getY() + getHeight());
-            m_attack_area.setSize(80, 80);
+            m_attack_area.setPosition(getX() - m_attack_area.getWidth() / 2, getY());
+
             ZombiePunchEvent punchEvent(m_attack_area, m_attack_damage);
             dispatchEvent(&punchEvent);
         }
@@ -77,8 +83,8 @@ void Zombie::punch(Direction dir)
             m_current_tween = PUNCH_EAST_TWEEN;
             m_current_tween->setDoneCallback(CLOSURE(this, &Zombie::onPunchFinished));
 
-            m_attack_area.setPosition(getX() + getWidth(), getY() - m_attack_area.getHeight() / 2);
-            m_attack_area.setSize(80, 80);
+            m_attack_area.setPosition(getX(), getY() - m_attack_area.getHeight() / 2);
+
             ZombiePunchEvent punchEvent(m_attack_area, m_attack_damage);
             dispatchEvent(&punchEvent);
         }
@@ -91,7 +97,7 @@ void Zombie::punch(Direction dir)
             m_current_tween->setDoneCallback(CLOSURE(this, &Zombie::onPunchFinished));
 
             m_attack_area.setPosition(getX() - m_attack_area.getWidth(), getY() - m_attack_area.getHeight() / 2);
-            m_attack_area.setSize(80, 80);
+
             ZombiePunchEvent punchEvent(m_attack_area, m_attack_damage);
             dispatchEvent(&punchEvent);
         }
@@ -104,8 +110,8 @@ void Zombie::punch(Direction dir)
             m_current_tween = PUNCH_NORTH_TWEEN;
             m_current_tween->setDoneCallback(CLOSURE(this, &Zombie::onPunchFinished));
 
-            m_attack_area.setPosition(getX() - m_attack_area.getWidth() / 2, getY() - getHeight() - m_attack_area.getHeight());
-            m_attack_area.setSize(80, 80);
+            m_attack_area.setPosition(getX() - m_attack_area.getWidth() / 2, getY() - m_attack_area.getHeight());
+
             ZombiePunchEvent punchEvent(m_attack_area, m_attack_damage);
             dispatchEvent(&punchEvent);
         }
@@ -116,6 +122,73 @@ void Zombie::punch(Direction dir)
 
             break;
     }
+}
+
+
+
+void Zombie::walk(Direction dir)
+{
+    if(m_state == DEAD)
+        return;
+
+    Vector2 step;
+
+    switch (dir){
+        case up:
+            removeTween(m_current_tween);
+            m_current_tween = WALK_NORTH_TWEEN;
+            step.set(0, -64);
+            break;
+
+        case up_right:
+            removeTween(m_current_tween);
+            m_current_tween = WALK_EAST_TWEEN;
+            step.set(64, -64);
+            break;
+
+        case up_left:
+            removeTween(m_current_tween);
+            m_current_tween = WALK_WEST_TWEEN;
+            step.set(-64, -64);
+            break;
+
+        case left:
+            removeTween(m_current_tween);
+            m_current_tween = WALK_WEST_TWEEN;
+            step.set(-64, 0);
+            break;
+
+        case right:
+            removeTween(m_current_tween);
+            m_current_tween = WALK_EAST_TWEEN;
+            step.set(64, 0);
+            break;
+
+        case down:
+            removeTween(m_current_tween);
+            m_current_tween = WALK_SOUTH_TWEEN;
+            step.set(0, 64);
+            break;
+
+        case down_left:
+            removeTween(m_current_tween);
+            m_current_tween = WALK_WEST_TWEEN;
+            step.set(-64, 64);
+            break;
+
+        case down_right:
+            removeTween(m_current_tween);
+            m_current_tween = WALK_EAST_TWEEN;
+            step.set(64, 64);
+            break;
+
+        default:
+            step.set(0, 0);
+            break;
+    }
+
+    m_currentMoveTween = addTween(Actor::TweenPosition(getPosition() + step), 600);
+    m_current_tween->addDoneCallback(CLOSURE(this, &Zombie::onWalkComplete));
 }
 
 
@@ -138,4 +211,16 @@ void Zombie::onPunchFinished(Event *e)
     removeTween(m_current_tween);
     m_current_tween = IDLE_TWEEN;
     m_state = IDLE;
+}
+
+
+
+void Zombie::onWalkComplete(Event *e)
+{
+    removeTween(m_current_tween);
+    removeTween(m_currentMoveTween);
+    m_current_tween = IDLE_TWEEN;
+    m_state = IDLE;
+    ZombieArrived zombieArrived(getPosition());
+    dispatchEvent(&zombieArrived);
 }

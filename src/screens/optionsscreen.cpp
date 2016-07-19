@@ -1,9 +1,6 @@
 #include "optionsscreen.h"
 #include "../dethgame.h"
 
-
-
-
 OptionsScreen::OptionsScreen()
 {
     setName("Options screen");
@@ -12,8 +9,6 @@ OptionsScreen::OptionsScreen()
     m_main_panel = new Gui::Panel();
     m_main_panel->attachTo(this);
     m_main_panel->setSize(400, 400);
-    m_main_panel->setPosition(getSize() / 2 - m_main_panel->getSize() / 2);
-
 
     Gui::spTextLabel options_label = new Gui::TextLabel();
     options_label->setText("Options");
@@ -39,10 +34,14 @@ OptionsScreen::OptionsScreen()
 
     // For development
 //    m_main_panel->showBoundaries(true);
-
 }
 
-
+void OptionsScreen::updateLayout()
+{
+	int x, y;
+	SDL_GetWindowSize(core::getWindow(), &x, &y);
+	m_main_panel->setPosition(Vector2(x,y) / 2 - m_main_panel->getSize() / 2);
+}
 
 void OptionsScreen::onButtonClicked(Event * e)
 {
@@ -68,7 +67,6 @@ void OptionsScreen::onButtonClicked(Event * e)
         m_fx_vol_bar->setValue(m_fx_vol_bar->getValue() - 2);
         DethGame::instance()->getConfiguration()->setFxVolume(m_fx_vol_bar->getValue());
     }
-
     log::messageln("Options button clicked: %s", ev->m_action.c_str());
 }
 
@@ -93,14 +91,12 @@ void OptionsScreen::setEnable(bool _enable)
     enable = _enable;
 }
 
-
 void OptionsScreen::addMusicVolPanel()
 {
     Gui::spPanel music_volume_panel = new Gui::Panel();
     m_main_panel->addElement(music_volume_panel);
     music_volume_panel->setSize(400, 30);
     music_volume_panel->setPosition(0, 40);
-
 
     Gui::spTextLabel music_vol_label = new Gui::TextLabel();
 
@@ -135,7 +131,6 @@ void OptionsScreen::addMusicVolPanel()
 //    music_volume_panel->showBoundaries(true);
 }
 
-
 void OptionsScreen::addFxVolPanel()
 {
     Gui::spPanel effects_volume_panel = new Gui::Panel();
@@ -155,14 +150,12 @@ void OptionsScreen::addFxVolPanel()
     effects_volume_panel->addElement(fx_vol_label);
     fx_vol_label->setPosition(-30, 0);
 
-
     m_dec_fx_vol = new Gui::TextButton("-");
     effects_volume_panel->addElement(m_dec_fx_vol);
     m_dec_fx_vol->setSize(20, 20);
     m_dec_fx_vol->setPosition(100, 4);
     m_dec_fx_vol->setAction("dec_fx_volume");
     m_dec_fx_vol->addEventListener(Gui::ButtonClickedEvent::EVENT, CLOSURE(this, &OptionsScreen::onButtonClicked));
-
 
     m_inc_fx_vol = new Gui::TextButton("+");
     effects_volume_panel->addElement(m_inc_fx_vol);
@@ -171,16 +164,13 @@ void OptionsScreen::addFxVolPanel()
     m_inc_fx_vol->setAction("inc_fx_volume");
     m_inc_fx_vol->addEventListener(Gui::ButtonClickedEvent::EVENT, CLOSURE(this, &OptionsScreen::onButtonClicked));
 
-
     m_fx_vol_bar = new Gui::Bar();
     m_fx_vol_bar->setPosition(130, 4);
     m_fx_vol_bar->setValue(DethGame::instance()->getConfiguration()->getFxVolume());
     effects_volume_panel->addElement(m_fx_vol_bar);
 
-
-//    effects_volume_panel->showBoundaries(true);
+    //    effects_volume_panel->showBoundaries(true);
 }
-
 
 void OptionsScreen::addFullscreenPanel()
 {
@@ -205,7 +195,6 @@ void OptionsScreen::addFullscreenPanel()
     m_fullscreen_switch->setPosition(100, 4);
     m_fullscreen_switch->addEventListener(Gui::SwitchStateChangedEvent::EVENT,
                                           CLOSURE(this, &OptionsScreen::onFullscreenChanged));
-
 //    fullscreen_panel->showBoundaries(true);
 }
 

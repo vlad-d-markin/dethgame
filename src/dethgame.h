@@ -9,6 +9,8 @@
 #include "screens/gamescreen.h"
 #include "screens/guitestscreen.h"
 #include "screens/optionsscreen.h"
+#include "screens/rulesscreen.h"
+#include "screens/winscreen.h"
 
 #define CONFIG "dethconfig.json"
 
@@ -22,6 +24,8 @@ private:
     spMainMenu m_menuScreen;
     spGameScreen m_gameScreen;
     spOptionsScreen m_optionsScreen;
+    spRulesScreen m_rulesScreen;
+	spWinScreen m_winScreen;
 
 public:
     static DethGame * instance();
@@ -44,6 +48,7 @@ public:
 
     void startGame(Event *event);
     void optionsScreen(Event *event);
+    void rulesScreen(Event *event);
     void quit();
 
 };

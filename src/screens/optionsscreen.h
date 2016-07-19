@@ -29,11 +29,12 @@ public:
     OptionsScreen();
 	~OptionsScreen();
     void setEnable(bool _enable);
+	void updateLayout();
 
 protected:
     void onButtonClicked(Event * e);
     void onFullscreenChanged(Event * e);
-    void doUpdate(const UpdateState &us);
+	void doUpdate(const UpdateState &us);
 
     void addMusicVolPanel();
     void addFxVolPanel();

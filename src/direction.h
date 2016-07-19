@@ -3,7 +3,14 @@
 
 enum Direction
 {
-    up, down, right, left
+    up,
+    down,
+    right,
+    left,
+    up_left,
+    up_right,
+    down_left,
+    down_right
 };
 
 #endif // DIRECTION_H

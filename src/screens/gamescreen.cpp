@@ -1,4 +1,4 @@
-#include "gamescreen.h"
+﻿#include "gamescreen.h"
 #include "../dethgame.h"
 #include <iostream>
 #include "basescreen.h"
@@ -15,9 +15,9 @@ GameScreen::GameScreen()
     m_resources = new Resources();
     m_resources->loadXML(DethGame::instance()->getGuiResPath());
 
-    World* gameworld = new World(this);
-    gameworld->draw();
-    gameworld->attachTo(this);
+    World* world = new World(this);
+    world->attachTo(this);
+    gameworld = world;
 
 	hp_bar = new Gui::Bar();
 	hp_bar->setMaxValue(DethGame::instance()->getPlayerMaxHealth());
@@ -35,17 +35,14 @@ GameScreen::GameScreen()
 	style.color = Color::Yellow;
 	bananaCounter->setTextStyle(style);
 	bananaCounter->attachTo(this);
-
 }
 
 void GameScreen::doUpdate(const UpdateState &us)
 {
     const Uint8* data = SDL_GetKeyboardState(0);
-
     if (data[SDL_SCANCODE_ESCAPE] && enable)
         DethGame::instance()->setScreen("Menu");
 }
-
 
 Resources* GameScreen::getResources()
 {
@@ -81,11 +78,24 @@ int GameScreen::getHp()
 void GameScreen::setBananas(int bananas)
 {
 	bananaCounter->setValue(bananas);
+    if (bananaCounter->getValue() == bananaCounter->getMaxValue()) {
+		DethGame::instance()->setScreen("Win screen");
+	}
 }
 
 void GameScreen::setBananasOnMap(int bananas)
 {
 	bananasOnMap = bananas;
+}
+
+int GameScreen::getBananas()
+{
+	return bananaCounter->getValue();
+}
+
+void GameScreen::rebuildWorld()
+{
+    gameworld->reBuildWorld();
 }
 
 GameScreen::~GameScreen()

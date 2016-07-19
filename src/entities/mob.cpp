@@ -10,14 +10,10 @@ Mob::Mob()
     m_decayed = false;
     m_dead_time = 0;
     m_hit_freq = 1500;
-    m_last_hit_time = 0;
+    m_last_hit_time = m_hit_freq + 1;
 }
 
-
-
 Mob::~Mob() { log::messageln("Mob was deleted"); }
-
-
 
 void Mob::doUpdate(const UpdateState &us)
 {
@@ -67,73 +63,65 @@ void Mob::doUpdate(const UpdateState &us)
 
 void Mob::attack(const UpdateState &us)
 {
-    if(m_last_hit_time < m_hit_freq)
+    if(m_last_hit_time < m_hit_freq) {
         m_last_hit_time += us.dt;
-    else
-    {
-        m_last_hit_time=0;
-
-        float x=distance(m_pos_player.x, m_pos_player.y, m_pos_player.x, getPosition().y);
-        float y=distance(getPosition().x, getPosition().y, m_pos_player.x, m_pos_player.y);
-        float sin=x/y;
-
-        if (((getPosition().x < m_pos_player.x))&&(getPosition().y > m_pos_player.y))
-        {
-            if(fabs(sin)<(sqrt(2)/2))
-            {
-                punch(right);
-                return;
-            }
-            else
-            {
-                punch(up);
-                return;
-            }
-        }
-
-        if (((getPosition().x < m_pos_player.x))&&(getPosition().y < m_pos_player.y))
-        {
-            if(fabs(sin)<(sqrt(2)/2))
-            {
-                punch(right);
-                return;
-            }
-            else
-            {
-                punch(down);
-                return;
-            }
-        }
-
-        if (((getPosition().x > m_pos_player.x))&&(getPosition().y < m_pos_player.y))
-        {
-            if(fabs(sin)<(sqrt(2)/2))
-            {
-                punch(left);
-                return;
-            }
-            else
-            {
-                punch(down);
-                return;
-            }
-        }
-
-        if (((getPosition().x > m_pos_player.x))&&(getPosition().y > m_pos_player.y))
-        {
-            if(fabs(sin)<(sqrt(2)/2))
-            {
-                punch(left);
-                return;
-            }
-            else
-            {
-                punch(up);
-                return;
-            }
-        }
-
+        return;
     }
+
+    m_last_hit_time = 0;
+
+    float x = distance(m_pos_player.x, m_pos_player.y, m_pos_player.x, getPosition().y);
+    float y = distance(getPosition().x, getPosition().y, m_pos_player.x, m_pos_player.y);
+    float sin = x/y;
+
+    if (((getPosition().x < m_pos_player.x))&&(getPosition().y > m_pos_player.y))
+    {
+        if(fabs(sin)<(sqrt(2)/2)){
+            punch(right);
+            return;
+        }
+        else {
+            punch(up);
+            return;
+        }
+    }
+
+    if (((getPosition().x < m_pos_player.x))&&(getPosition().y < m_pos_player.y))
+    {
+        if(fabs(sin)<(sqrt(2)/2)) {
+            punch(right);
+            return;
+        }
+        else {
+            punch(down);
+            return;
+        }
+    }
+
+    if (((getPosition().x > m_pos_player.x))&&(getPosition().y < m_pos_player.y))
+    {
+        if(fabs(sin)<(sqrt(2)/2)) {
+            punch(left);
+            return;
+        }
+        else {
+            punch(down);
+            return;
+        }
+    }
+
+    if (((getPosition().x > m_pos_player.x))&&(getPosition().y > m_pos_player.y))
+    {
+        if(fabs(sin)<(sqrt(2)/2)) {
+                punch(left);
+                return;
+        }
+        else {
+            punch(up);
+            return;
+        }
+    }
+
 }
 
 

@@ -17,10 +17,8 @@ class Banana
 public:
     Banana(Vector2 pos, GameScreen *gs);
     RectT<Vector2> getCollisionBox();
-
     bool isFound();
     void found();
-
     void deleteBanana();
 };
 

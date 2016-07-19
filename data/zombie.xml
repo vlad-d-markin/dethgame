@@ -1,15 +1,20 @@
 <?xml version="1.0"?>
 <resources>
-	<set path = "images" />
+	<set path = "mob" />
 	<atlas>
-		<image file="zombie_walk_south.png" cols="4"/>
+		<image id="zombie_walk_south" file="walking_front.png" cols="6"/>
+		<image id="zombie_walk_north" file="walking_back.png" cols="6"/>
+		<image id="zombie_walk_east" file="walking_right.png" cols="6"/>
+		<image id="zombie_walk_west" file="walking_left.png" cols="6"/>
 
-		<image file="zombie_die.png" cols="5"/>
-		<image file="zombie_idle.png" cols="5"/>
-		<image file="zombie_attack_south.png" cols="3"/>
-		<image file="zombie_attack_east.png" cols="3"/>
-		<image file="zombie_attack_west.png" cols="3"/>
-		<image file="zombie_attack_north.png" cols="3"/>
+		<image id="zombie_die" file="death_front.png" cols="6"/>
+
+		<image id="zombie_idle" file="attack_back.png" cols="6"/>
+
+		<image id="zombie_attack_south" file="attack_front.png" cols="6"/>
+		<image id="zombie_attack_east" file="attack_rigth.png" cols="6"/>
+		<image id="zombie_attack_west" file="attack_left.png" cols="6"/>
+		<image id="zombie_attack_north" file="attack_back.png" cols="6"/>
 	</atlas>
 
 </resources>

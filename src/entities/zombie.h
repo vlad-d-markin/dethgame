@@ -34,6 +34,7 @@ private:
     ResAnim * m_idle_anim;
 
     spTween m_current_tween;
+    spTween m_currentMoveTween;
 
 
 public:
@@ -41,6 +42,7 @@ public:
     virtual ~Zombie();
 
     void punch(Direction dir);
+    virtual void walk(Direction dir);
 
 protected:
     virtual void doUpdate(UpdateState& us);
@@ -48,6 +50,7 @@ protected:
     virtual void onDie();
 
     void onPunchFinished(Event * e);
+    void onWalkComplete(Event * e);
 
 
 };
@@ -60,6 +63,16 @@ public:
     int damage;
 
     ZombiePunchEvent(RectT<Vector2> area, int dmg) : Event(EVENT), attack_area(area), damage(dmg) {}
+};
+
+
+class ZombieArrived : public Event
+{
+public:
+    enum { EVENT = eventID('Z', 'a', 'T', 't') };
+    Vector2 destination;
+
+    ZombieArrived(Vector2 dest) : Event(EVENT), destination(dest) {}
 };
 
 

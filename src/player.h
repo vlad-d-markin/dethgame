@@ -18,6 +18,7 @@ private:
     Resources * my_resources;
     ResAnim* resAnim;
     Vector2 pos;
+    Vector2 position_spawn;
     float dirX;
     float dirY;
     float dirXOld;
@@ -26,6 +27,7 @@ private:
     int VerticalAnimationDuration;
     int HorizontalAnimationDuration;
     RectT<Vector2> * rectangle;
+
 
     int weaponDamage;
     float intPunch;
@@ -45,6 +47,8 @@ private:
     ResAnim* persStandsDownAttack;
     ResAnim* persStandsRightAttack;
     ResAnim* persAnimCurrent;
+    ResAnim* persDeath;
+
     void rotate();
     bool moving;
     int getSign(const float number);
@@ -68,6 +72,7 @@ private:
     int Vnorm;
 
     int bananaCount;
+    float dt_pause_press;
 
     void updatePunching(bool _isPunching);
     void onEvent(Event* ev);
@@ -78,9 +83,12 @@ protected:
 public:
     Player();
     Player(GameScreen *gs);
+    void reset();
+
 	void setMapSize(Vector2 _mapSize) { mapSize = _mapSize; }
 	Vector2 getMapSize() const { return mapSize; }
     Vector2 getDirection();
+    int getHP();
     RectT<Vector2> getCollisionBox();
 
     void moveX(const float distance);
@@ -106,6 +114,7 @@ public:
 
     PlayerPunchEvent(RectT<Vector2> area, int dmg) : Event(EVENT), attack_area(area), damage(dmg) {}
 };
+
 
 
 typedef ::oxygine::intrusive_ptr<Player> spPlayer;

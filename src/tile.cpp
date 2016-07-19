@@ -11,7 +11,6 @@ Sprite* Tile::getTile()
     return tile;
 }
 
-
 int Tile::getTiletype()
 {
     return tiletype;
