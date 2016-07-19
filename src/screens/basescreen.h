@@ -8,8 +8,8 @@ using namespace  oxygine;
 class BaseScreen : public Actor
 {
 private:
-    bool m_debug_mode;
-    spTextField m_screenNameField;
+    bool m_debug_mode; //name of screen, dont use
+    spTextField m_screenNameField; //debug
 public:
     BaseScreen(bool debugging = false);
     void setDebugging(bool b);

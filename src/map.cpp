@@ -191,7 +191,7 @@ void Map::drawGround(GameScreen *gamescreen)
 {
     drawLayer(vec_layers[BACKGROUND], gamescreen, BACKGROUND);
     drawLayer(vec_layers[BACKGROUND_OBJECTS], gamescreen);
-    drawLayer(vec_layers[COLLISIONS], gamescreen, COLLISIONS);
+    drawLayer(vec_layers[COLLISIONS], gamescreen, COLLISIONS);// unwalkable
     setVecBoolCollisions();
 }
 
@@ -269,7 +269,7 @@ Vector2 Map::getMapSize() const
 }
 
 
-bool Map::isObstacle(RectT<Vector2> rect_player)
+bool Map::isObstacle(RectT<Vector2> rect_player)//check for collisions
 {
     if(isPointCollision(rect_player.getLeftTop())==true)
         return true;

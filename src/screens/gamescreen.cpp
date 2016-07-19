@@ -50,12 +50,12 @@ Resources* GameScreen::getResources()
     return m_resources;
 }
 
-void GameScreen::setEnable(bool _enable)
+void GameScreen::setEnable(bool _enable)//for escape
 {
     enable = _enable;
 }
 
-void GameScreen::setBarsPos(Vector2 pos)
+void GameScreen::setBarsPos(Vector2 pos)//hp bananas
 {
 	hp_bar->setPosition(pos);
 	bananaCounter->setPosition(pos);

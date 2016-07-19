@@ -15,7 +15,7 @@ DethGame::DethGame():config(CONFIG) {}
 
 spStage DethGame::getMainStage()
 {
-    return getStage();
+    return getStage();// oxygine function, returns main stage of the game
 }
 
 std::string DethGame::getGuiResPath()
@@ -49,7 +49,7 @@ void DethGame::setFullscreen(SDL_Window* window, bool is_fullscreen)
     Uint32 old_flags = SDL_GetWindowFlags(window);
 
 	SDL_DisplayMode mode;
-	SDL_GetCurrentDisplayMode(0, &mode);
+    SDL_GetCurrentDisplayMode(0, &mode);//take the size of our display
 
     SDL_SetWindowFullscreen(window, is_fullscreen ? old_flags | FullscreenFlag : old_flags & ~FullscreenFlag);
 
@@ -57,7 +57,7 @@ void DethGame::setFullscreen(SDL_Window* window, bool is_fullscreen)
 		SDL_SetWindowSize(window, mode.w, mode.h);
 	else
 		SDL_SetWindowSize(window, getMainStage()->getSize().x, getMainStage()->getSize().y);
-
+//update screens (at the center)
 	if (m_optionsScreen)
 		m_optionsScreen->updateLayout();
 	if (m_gameoverScreen)
@@ -95,7 +95,7 @@ void DethGame::init()
 
     setScreen("Menu");
 }
-
+//when u push the buttons
 void DethGame::startGame(Event * event)
 {
     setScreen("Game screen");
@@ -114,7 +114,7 @@ void DethGame::rulesScreen(Event *event)
 
 void DethGame::update() {}
 
-
+//exit
 void DethGame::destroy()
 {
     oxygine::log::messageln("destroy all. that's brutal");

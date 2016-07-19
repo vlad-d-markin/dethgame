@@ -47,7 +47,7 @@ void OptionsScreen::onButtonClicked(Event * e)
 {
     Gui::ButtonClickedEvent * ev = reinterpret_cast<Gui::ButtonClickedEvent *> (e);
 
-    if(ev->m_action == "inc_music_volume")
+    if(ev->m_action == "inc_music_volume")//string fly to listener
     {
         m_music_vol_bar->setValue(m_music_vol_bar->getValue() + 2);
         DethGame::instance()->getConfiguration()->setMusicVolume(m_music_vol_bar->getValue());

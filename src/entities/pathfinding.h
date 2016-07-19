@@ -9,7 +9,7 @@
 
 using namespace oxygine;
 
-class Waypoint
+class Waypoint//point for looking for road, hight point of graph
 {
 public:
     Vector2 m_position;
