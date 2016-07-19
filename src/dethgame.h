@@ -10,7 +10,7 @@
 #include "screens/guitestscreen.h"
 #include "screens/optionsscreen.h"
 #include "screens/rulesscreen.h"
-#include "screens/winscreen.h"
+#include "screens/gameoverscreen.h"
 
 #define CONFIG "dethconfig.json"
 
@@ -25,11 +25,11 @@ private:
     spGameScreen m_gameScreen;
     spOptionsScreen m_optionsScreen;
     spRulesScreen m_rulesScreen;
-	spWinScreen m_winScreen;
+	spGameOverScreen m_gameoverScreen;
 
 public:
     static DethGame * instance();
-
+	bool isWin;
     oxygine::spStage getMainStage();
     std::string getGuiResPath();
     std::string getTileResPath();
