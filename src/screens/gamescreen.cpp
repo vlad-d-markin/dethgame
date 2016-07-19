@@ -80,6 +80,7 @@ void GameScreen::setBananas(int bananas)
 {
 	bananaCounter->setValue(bananas);
     if (bananaCounter->getValue() == bananaCounter->getMaxValue()) {
+
 		DethGame::instance()->isWin = true;
 		DethGame::instance()->setScreen("Game over screen");
 	}
@@ -93,6 +94,12 @@ void GameScreen::setBananasOnMap(int bananas)
 int GameScreen::getBananas()
 {
 	return bananaCounter->getValue();
+}
+
+
+int GameScreen::getMaxBananas()
+{
+    return bananaCounter->getMaxValue();
 }
 
 void GameScreen::rebuildWorld()

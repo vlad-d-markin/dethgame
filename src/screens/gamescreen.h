@@ -30,6 +30,7 @@ public:
 	void setBananasOnMap(int bananas);
 	void setBananas(int bananas);
 	int getBananas();
+    int getMaxBananas();
 
     void setPauseText();
     void setTextPausePosition(Vector2 position);

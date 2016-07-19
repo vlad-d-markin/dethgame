@@ -461,6 +461,13 @@ void Player::addBanana()
 	gamescreen->setBananas(bananaCount);
 
     if (healthPoints + HEALING_SIZE > DethGame::instance()->getPlayerMaxHealth()) {
+        if(bananaCount >= gamescreen->getMaxBananas()) {
+            m_pause_mode = !m_pause_mode;
+            dt_pause_press = 0;
+            GamePauseEvent gamePauseEvent(true);
+            dispatchEvent(&gamePauseEvent);
+        }
+
         healthPoints = DethGame::instance()->getPlayerMaxHealth();
         gamescreen->setHp(healthPoints);
     } else {
