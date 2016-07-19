@@ -6,10 +6,10 @@
 #define IDLE_TWEEN addTween(TweenAnim(m_idle_anim), 1600, -1, true)
 #define DIE_TWEEN addTween(TweenAnim(m_die_anim), 800)
 
-#define WALK_NORTH_TWEEN addTween(TweenAnim(m_walk_north_anim), 600)
-#define WALK_SOUTH_TWEEN addTween(TweenAnim(m_walk_south_anim), 600)
-#define WALK_EAST_TWEEN addTween(TweenAnim(m_walk_east_anim), 600)
-#define WALK_WEST_TWEEN addTween(TweenAnim(m_walk_west_anim), 600)
+#define WALK_NORTH_TWEEN addTween(TweenAnim(m_walk_north_anim), 600, -1)
+#define WALK_SOUTH_TWEEN addTween(TweenAnim(m_walk_south_anim), 600, -1)
+#define WALK_EAST_TWEEN addTween(TweenAnim(m_walk_east_anim), 600, -1)
+#define WALK_WEST_TWEEN addTween(TweenAnim(m_walk_west_anim), 600, -1)
 
 #define PUNCH_SOUTH_TWEEN addTween(TweenAnim(m_attack_south), 600)
 #define PUNCH_EAST_TWEEN addTween(TweenAnim(m_attack_east), 600)
@@ -194,8 +194,8 @@ void Zombie::walk(Direction dir)
             break;
     }
 
-    m_currentMoveTween = addTween(Actor::TweenPosition(getPosition() + step), 600);
-    m_current_tween->addDoneCallback(CLOSURE(this, &Zombie::onWalkComplete));
+//    m_currentMoveTween = addTween(Actor::TweenPosition(getPosition() + step), 600);
+//    m_current_tween->addDoneCallback(CLOSURE(this, &Zombie::onWalkComplete));
 }
 
 
@@ -208,12 +208,10 @@ void Zombie::doUpdate(UpdateState &us)
 
 void Zombie::doWalking()
 {
-    std::cout << "upd to" << std::endl;
     if(m_current_route.size() > 0) {
-        std::cout << "Walk to" << std::endl;
 
-        if((m_current_route.front() - getPosition()).length() <= 0.1f)
-            m_current_route.pop_front();
+//        if((m_current_route.front() - getPosition()).length() <= 0.1f)
+//            m_current_route.pop_front();
 
         walkToPoint(m_current_route.front());
     }
@@ -290,6 +288,22 @@ void Zombie::walkToPoint(Vector2 dest)
 {
     m_currentMoveTween = addTween(Actor::TweenPosition(dest), 800);
     m_currentMoveTween->setDoneCallback(CLOSURE(this, &Zombie::onWalkedToPoint));
+
+    Direction walk_dir;
+
+//    if(dest.x < getX()) {
+//        if(dest.y < getY()) {
+//            walk_dir = Direction::up_left;
+//        }
+//        else if(dest.y > getY()) {
+//            walk_dir = Direction::down_left;
+//        }
+//        else {
+//
+//        }
+//    }
+
+//    walk(walk_dir);
 }
 
 
