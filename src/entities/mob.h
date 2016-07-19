@@ -77,7 +77,7 @@ public:
     RectT<Vector2> getMobBox();
 
     void getHit(int damage);  
-    void walkTo(Vector2 dest);
+    virtual void walkTo(Vector2 dest);
     void attack(const UpdateState &us);
 
     virtual void walk(Direction dir) {}

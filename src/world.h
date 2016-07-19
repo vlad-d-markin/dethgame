@@ -12,6 +12,7 @@
 #include "entities/mob.h"
 #include "screens/gamescreen.h"
 #include "resetable.h"
+#include "entities/zombie.h"
 
 using namespace oxygine;
 
@@ -22,7 +23,7 @@ class World : public Actor, public Resetable
     Clock* m_clock_world;
     Map* m_map;
     Player* m_player;
-    std::map<int, spMob> m_mobs;
+    std::map<int, spZombie> m_mobs;
     std::vector<Banana> m_bananas;
     bool m_pause_mode;
 protected:

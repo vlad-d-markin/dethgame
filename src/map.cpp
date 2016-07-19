@@ -282,7 +282,7 @@ void Map::drawLayer(Layer& layer, GameScreen *gs, int tiletype)
 }
 
 
-Vector2 Map::getMapSize()
+Vector2 Map::getMapSize() const
 {
     return Vector2(num_tiles_in_row * pix_tile_width, num_tiles_in_col * pix_tile_height);
 }
@@ -390,7 +390,7 @@ void Map::setVecBoolCollisions()
 }
 
 
-std::vector<std::vector<bool>> Map::getVecBoolCollisions()
+std::vector< std::vector<bool> > Map::getVecBoolCollisions() const
 {
     return vecCollisionsBool;
 }
