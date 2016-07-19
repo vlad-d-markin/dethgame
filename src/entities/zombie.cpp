@@ -1,6 +1,7 @@
 #include "zombie.h"
 #include "../player.h"
 #include <iostream>
+#include <list>
 
 #define IDLE_TWEEN addTween(TweenAnim(m_idle_anim), 1600, -1, true)
 #define DIE_TWEEN addTween(TweenAnim(m_die_anim), 800)
@@ -15,7 +16,7 @@
 #define PUNCH_WEST_TWEEN addTween(TweenAnim(m_attack_west), 600)
 #define PUNCH_NORTH_TWEEN addTween(TweenAnim(m_attack_north), 600)
 
-Zombie::Zombie(Vector2 spawn_pos) : Mob()
+Zombie::Zombie(Vector2 spawn_pos, Map * map) : Mob()
 {
     resources.loadXML("zombie.xml");
 
@@ -49,12 +50,15 @@ Zombie::Zombie(Vector2 spawn_pos) : Mob()
 
     setAnchor(0.5, 0.5);
     brain = new MobBrain(m_agr_range, m_attack_range, m_pos_spawn);
+
+    m_pathfinder = new Pathfinder(map);
 }
 
 
 Zombie::~Zombie()
 {
     resources.free();
+    delete m_pathfinder;
 }
 
 
@@ -223,4 +227,31 @@ void Zombie::onWalkComplete(Event *e)
     m_state = IDLE;
     ZombieArrived zombieArrived(getPosition());
     dispatchEvent(&zombieArrived);
+}
+
+
+
+void Zombie::walkTo(Vector2 dest)
+{
+    dest.x = ((int)dest.x / 64) * 64;
+    dest.y = ((int)dest.y / 64) * 64;
+
+    Vector2 from = getPosition();
+    from.x = ((int)from.x / 64) * 64;
+    from.y = ((int)from.y / 64) * 64;
+
+    std::list<Vector2> path = m_pathfinder->findPath(from, dest);
+
+    removeChildren();
+
+    for(auto it = path.begin(); it != path.end(); it++) {
+        spColorRectSprite wp = new ColorRectSprite();
+        wp->setSize(64, 64);
+        wp->setAlpha(128);
+        wp->setPosition((*it) - getPosition());
+        wp->attachTo(this);
+        wp->setName("wp");
+    }
+
+
 }

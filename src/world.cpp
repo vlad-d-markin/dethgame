@@ -46,7 +46,7 @@ void World::setZombies()
     // add new zombies in default positions
     std::vector<Position> zombie_pos = m_map->getPosZombie();
     for (int i=0; i<(zombie_pos.size()); i++) {
-        spZombie zombie = new Zombie(Vector2(zombie_pos[i].x,zombie_pos[i].y));
+        spZombie zombie = new Zombie(Vector2(zombie_pos[i].x,zombie_pos[i].y), m_map);
         zombie->setName("zomb");
         zombie->attachTo(this);
         zombie->addEventListener(MobCorpseDecayedEvent::EVENT, CLOSURE(this, &World::corpseDecayed));

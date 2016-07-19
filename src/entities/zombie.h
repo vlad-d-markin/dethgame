@@ -4,6 +4,8 @@
 #include "mob.h"
 #include "oxygine-framework.h"
 #include "../direction.h"
+#include "pathfinding.h"
+#include "../map.h"
 
 using namespace oxygine;
 
@@ -36,13 +38,16 @@ private:
     spTween m_current_tween;
     spTween m_currentMoveTween;
 
+    Pathfinder * m_pathfinder;
+
 
 public:
-    Zombie(Vector2 spawn_pos);
+    Zombie(Vector2 spawn_pos, Map * map);
     virtual ~Zombie();
 
     void punch(Direction dir);
     virtual void walk(Direction dir);
+    virtual void walkTo(Vector2 dest);
 
 protected:
     virtual void doUpdate(UpdateState& us);
