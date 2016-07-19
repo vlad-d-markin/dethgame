@@ -1,4 +1,4 @@
-#include "gamescreen.h"
+﻿#include "gamescreen.h"
 #include "../dethgame.h"
 #include <iostream>
 #include "basescreen.h"
@@ -15,9 +15,9 @@ GameScreen::GameScreen()
     m_resources = new Resources();
     m_resources->loadXML(DethGame::instance()->getGuiResPath());
 
-    World* gameworld = new World(this);
-    gameworld->draw();
-    gameworld->attachTo(this);
+    World* world = new World(this);
+    world->attachTo(this);
+    gameworld = world;
 
 	hp_bar = new Gui::Bar();
 	hp_bar->setMaxValue(DethGame::instance()->getPlayerMaxHealth());
@@ -35,17 +35,15 @@ GameScreen::GameScreen()
 	style.color = Color::Yellow;
 	bananaCounter->setTextStyle(style);
 	bananaCounter->attachTo(this);
-
+    setPauseText();
 }
 
 void GameScreen::doUpdate(const UpdateState &us)
 {
     const Uint8* data = SDL_GetKeyboardState(0);
-
     if (data[SDL_SCANCODE_ESCAPE] && enable)
         DethGame::instance()->setScreen("Menu");
 }
-
 
 Resources* GameScreen::getResources()
 {
@@ -81,12 +79,60 @@ int GameScreen::getHp()
 void GameScreen::setBananas(int bananas)
 {
 	bananaCounter->setValue(bananas);
+    if (bananaCounter->getValue() == bananaCounter->getMaxValue()) {
+		DethGame::instance()->isWin = true;
+		DethGame::instance()->setScreen("Game over screen");
+	}
 }
 
 void GameScreen::setBananasOnMap(int bananas)
 {
 	bananasOnMap = bananas;
 }
+
+int GameScreen::getBananas()
+{
+	return bananaCounter->getValue();
+}
+
+void GameScreen::rebuildWorld()
+{
+    gameworld->reBuildWorld();
+}
+
+void GameScreen::setPauseText()
+{
+    pause_label = new Gui::TextLabel();
+    pause_label->setText("PAUSE");
+    TextStyle style = pause_label->getTextStyle();
+    style.fontSize = 100;
+    m_pause_resources = new Resources();
+    m_pause_resources->loadXML(DethGame::instance()->getGuiResPath());
+    style.font = m_pause_resources->getResFont("font")->getFont();
+    pause_label->setTextStyle(style);
+    pause_label->setAnchor(0.5, 0.5);
+    pause_label->attachTo(this);
+    pause_label->setVisible(false);
+}
+
+
+void GameScreen::setTextPausePosition(Vector2 position)
+{
+    pause_label->setPosition(position);
+}
+
+
+void GameScreen::turnPauseTextOn()
+{
+    pause_label->setVisible(true);
+}
+
+
+void GameScreen::turnPauseTextOff()
+{
+    pause_label->setVisible(false);
+}
+
 
 GameScreen::~GameScreen()
 {

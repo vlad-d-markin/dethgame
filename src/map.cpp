@@ -282,7 +282,7 @@ void Map::drawLayer(Layer& layer, GameScreen *gs, int tiletype)
 }
 
 
-Vector2 Map::getMapSize()
+Vector2 Map::getMapSize() const
 {
     return Vector2(num_tiles_in_row * pix_tile_width, num_tiles_in_col * pix_tile_height);
 }
@@ -290,10 +290,6 @@ Vector2 Map::getMapSize()
 
 bool Map::isObstacle(RectT<Vector2> rect_player)
 {
-    // make collision box of hero
-    rect_player.setPosition(rect_player.getLeftTop()-Vector2((rect_player.getSize().x)/2, 0));
-    rect_player.setSize(rect_player.getSize().x, (rect_player.getSize().y)/2);
-
     if(isPointCollision(rect_player.getLeftTop())==true)
         return true;
     if(isPointCollision(rect_player.getRightTop())==true)
@@ -390,7 +386,7 @@ void Map::setVecBoolCollisions()
 }
 
 
-std::vector<std::vector<bool>> Map::getVecBoolCollisions()
+std::vector< std::vector<bool> > Map::getVecBoolCollisions() const
 {
     return vecCollisionsBool;
 }

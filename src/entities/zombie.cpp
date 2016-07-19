@@ -1,22 +1,26 @@
 #include "zombie.h"
 #include "../player.h"
 #include <iostream>
+#include <list>
 
 #define IDLE_TWEEN addTween(TweenAnim(m_idle_anim), 1600, -1, true)
 #define DIE_TWEEN addTween(TweenAnim(m_die_anim), 800)
 
-#define WALK_NORTH_TWEEN addTween(TweenAnim(m_walk_north_anim), 600)
-#define WALK_SOUTH_TWEEN addTween(TweenAnim(m_walk_south_anim), 600)
-#define WALK_EAST_TWEEN addTween(TweenAnim(m_walk_east_anim), 600)
-#define WALK_WEST_TWEEN addTween(TweenAnim(m_walk_west_anim), 600)
+#define WALK_NORTH_TWEEN addTween(TweenAnim(m_walk_north_anim), 600, -1)
+#define WALK_SOUTH_TWEEN addTween(TweenAnim(m_walk_south_anim), 600, -1)
+#define WALK_EAST_TWEEN addTween(TweenAnim(m_walk_east_anim), 600, -1)
+#define WALK_WEST_TWEEN addTween(TweenAnim(m_walk_west_anim), 600, -1)
 
 #define PUNCH_SOUTH_TWEEN addTween(TweenAnim(m_attack_south), 600)
 #define PUNCH_EAST_TWEEN addTween(TweenAnim(m_attack_east), 600)
 #define PUNCH_WEST_TWEEN addTween(TweenAnim(m_attack_west), 600)
 #define PUNCH_NORTH_TWEEN addTween(TweenAnim(m_attack_north), 600)
 
-Zombie::Zombie(Vector2 spawn_pos) : Mob()
+Zombie::Zombie(Vector2 spawn_pos, Map * map) : Mob()
 {
+    spawn_pos.x = ((int)spawn_pos.x / 64) * 64;
+    spawn_pos.y = ((int)spawn_pos.y / 64) * 64;
+
     resources.loadXML("zombie.xml");
 
     m_walk_south_anim = resources.getResAnim("zombie_walk_south");
@@ -49,12 +53,15 @@ Zombie::Zombie(Vector2 spawn_pos) : Mob()
 
     setAnchor(0.5, 0.5);
     brain = new MobBrain(m_agr_range, m_attack_range, m_pos_spawn);
+
+    m_pathfinder = new Pathfinder(map);
 }
 
 
 Zombie::~Zombie()
 {
     resources.free();
+    delete m_pathfinder;
 }
 
 
@@ -187,16 +194,28 @@ void Zombie::walk(Direction dir)
             break;
     }
 
-    m_currentMoveTween = addTween(Actor::TweenPosition(getPosition() + step), 600);
-    m_current_tween->addDoneCallback(CLOSURE(this, &Zombie::onWalkComplete));
+//    m_currentMoveTween = addTween(Actor::TweenPosition(getPosition() + step), 600);
+//    m_current_tween->addDoneCallback(CLOSURE(this, &Zombie::onWalkComplete));
 }
 
 
 void Zombie::doUpdate(UpdateState &us)
-{ 
-   Mob::doUpdate(us);
+{
+
+    Mob::doUpdate(us);
 }
 
+
+void Zombie::doWalking()
+{
+    if(m_current_route.size() > 0) {
+
+//        if((m_current_route.front() - getPosition()).length() <= 0.1f)
+//            m_current_route.pop_front();
+
+        walkToPoint(m_current_route.front());
+    }
+}
 
 void Zombie::onDie()
 {
@@ -223,4 +242,76 @@ void Zombie::onWalkComplete(Event *e)
     m_state = IDLE;
     ZombieArrived zombieArrived(getPosition());
     dispatchEvent(&zombieArrived);
+
+    if(m_current_route.size() > 0) {
+//        walkToPoint(m_current_route.front());
+//        m_current_route.pop_front();
+    }
+}
+
+
+
+void Zombie::walkTo(Vector2 dest)
+{
+    dest.x = ((int)dest.x / 64) * 64;
+    dest.y = ((int)dest.y / 64) * 64;
+
+    Vector2 from = getPosition();
+    from.x = ((int)from.x / 64) * 64;
+    from.y = ((int)from.y / 64) * 64;
+
+    std::list<Vector2> path = m_pathfinder->findPath(from, dest);
+
+    m_current_route = path;
+//    setPosition(path.front());
+//    m_current_destination = m_current_route.front();
+//    m_current_route.pop_front();
+    walkToPoint(m_current_route.front());
+    m_current_route.pop_front();
+
+    // Debugging
+    removeChildren();
+
+    for(auto it = path.begin(); it != path.end(); it++) {
+        spColorRectSprite wp = new ColorRectSprite();
+        wp->setSize(64, 64);
+        wp->setAlpha(128);
+        wp->setPosition((*it) - getPosition());
+        wp->attachTo(this);
+        wp->setName("wp");
+    }
+}
+
+
+
+void Zombie::walkToPoint(Vector2 dest)
+{
+    m_currentMoveTween = addTween(Actor::TweenPosition(dest), 800);
+    m_currentMoveTween->setDoneCallback(CLOSURE(this, &Zombie::onWalkedToPoint));
+
+    Direction walk_dir;
+
+//    if(dest.x < getX()) {
+//        if(dest.y < getY()) {
+//            walk_dir = Direction::up_left;
+//        }
+//        else if(dest.y > getY()) {
+//            walk_dir = Direction::down_left;
+//        }
+//        else {
+//
+//        }
+//    }
+
+//    walk(walk_dir);
+}
+
+
+void Zombie::onWalkedToPoint(Event *ev)
+{
+    removeTween(m_currentMoveTween);
+    if(m_current_route.size() > 0) {
+        walkToPoint(m_current_route.front());
+        m_current_route.pop_front();
+    }
 }

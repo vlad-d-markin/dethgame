@@ -9,14 +9,10 @@ class Configuration
 private:
     std::string m_config_path;
     Json::Value m_config;
-
 public:
     Configuration(const std::string& configfile);
     ~Configuration();
-
     bool load();
-
-
     void save();
 
     int getMusicVolume();

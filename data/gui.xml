@@ -20,6 +20,8 @@
 		<image id="options" file="Options.png" cols = "2"/>
 		<image id="exit" file="Exit.png" cols = "2"/>
 		<image id="pg" file="pg.png"/>
+		<image id="dead" file="DEAD.png"/>
+		<image id="win" file="WIN.png"/>
 	</atlas>
 
 	<set path = "fonts" />

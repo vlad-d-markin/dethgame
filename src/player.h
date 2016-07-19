@@ -14,10 +14,14 @@ using namespace oxygine;
 class Player : public Sprite
 {
 private: 
-    Vector2 mapSize;
     Resources * my_resources;
     ResAnim* resAnim;
+
+    RectT<Vector2> m_collision_box;
+    Vector2 mapSize;
+
     Vector2 pos;
+    Vector2 position_spawn;
     float dirX;
     float dirY;
     float dirXOld;
@@ -25,11 +29,15 @@ private:
     bool movingOld;
     int VerticalAnimationDuration;
     int HorizontalAnimationDuration;
-    RectT<Vector2> * rectangle;
+
+    //spColorRectSprite col_box;
+
+
 
     int weaponDamage;
     float intPunch;
     RectT<Vector2> attackArea;
+    bool m_pause_mode;
 
     GameScreen *gamescreen;
     ResAnim* persAnimUp;
@@ -49,7 +57,7 @@ private:
 
     void rotate();
     bool moving;
-    int getSign(const float number);
+    int getSign(const float number) const;
     spTween tween;
     Direction orientation;
     bool isPunching;
@@ -70,6 +78,7 @@ private:
     int Vnorm;
 
     int bananaCount;
+    float dt_pause_press;
 
     void updatePunching(bool _isPunching);
     void onEvent(Event* ev);
@@ -80,10 +89,13 @@ protected:
 public:
     Player();
     Player(GameScreen *gs);
+    void reset();
+
+    RectT<Vector2> getCollisionBox();
 	void setMapSize(Vector2 _mapSize) { mapSize = _mapSize; }
 	Vector2 getMapSize() const { return mapSize; }
     Vector2 getDirection();
-    RectT<Vector2> getCollisionBox();
+    int getHP();
 
     void moveX(const float distance);
     void moveY(const float distance);
@@ -92,6 +104,7 @@ public:
 
     void punch();
     void takeDamage(int damage);
+    void setNormalStateAnimation();
 
     RectT<Vector2> getRectPlayer();
 
@@ -108,6 +121,7 @@ public:
 
     PlayerPunchEvent(RectT<Vector2> area, int dmg) : Event(EVENT), attack_area(area), damage(dmg) {}
 };
+
 
 
 typedef ::oxygine::intrusive_ptr<Player> spPlayer;

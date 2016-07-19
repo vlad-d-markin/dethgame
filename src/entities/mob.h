@@ -13,10 +13,8 @@ DECLARE_SMART(Mob, spMob)
 
 class MobCorpseDecayedEvent : public Event
 {
-
 public:
     spMob mob;
-
     enum { EVENT = eventID('m', 'C', 'd', 'Y') };
     MobCorpseDecayedEvent(spMob m) : Event(EVENT), mob(m) {}
 };
@@ -24,7 +22,6 @@ public:
 
 class Mob : public Entity
 {
-
 public:
     enum State {
         IDLE,
@@ -39,7 +36,6 @@ public:
         PUNCHING_WEST,
         PUNCHING_NORTH
     };
-
     /*
     enum Effects {
         STUN = 1,
@@ -81,7 +77,7 @@ public:
     RectT<Vector2> getMobBox();
 
     void getHit(int damage);  
-    void walkTo(Vector2 dest);
+    virtual void walkTo(Vector2 dest);
     void attack(const UpdateState &us);
 
     virtual void walk(Direction dir) {}

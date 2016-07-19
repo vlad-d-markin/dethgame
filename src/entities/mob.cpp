@@ -13,11 +13,7 @@ Mob::Mob()
     m_last_hit_time = m_hit_freq + 1;
 }
 
-
-
 Mob::~Mob() { log::messageln("Mob was deleted"); }
-
-
 
 void Mob::doUpdate(const UpdateState &us)
 {
@@ -163,6 +159,7 @@ void Mob::setState(State s) {
 void Mob::die()
 {
     m_health = 0;
+    brain->kill();
     m_state = DEAD;
     log::messageln("Mob is dead");
     onDie();

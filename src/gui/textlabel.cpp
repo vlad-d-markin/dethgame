@@ -1,4 +1,5 @@
 #include "textlabel.h"
+#include <string>
 
 using namespace oxygine;
 
@@ -9,15 +10,17 @@ Gui::TextLabel::TextLabel()
     m_label->attachTo(this);
 }
 
-Gui::TextLabel::~TextLabel()
-{
-
-}
+Gui::TextLabel::~TextLabel() {}
 
 void Gui::TextLabel::setText(const std::string &text)
 {
     m_label->setText(text);
     setSize(m_label->getTextRect().getSize());
+}
+
+const std::string Gui::TextLabel::getText()
+{
+	return m_label->getText();
 }
 
 TextStyle Gui::TextLabel::getTextStyle()

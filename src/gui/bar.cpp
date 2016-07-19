@@ -64,7 +64,6 @@ void Gui::Bar::setMaxValue(double maxvalue)
 {
     if(maxvalue < 0)
         return;
-
     m_maxvalue = maxvalue;
 }
 
@@ -72,8 +71,6 @@ double Gui::Bar::getMaxValue()
 {
     return m_maxvalue;
 }
-
-
 
 void Gui::Bar::updateText()
 {
@@ -90,9 +87,7 @@ void Gui::Bar::updateSizes(const Vector2 &basesize)
         m_bar->setWidth((float) m_value / m_maxvalue * (m_background->getWidth() - 6));
     }
 	m_bar->setPosition(15, m_background->getHeight() * 2);
-
     m_title->setSize(basesize);
-//    m_title->setPosition(0, 0);
 }
 
 void Gui::Bar::onSizeChanged(const Vector2 &size)

@@ -1,7 +1,5 @@
 #include "switch.h"
 
-
-
 Gui::Switch::Switch(bool state)
 {
     m_state = state;
@@ -27,17 +25,13 @@ void Gui::Switch::toggle()
     updateIndicator();
 }
 
-
 void Gui::Switch::updateIndicator()
 {
-    if(m_state) {
+    if(m_state)
         m_indicator->setColor(Color::Firebrick);
-    }
-    else {
+    else
         m_indicator->setColor(Color::Maroon);
-    }
 }
-
 
 void Gui::Switch::onClicked(Event *event)
 {

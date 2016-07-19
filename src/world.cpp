@@ -3,201 +3,220 @@
 #include "entities/zombie.h"
 #include "banana.h"
 #include <iostream>
+#include "dethgame.h"
 
 
 
 World::World(GameScreen *gs)
 {
-    spZombie zombie;
-
-    map = new Map();
     gamescreen = gs;
+    m_pause_mode = false;
 
-    std::vector<Position> zombie_pos=map->getPosZombie();
-    std::cout<<"size = "<<zombie_pos.size();
-    for (int i=0; i<(zombie_pos.size()); i++)
-    {
-        std::cout<<"x = "<< zombie_pos[i].x<<" y="<<zombie_pos[i].y<<std::endl;
-        zombie = new Zombie(Vector2(zombie_pos[i].x,zombie_pos[i].y));
-        zombie->setName("zomb");
-        addMob(zombie);
+    m_clock_world = new Clock;
+    this->setClock(m_clock_world);
+
+    setMapLand();
+    setZombies();
+    setBananas();
+    setPlayer();
+    setMapTop();
+}
+
+
+void World::reBuildWorld()
+{
+    if(m_pause_mode == true) {
+        m_clock_world->resume();
+        m_pause_mode=false;
     }
-	gamescreen->setBananasOnMap(map->getPosBananas().size());
+    gamescreen->turnPauseTextOff();
+
+    // put the hero in default positions with initial characteristics
+    m_player->reset();
+    gamescreen->setHp(m_player->getHP());
+
+    setZombies();
+
+    setBananas();
+    gamescreen->setBananas(0);
 }
 
 
-void World::addMob(spMob mob)
+void World::setZombies()
 {
-    mob->attachTo(this);
-    mob->addEventListener(MobCorpseDecayedEvent::EVENT, CLOSURE(this, &World::corpseDecayed));
-    mob->addEventListener(ZombiePunchEvent::EVENT, CLOSURE(this, &World::zombieAttacks));
-    m_mobs.insert(std::pair<int, spMob>(mob->getObjectID(), mob));
+    // remove old zombies
+    for(auto it = m_mobs.begin(); it != m_mobs.end(); it++) {
+        (*it).second->detach();
+    }
+    m_mobs.clear();
+
+    // add new zombies in default positions
+    std::vector<Position> zombie_pos = m_map->getPosZombie();
+    for (int i=0; i<(zombie_pos.size()); i++) {
+        spZombie zombie = new Zombie(Vector2(zombie_pos[i].x,zombie_pos[i].y), m_map);
+        zombie->setName("zomb");
+        zombie->attachTo(this);
+        zombie->addEventListener(MobCorpseDecayedEvent::EVENT, CLOSURE(this, &World::corpseDecayed));
+        zombie->addEventListener(ZombiePunchEvent::EVENT, CLOSURE(this, &World::zombieAttacks));
+        m_mobs.insert(std::pair<int, spZombie>(zombie->getObjectID(), zombie));
+    }
 }
 
-void World::draw()
-{
-    map->drawGround(gamescreen);
 
-    std::vector<Vector2> pos_bananas = map->getPosBananas();
+void World::setBananas()
+{
+    // remove old bananas
+    for(int i=0; i < m_bananas.size(); i++) {
+        m_bananas[i].deleteBanana();
+    }
+    m_bananas.clear();
+
+    // add new bananas in default positions
+    std::vector<Vector2> pos_bananas = m_map->getPosBananas();
     for(int i=0; i < pos_bananas.size(); i++) {
         Banana banana(pos_bananas[i], gamescreen);
         m_bananas.push_back(banana);
     }
-
-
-    player = new Player(gamescreen);
-    player->setAnchor(0.5, 0.5);
-    player->attachTo(gamescreen);
-    player->setMapSize(map->getMapSize());
-    player->addEventListener(PlayerPunchEvent::EVENT, CLOSURE(this, &World::onPlayerPunch));
-
-    map->drawTop(gamescreen);
-
-    // TODO: Somebody remove it, pls
-
+    gamescreen->setBananasOnMap(m_map->getPosBananas().size());
 }
+
+
+void World::setMapLand()
+{
+    m_map = new Map();
+    m_map->drawGround(gamescreen);
+}
+
+
+void World::setMapTop()
+{
+    m_map->drawTop(gamescreen);
+}
+
+void World::setPlayer()
+{
+    m_player = new Player(gamescreen);
+    m_player->setAnchor(0.5, 0.5);
+    m_player->attachTo(gamescreen);
+    m_player->setMapSize(m_map->getMapSize());
+    m_player->addEventListener(PlayerPunchEvent::EVENT, CLOSURE(this, &World::onPlayerPunch));
+    m_player->addEventListener(GamePauseEvent::EVENT, CLOSURE(this, &World::onPause));
+}
+
 
 void World::doUpdate(const UpdateState &us)
 {
-
     Actor::doUpdate(us);
 
+    // update collecting bananas
     checkBanana();
 
-    // TEST
-/*
-    if(dt_zombie < 2000) {
-        dt_zombie += us.dt;
-    }
-    else {
-        for(auto it = m_mobs.begin(); it != m_mobs.end(); it++)
-        {
-            spMob m = *it;
-            zombie->punch(right);
-        }
-        dt_zombie = 0;
+    // broadcasting position of the player to mobs
+    for(auto it = m_mobs.begin(); it != m_mobs.end(); it++) {
+         (*it).second->setPosPlayer(m_player->getPosition());
+        (*it).second->doWalking();
     }
 
-    static bool o = true;
-    if(us.time > 5000 && o)
-    {
-        o = false;
-        for(auto it = m_mobs.begin(); it != m_mobs.end(); it++)
-        {
-            //(*it)->getHit(100);
-        }
-    }
-    // END OF TEST
-    */
+    // check the player movenent on collision with obstacles
+    checkPlayerMovement();
+}
 
 
-    if( player->getDirection() == Vector2(0,0) )
-    {
-        player->setMoving(false);
+void World::checkBanana()
+{
+   RectT<Vector2> player_collision_box = m_player->getCollisionBox();
+
+   for(std::vector<Banana>::iterator i = m_bananas.begin(); i!=m_bananas.end(); i++){
+       if(player_collision_box.isIntersecting((*i).getCollisionBox()) == true) {
+           m_player->addBanana();
+           (*i).deleteBanana();
+           m_bananas.erase(i);
+           break;
+       }
+   }
+}
+
+
+void World::checkPlayerMovement()
+{
+    if( m_player->getDirection() == Vector2(0,0) ) {
+        m_player->setMoving(false);
         return;
     }
 
     int num_steps = 10;
-    float step_speed_x = (player->getDirection().x) / num_steps;
-    float step_speed_y = (player->getDirection().y) / num_steps;
+    float step_speed_x = (m_player->getDirection().x) / num_steps;
+    float step_speed_y = (m_player->getDirection().y) / num_steps;
     bool playerMoved = false;
 
     for(int i = 0; i < num_steps; i++)
     {
         if(step_speed_x != 0)
         {
-            RectT<Vector2> new_rect_player_x(player->getPosition()+Vector2(step_speed_x, 0), player->getSize());
-            if(map->isObstacle(new_rect_player_x) == false) {
-                player->moveX(step_speed_x);
+            RectT<Vector2> new_rect_player_x = m_player->getCollisionBox();
+            new_rect_player_x.setPosition(new_rect_player_x.getLeftTop() + Vector2(step_speed_x, 0));
+
+            if(m_map->isObstacle(new_rect_player_x) == false) {
+                m_player->moveX(step_speed_x);
                 playerMoved = true;
             }
         }
 
         if(step_speed_y != 0)
         {
-            RectT<Vector2> new_rect_player_y(player->getPosition()+Vector2(0, step_speed_y), player->getSize());
-            if(map->isObstacle(new_rect_player_y) == false) {
-                player->moveY(step_speed_y);
+            RectT<Vector2> new_rect_player_y = m_player->getCollisionBox();
+            new_rect_player_y.setPosition(new_rect_player_y.getLeftTop() + Vector2(0, step_speed_y));
+
+            if(m_map->isObstacle(new_rect_player_y) == false) {
+                m_player->moveY(step_speed_y);
                 playerMoved = true;
             }
         }
     }
-    player->setMoving(playerMoved);
-
-    for(auto it = m_mobs.begin(); it != m_mobs.end(); it++) {
-         (*it).second->setPosPlayer(player->getPosition());
-        std::cout << "SIZE=" << m_mobs.size() << std::endl;
-    }
-
+    m_player->setMoving(playerMoved);
 }
 
 
 void World::corpseDecayed(Event *event)
 {
     log::messageln("Corpse decayed");
+
     MobCorpseDecayedEvent * ev = reinterpret_cast<MobCorpseDecayedEvent *>(event);
 
     removeChild(ev->mob);
 
     m_mobs.erase(ev->mob->getObjectID());
-//    ev->mob->detach();
-//    delete ev->mob;
 }
-
 
 
 void World::zombieAttacks(Event *event)
 {
-    std::cout << "ZOMBIE ATTACK!!!" << std::endl;
+    log::messageln("Zombie attacked");
 
     ZombiePunchEvent * ev = reinterpret_cast<ZombiePunchEvent *>(event);
 
     RectT<Vector2> attack_box;
     attack_box = ev->attack_area;
 
-/*
-    spColorRectSprite rect = new ColorRectSprite();
-    rect->setPosition(attack_box.getLeftTop());
-    rect->setSize(attack_box.getSize());
-    rect->attachTo(this);
-*/
+    RectT<Vector2> player_box = m_player->getRectPlayer();
 
-    RectT<Vector2> player_box = player->getRectPlayer();
-
-	if (player_box.isIntersecting(attack_box))
-	{
-		player->takeDamage(ev->damage);
-		gamescreen->setHp(gamescreen->getHp() - ev->damage);
+    if (player_box.isIntersecting(attack_box)) {
+        m_player->takeDamage(ev->damage);
+        gamescreen->setHp(gamescreen->getHp() - ev->damage);
 	}
-        
 }
 
 
 void World::onPlayerPunch(Event * event)
 {
-    std::cout << "PLAYER ATTACK!!!" << std::endl;
-    PlayerPunchEvent * ev = reinterpret_cast<PlayerPunchEvent *>(event);
+    log::messageln("Player attacked");
 
+    PlayerPunchEvent * ev = reinterpret_cast<PlayerPunchEvent *>(event);
 
     RectT<Vector2> attack_box;
     attack_box = ev->attack_area;
 
-/*
-    spColorRectSprite rect = new ColorRectSprite();
-    rect->setPosition((ev->attack_area).getLeftTop());
-    rect->setSize((ev->attack_area).getSize());
-    rect->attachTo(this);
-*/
-
-    for(auto it = m_mobs.begin(); it != m_mobs.end(); it++)
-    {
-        /*
-        spColorRectSprite rect = new ColorRectSprite();
-        rect->setPosition((*it)->getMobBox().getLeftTop());
-        rect->setSize((*it)->getMobBox().getSize());
-        rect->attachTo(this);
-        */
-
+    for(auto it = m_mobs.begin(); it != m_mobs.end(); it++) {
         if(attack_box.isIntersecting((*it).second->getMobBox())) {
             (*it).second->getHit(ev->damage);
         }
@@ -205,17 +224,18 @@ void World::onPlayerPunch(Event * event)
 }
 
 
-void World::checkBanana()
+void World::onPause(Event* event)
 {
-   RectT<Vector2> player_box = player->getCollisionBox();
-
-   for(std::vector<Banana>::iterator i = m_bananas.begin(); i!=m_bananas.end(); i++){
-       if(player_box.isIntersecting((*i).getCollisionBox()) == true) {
-           player->addBanana();
-           (*i).deleteBanana();
-           m_bananas.erase(i);
-           break;
-       }
-   }
-
+    if(m_pause_mode == false) {
+        m_clock_world->pause();
+        m_pause_mode = true;
+        m_player->setNormalStateAnimation();
+        gamescreen->turnPauseTextOn();
+    } else {
+        m_clock_world->resume();
+        m_pause_mode=false;
+        gamescreen->turnPauseTextOff();
+    }
 }
+
+

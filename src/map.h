@@ -86,10 +86,10 @@ public:
 
     void setVecBoolCollisions();
 
-    Vector2 getMapSize();
+    Vector2 getMapSize() const;
     bool isObstacle(RectT<Vector2> rect_player);
     bool isPointCollision(Vector2 pos);
-    std::vector<std::vector<bool>> getVecBoolCollisions();
+    std::vector< std::vector<bool> > getVecBoolCollisions() const;
 
     Position getPosHero();
     std::vector<Position> getPosBoss();

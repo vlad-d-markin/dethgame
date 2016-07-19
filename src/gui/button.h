@@ -6,7 +6,6 @@
 #include <string>
 
 namespace Gui {
-
     using namespace oxygine;
 
     class ButtonClickedEvent : public Event {
@@ -25,7 +24,6 @@ namespace Gui {
         std::string m_action;
         virtual void onClicked(Event * event);
     };
-
 }
 
 

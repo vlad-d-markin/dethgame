@@ -11,6 +11,7 @@ enum State {
     PURSUIT,
     ATTACK,
     GO_BACK,
+    DEATH,
 };
 
 class MobBrain : public Sprite
@@ -35,6 +36,8 @@ public:
     void stateWait();
     void statePursuit();
     void stateGoBack();
+    void stateDeath();
+    void kill();
 
     virtual void doUpdate(const UpdateState& us);
 
