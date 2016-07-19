@@ -49,9 +49,11 @@ private:
     ResAnim* persAnimUpAttack;
     ResAnim* persAnimDownAttack;
     ResAnim* persAnimRightAttack;
+    ResAnim* persAnimLeftAttack;
     ResAnim* persStandsUpAttack;
     ResAnim* persStandsDownAttack;
     ResAnim* persStandsRightAttack;
+    ResAnim* persStandsLeftAttack;
     ResAnim* persAnimCurrent;
     ResAnim* persDeath;
 
