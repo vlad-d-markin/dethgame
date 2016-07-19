@@ -124,6 +124,7 @@ void DethGame::destroy()
 void DethGame::setScreen(std::string name)
 {
     if (name == "Menu") {
+        m_gameScreen->rebuildWorld();
         m_gameScreen->setVisible(false);
         m_gameScreen->setEnable(false);
 
@@ -192,6 +193,8 @@ void DethGame::setScreen(std::string name)
 
 		m_menuScreen->setVisible(false);
 
+
+        m_gameScreen->rebuildWorld();
 		m_gameScreen->setVisible(false);
 		m_gameScreen->setEnable(false);
 
