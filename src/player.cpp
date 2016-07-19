@@ -71,7 +71,7 @@ Player::Player(GameScreen *gs) : Sprite()
 
     bananaCount = 0;
 
-    m_collision_box.setSize(getSize().x, (getSize().y)/2);
+    m_collision_box.setSize(getSize().x, (getSize().y)/2);//rectangle of collision
     m_collision_box.setPosition(getPosition()-Vector2((getSize().x)/2, 0));
 }
 
@@ -117,7 +117,7 @@ void Player::doUpdate(const UpdateState &us)
         return;
 
 
-    intPunch += us.dt;
+    intPunch += us.dt;//interval of punches
 
 	//calculate speed using delta time
     float speed = 150.0f * (us.dt / 1000.0f);

@@ -3,6 +3,8 @@
 #include "DebugActor.h"
 #include "dethgame.h"
 
+//inizializiruet dvizhok
+
 using namespace oxygine;
 
 // This function is called each frame

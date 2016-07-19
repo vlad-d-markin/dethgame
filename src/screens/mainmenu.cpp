@@ -37,15 +37,15 @@ MainMenu::MainMenu()
 	updateLayout();
 }
 
-void MainMenu::updateLayout()
+void MainMenu::updateLayout()//for mashtabirovanie
 {
 	int x, y;
 	SDL_GetWindowSize(core::getWindow(), &x, &y);
 
-	float scale_factor = x / m_resources->getResAnim("main_menu_bg")->getWidth();
+    float scale_factor = x / m_resources->getResAnim("main_menu_bg")->getWidth();
 	background->setScale(scale_factor);
 
-	btn_start->setScale(scale_factor);
+    btn_start->setScale(scale_factor);
 	btn_start->setPosition(x / 2 - btn_start->getWidth() / 2 * scale_factor, GAP_SIZE + y / 2);
 
 	btn_rules->setScale(scale_factor);

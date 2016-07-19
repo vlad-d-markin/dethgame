@@ -180,7 +180,7 @@ void World::corpseDecayed(Event *event)
 {
     log::messageln("Corpse decayed");
 
-    MobCorpseDecayedEvent * ev = reinterpret_cast<MobCorpseDecayedEvent *>(event);
+    MobCorpseDecayedEvent * ev = reinterpret_cast<MobCorpseDecayedEvent *>(event);//interpritating class for needed event
 
     removeChild(ev->mob);
 

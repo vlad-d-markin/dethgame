@@ -11,7 +11,7 @@ using namespace oxygine;
 
 // information about the specific tileset
 typedef struct {
-    int first_gid;
+    int first_gid;//id of 1st grid
     int pix_tile_width;
     int pix_tile_height;
     int tile_count;

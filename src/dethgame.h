@@ -13,12 +13,13 @@
 
 #define CONFIG "dethconfig.json"
 
+// singletone, give access to the object
 class DethGame
 {
 private:
     DethGame();
-    DethGame(const DethGame&):config(CONFIG){}
-    DethGame& operator=(const DethGame&){}
+    DethGame(const DethGame&):config(CONFIG){} //forbid copy
+    DethGame& operator=(const DethGame&){} // and prisvaivat'
     Configuration config;
     spMainMenu m_menuScreen;
     spGameScreen m_gameScreen;
@@ -28,7 +29,7 @@ private:
 
 public:
     static DethGame * instance();
-	bool isWin;
+    bool isWin; //give screens to understand if u win or not
     oxygine::spStage getMainStage();
     std::string getGuiResPath();
     std::string getTileResPath();

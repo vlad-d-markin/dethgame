@@ -4,7 +4,7 @@
 #include <iostream>
 
 using namespace oxygine;
-
+//dont use
 BaseScreen::BaseScreen(bool debugging)
 {
     setName("Base screen");

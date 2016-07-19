@@ -46,7 +46,7 @@ private:
 	Gui::spBar hp_bar;
 	Gui::spBar bananaCounter;
 	int bananasOnMap;
-    Resetable* gameworld;
+    Resetable* gameworld;//interface
 protected:
     void doUpdate(const UpdateState &us);
 };
