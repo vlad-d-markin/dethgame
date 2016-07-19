@@ -50,9 +50,16 @@ void World::draw()
 
     map->drawTop(gamescreen);
 
-    // TODO: Somebody remove it, pls
-    pathFinder = new pathFinding(map);
-    pathFinder->findPath(VectorT2<int>(5, 5), VectorT2<int>(6, 5));
+    // TODO: pathfinder
+    Pathfinder * pf = new Pathfinder(map);
+    std::list<Vector2> path = pf->findPath(Vector2(128, 128), Vector2(1280, 1280));
+    for(auto it = path.begin(); it != path.end(); it++) {
+        std::cout << (*it).x << " " << (*it).y << std::endl;
+        spColorRectSprite wp = new ColorRectSprite();
+        wp->setPosition((*it));
+        wp->setSize(64, 64);
+        wp->attachTo(this);
+    }
 }
 
 void World::doUpdate(const UpdateState &us)

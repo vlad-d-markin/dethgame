@@ -23,7 +23,6 @@ class World : public Actor
 
     std::vector<Banana> m_bananas;
 
-    pathFinding *pathFinder;
 
 public:
     World(GameScreen* gs);

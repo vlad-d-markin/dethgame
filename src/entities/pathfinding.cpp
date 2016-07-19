@@ -1,183 +1,139 @@
 #include "pathfinding.h"
-#include <cmath>
-#include <iostream>
-
 using namespace oxygine;
 
-pathFinding::pathFinding(Map* map)
+Waypoint::Waypoint(Vector2 point)
 {
-    mapa = map;
-    collisionMap = mapa->getVecBoolCollisions();
-    numberOfRows = mapa->getMapSize().y;
-    numberOfColumns = mapa->getMapSize().x;
+    m_position = point;
+    m_opened = m_closed = false;
+    m_parent = 0;
+    m_g_score = m_h_score = 0;
+
+    x = y = 0;
 }
 
-std::vector<Direction> pathFinding::findPath(const VectorT2<int> _start, const VectorT2<int> _end)
+
+
+Pathfinder::Pathfinder(Map *map)
 {
-    std::vector<Direction> stepQueue;
-    //check if _start = _end
+    m_map = map;
 
-    end.position = _end;
+    Vector2 map_size = m_map->getMapSize();
+    for(int y = 0; y < map_size.y; y += 64) {
+        for(int x = 0; x < map_size.x; x += 64) {
+            Vector2 pos = Vector2(x, y);
+            bool is_wall = m_map->isPointCollision(pos);
 
-    start.position = _start;
-    start.G = 0;
-    calculateH(&start);
-    calculateF(&start);
-    openList.push_back(start);
+            Waypoint * wp = new Waypoint(pos);
+            wp->m_is_wall = is_wall;
+//            m_waypoints_map[(y % 64) * ((int)map_size.x % 64) + x % 64] = wp;
+            std::cout << (is_wall) ? 'x' : '_';
+            wp->x = x;
+            wp->y = y;
+            m_waypoints_map.push_back(wp);
+        }
+        std::cout << std::endl;
+    }
+}
 
-    while(true)
-    {
-        int Fmin = openList.begin()->F;
-        auto FminI = openList.begin();
-        for(auto i = openList.begin(); i != openList.end(); ++i)
-        {
-            calculateF(&(*i));
-            if(i->F < Fmin)
-            {
-                Fmin = i->F;
-                FminI = i;
+
+Waypoint * Pathfinder::getWaypoint(int x, int y)
+{
+    int s = m_waypoints_map.size();
+    int idx = y * ((int)m_map->getMapSize().x % 64) + x;
+
+    return m_waypoints_map[y * ((int)m_map->getMapSize().x / 64) + x];
+}
+
+
+std::list<Vector2> Pathfinder::findPath(Vector2 from, Vector2 to)
+{
+    std::list<Vector2> path;
+
+    std::list<Waypoint *> openedList;
+    std::list<Waypoint *> closedList;
+    std::list<Waypoint *>::iterator it;
+
+    Waypoint * start = new Waypoint(from);
+    Waypoint * end = new Waypoint(to);
+    Waypoint * current = 0;
+    Waypoint * child = 0;
+
+    openedList.push_back(start);
+    start->m_opened = true;
+
+    unsigned int n = 0;
+
+    while((n == 0) || (current != end && n < 60)) {
+        // Look for point with smallest F score
+        for(it = openedList.begin(); it != openedList.end(); it++) {
+            if(it == openedList.begin() || (*it)->m_f_score <= current->m_f_score) {
+                current = *it;
             }
         }
-        current = &(*FminI);
-        closedList.push_back(*current);
-        openList.erase(FminI);
-        checkCellsAround(current);
 
-        if(isInList(end.position, &openList))
-        {
-            std::cout << "path is found!\n";
-            //stepQueue.push_back();
-            //make vector of directions
+
+        // Path was found
+        if(*current == *end) {
+            break;
         }
-        else if(openList.empty())
-        {
-            std::cout << "there is no path!\n";
+
+        // Remove current point from openedList and close it
+        openedList.remove(current);
+        current->m_opened = false;
+        closedList.push_back(current);
+        current->m_closed = true;
+
+        // Check tiles around current
+        for(int x = -1; x <= 1; x++){
+            for(int y = -1; y <=1; y++) {
+                // Skip current
+                if(x == 0 && y == 0) {
+                    continue;
+                }
+
+                int a = (int)current->m_position.x;
+
+                child = getWaypoint((int)current->m_position.x / 64 + x, (int)current->m_position.y / 64 + y);
+
+                if(child->m_closed || child->m_is_wall) {
+                    continue;
+                }
+
+                if(!child->m_opened) {
+                    child->m_opened = true;
+                    openedList.push_back(child);
+                    child->m_parent = current;
+                    child->calculateScores(end);
+                }
+                else {
+                    if(child->m_g_score > child->getGScore(current)) {
+                        child->m_parent = current;
+                        child->calculateScores(end);
+                    }
+                }
+            }
         }
-    }
-    return stepQueue;
-}
 
-int pathFinding::calculateCost(VectorT2<int> _vector) const
-{
-    if(_vector.x != 0 && _vector.y != 0)
-        return cornerCost;
-    else if(_vector.x != 0 || _vector.y != 0)
-        return sideCost;
-    else
-        return 0;
-}
-
-void pathFinding::calculateG(Cell* _cell) const
-{
-    Cell *currentCell = _cell;
-    int G = 0;
-    while(*currentCell != start)
-    {
-        std::cerr << "x=" << currentCell->position.x << "  y=" << currentCell->position.y << std::endl;
-        if(currentCell->parent == NULL || currentCell->position == VectorT2<int>(0, 0)
-        || currentCell->parent->position == VectorT2<int>(0, 0))
-        {
-            std::cerr <<"null in calculateG\n";
-            return;
-        }
-        if(*currentCell == *(currentCell->parent))
-        {
-            std::cerr <<"recursion in calculateG\n";
-            return;
-        }
-        G += calculateCost(currentCell->position - currentCell->parent->position);
-        currentCell = currentCell->parent;
-    }
-    _cell->G = G;
-}
-
-void pathFinding::calculateH(Cell* _cell) const
-{
-    _cell->H = ( abs(_cell->position.x - end.position.x) +
-                 abs(_cell->position.y - end.position.y) ) * sideCost;
-}
-
-void pathFinding::calculateF(Cell* _cell) const
-{
-    _cell->F = _cell->G + _cell->H;
-}
-
-void pathFinding::checkCellsAround(Cell *_cell)
-{
-    VectorT2<int> offset(1, 1);
-    checkCell(_cell->position + offset);    // ( 1;  1)
-    offset.y = 0;
-    checkCell(_cell->position + offset);    // ( 1;  0)
-    offset.y = -1;
-    checkCell(_cell->position + offset);    // ( 1; -1)
-    offset.x = 0;
-    checkCell(_cell->position + offset);    // ( 0; -1)
-    offset.x = -1;
-    checkCell(_cell->position + offset);    // (-1; -1)
-    offset.y = 0;
-    checkCell(_cell->position + offset);    // (-1;  0)
-    offset.y = 1;
-    checkCell(_cell->position + offset);    // (-1;  1)
-    offset.x = 0;
-    checkCell(_cell->position + offset);    // ( 0;  1)
-}
-
-void pathFinding::checkCell(VectorT2<int> _position)
-{
-    if( (collisionMap[_position.y])[_position.x] == true
-            || isInList(_position, &closedList)
-            || _position.x >= numberOfColumns
-            || _position.x < 0
-            || _position.y >= numberOfRows
-            || _position.y < 0)
-    {
-        return;
-    }
-
-    Cell* cellForCheck;
-    bool alreadyInOpenList;
-    if(isInList(_position, &openList, cellForCheck))
-    {
-        alreadyInOpenList = true;
-    }
-    else
-    {
-        alreadyInOpenList = false;
-
-        //add to openList
-        Cell newCell;
-        newCell.position = _position;
-        openList.push_back(newCell);
-        cellForCheck = &(openList.back());
-        cellForCheck->parent = current;
+        n++;
     }
 
 
-
-    calculateG(cellForCheck);
-    calculateH(cellForCheck);
-    calculateF(cellForCheck);
-
-    if(alreadyInOpenList)
-    {
-        if(cellForCheck->G < current->G)
-        {
-            cellForCheck->parent = current;
-            calculateG(cellForCheck);
-            calculateF(cellForCheck);
-        }
+    for(it = openedList.begin(); it != openedList.end(); it++) {
+        (*it)->m_opened = false;
     }
-}
 
-bool pathFinding::isInList(VectorT2<int> _position, std::list<Cell> *_list, Cell* _cellForCheck)
-{
-    for(auto i = _list->begin(); i != _list->end(); ++i)
-    {
-        if(i->position == _position)
-        {
-            _cellForCheck = &(*i);
-            return true;
-        }
+    for(it = closedList.begin(); it != closedList.end(); it++) {
+        (*it)->m_closed = false;
     }
-    return false;
+
+    path.push_front(to);
+
+    while(current->m_parent != 0 && current != start) {
+        path.push_front(current->m_position);
+        current = current->m_parent;
+    }
+
+    path.push_front(from);
+
+    return path;
 }
