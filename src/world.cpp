@@ -124,10 +124,10 @@ void World::doUpdate(const UpdateState &us)
 
 void World::checkBanana()
 {
-   RectT<Vector2> player_box = m_player->getCollisionBox();
+   RectT<Vector2> player_collision_box = m_player->getCollisionBox();
 
    for(std::vector<Banana>::iterator i = m_bananas.begin(); i!=m_bananas.end(); i++){
-       if(player_box.isIntersecting((*i).getCollisionBox()) == true) {
+       if(player_collision_box.isIntersecting((*i).getCollisionBox()) == true) {
            m_player->addBanana();
            (*i).deleteBanana();
            m_bananas.erase(i);
@@ -153,7 +153,9 @@ void World::checkPlayerMovement()
     {
         if(step_speed_x != 0)
         {
-            RectT<Vector2> new_rect_player_x(m_player->getPosition()+Vector2(step_speed_x, 0), m_player->getSize());
+            RectT<Vector2> new_rect_player_x = m_player->getCollisionBox();
+            new_rect_player_x.setPosition(new_rect_player_x.getLeftTop() + Vector2(step_speed_x, 0));
+
             if(m_map->isObstacle(new_rect_player_x) == false) {
                 m_player->moveX(step_speed_x);
                 playerMoved = true;
@@ -162,7 +164,9 @@ void World::checkPlayerMovement()
 
         if(step_speed_y != 0)
         {
-            RectT<Vector2> new_rect_player_y(m_player->getPosition()+Vector2(0, step_speed_y), m_player->getSize());
+            RectT<Vector2> new_rect_player_y = m_player->getCollisionBox();
+            new_rect_player_y.setPosition(new_rect_player_y.getLeftTop() + Vector2(0, step_speed_y));
+
             if(m_map->isObstacle(new_rect_player_y) == false) {
                 m_player->moveY(step_speed_y);
                 playerMoved = true;

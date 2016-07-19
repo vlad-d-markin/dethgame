@@ -14,9 +14,12 @@ using namespace oxygine;
 class Player : public Sprite
 {
 private: 
-    Vector2 mapSize;
     Resources * my_resources;
     ResAnim* resAnim;
+
+    RectT<Vector2> m_collision_box;
+    Vector2 mapSize;
+
     Vector2 pos;
     Vector2 position_spawn;
     float dirX;
@@ -26,7 +29,9 @@ private:
     bool movingOld;
     int VerticalAnimationDuration;
     int HorizontalAnimationDuration;
-    RectT<Vector2> * rectangle;
+
+    //spColorRectSprite col_box;
+
 
 
     int weaponDamage;
@@ -86,11 +91,11 @@ public:
     Player(GameScreen *gs);
     void reset();
 
+    RectT<Vector2> getCollisionBox();
 	void setMapSize(Vector2 _mapSize) { mapSize = _mapSize; }
 	Vector2 getMapSize() const { return mapSize; }
     Vector2 getDirection();
     int getHP();
-    RectT<Vector2> getCollisionBox();
 
     void moveX(const float distance);
     void moveY(const float distance);
