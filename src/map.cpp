@@ -8,7 +8,6 @@
 #include <stdlib.h>
 #include <iostream>
 
-
 // the names of object types in the "Tiled"
 #define HERO        "Hero"
 #define MOBS        "Mobs"
@@ -24,8 +23,6 @@
 #define DEVIL       "devil"
 #define ZOMBIE      "zombie"
 #define PIXIE       "pixie"
-
-
 
 Map::Map()
 {
@@ -47,9 +44,10 @@ void Map::parseXML()
     std::string path = DethGame::instance()->getMapTmxPath();
     pugi::xml_document doc;
     pugi::xml_parse_result result = doc.load_file(path.c_str());
-    if (result.status == 1) {
-        std::cout << "File " << path << " was not found\n";
-    }
+    //debug
+    //if (result.status == 1) {
+    //    std::cout << "File " << path << " was not found\n";
+    //}
     pugi::xml_node map = doc.child("map");
 
     // read map specifications
@@ -57,7 +55,6 @@ void Map::parseXML()
     num_tiles_in_col = atoi(map.attribute("height").value());
     pix_tile_width = atoi(map.attribute("tilewidth").value());
     pix_tile_height = atoi(map.attribute("tileheight").value());
-
 
     // read specifications of tilesets
     for (pugi::xml_node tiles = map.child("tileset"); tiles; tiles = tiles.next_sibling("tileset"))
@@ -87,7 +84,6 @@ void Map::parseXML()
         vec_tilesets.push_back(ts);
     }
 
-
     // read specifications of layers
     for (pugi::xml_node _layer = map.child("layer"); _layer; _layer = _layer.next_sibling("layer"))
     {
@@ -105,7 +101,6 @@ void Map::parseXML()
 
         vec_layers.push_back(ly);
     }
-
 
     // read specifications of the objects
     for (pugi::xml_node _objectgroup = map.child("objectgroup"); _objectgroup; _objectgroup = _objectgroup.next_sibling("objectgroup"))
@@ -130,31 +125,24 @@ void Map::parseXML()
                 if (_object.attribute("name").value() == std::string(MELEE_FAN)) {
                     vec_pos_melee_fan.push_back(pos_mob);
                 }
-
                 if (_object.attribute("name").value() == std::string(RANGE_FAN)) {
                     vec_pos_range_fan.push_back(pos_mob);
                 }
-
                 if (_object.attribute("name").value() == std::string(RAPPER)) {
                     vec_pos_rapper.push_back(pos_mob);
                 }
-
                 if (_object.attribute("name").value() == std::string(ARMY)) {
                     vec_pos_army.push_back(pos_mob);
                 }
-
                 if (_object.attribute("name").value() == std::string(DEVIL)) {
                     vec_pos_devil.push_back(pos_mob);
                 }
-
                 if (_object.attribute("name").value() == std::string(ZOMBIE)) {
                     vec_pos_zombie.push_back(pos_mob);
                 }
-
                 if (_object.attribute("name").value() == std::string(PIXIE)) {
                     vec_pos_pixie.push_back(pos_mob);
                 }
-
             }
         }
 
@@ -172,7 +160,6 @@ void Map::parseXML()
         }
 
         if (_objectgroup.attribute("name").value() == std::string(TREASURE)) {
-
             for (pugi::xml_node _object = _objectgroup.child("object"); _object; _object = _object.next_sibling("object"))
             {
                 Position tr_pos;
@@ -196,9 +183,6 @@ void Map::parseXML()
                 vec_pos_bananas.push_back(banana_pos);
             }
         }
-
-        // if (_objectgroup.attribute("name").value() == std::string(COLLISION))
-
     }
 }
 
@@ -208,7 +192,6 @@ void Map::drawGround(GameScreen *gamescreen)
     drawLayer(vec_layers[BACKGROUND], gamescreen, BACKGROUND);
     drawLayer(vec_layers[BACKGROUND_OBJECTS], gamescreen);
     drawLayer(vec_layers[COLLISIONS], gamescreen, COLLISIONS);
-
     setVecBoolCollisions();
 }
 
@@ -243,12 +226,10 @@ void Map::drawLayer(Layer& layer, GameScreen *gs, int tiletype)
         // search of the necessary tileset
         for(int i = 0; i < (vec_tilesets.size()-1); i++) {
 
-            if( (gid >= vec_tilesets[i].first_gid) && (gid < vec_tilesets[i+1].first_gid) ) {
-
+            if((gid >= vec_tilesets[i].first_gid) && (gid < vec_tilesets[i+1].first_gid)) {
                 gid = gid - vec_tilesets[i].first_gid + 1;
                 tile->setResAnim(map_resources->getResAnim(vec_tilesets[i].name));
                 columns_count = vec_tilesets[i].columns_count;
-
                 break;
             }
         }
@@ -376,7 +357,6 @@ std::vector<Vector2> Map::getPosBananas()
 void Map::setVecBoolCollisions()
 {
     for(int i_row = 0; i_row < num_tiles_in_col; i_row++) {
-
         std::vector<bool> row;
         for(int i_col = 0; i_col < num_tiles_in_row; i_col++) {
             row.push_back(isPointCollision(Vector2(i_col*pix_tile_width+1, i_row*pix_tile_height+1)));
@@ -392,7 +372,4 @@ std::vector< std::vector<bool> > Map::getVecBoolCollisions() const
 }
 
 
-Map::~Map()
-{
-
-}
+Map::~Map() {}

@@ -2,9 +2,7 @@
 
 #include <iostream>
 
-Entity::Entity() {
-
-}
+Entity::Entity() {}
 
 void Entity::doUpdate(const UpdateState &us)
 {

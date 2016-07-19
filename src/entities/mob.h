@@ -36,14 +36,6 @@ public:
         PUNCHING_WEST,
         PUNCHING_NORTH
     };
-    /*
-    enum Effects {
-        STUN = 1,
-        BLEEDING = 1 << 1,
-        REGENERATING = 1 << 2
-    };
-     */
-
 protected:
     MobBrain * brain;
 
@@ -65,8 +57,6 @@ protected:
 
     RectT<Vector2> m_attack_area;
     RectT<Vector2> mob_box;
-
-
 public:
     Mob();
     virtual ~Mob();
@@ -79,18 +69,14 @@ public:
     void getHit(int damage);  
     virtual void walkTo(Vector2 dest);
     void attack(const UpdateState &us);
-
     virtual void walk(Direction dir) {}
 
     void die();
     bool isDecayed();
-
     virtual void punch(Direction dir)=0;
 protected:
     virtual void doUpdate(const UpdateState& us);
     virtual void onDie() {}
-
 };
-
 
 #endif //DETHGAME_MOB_H

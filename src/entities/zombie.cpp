@@ -110,7 +110,6 @@ void Zombie::punch(Direction dir)
         }
             break;
 
-
         case up: {
             m_state = PUNCHING_NORTH;
             removeTween(m_current_tween);
@@ -124,13 +123,10 @@ void Zombie::punch(Direction dir)
         }
             break;
 
-
         default:
-
             break;
     }
 }
-
 
 
 void Zombie::walk(Direction dir)
@@ -193,15 +189,11 @@ void Zombie::walk(Direction dir)
             step.set(0, 0);
             break;
     }
-
-//    m_currentMoveTween = addTween(Actor::TweenPosition(getPosition() + step), 600);
-//    m_current_tween->addDoneCallback(CLOSURE(this, &Zombie::onWalkComplete));
 }
 
 
 void Zombie::doUpdate(UpdateState &us)
 {
-
     Mob::doUpdate(us);
 }
 
@@ -209,20 +201,16 @@ void Zombie::doUpdate(UpdateState &us)
 void Zombie::doWalking()
 {
     if(m_current_route.size() > 0) {
-
-//        if((m_current_route.front() - getPosition()).length() <= 0.1f)
-//            m_current_route.pop_front();
-
         walkToPoint(m_current_route.front());
     }
 }
+
 
 void Zombie::onDie()
 {
     removeTween(m_current_tween);
     m_current_tween = DIE_TWEEN;
 }
-
 
 
 void Zombie::onPunchFinished(Event *e)
@@ -233,7 +221,6 @@ void Zombie::onPunchFinished(Event *e)
 }
 
 
-
 void Zombie::onWalkComplete(Event *e)
 {
     removeTween(m_current_tween);
@@ -242,13 +229,7 @@ void Zombie::onWalkComplete(Event *e)
     m_state = IDLE;
     ZombieArrived zombieArrived(getPosition());
     dispatchEvent(&zombieArrived);
-
-    if(m_current_route.size() > 0) {
-//        walkToPoint(m_current_route.front());
-//        m_current_route.pop_front();
-    }
 }
-
 
 
 void Zombie::walkTo(Vector2 dest)
@@ -263,47 +244,16 @@ void Zombie::walkTo(Vector2 dest)
     std::list<Vector2> path = m_pathfinder->findPath(from, dest);
 
     m_current_route = path;
-//    setPosition(path.front());
-//    m_current_destination = m_current_route.front();
-//    m_current_route.pop_front();
     walkToPoint(m_current_route.front());
     m_current_route.pop_front();
-
-    // Debugging
-    removeChildren();
-
-    for(auto it = path.begin(); it != path.end(); it++) {
-        spColorRectSprite wp = new ColorRectSprite();
-        wp->setSize(64, 64);
-        wp->setAlpha(128);
-        wp->setPosition((*it) - getPosition());
-        wp->attachTo(this);
-        wp->setName("wp");
-    }
 }
-
 
 
 void Zombie::walkToPoint(Vector2 dest)
 {
     m_currentMoveTween = addTween(Actor::TweenPosition(dest), 800);
     m_currentMoveTween->setDoneCallback(CLOSURE(this, &Zombie::onWalkedToPoint));
-
     Direction walk_dir;
-
-//    if(dest.x < getX()) {
-//        if(dest.y < getY()) {
-//            walk_dir = Direction::up_left;
-//        }
-//        else if(dest.y > getY()) {
-//            walk_dir = Direction::down_left;
-//        }
-//        else {
-//
-//        }
-//    }
-
-//    walk(walk_dir);
 }
 
 

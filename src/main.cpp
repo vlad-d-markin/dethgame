@@ -1,48 +1,9 @@
-/*#include "core/oxygine.h"
-#include "map.h"
-#include <iostream>
-
-using namespace oxygine;
-
-#include "SDL_main.h"
-#include "SDL.h"
-
-int main(int argc, char* argv[])
-{
-	Map map("example.tmx");
-		
-	system("pause");
-	return 0;
-}*/
-
-/*#include "core/oxygine.h"
-#include "map.h"
-#include <iostream>
-
-using namespace oxygine;
-
-#include "SDL_main.h"
-#include "SDL.h"
-
-int main(int argc, char* argv[])
-{
-
-	system("pause");
-	return 0;
-}*/
-
-
-
-
-
-
 #include "core/oxygine.h"
 #include "Stage.h"
 #include "DebugActor.h"
 #include "dethgame.h"
 
 using namespace oxygine;
-
 
 // This function is called each frame
 int mainloop()
@@ -98,7 +59,8 @@ void run()
 	getStage()->setSize(size);
 
 	// DebugActor is a helper actor node. It shows FPS, memory usage and other useful stuff
-	DebugActor::show();
+    DebugActor::show();
+    DebugActor::hide();
 
 	// Initializes our example game. See example.cpp
 	DethGame::instance()->init();

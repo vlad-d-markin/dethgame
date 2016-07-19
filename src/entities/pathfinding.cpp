@@ -7,16 +7,33 @@ Waypoint::Waypoint(Vector2 point)
     m_opened = m_closed = false;
     m_parent = 0;
     m_g_score = m_h_score = 0;
-
     x = y = 0;
 }
 
+
+int Waypoint::getGScore(Waypoint *p)
+{
+  return p->m_g_score + (m_position.x == p->m_position.x || m_position.y == p->m_position.y) ? 10 : 14;
+}
+
+
+int Waypoint::getHScore(Waypoint *p)
+{
+    return (std::abs(p->m_position.x - m_position.x) + std::abs(p->m_position.y - m_position.y)) * 10;
+}
+
+
+void Waypoint::calculateScores(Waypoint * end)
+{
+    m_g_score = getGScore(m_parent);
+    m_h_score = getHScore(end);
+    m_f_score = m_g_score + m_h_score;
+}
 
 
 Pathfinder::Pathfinder(Map *map)
 {
     m_map = map;
-
     Vector2 map_size = m_map->getMapSize();
     for(int y = 0; y < map_size.y; y += 64) {
         for(int x = 0; x < map_size.x; x += 64) {
@@ -25,13 +42,14 @@ Pathfinder::Pathfinder(Map *map)
 
             Waypoint * wp = new Waypoint(pos);
             wp->m_is_wall = is_wall;
-//            m_waypoints_map[(y % 64) * ((int)map_size.x % 64) + x % 64] = wp;
-            std::cout << (is_wall) ? 'x' : '_';
+            //debug
+            //std::cout << (is_wall) ? 'x' : '_';
             wp->x = x;
             wp->y = y;
             m_waypoints_map.push_back(wp);
         }
-        std::cout << std::endl;
+        //debug
+        //std::cout << std::endl;
     }
 }
 
@@ -70,13 +88,10 @@ std::list<Vector2> Pathfinder::findPath(Vector2 from, Vector2 to)
                 current = *it;
             }
         }
-
-
         // Path was found
         if(*current == *end) {
             break;
         }
-
         // Remove current point from openedList and close it
         openedList.remove(current);
         current->m_opened = false;
@@ -84,15 +99,13 @@ std::list<Vector2> Pathfinder::findPath(Vector2 from, Vector2 to)
         current->m_closed = true;
 
         // Check tiles around current
-        for(int x = -1; x <= 1; x++){
+        for(int x = -1; x <= 1; x++) {
             for(int y = -1; y <=1; y++) {
                 // Skip current
                 if(x == 0 && y == 0) {
                     continue;
                 }
-
                 int a = (int)current->m_position.x;
-
                 child = getWaypoint((int)current->m_position.x / 64 + x, (int)current->m_position.y / 64 + y);
 
                 if(child->m_closed || child->m_is_wall) {
@@ -104,8 +117,7 @@ std::list<Vector2> Pathfinder::findPath(Vector2 from, Vector2 to)
                     openedList.push_back(child);
                     child->m_parent = current;
                     child->calculateScores(end);
-                }
-                else {
+                } else {
                     if(child->m_g_score > child->getGScore(current)) {
                         child->m_parent = current;
                         child->calculateScores(end);
@@ -113,10 +125,8 @@ std::list<Vector2> Pathfinder::findPath(Vector2 from, Vector2 to)
                 }
             }
         }
-
         n++;
     }
-
 
     for(it = openedList.begin(); it != openedList.end(); it++) {
         (*it)->m_opened = false;
@@ -125,7 +135,6 @@ std::list<Vector2> Pathfinder::findPath(Vector2 from, Vector2 to)
     for(it = closedList.begin(); it != closedList.end(); it++) {
         (*it)->m_closed = false;
     }
-
     path.push_front(to);
 
     while(current->m_parent != 0 && current != start) {
@@ -134,6 +143,5 @@ std::list<Vector2> Pathfinder::findPath(Vector2 from, Vector2 to)
     }
 
     path.push_front(from);
-
     return path;
 }

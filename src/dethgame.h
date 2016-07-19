@@ -7,7 +7,6 @@
 #include "screens/basescreen.h"
 #include "screens/mainmenu.h"
 #include "screens/gamescreen.h"
-#include "screens/guitestscreen.h"
 #include "screens/optionsscreen.h"
 #include "screens/rulesscreen.h"
 #include "screens/gameoverscreen.h"

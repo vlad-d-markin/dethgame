@@ -17,9 +17,7 @@ public:
         HP = 100,
         DAMAGE = 10
     };
-
 private:
-
     Resources resources;
 
     ResAnim * m_walk_north_anim;
@@ -41,8 +39,6 @@ private:
     Pathfinder * m_pathfinder;
     std::list<Vector2> m_current_route;
     Vector2 m_current_destination;
-
-
 public:
     Zombie(Vector2 spawn_pos, Map * map);
     virtual ~Zombie();
@@ -50,22 +46,16 @@ public:
     void punch(Direction dir);
     virtual void walk(Direction dir);
     virtual void walkTo(Vector2 dest);
-
     virtual void doUpdate(UpdateState& us);
-
     void doWalking();
-
 protected:
     virtual void onDie();
-
     void onPunchFinished(Event * e);
     void onWalkComplete(Event * e);
-
-
     void walkToPoint(Vector2 dest);
     void onWalkedToPoint(Event * ev);
-
 };
+
 
 class ZombiePunchEvent : public Event
 {
@@ -73,7 +63,6 @@ public:
     enum { EVENT = eventID('Z', 'p', 'H', 'R') };
     RectT<Vector2> attack_area;
     int damage;
-
     ZombiePunchEvent(RectT<Vector2> area, int dmg) : Event(EVENT), attack_area(area), damage(dmg) {}
 };
 

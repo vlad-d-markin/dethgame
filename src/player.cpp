@@ -400,21 +400,22 @@ void Player::takeDamage(int damage)
         healthPoints -= damage;
     else return;
     if(healthPoints <= 0) {
-        std::cout << "RIP Nathan" << std::endl;
+        //debug
+        //std::cout << "RIP Nathan" << std::endl;
         persAnimCurrent = persDeath;
         setResAnim(persAnimCurrent);
 
 		DethGame::instance()->isWin = false;
 		DethGame::instance()->setScreen("Game over screen");
     }
-    std::cout << "Nathan -" << damage << "hp (" << healthPoints << ")" << std::endl;
+    //debug
+    //std::cout << "Nathan -" << damage << "hp (" << healthPoints << ")" << std::endl;
 }
 
 RectT<Vector2> Player::getRectPlayer()
 {
     RectT<Vector2> rect_player(getPosition(), getSize());
     rect_player.setPosition(rect_player.getLeftTop()-getSize()/2);
-
     return rect_player;
 }
 
@@ -466,7 +467,8 @@ void Player::addBanana()
         healthPoints += HEALING_SIZE;
         gamescreen->setHp(healthPoints);
     }
-    std::cout << "Nathan + 200" << " hp (" << healthPoints << ")" << std::endl;
+    //debug
+    //std::cout << "Nathan + 200" << " hp (" << healthPoints << ")" << std::endl;
 }
 
 void Player::updatePunching(bool _isPunching)

@@ -127,8 +127,6 @@ void OptionsScreen::addMusicVolPanel()
     m_music_vol_bar->setPosition(130, 4);
     m_music_vol_bar->setValue(DethGame::instance()->getConfiguration()->getMusicVolume());
     music_volume_panel->addElement(m_music_vol_bar);
-
-//    music_volume_panel->showBoundaries(true);
 }
 
 void OptionsScreen::addFxVolPanel()
@@ -168,8 +166,6 @@ void OptionsScreen::addFxVolPanel()
     m_fx_vol_bar->setPosition(130, 4);
     m_fx_vol_bar->setValue(DethGame::instance()->getConfiguration()->getFxVolume());
     effects_volume_panel->addElement(m_fx_vol_bar);
-
-    //    effects_volume_panel->showBoundaries(true);
 }
 
 void OptionsScreen::addFullscreenPanel()
@@ -195,7 +191,6 @@ void OptionsScreen::addFullscreenPanel()
     m_fullscreen_switch->setPosition(100, 4);
     m_fullscreen_switch->addEventListener(Gui::SwitchStateChangedEvent::EVENT,
                                           CLOSURE(this, &OptionsScreen::onFullscreenChanged));
-//    fullscreen_panel->showBoundaries(true);
 }
 
 OptionsScreen::~OptionsScreen()

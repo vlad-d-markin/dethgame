@@ -42,7 +42,6 @@ private:
     Resources * m_pause_resources;
     Gui::spTextLabel pause_label;
 
-
     bool enable;
 	Gui::spBar hp_bar;
 	Gui::spBar bananaCounter;

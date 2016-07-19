@@ -116,7 +116,6 @@ void World::doUpdate(const UpdateState &us)
          (*it).second->setPosPlayer(m_player->getPosition());
         (*it).second->doWalking();
     }
-
     // check the player movenent on collision with obstacles
     checkPlayerMovement();
 }

@@ -22,10 +22,8 @@ GameOverScreen::GameOverScreen()
 	updateLayout();
 	nathanPic->attachTo(this);
 	msg->attachTo(this);
-	
-
-	//nathanPic->setResAnim(m_resources->getResAnim("skin_died"));
 }
+
 
 void GameOverScreen::doUpdate(const UpdateState &us)
 {
@@ -34,13 +32,10 @@ void GameOverScreen::doUpdate(const UpdateState &us)
 	if ((data[SDL_SCANCODE_ESCAPE] || data[SDL_SCANCODE_RETURN]) && enable)
 		DethGame::instance()->setScreen("Menu");
 
-	if (DethGame::instance()->isWin == true)
-	{
+    if (DethGame::instance()->isWin == true) {
 		nathanPic->setResAnim(m_resources->getResAnim("win"));
 		msg->setText("BLOODWIN!");
-	}
-	else if (msg->getText() == "BLOODWIN!")
-	{
+    } else if (msg->getText() == "BLOODWIN!") {
 		nathanPic->setResAnim(m_resources->getResAnim("dead"));
 		msg->setText("YOU DEAD!");
 	}
@@ -64,8 +59,4 @@ void GameOverScreen::setMsg(const std::string & _msg)
 	msg->setText(_msg);
 }
 
-GameOverScreen::~GameOverScreen()
-{
-
-
-}
+GameOverScreen::~GameOverScreen() {}

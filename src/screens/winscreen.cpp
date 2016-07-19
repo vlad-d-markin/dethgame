@@ -24,10 +24,8 @@ WinScreen::WinScreen()
 void WinScreen::doUpdate(const UpdateState &us)
 {
     const Uint8* data = SDL_GetKeyboardState(0);
-
 	if (data[SDL_SCANCODE_ESCAPE] && enable)
 		DethGame::instance()->setScreen("Menu");
-		//DethGame::instance()->quit();
 }
 
 void WinScreen::setEnable(bool _enable)

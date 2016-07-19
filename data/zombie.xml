@@ -12,7 +12,7 @@
 		<image id="zombie_idle" file="attack_back.png" cols="6"/>
 
 		<image id="zombie_attack_south" file="attack_front.png" cols="6"/>
-		<image id="zombie_attack_east" file="attack_rigth.png" cols="6"/>
+		<image id="zombie_attack_east" file="attack_right.png" cols="6"/>
 		<image id="zombie_attack_west" file="attack_left.png" cols="6"/>
 		<image id="zombie_attack_north" file="attack_back.png" cols="6"/>
 	</atlas>

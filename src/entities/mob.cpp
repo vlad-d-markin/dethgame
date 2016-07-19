@@ -13,7 +13,10 @@ Mob::Mob()
     m_last_hit_time = m_hit_freq + 1;
 }
 
-Mob::~Mob() { log::messageln("Mob was deleted"); }
+Mob::~Mob() {
+    log::messageln("Mob was deleted");
+}
+
 
 void Mob::doUpdate(const UpdateState &us)
 {
@@ -24,7 +27,6 @@ void Mob::doUpdate(const UpdateState &us)
     brain->doUpdate(us);
     switch (brain->getState()) {
     case WAIT:
-
         break;
     case PURSUIT:
         walkTo(m_pos_player);
@@ -60,86 +62,70 @@ void Mob::doUpdate(const UpdateState &us)
 }
 
 
-
 void Mob::attack(const UpdateState &us)
 {
     if(m_last_hit_time < m_hit_freq) {
         m_last_hit_time += us.dt;
         return;
     }
-
     m_last_hit_time = 0;
 
     float x = distance(m_pos_player.x, m_pos_player.y, m_pos_player.x, getPosition().y);
     float y = distance(getPosition().x, getPosition().y, m_pos_player.x, m_pos_player.y);
     float sin = x/y;
 
-    if (((getPosition().x < m_pos_player.x))&&(getPosition().y > m_pos_player.y))
-    {
-        if(fabs(sin)<(sqrt(2)/2)){
+    if (((getPosition().x < m_pos_player.x))&&(getPosition().y > m_pos_player.y)) {
+        if(fabs(sin)<(sqrt(2)/2)) {
             punch(right);
             return;
-        }
-        else {
+        } else {
             punch(up);
             return;
         }
     }
 
-    if (((getPosition().x < m_pos_player.x))&&(getPosition().y < m_pos_player.y))
-    {
+    if (((getPosition().x < m_pos_player.x))&&(getPosition().y < m_pos_player.y)) {
         if(fabs(sin)<(sqrt(2)/2)) {
             punch(right);
             return;
-        }
-        else {
+        } else {
             punch(down);
             return;
         }
     }
 
-    if (((getPosition().x > m_pos_player.x))&&(getPosition().y < m_pos_player.y))
-    {
+    if (((getPosition().x > m_pos_player.x))&&(getPosition().y < m_pos_player.y)) {
         if(fabs(sin)<(sqrt(2)/2)) {
             punch(left);
             return;
-        }
-        else {
+        } else {
             punch(down);
             return;
         }
     }
 
-    if (((getPosition().x > m_pos_player.x))&&(getPosition().y > m_pos_player.y))
-    {
+    if (((getPosition().x > m_pos_player.x))&&(getPosition().y > m_pos_player.y)) {
         if(fabs(sin)<(sqrt(2)/2)) {
                 punch(left);
                 return;
-        }
-        else {
+        } else {
             punch(up);
             return;
         }
     }
-
 }
-
 
 
 void Mob::getHit(int damage)
 {
     if(m_state == DEAD)
         return;
-
     m_health -= damage;
-    std::cout << "Mob got damage " << damage << " (" << m_health << ")" << std::endl;
-
+    //debug
+    //std::cout << "Mob got damage " << damage << " (" << m_health << ")" << std::endl;
     if(m_health <= 0)
-    {
         die();
-    }
 }
-
 
 
 void Mob::walkTo(Vector2 dest)
@@ -170,6 +156,7 @@ bool Mob::isDecayed()
 {
     return m_decayed;
 }
+
 
 RectT<Vector2> Mob::getMobBox()
 {

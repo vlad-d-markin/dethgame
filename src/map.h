@@ -9,7 +9,6 @@
 
 using namespace oxygine;
 
-
 // information about the specific tileset
 typedef struct {
     int first_gid;
@@ -41,7 +40,6 @@ typedef struct {
 } Position;
 
 
-
 class Map
 {
     Resources * map_resources;
@@ -71,8 +69,6 @@ class Map
     std::vector<Position> vec_pos_pixie;
 
     std::vector<Vector2> vec_pos_bananas;
-
-
 public:
     Map();
     ~Map();

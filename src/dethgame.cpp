@@ -111,7 +111,9 @@ void DethGame::rulesScreen(Event *event)
     setScreen("Rules screen");
 }
 
+
 void DethGame::update() {}
+
 
 void DethGame::destroy()
 {
