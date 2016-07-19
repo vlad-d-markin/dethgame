@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="33" height="50" tilewidth="64" tileheight="64" nextobjectid="17">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="33" height="50" tilewidth="64" tileheight="64" nextobjectid="45">
  <tileset firstgid="1" name="bg" tilewidth="64" tileheight="64" tilecount="128" columns="8">
   <image source="images/bg.png" width="512" height="1024"/>
  </tileset>
@@ -6641,7 +6641,7 @@
   </data>
  </layer>
  <objectgroup name="Collision" visible="0"/>
- <objectgroup name="Mobs" visible="0">
+ <objectgroup name="Mobs">
   <object id="14" name="zombie" x="670" y="768">
    <ellipse/>
   </object>
@@ -6651,26 +6651,68 @@
   <object id="16" name="zombie" x="1178" y="1388">
    <ellipse/>
   </object>
+  <object id="18" name="zombie" x="808" y="202">
+   <ellipse/>
+  </object>
+  <object id="19" name="zombie" x="658" y="84">
+   <ellipse/>
+  </object>
+  <object id="20" name="zombie" x="956" y="1186">
+   <ellipse/>
+  </object>
+  <object id="21" name="zombie" x="110" y="1428">
+   <ellipse/>
+  </object>
+  <object id="23" name="zombie" x="292" y="1760">
+   <ellipse/>
+  </object>
+  <object id="24" name="zombie" x="872" y="2396">
+   <ellipse/>
+  </object>
+  <object id="26" name="zombie" x="1040" y="2252">
+   <ellipse/>
+  </object>
+  <object id="32" name="zombie" x="810" y="2920">
+   <ellipse/>
+  </object>
+  <object id="33" name="zombie" x="424" y="3090">
+   <ellipse/>
+  </object>
+  <object id="34" name="zombie" x="1940" y="2012">
+   <ellipse/>
+  </object>
+  <object id="35" name="zombie" x="296.97" y="2351.52">
+   <ellipse/>
+  </object>
+  <object id="37" name="zombie" x="1666.67" y="1581.82">
+   <ellipse/>
+  </object>
+  <object id="38" name="zombie" x="1369.7" y="1909.09">
+   <ellipse/>
+  </object>
+  <object id="41" name="zombie" x="98" y="562">
+   <ellipse/>
+  </object>
  </objectgroup>
  <objectgroup name="Hero" visible="0"/>
  <objectgroup name="Treasure" visible="0"/>
- <objectgroup name="Bananas" visible="0">
-  <object id="2" name="banan1" x="458.667" y="158.667">
+ <objectgroup name="Bananas">
+  <object id="2" name="banan1" x="1042.67" y="1068.67">
    <ellipse/>
   </object>
-  <object id="3" name="banan2" x="730.667" y="164">
+  <object id="3" name="banan2" x="130.667" y="1986">
    <ellipse/>
   </object>
-  <object id="5" name="banan3" x="765.333" y="348">
+  <object id="5" name="banan3" x="2028.33" y="2178">
    <ellipse/>
   </object>
-  <object id="6" name="banan4" x="588" y="394.667">
+  <object id="6" name="banan4" x="454" y="2923.67">
    <ellipse/>
   </object>
-  <object id="11" name="banan5" x="214.667" y="473.333">
+  <object id="11" name="banan5" x="1080.67" y="2415.33">
    <ellipse/>
   </object>
-  <object id="12" name="banan6" x="484" y="310">
+  <object id="12" name="banan6" x="760" y="100">
    <ellipse/>
   </object>
  </objectgroup>
