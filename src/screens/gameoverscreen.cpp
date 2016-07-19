@@ -17,6 +17,7 @@ GameOverScreen::GameOverScreen()
     style.hAlign = TextStyle::HALIGN_CENTER;
 	msg->setTextStyle(style);
 	msg->setAnchor(0.5, 0.5);
+	nathanPic->setResAnim(m_resources->getResAnim("dead"));
 	msg->setText("YOU DEAD!");	
 	nathanPic->setAnchor(0.5, 0.5);
 	updateLayout();
