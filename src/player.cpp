@@ -32,9 +32,11 @@ Player::Player(GameScreen *gs) : Sprite()
     persAnimUpAttack = gamescreen->getResources()->getResAnim("skin_goes_up_attack");
     persAnimDownAttack = gamescreen->getResources()->getResAnim("skin_goes_down_attack");
     persAnimRightAttack = gamescreen->getResources()->getResAnim("skin_goes_right_attack");
+    persAnimLeftAttack = gamescreen->getResources()->getResAnim("skin_goes_left_attack");
     persStandsUpAttack = gamescreen->getResources()->getResAnim("skin_stands_up_attack");
     persStandsDownAttack = gamescreen->getResources()->getResAnim("skin_stands_down_attack");
     persStandsRightAttack = gamescreen->getResources()->getResAnim("skin_stands_right_attack");
+    persStandsLeftAttack = gamescreen->getResources()->getResAnim("skin_stands_left_attack");
     persDeath = gamescreen->getResources()->getResAnim("skin_died");
 
     setResAnim(persStandsDown);
@@ -234,7 +236,7 @@ void Player::rotate()
             }
             else if(dirX < 0)  //goes left
             {
-                persAnimCurrent = persAnimRightAttack;
+                persAnimCurrent = persAnimLeftAttack;
                 orientation = left;
             }
             else
@@ -251,7 +253,7 @@ void Player::rotate()
                 }
             }
             removeTweens();
-            if(persAnimCurrent == persAnimRightAttack)
+            if(persAnimCurrent == persAnimRightAttack || persAnimCurrent == persAnimLeftAttack)
                 tween = addTween(TweenAnim(persAnimCurrent), HorizontalAnimationDuration);
             else
                 tween = addTween(TweenAnim(persAnimCurrent), VerticalAnimationDuration * 2);
@@ -267,7 +269,7 @@ void Player::rotate()
             }
             else if(dirX < 0)  //stands left
             {
-                persAnimCurrent = persStandsRightAttack;
+                persAnimCurrent = persStandsLeftAttack;
                 orientation = left;
             }
             else    // dirX == 0
@@ -284,8 +286,10 @@ void Player::rotate()
                 }
                 else    // dirY == 0
                 {
-                    if(orientation == right || orientation == left)
+                    if(orientation == right)
                         persAnimCurrent = persStandsRightAttack;
+                    else if(orientation == left)
+                        persAnimCurrent = persStandsLeftAttack;
                     else if(orientation == up)
                         persAnimCurrent = persStandsUpAttack;
                     else if(orientation == down)
@@ -293,7 +297,7 @@ void Player::rotate()
                 }
             }
             removeTweens();
-            if(persAnimCurrent == persAnimRightAttack)
+            if(persAnimCurrent == persAnimRightAttack || persAnimCurrent == persAnimLeftAttack)
                 tween = addTween(TweenAnim(persAnimCurrent), HorizontalAnimationDuration);
             else
                 tween = addTween(TweenAnim(persAnimCurrent), VerticalAnimationDuration * 2);
@@ -376,7 +380,10 @@ void Player::rotate()
                 setResAnim(persAnimCurrent);
         }
     }
-    setFlippedX(orientation == left);
+    if(isPunching)
+        setFlippedX(false);
+    else
+        setFlippedX(orientation == left);
 }
 
 int Player::getSign(const float number) const
