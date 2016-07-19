@@ -39,6 +39,8 @@ private:
     spTween m_currentMoveTween;
 
     Pathfinder * m_pathfinder;
+    std::list<Vector2> m_current_route;
+    Vector2 m_current_destination;
 
 
 public:
@@ -49,14 +51,19 @@ public:
     virtual void walk(Direction dir);
     virtual void walkTo(Vector2 dest);
 
-protected:
     virtual void doUpdate(UpdateState& us);
 
+    void doWalking();
+
+protected:
     virtual void onDie();
 
     void onPunchFinished(Event * e);
     void onWalkComplete(Event * e);
 
+
+    void walkToPoint(Vector2 dest);
+    void onWalkedToPoint(Event * ev);
 
 };
 

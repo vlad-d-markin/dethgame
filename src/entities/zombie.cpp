@@ -18,6 +18,9 @@
 
 Zombie::Zombie(Vector2 spawn_pos, Map * map) : Mob()
 {
+    spawn_pos.x = ((int)spawn_pos.x / 64) * 64;
+    spawn_pos.y = ((int)spawn_pos.y / 64) * 64;
+
     resources.loadXML("zombie.xml");
 
     m_walk_south_anim = resources.getResAnim("zombie_walk_south");
@@ -197,10 +200,24 @@ void Zombie::walk(Direction dir)
 
 
 void Zombie::doUpdate(UpdateState &us)
-{ 
-   Mob::doUpdate(us);
+{
+
+    Mob::doUpdate(us);
 }
 
+
+void Zombie::doWalking()
+{
+    std::cout << "upd to" << std::endl;
+    if(m_current_route.size() > 0) {
+        std::cout << "Walk to" << std::endl;
+
+        if((m_current_route.front() - getPosition()).length() <= 0.1f)
+            m_current_route.pop_front();
+
+        walkToPoint(m_current_route.front());
+    }
+}
 
 void Zombie::onDie()
 {
@@ -227,6 +244,11 @@ void Zombie::onWalkComplete(Event *e)
     m_state = IDLE;
     ZombieArrived zombieArrived(getPosition());
     dispatchEvent(&zombieArrived);
+
+    if(m_current_route.size() > 0) {
+//        walkToPoint(m_current_route.front());
+//        m_current_route.pop_front();
+    }
 }
 
 
@@ -242,6 +264,14 @@ void Zombie::walkTo(Vector2 dest)
 
     std::list<Vector2> path = m_pathfinder->findPath(from, dest);
 
+    m_current_route = path;
+//    setPosition(path.front());
+//    m_current_destination = m_current_route.front();
+//    m_current_route.pop_front();
+    walkToPoint(m_current_route.front());
+    m_current_route.pop_front();
+
+    // Debugging
     removeChildren();
 
     for(auto it = path.begin(); it != path.end(); it++) {
@@ -252,6 +282,22 @@ void Zombie::walkTo(Vector2 dest)
         wp->attachTo(this);
         wp->setName("wp");
     }
+}
 
 
+
+void Zombie::walkToPoint(Vector2 dest)
+{
+    m_currentMoveTween = addTween(Actor::TweenPosition(dest), 800);
+    m_currentMoveTween->setDoneCallback(CLOSURE(this, &Zombie::onWalkedToPoint));
+}
+
+
+void Zombie::onWalkedToPoint(Event *ev)
+{
+    removeTween(m_currentMoveTween);
+    if(m_current_route.size() > 0) {
+        walkToPoint(m_current_route.front());
+        m_current_route.pop_front();
+    }
 }

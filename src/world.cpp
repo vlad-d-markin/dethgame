@@ -51,7 +51,7 @@ void World::setZombies()
         zombie->attachTo(this);
         zombie->addEventListener(MobCorpseDecayedEvent::EVENT, CLOSURE(this, &World::corpseDecayed));
         zombie->addEventListener(ZombiePunchEvent::EVENT, CLOSURE(this, &World::zombieAttacks));
-        m_mobs.insert(std::pair<int, spMob>(zombie->getObjectID(), zombie));
+        m_mobs.insert(std::pair<int, spZombie>(zombie->getObjectID(), zombie));
     }
 }
 
@@ -107,6 +107,7 @@ void World::doUpdate(const UpdateState &us)
     // broadcasting position of the player to mobs
     for(auto it = m_mobs.begin(); it != m_mobs.end(); it++) {
          (*it).second->setPosPlayer(m_player->getPosition());
+        (*it).second->doWalking();
     }
 
     // check the player movenent on collision with obstacles
