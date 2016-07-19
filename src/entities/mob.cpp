@@ -159,6 +159,7 @@ void Mob::setState(State s) {
 void Mob::die()
 {
     m_health = 0;
+    brain->kill();
     m_state = DEAD;
     log::messageln("Mob is dead");
     onDie();

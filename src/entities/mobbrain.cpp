@@ -56,6 +56,16 @@ void MobBrain::stateGoBack()
 }
 
 
+void MobBrain::stateDeath()
+{
+
+}
+
+void MobBrain::kill()
+{
+    setState(DEATH);
+}
+
 void MobBrain::doUpdate(const UpdateState& us)
 {
     switch(m_active_state)
@@ -72,6 +82,8 @@ void MobBrain::doUpdate(const UpdateState& us)
     case GO_BACK:
         stateGoBack();
         break;
+    case DEATH:
+        stateDeath();
     default:
         break;
     }
