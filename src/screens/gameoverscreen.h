@@ -20,6 +20,7 @@ private:
     bool enable;
     Resources * m_resources;
 	Gui::spTextLabel msg;
+	spSprite nathanPic;
 };
 typedef ::oxygine::intrusive_ptr<GameOverScreen> spGameOverScreen;
 
